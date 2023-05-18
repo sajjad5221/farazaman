@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function HeaderItem({ itemName }: any) {
+export default function HeaderItem({ itemName }: {itemName:string}) {
   return (
     <li>
       <a
