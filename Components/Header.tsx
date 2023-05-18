@@ -10,7 +10,7 @@ export default function Header() {
 href: "/startups"
 },
 {itemName: "فضای کار اشتراکی",
-href:"/"},
+href:"/workspace"},
 {itemName:"شتابدهی و سرمایه گزاری",
 href:"/invest"}
   ];
