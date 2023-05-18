@@ -1,6 +1,5 @@
 import Footer from "@/Components/footer/Footer";
 import Header from "@/Components/header/Header";
-import Input from "@/Components/form/Input";
 import React from "react";
 
 export default function page() {
