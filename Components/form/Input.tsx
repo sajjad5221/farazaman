@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function Input({ label, type }: any) {
+export default function Input({ label, type }: {label:string, type:string}) {
   return (
     <div className="flex flex-row">
       <input

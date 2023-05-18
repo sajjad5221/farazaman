@@ -4,11 +4,11 @@ import Image from "next/image";
 
 export default function Header() {
   const headerItems = [
-    "خانه",
-    "استخدام",
-    "استارت آپ های اجرا شده",
-    "فضای کار اشتراکی",
-    "شتابدهی و سرمایه گزاری",
+    { type: "normal", itemName: "خانه", href: "/" },
+    { type: "dropdown", itemName: "استخدام", href: "/hiring" },
+    { type: "normal", itemName: "استارت آپ های اجرا شده", href: "/startups" },
+    { type: "normal", itemName: "فضای کار اشتراکی", href: "/workspace" },
+    { type: "normal", itemName: "شتابدهی و سرمایه گزاری", href: "/invest" },
   ];
   return (
     <header>
@@ -67,7 +67,12 @@ export default function Header() {
           >
             <ul className="flex flex-col-reverse mt-4 font-medium lg:flex-row-reverse lg:space-x-8 lg:mt-0">
               {headerItems.map((headerItem) => (
-                <HeaderItem key={headerItem} itemName={headerItem} />
+                <HeaderItem
+                  key={headerItem.itemName}
+                  type={headerItem.type}
+                  itemName={headerItem.itemName}
+                  href={headerItem.href}
+                />
               ))}
             </ul>
           </div>
