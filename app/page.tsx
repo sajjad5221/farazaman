@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <main>
       <Header />
-      Body!
+      <div className="h-screen">Body!</div>
       <Footer />
     </main>
   );
