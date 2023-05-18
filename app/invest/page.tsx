@@ -1,5 +1,5 @@
-import Footer from "@/Components/Footer";
-import Header from "@/Components/Header";
+import Footer from "@/Components/footer/Footer";
+import Header from "@/Components/header/Header";
 import Input from "@/Components/form/Input";
 import React from "react";
 
