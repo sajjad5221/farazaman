@@ -4,11 +4,15 @@ import Image from "next/image";
 
 export default function Header() {
   const headerItems = [
-    "خانه",
-    "استخدام",
-    "استارت آپ های اجرا شده",
-    "فضای کار اشتراکی",
-    "شتابدهی و سرمایه گزاری",
+{itemName: "خانه", href:"/"},
+{itemName: "استخدام", href: "/hiring"},
+{itemName: "استارت آپ های اجرا شده",
+href: "/startups"
+},
+{itemName: "فضای کار اشتراکی",
+href:"/"},
+{itemName:"شتابدهی و سرمایه گزاری",
+href:"/"}
   ];
   return (
     <header>
@@ -67,7 +71,7 @@ export default function Header() {
           >
             <ul className="flex flex-col-reverse mt-4 font-medium lg:flex-row-reverse lg:space-x-8 lg:mt-0">
               {headerItems.map((headerItem) => (
-                <HeaderItem key={headerItem} itemName={headerItem} />
+                <HeaderItem key={headerItem.itemName} itemName={headerItem.itemName} href={headerItem.href}/>
               ))}
             </ul>
           </div>
