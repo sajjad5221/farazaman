@@ -9,8 +9,8 @@ interface cardsProps{
     image : string;
     description : string;
   }
-  
-  function Cards(Props : cardsProps) {
+
+export default function Cards(Props : cardsProps) {
     const {title = "استارپ", image = "/public/img.jpg" , description = "توضیحات استارتاپ"} = Props;
     return (
       <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 my-6">

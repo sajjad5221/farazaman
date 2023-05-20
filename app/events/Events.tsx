@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import tumbnailImage from "../public/img.jpg";
+import Cards from "./EventCards"
 
 
 // Event Component for show list of events crad
