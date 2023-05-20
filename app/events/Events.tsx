@@ -1,5 +1,4 @@
 import React from "react";
-import Image from "next/image";
 import tumbnailImage from "../public/img.jpg";
 import Cards from "./EventCards"
 
