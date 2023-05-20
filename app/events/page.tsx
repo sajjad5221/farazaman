@@ -1,6 +1,12 @@
 import React from 'react'
 
-export default function page() {
+function Cards(){
+  return (
+
+  )
+}
+
+export default function Events() {
   return (
     <div>page</div>
   )
