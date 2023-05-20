@@ -9,6 +9,8 @@ export default function Header() {
     { type: "normal", itemName: "استارت آپ های اجرا شده", href: "/startups" },
     { type: "normal", itemName: "فضای کار اشتراکی", href: "/workspace" },
     { type: "normal", itemName: "شتابدهی و سرمایه گزاری", href: "/invest" },
+    { type: "normal", itemName: "رویداد ها", href: "/events" },
+
   ];
   return (
     <header>
