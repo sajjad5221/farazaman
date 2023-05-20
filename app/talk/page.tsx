@@ -7,6 +7,7 @@ export default function page() {
       <div className="flex flex-col">
         <div className="flex flex-row items-center justify-around">
           <Image
+            draggable="false"
             src={"https://flowbite.com/docs/images/logo.svg"}
             alt="sample image"
             width={200}

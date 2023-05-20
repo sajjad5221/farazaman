@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React from "react";
 
 export default function Footer() {
@@ -42,10 +43,12 @@ export default function Footer() {
           href="https://farazamin.com/"
           className="flex items-center justify-center mb-4 sm:mb-0"
         >
-          <img
+          <Image
             src="https://flowbite.com/docs/images/logo.svg"
             className="h-8 mr-3"
             alt="farazamin Logo"
+            width={50}
+            height={50}
           />
           <span className="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">
             Farazamin

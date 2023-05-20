@@ -16,6 +16,7 @@ export default function Header() {
         <div className="flex flex-wrap flex-row-reverse justify-start items-center mx-auto max-w-screen-xl">
           <a href="https://farazamin.com" className="flex items-center">
             <Image
+              draggable="false"
               width={50}
               height={50}
               src={"https://flowbite.com/docs/images/logo.svg"}

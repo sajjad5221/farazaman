@@ -20,6 +20,7 @@ export default function slider({
             data-carousel-item="active"
           >
             <Image
+              draggable="false"
               src="/public/img.jpg"
               fill={true}
               className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
