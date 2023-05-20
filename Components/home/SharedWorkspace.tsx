@@ -6,6 +6,7 @@ export default function SharedWorkspace() {
     <div className="flex flex-row justify-around items-center">
       <p>sample paragraph</p>
       <Image
+        draggable="false"
         src={"https://flowbite.com/docs/images/logo.svg"}
         alt="logo"
         width={200}

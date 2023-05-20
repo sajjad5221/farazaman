@@ -1,3 +1,4 @@
+import Image from "next/image";
 import React from "react";
 const ClickableCard = ({
   logo,
@@ -14,10 +15,12 @@ const ClickableCard = ({
       className="inline-block w-64 p-4 bg-slate hover:border-blue-500 border-2 border-transparent rounded shadow-md transition-colors duration-300"
     >
       <div className="text-center">
-        <img
+        <Image
           src={logo}
           alt={logo}
           className="rounded-full mx-auto mb-2 w-16 h-16"
+          height={50}
+          width={50}
         />
         <h3 className="text-lg font-bold">{name}</h3>
         <p className="text-sm text-muted">{paragraph}</p>
