@@ -1,7 +1,9 @@
+import Header from "@/Components/header/Header";
 import "./globals.css";
 import { Inter } from "next/font/google";
 import Script from "next/script";
 import React from "react";
+import Footer from "@/Components/footer/Footer";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
@@ -21,7 +23,9 @@ export default function RootLayout({
         strategy="afterInteractive"
       />
       <html dir="ltr" lang="en">
+        {/* <Header /> */} 
         <body className={inter.className}>{children}</body>
+        {/* <Footer /> */}
       </html>
     </>
   );
