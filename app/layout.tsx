@@ -23,7 +23,7 @@ export default function RootLayout({
         strategy="afterInteractive"
       />
       <html dir="ltr" lang="en">
-        {/* <Header /> */} 
+        {/* <Header /> */}
         <body className={inter.className}>{children}</body>
         {/* <Footer /> */}
       </html>
