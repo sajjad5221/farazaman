@@ -1,5 +1,6 @@
 import Image from "next/image";
 import React from "react";
+import imageOfStartUp from "../../public/img.jpg";
 export default function slider({
   slug,
   slugTable,
@@ -21,7 +22,7 @@ export default function slider({
           >
             <Image
               draggable="false"
-              src="/public/img.jpg"
+              src={imageOfStartUp}
               fill={true}
               className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
               alt="..."
