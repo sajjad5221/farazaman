@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React from "react";
 import imageOfStartUp from "../../public/img.jpg";
-export default function slider({
+export default function StartUpsDetails({
   slug,
   slugTable,
 }: {
