@@ -60,6 +60,7 @@ export default function StartUps() {
         {items.map((item) => (
           <Card
             key={item.id}
+            id={item.id.toString()}
             logo={item.image}
             name={item.name}
             paragraph={item.description}

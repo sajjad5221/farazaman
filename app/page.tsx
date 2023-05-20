@@ -6,7 +6,7 @@ import React from "react";
 export default function Home() {
   return (
     <main>
-      <div className="h-screen">
+      <div className="flex flex-col my-10">
         <AboutUs />
         <StartUps />
         <SharedWorkspace />

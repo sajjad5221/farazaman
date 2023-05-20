@@ -22,9 +22,11 @@ export default function RootLayout({
         strategy="afterInteractive"
       />
       <html dir="ltr" lang="en">
-        {/* <Header /> */}
-        <body className="font-yakan">{children}</body>
-        {/* <Footer /> */}
+        <body className="font-yakan">
+          <Header />
+          {children}
+          <Footer />
+        </body>
       </html>
     </>
   );

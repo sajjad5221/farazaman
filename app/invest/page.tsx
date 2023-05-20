@@ -5,7 +5,6 @@ import React from "react";
 export default function page() {
   return (
     <>
-      <Header />
       <div className="ltr">
         <h2>فرم</h2>
         <p>توضیحات اولیه</p>
@@ -142,7 +141,6 @@ export default function page() {
           </button>
         </form>
       </div>
-      <Footer />
     </>
   );
 }
