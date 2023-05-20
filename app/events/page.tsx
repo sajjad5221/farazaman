@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import tumbnailImage from "../public/img.jpg";
 
 interface cardsProps{
   title : string;
@@ -11,15 +12,17 @@ function Cards(Props : cardsProps) {
   const {title = "استارپ", image = "/public/img.jpg" , description = "توضیحات استارتاپ"} = Props;
   return (
     <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 my-6">
-      <a href="#">
+      <div className="relative p-12 max-w-sm">
+        <a href="#">
         <Image
-          draggable="false"
-          src={image}
-          fill={true}
-          className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-          alt="..."
-        />
-      </a>
+            draggable="false"
+            src={image}
+            fill={true}
+            className="rounded-t-lg"
+            alt="..."
+          />
+        </a>
+      </div>
       <div className="p-5">
         <a href="#">
           <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
@@ -53,9 +56,13 @@ function Cards(Props : cardsProps) {
   );
 }
 
+
+// Event Component for show list of events crad
 export default function Events() {
+
+  // test props information
   let title: string = "استارتاپ";
-  let image: string = "/public/img.jpg";
+  let image: any = tumbnailImage;
   let description: string = "این یک توضیحات یک استارتاپ است";
 
   let cards = new Array(Cards({title,image,description}), Cards({title,image,description}), Cards({title,image,description}));
