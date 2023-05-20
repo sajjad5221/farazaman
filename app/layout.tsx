@@ -4,7 +4,6 @@ import { Inter } from "next/font/google";
 import Script from "next/script";
 import React from "react";
 import Footer from "@/Components/footer/Footer";
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Farazamin",
@@ -24,7 +23,7 @@ export default function RootLayout({
       />
       <html dir="ltr" lang="en">
         {/* <Header /> */}
-        <body className={inter.className}>{children}</body>
+        <body className="font-yakan">{children}</body>
         {/* <Footer /> */}
       </html>
     </>

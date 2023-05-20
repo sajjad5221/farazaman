@@ -25,7 +25,7 @@ const ScrollMenu = ({
             />
           </svg>
         </button>
-        <div className="grid grid-flow-col gap-4 sm:overflow-auto lg:overflow-hidden">
+        <div className="grid grid-flow-col gap-4 w-screen sm:overflow-auto lg:overflow-hidden">
           {children}
         </div>
         <button type="button" className="w-3 h-3 rounded-full">
