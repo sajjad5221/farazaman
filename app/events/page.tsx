@@ -4,12 +4,12 @@ function Cards() {
   return (
     <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 my-6">
       <a href="#">
-      <Image
-              draggable="false"
-              src="/public/img.jpg"
-              fill={true}
-              className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-              alt="..."
+        <Image
+          draggable="false"
+          src="/public/img.jpg"
+          fill={true}
+          className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+          alt="..."
         />
       </a>
       <div className="p-5">
@@ -47,7 +47,13 @@ function Cards() {
 }
 
 export default function Events() {
+  let cards = new Array(Cards(), Cards(), Cards());
+  let card: any;
   return (
-    <Cards/>
+    <div className="Cards">
+      {cards.map((card) => (
+        <div>{card}</div>
+      ))}
+    </div>
   );
 }
