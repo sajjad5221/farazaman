@@ -10,7 +10,7 @@ const ScrollMenu = ({
     <div className="flex flex-col">
       <h1 className="text-center py-2 font-bold text-xl">{title}</h1>
       <div className="flex flex-row items-center">
-        <button type="button" className="w-3 h-3 rounded-full">
+        <button type="button" className="w-3 h-3 rounded-full" aria-label="left arrow">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="32"
@@ -25,10 +25,10 @@ const ScrollMenu = ({
             />
           </svg>
         </button>
-        <div className="grid grid-flow-col gap-4 w-screen sm:overflow-auto lg:overflow-hidden">
+        <div className="grid grid-flow-col gap-4 w-screen sm:overflow-auto">
           {children}
         </div>
-        <button type="button" className="w-3 h-3 rounded-full">
+        <button type="button" className="w-3 h-3 rounded-full" aria-label="right arrow">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="32"

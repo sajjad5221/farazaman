@@ -1,17 +1,20 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 const ClickableCard = ({
+  id,
   logo,
   name,
   paragraph,
 }: {
+  id: string;
   logo: string;
   name: string;
   paragraph: string;
 }) => {
   return (
-    <a
-      href="#"
+    <Link
+      href={"/startups/" + id}
       className="inline-block w-64 p-4 bg-slate hover:border-blue-500 border-2 border-transparent rounded shadow-md transition-colors duration-300"
     >
       <div className="text-center">
@@ -22,10 +25,10 @@ const ClickableCard = ({
           height={50}
           width={50}
         />
-        <h3 className="text-lg font-bold">{name}</h3>
+        <span className="text-lg font-bold">{name}</span>
         <p className="text-sm text-muted">{paragraph}</p>
       </div>
-    </a>
+    </Link>
   );
 };
 

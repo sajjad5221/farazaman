@@ -7,6 +7,7 @@ export default function Footer() {
       <div className="w-full max-w-screen-xl mx-auto p-4 md:py-8">
         <div className="sm:flex sm:items-center sm:justify-between">
           <iframe
+            name="map"
             width="200"
             height="200"
             loading="lazy"
@@ -18,7 +19,7 @@ export default function Footer() {
 
           <ul className="flex flex-col items-start mb-6 text-sm font-medium text-gray-500 sm:mb-0 dark:text-gray-400">
             <li className="my-1">
-              <a href="#" className="mr-4 hover:underline md:mr-6 ">
+              <a href="#about" className="mr-4 hover:underline md:mr-6 ">
                 درباره ما
               </a>
             </li>

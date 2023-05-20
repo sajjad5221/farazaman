@@ -10,7 +10,7 @@ export default function HeaderItem({
   href: string;
 }) {
   return type === "dropdown" ? (
-    <div>
+    <li>
       <button
         id="dropdownDefaultButton"
         data-dropdown-toggle="dropdown"
@@ -61,7 +61,7 @@ export default function HeaderItem({
           </li>
         </ul>
       </div>
-    </div>
+    </li>
   ) : (
     <li>
       <a
