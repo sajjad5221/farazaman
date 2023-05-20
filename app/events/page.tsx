@@ -65,12 +65,12 @@ export default function Events() {
   let image: any = tumbnailImage;
   let description: string = "این یک توضیحات یک استارتاپ است";
 
-  let cards = new Array(Cards({title,image,description}), Cards({title,image,description}), Cards({title,image,description}));
+  let cards = new Array(Cards({title,image,description}), Cards({title,image,description}), Cards({title,image,description}),Cards({title,image,description}), Cards({title,image,description}), Cards({title,image,description}));
   let card: any;
   return (
-    <div className="Cards">
+    <div className="flex flex-row flex-wrap justify-around">
       {cards.map((card) => (
-        <div>{card}</div>
+        <div className="basis-1/3 justify-around  pl-12">{card}</div>
       ))}
     </div>
   );
