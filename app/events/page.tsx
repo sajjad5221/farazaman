@@ -1,12 +1,20 @@
 import React from "react";
 import Image from "next/image";
-function Cards() {
+
+interface cardsProps{
+  title : string;
+  image : string;
+  description : string;
+}
+
+function Cards(Props : cardsProps) {
+  const {title = "استارپ", image = "/public/img.jpg" , description = "توضیحات استارتاپ"} = Props;
   return (
     <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 my-6">
       <a href="#">
         <Image
           draggable="false"
-          src="/public/img.jpg"
+          src={image}
           fill={true}
           className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
           alt="..."
@@ -15,18 +23,17 @@ function Cards() {
       <div className="p-5">
         <a href="#">
           <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-            Noteworthy technology acquisitions 2021
+            {title}
           </h5>
         </a>
         <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
-          Here are the biggest enterprise technology acquisitions of 2021 so
-          far, in reverse chronological order.
+          {description}
         </p>
         <a
           href="#"
           className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
         >
-          Read more
+          اطلاعات بیشتر
           <svg
             aria-hidden="true"
             className="w-4 h-4 ml-2 -mr-1"
@@ -47,7 +54,11 @@ function Cards() {
 }
 
 export default function Events() {
-  let cards = new Array(Cards(), Cards(), Cards());
+  let title: string = "استارتاپ";
+  let image: string = "/public/img.jpg";
+  let description: string = "این یک توضیحات یک استارتاپ است";
+
+  let cards = new Array(Cards({title,image,description}), Cards({title,image,description}), Cards({title,image,description}));
   let card: any;
   return (
     <div className="Cards">
