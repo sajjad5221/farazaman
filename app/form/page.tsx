@@ -1,21 +1,21 @@
-import Footer from "@/Components/Footer";
-import Header from "@/Components/Header";
+import Footer from "@/Components/footer/Footer";
+import Header from "@/Components/header/Header";
 import Input from "@/Components/form/Input";
 import React from "react";
 
 export default function page() {
   return (
     <>
-    <Header/>
+
     <div className="ltr">
       <h2>فرم</h2>
       <p>توضیحات اولیه</p>
-      <form className="w-1/2 border mx-auto border-slate-50 rounded-sm whitespace-nowrap p-8">
-        <Input label={"نام و نام خانوادگی"} type="text" />
+      <form className="w-1/2 border mx-auto border-slate-50 rounded-sm whitespace-nowrap p-8" method="post">
+        <Input label={"نام و نام خانوادگی"} type="text"/>
         <Input label={"شماره تماس"} type="number" />
         <Input label={"تعداد اعضا"} type="number" />
         <Input label={"پیچ تک"} type="file" />
-
+        
         <div className="flex items-start mb-6"></div>
         <button
           type="submit"
@@ -25,7 +25,7 @@ export default function page() {
         </button>
       </form>
     </div>
-    <Footer/>
+
     </>
   );
 }
