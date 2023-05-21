@@ -10,7 +10,7 @@ export default function page() {
     <div className="ltr">
       <h2>فرم</h2>
       <p>توضیحات اولیه</p>
-      <form className="w-1/2 border mx-auto border-slate-50 rounded-sm whitespace-nowrap p-8" method="post">
+      <form className="w-1/2 border mx-auto border-slate-50 rounded-sm whitespace-nowrap p-8" method="post" action={"/startup-submit"}>
         <Input label={"نام و نام خانوادگی"} type="text"/>
         <Input label={"شماره تماس"} type="number" />
         <Input label={"تعداد اعضا"} type="number" />
