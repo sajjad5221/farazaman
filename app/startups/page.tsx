@@ -1,7 +1,9 @@
 import React from 'react'
-
+import StartUpsForm from '@/Components/startups/StartupsForm'
 export default function page() {
   return (
-    <div>page</div>
+    <div className='container'>
+      <StartUpsForm/>
+    </div>
   )
 }
