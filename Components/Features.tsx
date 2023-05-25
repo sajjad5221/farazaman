@@ -11,7 +11,7 @@ const contents = [
       "Lorem ipsum dolor sit amet consectetur",
       "Lacus eu mauris quisque tortor torquent",
     ],
-    image: "/images/features/dashboard.svg",
+    image: "https://via.placeholder.com/150",
     order: false,
   },
   {
@@ -23,7 +23,7 @@ const contents = [
       "Voluptatum deleniti atque corrupti quos",
       "He endures pains to avoid worse pains",
     ],
-    image: "/images/features/product.svg",
+    image: "https://via.placeholder.com/150",
     order: true,
   },
   {
@@ -35,7 +35,7 @@ const contents = [
       "Quis autem vel eum iure reprehenderit",
       "Consequuntur magni dolores eos qui ratione",
     ],
-    image: "/images/features/inventory.svg",
+    image: "https://via.placeholder.com/150",
     order: false,
   },
 ];
@@ -44,10 +44,9 @@ export function Features() {
   return (
     <div className="bg-white dark:bg-neutral-900" id="features">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 gap-x-40 pt-16 pb-16">
-        <h2 className="text-4xl font-bold text-center">Features</h2>
+        <h2 className="text-4xl font-bold text-center">ویژگی ها</h2>
         <p className="pt-6 text-base max-w-2xl text-center m-auto dark:text-neutral-400">
-          Halley nunc pulvinar lobortis duis. Leo mollis neque ullamcorper
-          aliquam sem nullam, elementum vestibulum augue placerat.
+        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز
         </p>
 
         {contents.map((content) => (
@@ -87,9 +86,10 @@ export function Features() {
                   alt="Image description"
                   width={1920}
                   height={1080}
-                  quality={75}
+                  quality={100}
                   sizes="100vw"
                   priority
+                  
                 />
               </div>
             </div>

@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { Disclosure } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/24/solid";
 import React from "react";
@@ -14,7 +14,8 @@ const faqitems = [
       "No, we dont offer technical support for free downloads. Please purchase a support plan to get 6 months of support.",
   },
   {
-    question: "What is your refund policy? If youre unhappy with your purchase for any reasonIf youre unhappy with your purchase for any reasonIf youre unhappy with your purchase for any reason",
+    question:
+      "What is your refund policy? If youre unhappy with your purchase for any reasonIf youre unhappy with your purchase for any reasonIf youre unhappy with your purchase for any reason",
     response:
       "If youre unhappy with your purchase for any reason, email us within 90 days and well refund you in full, no questions asked.",
   },
@@ -31,13 +32,12 @@ export default function Faq() {
       className="bg-white dark:bg-neutral-900 w-full px-4 pt-16 pb-16"
       id="faq"
     >
-      <h2 className="text-4xl font-bold text-center">
-        Frequently Asked Questions
-      </h2>
+      <h2 className="text-4xl font-bold text-center">سوالات متداول </h2>
 
       <p className="pt-6 pb-16 text-base max-w-2xl text-center m-auto dark:text-neutral-400">
-        Answer your customers possible questions here, it will increase the
-        conversion rate as well as support or chat requests.
+        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده
+        از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و
+        سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز
       </p>
       <div className="mx-auto w-full max-w-2xl rounded-2xl bg-transparent dark:bg-transparent">
         {faqitems.map(({ question, response }) => (

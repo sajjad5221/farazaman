@@ -10,8 +10,8 @@ import { XMarkIcon } from "@heroicons/react/24/solid";
 
 const navigation = [
   { name: "خانه", href: "/", current: false },
-  { name: "استخدام", href: "#services", current: false },
-  { name: "استارت آپ های اجرا شده", href: "#pricing", current: false },
+  { name: "استخدام", href: "/hiring", current: false },
+  { name: "استارت آپ های اجرا شده", href: "#startups", current: false },
   { name: "فضای کار اشتراکی", href: "#contact", current: false },
   { name: "رویدادها", href: "#faq", current: false },
 ];
