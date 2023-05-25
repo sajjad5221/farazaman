@@ -7,8 +7,19 @@ const StartUpsForm = () => {
     email: "",
     phone: "",
     members_count: 0,
-    pitch: "",
   });
+
+  
+
+
+
+  const [file, setFile] = useState(null);
+
+  // const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  //   if (e.target.files) {
+  //     setFile(e.target.files[0]);
+  //   }
+  // };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -25,12 +36,27 @@ const StartUpsForm = () => {
     // You can perform any necessary form submission logic here
   };
 
+  // const handleUploadClick = async () => {
+  //   if (!file) {
+  //     return;
+  //   }
+  //   const respone = await fetch("http://localhost:8000/startup-submit/", {
+  //     method: 'POST',
+  //     body: file,
+  //     // 👇 Set headers manually for single file upload
+  //     headers: {
+  //       'content-type': file.type,
+  //       'content-length': `${file.size}`, // 👈 Headers need to be a string
+  //     },
+  //   })
+  // }
+
   return (
     <form
       className="w-1/2 border mx-auto border-slate-50 rounded-sm whitespace-nowrap p-8"
       method="post"
       action="http://localhost:8000/startup-submit/"
-      onSubmit={handleSubmit}
+      onSubmit={handleSubmit}  
     >
       <label
         htmlFor="input-group-1"
@@ -92,7 +118,7 @@ const StartUpsForm = () => {
           onChange={handleChange}
           id="input-group-4"
           className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-          placeholder="09131234567"
+          placeholder="20"
         />
       </label>
 
@@ -104,7 +130,7 @@ const StartUpsForm = () => {
         <input
           type="file"
           name="pitch"
-          value={formData.pitch}
+
           onChange={handleChange}
           id="input-group-5"
           className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
