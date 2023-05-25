@@ -55,11 +55,11 @@ const social = [
 ];
 
 const column1 = [
-  { name: "Home", href: "/" },
-  { name: "Services", href: "#services" },
-  { name: "Pricing", href: "#pricing" },
-  { name: "Faq", href: "#faq" },
-  { name: "Contact", href: "#contact" },
+  { name: "خانه", href: "/" },
+  { name: "سرویس ها", href: "#services" },
+  { name: "استارت آپ ها", href: "#pricing" },
+  { name: "سوالات متداول", href: "#faq" },
+  { name: "ارتباط", href: "#contact" },
 ];
 
 const column2 = [
@@ -83,7 +83,7 @@ export default function Footer() {
           <Link href="/">
             <Image
               className="h-8 w-auto"
-              src="/images/logos/logo-rose.svg"
+              src="https://via.placeholder.com/150"
               alt="Logo Your Company"
               width={150}
               height={150}
@@ -93,14 +93,15 @@ export default function Footer() {
           </Link>
 
           <p className="md:text-sm pt-4 w-auto sm:w-6/12 md:w-6/12 lg:w-8/12">
-            Halley is ipsum dolor sit amet consectetur adipisicing itaque enim
-            labore dolores culpa consequatur harum.
+            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
+            استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در
+            ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز
           </p>
 
           <div className="flex gap-2 pt-6 sm:pt-6 md:pt-6 lg:pt-12 max-w-[300px]">
             {social.map((red) => (
               <Link key={red.name} href={red.href} target="_blank">
-                <div className="w-9 h-9 p-2 text-white bg-rose-500 hover:opacity-75 rounded-full flex items-center justify-center">
+                <div className="w-9 h-9 p-2 text-white bg-yellow-500 hover:opacity-75 rounded-full flex items-center justify-center">
                   {red.icon}
                 </div>
               </Link>
@@ -110,13 +111,13 @@ export default function Footer() {
 
         <div>
           <h3 className="text-sm md:text-xs font-bold pb-4 pt-12 lg:pt-0">
-            COMPANY
+            شرکت
           </h3>
           {column1.map((item) => (
             <Link
               key={item.name}
               href={item.href}
-              className="hover:text-rose-500 md:text-sm my-4 grid"
+              className="hover:text-yellow-500 md:text-sm my-4 grid"
             >
               {item.name}
             </Link>
@@ -125,13 +126,13 @@ export default function Footer() {
 
         <div>
           <h3 className="text-sm md:text-xs font-bold pb-4 pt-12 lg:pt-0">
-            RESOURCES
+            منابع
           </h3>
           {column2.map((item) => (
             <Link
               key={item.name}
               href={item.href}
-              className="hover:text-rose-500 md:text-sm my-4 grid"
+              className="hover:text-yellow-500 md:text-sm my-4 grid"
             >
               {item.name}
             </Link>
@@ -140,13 +141,13 @@ export default function Footer() {
 
         <div>
           <h3 className="text-sm md:text-xs font-bold pb-4 pt-12 lg:pt-0">
-            LEGAL
+            حقوقی
           </h3>
           {column3.map((item) => (
             <Link
               key={item.name}
               href={item.href}
-              className="hover:text-rose-500 md:text-sm my-4 grid"
+              className="hover:text-yellow-500 md:text-sm my-4 grid"
             >
               {item.name}
             </Link>
@@ -159,7 +160,7 @@ export default function Footer() {
         <Link
           href="https://humbersanchez.com"
           target="_blank"
-          className="text-neutral-300 dark:text-neutral-400 text-sm hover:text-rose-500 dark:hover:text-rose-500 transition duration-300"
+          className="text-neutral-300 dark:text-neutral-400 text-sm hover:text-yellow-500 dark:hover:text-yellow-500 transition duration-300"
         >
           &copy; Copyright {new Date().getFullYear()}. All rights reserved.
         </Link>

@@ -2,45 +2,45 @@ import Image from "next/image";
 import React from "react";
 const services = [
   {
-    title: "Dolorum molestiae",
+    title: "سرویس 1",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit laudantium",
-    image: "/images/services/1.svg",
+      "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است",
+    image: "https://via.placeholder.com/150",
     alt: "Service description",
   },
   {
-    title: "Commodi mollitia",
+    title: "سرویس 2",
     description:
-      "Nemo quos doloribus quo omnis mollitia nostrum excepturi impedit veniam ",
-    image: "/images/services/2.svg",
+      "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است",
+    image: "https://via.placeholder.com/150",
     alt: "Service description",
   },
   {
-    title: "Neque numquam",
+    title: "سرویس 3",
     description:
-      "Accusantium eius omnis minus debitis est odio earum labore ad itaque mollitia",
-    image: "/images/services/3.svg",
+      "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است",
+    image: "https://via.placeholder.com/150",
     alt: "Service description",
   },
   {
-    title: "Vero animi",
+    title: "سرویس 4",
     description:
-      "Dolores nemo labore soluta incidunt cumque repellat quod ducimus explicabo",
-    image: "/images/services/4.svg",
+      "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است",
+    image: "https://via.placeholder.com/150",
     alt: "Service description",
   },
   {
-    title: "Repudiandae pariatur",
+    title: "سرویس 5",
     description:
-      "voluptatum ex molestiae quae alias quasi eum magnam maxime autem atque",
-    image: "/images/services/5.svg",
+      "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است ",
+    image: "https://via.placeholder.com/150",
     alt: "Service description",
   },
   {
-    title: "Placeat voluptas",
+    title: "سرویس 6",
     description:
-      "vitae iure impedit magni consequuntur nihil consectetur laboriosam perspiciatis",
-    image: "/images/services/6.svg",
+      "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است",
+    image: "https://via.placeholder.com/150",
     alt: "Service description",
   },
 ];
@@ -48,11 +48,12 @@ export function Services() {
   return (
     <div className="bg-gray-50 dark:bg-neutral-900" id="services">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 text-center">
-        <h2 className="text-4xl font-bold">What is Halley?</h2>
+        <h2 className="text-4xl font-bold">فرازمین چیست؟</h2>
 
         <p className="pt-6 pb-6 text-base max-w-2xl text-center m-auto dark:text-neutral-400">
-          Halley is consectetur Obcaecati veniam explicabo perspiciatis sapiente
-          saepe sequi atque aut ullam aliquam.
+          لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده
+          از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و
+          سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز
         </p>
       </div>
 
