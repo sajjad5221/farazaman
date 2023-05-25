@@ -1,5 +1,6 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
+import GetCsrfToken from "@/Services/GetCsrfToken";
 
 const StartUpsForm = () => {
   const [formData, setFormData] = useState({
@@ -9,54 +10,56 @@ const StartUpsForm = () => {
     members_count: 0,
   });
 
-  
-
 
 
   const [file, setFile] = useState(null);
-
+  
   // const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
   //   if (e.target.files) {
   //     setFile(e.target.files[0]);
   //   }
   // };
 
+
+
+  const [csrfToken,setCsrfToken] = useState('');
+  useEffect(() => {
+    async function fetchCsrfToken() {
+      const token = await GetCsrfToken("http://localhost:8000/get-csrf-token/");
+      setCsrfToken(token);
+    }
+
+    fetchCsrfToken();
+  }, []);
+
+
+
+
+
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    const headers = { "Content-Type": "application/json" };
     const res = await fetch("http://localhost:8000/startup-submit/", {
-        headers,
-        method: 'POST',
-        body: JSON.stringify(formData),
-      })
+      headers: {
+        "X-CSRFToken": csrfToken,
+        "Content-Type": "application/json",
+      },
+      method: "POST",
+      body: JSON.stringify(formData),
+    });
     e.preventDefault();
     // You can perform any necessary form submission logic here
   };
-
-  // const handleUploadClick = async () => {
-  //   if (!file) {
-  //     return;
-  //   }
-  //   const respone = await fetch("http://localhost:8000/startup-submit/", {
-  //     method: 'POST',
-  //     body: file,
-  //     // 👇 Set headers manually for single file upload
-  //     headers: {
-  //       'content-type': file.type,
-  //       'content-length': `${file.size}`, // 👈 Headers need to be a string
-  //     },
-  //   })
-  // }
 
   return (
     <form
       className="w-1/2 border mx-auto border-slate-50 rounded-sm whitespace-nowrap p-8"
       method="post"
       action="http://localhost:8000/startup-submit/"
-      onSubmit={handleSubmit}  
+      onSubmit={handleSubmit}
     >
       <label
         htmlFor="input-group-1"
@@ -126,18 +129,17 @@ const StartUpsForm = () => {
         htmlFor="input-group-5"
         className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
       >
-        فایل ارائه 
+        فایل ارائه
         <input
           type="file"
           name="pitch"
-
           onChange={handleChange}
           id="input-group-5"
           className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           placeholder="09131234567"
         />
       </label>
-
+      <input type="hidden" name="csrfmiddlewaretoken" value={csrfToken} />
       <button
         type="submit"
         className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"

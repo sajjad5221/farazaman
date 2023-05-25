@@ -1,6 +1,6 @@
 "use client";
-import React, { useState } from "react";
-
+import React, { useState,useEffect } from "react";
+import GetCsrfToken from "@/Services/GetCsrfToken";
 const ContactUs = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -14,15 +14,30 @@ const ContactUs = () => {
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    const headers = { "Content-Type": "application/json" };
     const res = await fetch("http://localhost:8000/contact/", {
-        headers,
+      headers: {
+        "X-CSRFToken": csrfToken,
+        "Content-Type": "application/json",
+      },
         method: 'POST',
         body: JSON.stringify(formData),
       })
     e.preventDefault();
     // You can perform any necessary form submission logic here
   };
+
+  // handle csrf token
+  const [csrfToken,setCsrfToken] = useState('');
+  useEffect(() => {
+    async function fetchCsrfToken() {
+      const token = await GetCsrfToken("http://localhost:8000/get-csrf-token/");
+      setCsrfToken(token);
+    }
+
+    fetchCsrfToken();
+  }, []);
+
+
 
   return (
     <form
@@ -102,6 +117,7 @@ const ContactUs = () => {
         
       </label>
 
+      <input type="hidden" name="csrfmiddlewaretoken" value={csrfToken} />
       <button
         type="submit"
         className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
