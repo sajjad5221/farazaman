@@ -117,7 +117,7 @@ export default function Footer() {
             <Link
               key={item.name}
               href={item.href}
-              className="hover:text-yellow-500 md:text-sm my-4 grid"
+              className="md:text-sm my-4 grid hover:underline"
             >
               {item.name}
             </Link>
@@ -132,7 +132,7 @@ export default function Footer() {
             <Link
               key={item.name}
               href={item.href}
-              className="hover:text-yellow-500 md:text-sm my-4 grid"
+              className="md:text-sm my-4 grid hover:underline"
             >
               {item.name}
             </Link>
@@ -147,7 +147,7 @@ export default function Footer() {
             <Link
               key={item.name}
               href={item.href}
-              className="hover:text-yellow-500 md:text-sm my-4 grid"
+              className="md:text-sm my-4 grid hover:underline"
             >
               {item.name}
             </Link>
@@ -158,11 +158,10 @@ export default function Footer() {
 
       <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 p-6 text-center border-t border-neutral-800">
         <Link
-          href="https://humbersanchez.com"
-          target="_blank"
-          className="text-neutral-300 dark:text-neutral-400 text-sm hover:text-yellow-500 dark:hover:text-yellow-500 transition duration-300"
+          href="/"
+          className="text-neutral-300 dark:text-neutral-400 text-sm hover:underline transition duration-300"
         >
-          &copy; Copyright {new Date().getFullYear()}. All rights reserved.
+          &copy; Copyright {new Date().getFullYear()}. All rights reserved
         </Link>
       </div>
     </footer>

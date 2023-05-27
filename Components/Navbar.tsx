@@ -8,11 +8,11 @@ import { Bars3Icon } from "@heroicons/react/24/solid";
 import { XMarkIcon } from "@heroicons/react/24/solid";
 
 const navigation = [
-  { name: "خانه", href: "/", current: false },
-  { name: "استخدام", href: "/hiring", current: false },
-  { name: "استارت آپ های اجرا شده", href: "#startups", current: false },
-  { name: "فضای کار اشتراکی", href: "#contact", current: false },
   { name: "رویدادها", href: "#faq", current: false },
+  { name: "فضای کار اشتراکی", href: "#contact", current: false },
+  { name: "استارت آپ های اجرا شده", href: "#startups", current: false },
+  { name: "استخدام", href: "/hiring", current: false },
+  { name: "خانه", href: "/", current: false },
 ];
 
 function classNames(...classes: any) {
@@ -29,7 +29,7 @@ export default function Navbar() {
         <>
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="relative flex h-16 items-center justify-between">
-              <div className="flex flex-row-reverse flex-1 items-center justify-start">
+              <div className="flex flex-row flex-1 items-center justify-start">
                 <div className="flex flex-shrink-0 items-center md:pl-0">
                   <Link href="/">
                     <Image

@@ -42,7 +42,7 @@ export function Features() {
         {contents.map((content) => (
           <div
             key={content.title}
-            className="grid grid-cols-1 md:grid-cols-2 md:gap-x-16 lg:gap-x-28 items-center"
+            className="grid grid-cols-1 items-center justify-items-center md:grid-cols-2 md:gap-x-16 lg:gap-x-28"
           >
             <div
               className={`pt-8 md:pt-16 ${
