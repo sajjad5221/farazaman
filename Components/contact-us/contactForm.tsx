@@ -1,6 +1,7 @@
 "use client";
 import React, { useState,useEffect } from "react";
 import GetCsrfToken from "@/Services/GetCsrfToken";
+import axios from "axios";
 const ContactUs = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -14,16 +15,18 @@ const ContactUs = () => {
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    const res = await fetch("http://localhost:8000/contact/", {
-      headers: {
-        "X-CSRFToken": csrfToken,
-        "Content-Type": "application/json",
-      },
-        method: 'POST',
-        body: JSON.stringify(formData),
-      })
+    // send form data with axios to sever
+    axios.post("http://localhost:8000/contact/",JSON.stringify(formData),{
+          headers: {
+            "X-CSRFToken": csrfToken,
+            "Content-Type": "application/json",
+          } 
+        }).then(res => {
+          console.log(res.data);
+        })
+        .catch(err => console.log(err))
+    
     e.preventDefault();
-    // You can perform any necessary form submission logic here
   };
 
   // handle csrf token
