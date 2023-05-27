@@ -230,7 +230,7 @@ export default function SliderMenu({
           </button>
 
           <div
-            className="flex overflow-x-auto whitespace-nowrap"
+            className="flex overflow-x-hidden whitespace-nowrap"
             ref={carouselRef}
             onMouseDown={handleMouseDown}
             onMouseMove={handleMouseMove}
@@ -298,7 +298,7 @@ export default function SliderMenu({
           </button>
 
           <div
-            className="flex overflow-x-auto whitespace-nowrap"
+            className="flex overflow-x-hidden whitespace-nowrap"
             ref={carouselRef}
             onMouseDown={handleMouseDown}
             onMouseMove={handleMouseMove}
