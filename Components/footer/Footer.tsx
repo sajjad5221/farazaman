@@ -57,22 +57,22 @@ const social = [
 const column1 = [
   { name: "خانه", href: "/" },
   { name: "سرویس ها", href: "#services" },
-  { name: "استارت آپ ها", href: "#pricing" },
+  { name: "استارت آپ ها", href: "#startups" },
   { name: "سوالات متداول", href: "#faq" },
   { name: "ارتباط", href: "#contact" },
 ];
 
 const column2 = [
-  { name: "Not Found 404", href: "404" },
-  { name: "Documentation", href: "/" },
-  { name: "Guides", href: "/" },
-  { name: "Help", href: "/" },
+  { name: "منابع اول", href: "/" },
+  { name: "منابع دوم", href: "/" },
+  { name: "منابع سوم", href: "/" },
+  { name: "منابع چهارم", href: "/" },
 ];
 
 const column3 = [
-  { name: "Privacy Policy", href: "/" },
-  { name: "Terms of Service", href: "/" },
-  { name: "Support Terms", href: "/" },
+  { name: "حقوقی اول", href: "/" },
+  { name: "حقوقی دوم", href: "/" },
+  { name: "حقوقی سوم", href: "/" },
 ];
 
 export default function Footer() {
@@ -82,12 +82,12 @@ export default function Footer() {
         <div className="col-span-2 sm:col-span-3 md:col-span-3 lg:col-span-2 2xl:col-span-2">
           <Link href="/">
             <Image
-              className="h-8 w-auto"
-              src="https://via.placeholder.com/150"
-              alt="Logo Your Company"
-              width={150}
-              height={150}
-              quality={75}
+              className="h-12 w-auto"
+              src="/static/images/Farazaman.png"
+              alt="Farazaman"
+              width={500}
+              height={500}
+              quality={100}
               sizes="100vw"
             />
           </Link>
@@ -101,7 +101,7 @@ export default function Footer() {
           <div className="flex gap-2 pt-6 sm:pt-6 md:pt-6 lg:pt-12 max-w-[300px]">
             {social.map((red) => (
               <Link key={red.name} href={red.href} target="_blank">
-                <div className="w-9 h-9 p-2 text-white bg-yellow-500 hover:opacity-75 rounded-full flex items-center justify-center">
+                <div className="w-9 h-9 p-2 text-white bg-neutral-500 hover:opacity-75 rounded-full flex items-center justify-center">
                   {red.icon}
                 </div>
               </Link>

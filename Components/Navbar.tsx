@@ -3,7 +3,6 @@
 import Link from "next/link";
 import Image from "next/image";
 import React from "react";
-
 import { Disclosure } from "@headlessui/react";
 import { Bars3Icon } from "@heroicons/react/24/solid";
 import { XMarkIcon } from "@heroicons/react/24/solid";
@@ -34,12 +33,12 @@ export default function Navbar() {
                 <div className="flex flex-shrink-0 items-center md:pl-0">
                   <Link href="/">
                     <Image
-                      className="block h-8 w-auto"
-                      src="/images/logos/logo-rose.svg"
-                      alt="Logo Your Company"
-                      width={150}
-                      height={150}
-                      quality={75}
+                      className="block h-12 w-auto ml-4"
+                      src="/static/images/Farazaman.png"
+                      alt="Farazaman"
+                      width={200}
+                      height={200}
+                      quality={100}
                       sizes="100vw"
                     />
                   </Link>
@@ -53,8 +52,8 @@ export default function Navbar() {
                         href={item.href}
                         className={classNames(
                           item.current
-                            ? "text-neutral-900 dark:text-neutral-400 "
-                            : "text-neutral-900 dark:text-neutral-400 hover:underline",
+                            ? "text-neutral-900 dark:text-neutral-400 first:ml-4"
+                            : "text-neutral-900 dark:text-neutral-400 hover:underline first:ml-4",
                           "text-base font-medium"
                         )}
                         aria-current={item.current ? "page" : undefined}
