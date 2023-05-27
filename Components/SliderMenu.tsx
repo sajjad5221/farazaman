@@ -162,8 +162,30 @@ export default function SliderMenu({
     });
   };
 
+  const [isDragging, setIsDragging] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [scrollLeft, setScrollLeft] = useState(0);
+
+  const handleMouseDown = (e: any) => {
+    setIsDragging(true);
+    setStartX(e.clientX);
+    setScrollLeft(carouselRef.current!.scrollLeft);
+  };
+
+  const handleMouseMove = (e: any) => {
+    if (!isDragging) return;
+    e.preventDefault();
+    const x = e.clientX;
+    const walk = x - startX;
+    carouselRef.current!.scrollLeft = scrollLeft - walk;
+  };
+
+  const handleMouseUp = () => {
+    setIsDragging(false);
+  };
+
   return (
-    <div className="bg-white dark:bg-neutral-900 w-full px-4 pt-16 pb-16 max-w-full relative">
+    <div className="select-none bg-white dark:bg-neutral-900 w-full px-4 pt-16 pb-16 max-w-full relative">
       <h1 className="text-3xl font-bold text-center mb-6">{title}</h1>
       <p className="pt-6 pb-16 text-base max-w-2xl text-center m-auto dark:text-neutral-400">
         {description}
@@ -210,6 +232,10 @@ export default function SliderMenu({
           <div
             className="flex overflow-x-auto whitespace-nowrap"
             ref={carouselRef}
+            onMouseDown={handleMouseDown}
+            onMouseMove={handleMouseMove}
+            onMouseUp={handleMouseUp}
+            onMouseLeave={handleMouseUp}
           >
             {type === "exp"
               ? expriences.map((card) => (
@@ -274,6 +300,10 @@ export default function SliderMenu({
           <div
             className="flex overflow-x-auto whitespace-nowrap"
             ref={carouselRef}
+            onMouseDown={handleMouseDown}
+            onMouseMove={handleMouseMove}
+            onMouseUp={handleMouseUp}
+            onMouseLeave={handleMouseUp}
           >
             {type === "exp"
               ? expriences.map((card) => (
