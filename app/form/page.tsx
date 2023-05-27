@@ -1,7 +1,6 @@
 'use client'
 
 import Footer from "@/Components/footer/Footer";
-import Header from "@/Components/header/Header";
 import Input from "@/Components/form/Input";
 import React, {ReactNode, useState} from "react";
 
@@ -40,7 +39,7 @@ export default function page() {
       <p>توضیحات اولیه</p>
       <form className="w-1/2 border mx-auto border-slate-50 rounded-sm whitespace-nowrap p-8" onSubmit={submitData} method="post" action="/startup-submit">
         <Input label={"نام استارتاپ"} type="text" setName="name"/>
-        <Input label={"شماره تماس"} type="number" setName="phone" onChange={handleChange} value={formData.phone}/>
+        <Input label={"شماره تماس"} type="number" setName="phone" onChangeEvent={handleChange} value={formData.phone}/>
         <Input label={"تعداد اعضا"} type="number" setName="member_count" onChange={handleChange} value={formData.member_count}/>
         <Input label={"ایمیل"} type="file" setName="email" onChange={handleChange} value={formData.email}/>
         <div className="flex items-start mb-6"></div>
