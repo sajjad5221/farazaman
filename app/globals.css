@@ -4,7 +4,7 @@
 
 @font-face {
   font-family: yekan;
-  src: url(../public/fonts/BYekan+.ttf);
+  src: url(../public/static/fonts/Yekan.ttf);
 }
 
 :root {
@@ -29,6 +29,10 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 /* width */
