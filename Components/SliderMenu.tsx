@@ -1,138 +1,266 @@
 "use client";
-import { useState, useEffect, useRef } from "react";
-import React from "react";
-const SliderMenu = () => {
-  const [scrollPosition, setScrollPosition] = useState(0);
-  const menuRef = useRef(null);
 
-  const handleScroll = (event: any) => {
-    const delta = Math.max(-1, Math.min(1, event.deltaY));
-    setScrollPosition((prevPosition) => prevPosition + delta * 100);
-  };
+import React, { useRef, useState } from "react";
+import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/solid";
+import Image from "next/image";
 
-  const handlePrev = () => {
-    setScrollPosition((prevPosition) => prevPosition - 100);
-  };
-
-  const handleNext = () => {
-    setScrollPosition((prevPosition) => prevPosition + 100);
-  };
-
-  useEffect(() => {
-    const menu: any = menuRef.current;
-    if (menu) {
-      menu.scrollTo({ left: scrollPosition, behavior: "smooth" });
-    }
-  }, [scrollPosition]);
-
-  const cards = [
+export default function SliderMenu({
+  title,
+  description,
+  type,
+  StartUpsProps,
+}: {
+  title: string;
+  description: string;
+  type: string;
+  StartUpsProps?: boolean;
+}) {
+  const expriences = [
     {
       id: 1,
-      title: "Card 1",
-      description: "Description of Card 1",
-      imageSrc: "https://via.placeholder.com/150",
+      title: "Hired Name",
+      description: "This is the description for Card 1.",
+      imageUrl: "https://via.placeholder.com/150",
     },
     {
-      id: 2,
-      title: "Card 1",
-      description: "Description of Card 1",
-      imageSrc: "https://via.placeholder.com/150",
+      id: 1,
+      title: "Hired Name",
+      description: "This is the description for Card 1.",
+      imageUrl: "https://via.placeholder.com/150",
     },
     {
-      id: 3,
-      title: "Card 1",
-      description: "Description of Card 1",
-      imageSrc: "https://via.placeholder.com/150",
+      id: 1,
+      title: "Hired Name",
+      description: "This is the description for Card 1.",
+      imageUrl: "https://via.placeholder.com/150",
     },
     {
-      id: 4,
-      title: "Card 1",
-      description: "Description of Card 1",
-      imageSrc: "https://via.placeholder.com/150",
+      id: 1,
+      title: "Hired Name",
+      description: "This is the description for Card 1.",
+      imageUrl: "https://via.placeholder.com/150",
     },
     {
-      id: 5,
-      title: "Card 1",
-      description: "Description of Card 1",
-      imageSrc: "https://via.placeholder.com/150",
+      id: 1,
+      title: "Hired Name",
+      description: "This is the description for Card 1.",
+      imageUrl: "https://via.placeholder.com/150",
     },
     {
-      id: 6,
-      title: "Card 1",
-      description: "Description of Card 1",
-      imageSrc: "https://via.placeholder.com/150",
+      id: 1,
+      title: "Hired Name",
+      description: "This is the description for Card 1.",
+      imageUrl: "https://via.placeholder.com/150",
+    },
+    {
+      id: 1,
+      title: "Hired Name",
+      description: "This is the description for Card 1.",
+      imageUrl: "https://via.placeholder.com/150",
+    },
+    {
+      id: 1,
+      title: "Hired Name",
+      description: "This is the description for Card 1.",
+      imageUrl: "https://via.placeholder.com/150",
+    },
+    {
+      id: 1,
+      title: "Hired Name",
+      description: "This is the description for Card 1.",
+      imageUrl: "https://via.placeholder.com/150",
+    },
+    {
+      id: 1,
+      title: "Hired Name",
+      description: "This is the description for Card 1.",
+      imageUrl: "https://via.placeholder.com/150",
     },
   ];
 
+  const StartUps = [
+    {
+      id: 1,
+      title: "Hired Name",
+      description: "This is the description for Card 1.",
+      imageUrl: "https://via.placeholder.com/150",
+    },
+    {
+      id: 1,
+      title: "Hired Name",
+      description: "This is the description for Card 1.",
+      imageUrl: "https://via.placeholder.com/150",
+    },
+    {
+      id: 1,
+      title: "Hired Name",
+      description: "This is the description for Card 1.",
+      imageUrl: "https://via.placeholder.com/150",
+    },
+    {
+      id: 1,
+      title: "Hired Name",
+      description: "This is the description for Card 1.",
+      imageUrl: "https://via.placeholder.com/150",
+    },
+    {
+      id: 1,
+      title: "Hired Name",
+      description: "This is the description for Card 1.",
+      imageUrl: "https://via.placeholder.com/150",
+    },
+    {
+      id: 1,
+      title: "Hired Name",
+      description: "This is the description for Card 1.",
+      imageUrl: "https://via.placeholder.com/150",
+    },
+    {
+      id: 1,
+      title: "Hired Name",
+      description: "This is the description for Card 1.",
+      imageUrl: "https://via.placeholder.com/150",
+    },
+    {
+      id: 1,
+      title: "Hired Name",
+      description: "This is the description for Card 1.",
+      imageUrl: "https://via.placeholder.com/150",
+    },
+    {
+      id: 1,
+      title: "Hired Name",
+      description: "This is the description for Card 1.",
+      imageUrl: "https://via.placeholder.com/150",
+    },
+    {
+      id: 1,
+      title: "Hired Name",
+      description: "This is the description for Card 1.",
+      imageUrl: "https://via.placeholder.com/150",
+    },
+  ];
+  type BillingInterval = "year" | "month";
+
+  const [billingInterval, setBillingInterval] =
+    useState<BillingInterval>("month");
+  const carouselRef: React.RefObject<HTMLDivElement> = useRef(null);
+
+  const handleNextSlide = () => {
+    carouselRef.current?.scrollBy({
+      top: 0,
+      left: window.innerWidth,
+      behavior: "smooth",
+    });
+  };
+
+  const handlePrevSlide = () => {
+    carouselRef.current?.scrollBy({
+      top: 0,
+      left: -window.innerWidth,
+      behavior: "smooth",
+    });
+  };
+
   return (
-    <div className="relative px-8">
-      <div className="flex items-center justify-between">
-        <button
-          className="bg-gray-200 hover:bg-gray-300 rounded-full w-8 h-8 flex items-center justify-center"
-          onClick={handlePrev}
-        >
-          <svg
-            className="w-4 h-4 text-gray-600"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M15 19l-7-7 7-7"
-            />
-          </svg>
-        </button>
-        <button
-          className="bg-gray-200 hover:bg-gray-300 rounded-full w-8 h-8 flex items-center justify-center"
-          onClick={handleNext}
-        >
-          <svg
-            className="w-4 h-4 text-gray-600"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M9 5l7 7-7 7"
-            />
-          </svg>
-        </button>
-      </div>
-      <div className="overflow-x-scroll" onWheel={handleScroll} ref={menuRef}>
-        <div className="flex flex-nowrap">
-          {cards.map((card) => (
-            <div
-              key={card.id}
-              className="flex flex-col items-center w-64 p-4 border rounded-lg border-gray-200 hover:border-gold-500 transition-colors duration-300 mx-3"
+    <div className="bg-white dark:bg-neutral-900 w-full px-4 pt-16 pb-16 max-w-full relative">
+      <h1 className="text-3xl font-bold text-center mb-6">{title}</h1>
+      <p className="pt-6 pb-16 text-base max-w-2xl text-center m-auto dark:text-neutral-400">
+        {description}
+      </p>
+      {StartUpsProps ? (
+        <div className="mx-auto px-4 sm:px-6 lg:px-8 sm:flex sm:flex-col sm:align-center">
+          <div className="relative self-center text-base font-semibold mb-6 bg-neutral-200  dark:bg-neutral-800 rounded-lg flex sm:mb-8">
+            <button
+              onClick={() => setBillingInterval("month")}
+              type="button"
+              className={`${
+                billingInterval === "month"
+                  ? "relative w-1/2 bg-white dark:bg-neutral-600 text-neutral-900 dark:text-neutral-100"
+                  : "ml-0.5 relative w-1/2 text-neutral-900 dark:text-neutral-400"
+              } rounded-md m-1 py-2 whitespace-nowrap sm:w-auto sm:px-8`}
             >
-              <img
-                src="https://via.placeholder.com/150"
-                alt="Card Image"
-                className="mx-auto rounded-full"
-              />
-              <h2 className="text-lg font-bold text-center mt-4">Title</h2>
-              <p className="text-gray-700 mt-2 text-center">
-                Description text goes here. Lorem ipsum dolor sit amet,
-                consectetur adipiscing elit. Nullam volutpat libero eget diam
-                mollis vehicula.
-              </p>
-              <button className="mt-4 py-2 px-4 bg-yellow-500 hover:bg-yellow-600 text-white rounded-full">
-                See More
-              </button>
-            </div>
-          ))}
+              انجام شده
+            </button>
+            <button
+              onClick={() => setBillingInterval("year")}
+              type="button"
+              className={`${
+                billingInterval === "year"
+                  ? "relative w-1/2 bg-white dark:bg-neutral-600 text-neutral-900 dark:text-neutral-100"
+                  : "ml-0.5 relative w-1/2 text-neutral-900 dark:text-neutral-400"
+              } rounded-md m-1 py-2 whitespace-nowrap sm:w-auto sm:px-8`}
+            >
+              در حال انجام
+            </button>
+          </div>
         </div>
+      ) : (
+        ""
+      )}
+      <div className="flex flex-row items-center">
+        <button
+          className="rounded-full bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-1.5 px-1.5"
+          onClick={handlePrevSlide}
+        >
+          <ChevronLeftIcon className="h-6 w-6" />
+        </button>
+
+        <div
+          className="flex overflow-x-auto whitespace-nowrap"
+          ref={carouselRef}
+        >
+          {type === "exp"
+            ? expriences.map((card) => (
+                <div
+                  key={card.id}
+                  className="flex flex-col justify-evenly w-64 h-64 bg-neutral-100 dark:bg-neutral-800 rounded-lg p-4 cursor-pointer mx-2"
+                  style={{ scrollSnapAlign: "start" }}
+                >
+                  <Image
+                    width={80}
+                    height={80}
+                    quality={100}
+                    src={card.imageUrl}
+                    alt={card.title}
+                    className="mx-auto rounded-full"
+                  />
+
+                  <h3 className="text-center mt-2 font-bold">{card.title}</h3>
+                  <p className="text-center dark:text-neutral-400">
+                    {card.description}
+                  </p>
+                </div>
+              ))
+            : StartUps.map((card) => (
+                <div
+                  key={card.id}
+                  className="flex flex-col justify-evenly w-64 h-64 bg-neutral-100 dark:bg-neutral-800 rounded-lg p-4 cursor-pointer mx-2"
+                  style={{ scrollSnapAlign: "start" }}
+                >
+                  <Image
+                    width={80}
+                    height={80}
+                    quality={100}
+                    src={card.imageUrl}
+                    alt={card.title}
+                    className="mx-auto rounded-full"
+                  />
+
+                  <h3 className="text-center mt-2 font-bold">{card.title}</h3>
+                  <p className="text-center dark:text-neutral-400">
+                    {card.description}
+                  </p>
+                </div>
+              ))}
+        </div>
+        <button
+          className="rounded-full bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-1.5 px-1.5"
+          onClick={handleNextSlide}
+        >
+          <ChevronRightIcon className="h-6 w-6" />
+        </button>
       </div>
     </div>
   );
-};
-
-export default SliderMenu;
+}
