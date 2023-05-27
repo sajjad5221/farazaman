@@ -1,7 +1,6 @@
 'use client'
 
 import Footer from "@/Components/footer/Footer";
-import Input from "@/Components/form/Input";
 import React, {ReactNode, useState} from "react";
 
 
