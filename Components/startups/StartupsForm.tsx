@@ -1,28 +1,28 @@
 "use client";
-import React, { useState,useEffect } from "react";
+import React, { useState,useEffect} from "react";
 import GetCsrfToken from "@/Services/GetCsrfToken";
+import axios from "axios";
+
+// initial form data object
+const initialFormData = Object.freeze({
+  name: "",
+  email: "",
+  phone: "",
+  members_count: 0,
+  pitch: null,
+})
+
 
 const StartUpsForm = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    members_count: 0,
-  });
 
-
-
-  const [file, setFile] = useState(null);
-  
-  // const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-  //   if (e.target.files) {
-  //     setFile(e.target.files[0]);
-  //   }
-  // };
-
-
-
+  // define formData state for store form text to state
+  const [formData, setFormData] = useState(initialFormData);
+  // define filePost state for store form File to state
+  const [filePost, setFilePost] = useState({pitch:null})
+  //define csrfToken state for store csrf token to state
   const [csrfToken,setCsrfToken] = useState('');
+
+  //define useEffect hook for fetch csrf token from server
   useEffect(() => {
     async function fetchCsrfToken() {
       const token = await GetCsrfToken("http://localhost:8000/get-csrf-token/");
@@ -33,25 +33,36 @@ const StartUpsForm = () => {
   }, []);
 
 
-
-
-
-
+  // handle change file of form ( text and file)
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if ([e.target.name]=='pitch') {
+      setFilePost({pitch:e.target.files[0]})
+      console.log(e.target.files);
+    }
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  // handle submit (for handl send file and text to server)
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    const res = await fetch("http://localhost:8000/startup-submit/", {
+    const sendFormData = new FormData();
+    sendFormData.append('pitch',filePost.pitch, filePost.pitch.name); // define file's name and file's url to sendFormData
+    sendFormData.append('name',formData.name);
+    sendFormData.append('phone',formData.phone);
+    sendFormData.append('email',formData.email);
+    sendFormData.append('members_count',formData.members_count);
+
+    // send form data with axios to sever
+    axios.post("http://localhost:8000/startup-submit/",sendFormData,{
       headers: {
-        "X-CSRFToken": csrfToken,
-        "Content-Type": "application/json",
-      },
-      method: "POST",
-      body: JSON.stringify(formData),
-    });
+        'content-type': 'multipart/form-data'
+      } 
+    }).then(res => {
+      console.log(res.data);
+    })
+    .catch(err => console.log(err))
+
     e.preventDefault();
-    // You can perform any necessary form submission logic here
+    
   };
 
   return (
