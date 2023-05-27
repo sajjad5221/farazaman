@@ -1,28 +1,68 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState,useEffect} from "react";
+import GetCsrfToken from "@/Services/GetCsrfToken";
+import axios from "axios";
+
+// initial form data object
+const initialFormData = Object.freeze({
+  name: "",
+  email: "",
+  phone: "",
+  members_count: 0,
+  pitch: null,
+})
+
 
 const StartUpsForm = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    members_count: 0,
-    pitch: "",
-  });
 
+  // define formData state for store form text to state
+  const [formData, setFormData] = useState(initialFormData);
+  // define filePost state for store form File to state
+  const [filePost, setFilePost] = useState({pitch:null})
+  //define csrfToken state for store csrf token to state
+  const [csrfToken,setCsrfToken] = useState('');
+
+  //define useEffect hook for fetch csrf token from server
+  useEffect(() => {
+    async function fetchCsrfToken() {
+      const token = await GetCsrfToken("http://localhost:8000/get-csrf-token/");
+      setCsrfToken(token);
+    }
+
+    fetchCsrfToken();
+  }, []);
+
+
+  // handle change file of form ( text and file)
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if ([e.target.name]=='pitch') {
+      setFilePost({pitch:e.target.files[0]})
+      console.log(e.target.files);
+    }
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  // handle submit (for handl send file and text to server)
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    const headers = { "Content-Type": "application/json" };
-    const res = await fetch("http://localhost:8000/startup-submit/", {
-        headers,
-        method: 'POST',
-        body: JSON.stringify(formData),
-      })
+    const sendFormData = new FormData();
+    sendFormData.append('pitch',filePost.pitch, filePost.pitch.name); // define file's name and file's url to sendFormData
+    sendFormData.append('name',formData.name);
+    sendFormData.append('phone',formData.phone);
+    sendFormData.append('email',formData.email);
+    sendFormData.append('members_count',formData.members_count);
+
+    // send form data with axios to sever
+    axios.post("http://localhost:8000/startup-submit/",sendFormData,{
+      headers: {
+        'content-type': 'multipart/form-data'
+      } 
+    }).then(res => {
+      console.log(res.data);
+    })
+    .catch(err => console.log(err))
+
     e.preventDefault();
-    // You can perform any necessary form submission logic here
+    
   };
 
   return (
@@ -92,7 +132,7 @@ const StartUpsForm = () => {
           onChange={handleChange}
           id="input-group-4"
           className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-          placeholder="09131234567"
+          placeholder="20"
         />
       </label>
 
@@ -100,18 +140,17 @@ const StartUpsForm = () => {
         htmlFor="input-group-5"
         className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
       >
-        فایل ارائه 
+        فایل ارائه
         <input
           type="file"
           name="pitch"
-          value={formData.pitch}
           onChange={handleChange}
           id="input-group-5"
           className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
           placeholder="09131234567"
         />
       </label>
-
+      <input type="hidden" name="csrfmiddlewaretoken" value={csrfToken} />
       <button
         type="submit"
         className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
