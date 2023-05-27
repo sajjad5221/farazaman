@@ -12,7 +12,7 @@ interface cardsProps {
 export default function Cards(Props: cardsProps) {
   const {
     title = "استارپ",
-    image = "/public/img.jpg",
+    image = "/static/images/img.jpg",
     description = "توضیحات استارتاپ",
   } = Props;
   return (
