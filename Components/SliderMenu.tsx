@@ -257,7 +257,7 @@ export default function SliderMenu({
           </div>
           <button
             className="rounded-full bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-1.5 px-1.5"
-            onClick={handleNextSlide}
+            onClick={handlePrevSlide}
           >
             <ChevronRightIcon className="h-6 w-6" />
           </button>
@@ -266,9 +266,9 @@ export default function SliderMenu({
         <div className="flex flex-row items-center">
           <button
             className="rounded-full bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-1.5 px-1.5"
-            onClick={handlePrevSlide}
+            onClick={handleNextSlide}
           >
-            <ChevronLeftIcon className="h-6 w-6" />
+            <ChevronRightIcon className="h-6 w-6" />
           </button>
 
           <div
@@ -321,9 +321,9 @@ export default function SliderMenu({
           </div>
           <button
             className="rounded-full bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-1.5 px-1.5"
-            onClick={handleNextSlide}
+            onClick={handlePrevSlide}
           >
-            <ChevronRightIcon className="h-6 w-6" />
+            <ChevronLeftIcon className="h-6 w-6" />
           </button>
         </div>
       )}

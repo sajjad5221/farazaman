@@ -46,7 +46,7 @@ export function Features() {
           >
             <div
               className={`pt-8 md:pt-16 ${
-                content.order ? "order-1 md:order-2" : "order-1"
+                content.order ? "order-2 md:order-1" : "order-2"
               }`}
             >
               <h1 className="text-2xl font-bold">{content.title}</h1>

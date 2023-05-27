@@ -5,7 +5,7 @@ export function Hero() {
   return (
     <div className="bg-white dark:bg-neutral-900">
       <div className="max-w-7xl mx-auto py-2 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2">
-        <div className="pt-6 md:pt-32 justify-center text-center sm:justify-start sm:text-start">
+        <div className="pt-6 md:pt-32 justify-center text-center sm:justify-start sm:text-start order-2 lg:order-1">
           <h1 className="text-5xl font-bold">
             شتابدهنده استارت آپ <br />{" "}
             <span className="text-yellow-500 font-extrabold">فرازمان</span>
