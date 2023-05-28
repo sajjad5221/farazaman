@@ -54,7 +54,8 @@ const StartUpsForm = () => {
     // send form data with axios to sever
     axios.post("http://localhost:8000/startup-submit/",sendFormData,{
       headers: {
-        'content-type': 'multipart/form-data'
+        'content-type': 'multipart/form-data',
+        "X-CSRFToken": csrfToken
       } 
     }).then(res => {
       console.log(res.data);
@@ -66,98 +67,132 @@ const StartUpsForm = () => {
   };
 
   return (
-    <form
-      className="w-1/2 border mx-auto border-slate-50 rounded-sm whitespace-nowrap p-8"
-      method="post"
-      action="http://localhost:8000/startup-submit/"
-      onSubmit={handleSubmit}
-    >
-      <label
-        htmlFor="input-group-1"
-        className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-      >
-        نام
-        <input
-          type="text"
-          name="name"
-          value={formData.name}
-          onChange={handleChange}
-          id="input-group-1"
-          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-          placeholder="Farazaman"
-        />
-      </label>
+    <div className="bg-gray-50 dark:bg-neutral-900 mt-16" id="contact">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 text-center">
+        <h2 className="text-4xl font-bold">ثبت استارتاپ ها</h2>
 
-      <label
-        htmlFor="input-group-2"
-        className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-      >
-        ایمیل
-        <input
-          type="email"
-          name="email"
-          value={formData.email}
-          onChange={handleChange}
-          id="input-group-2"
-          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-          placeholder="example@gmail.com"
-        />
-      </label>
+        <p className="pt-6 pb-6 text-base max-w-2xl text-center m-auto dark:text-neutral-400">
+          ثبت استارتاپ های نوپا در شتابدهنده فرازمان
+        </p>
+      </div>
 
-      <label
-        htmlFor="input-group-3"
-        className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-      >
-        شماره تماس
-        <input
-          type="number"
-          name="phone"
-          value={formData.phone}
-          onChange={handleChange}
-          id="input-group-3"
-          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-          placeholder="09131234567"
-        />
-      </label>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-16 grid md:grid-cols-2 lg:grid-cols-2 gap-y-8 md:gap-x-8 md:gap-y-8 lg:gap-x-8 lg:gap-y-16">
+        <div>
+          <h2 className="text-lg font-bold">ارتباط با شتابدهنده فرازمان</h2>
+          <p className="max-w-sm mt-4 mb-4 dark:text-neutral-400">
+          برای ثبت استارتاپ خود در شتابدهنده فرازمان می توانید فرم زیر را پرکرده و منتظر تماس کارشناسان ما باشید.
+          </p>
 
-      <label
-        htmlFor="input-group-4"
-        className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-      >
-        تعداد اعضا
-        <input
-          type="number"
-          name="members_count"
-          value={formData.members_count}
-          onChange={handleChange}
-          id="input-group-4"
-          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-          placeholder="20"
-        />
-      </label>
+          <div className="flex items-center mt-8 space-x-2 text-dark-600 dark:text-neutral-400">
 
-      <label
-        htmlFor="input-group-5"
-        className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-      >
-        فایل ارائه
-        <input
-          type="file"
-          name="pitch"
-          onChange={handleChange}
-          id="input-group-5"
-          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-          placeholder="09131234567"
-        />
-      </label>
-      <input type="hidden" name="csrfmiddlewaretoken" value={csrfToken} />
-      <button
-        type="submit"
-        className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-      >
-        ارسال اطلاعات
-      </button>
-    </form>
+            <span>ایران-اصفهان-خیابان سعادت آباد-مجتمع طلا- واحد c</span>
+          </div>
+
+          <div className="flex items-center mt-2 space-x-2 text-dark-600 dark:text-neutral-400">
+
+            <a href="mailto:hello@halley.vercel.app">farazaman@gmail.com</a>
+          </div>
+
+          <div className="flex items-center mt-2 space-x-2 text-dark-600 dark:text-neutral-400">
+
+            <a href="tel:0313313155">0313313155</a>
+          </div>
+        </div>
+
+        <div>
+
+            <form onSubmit={handleSubmit}>
+
+
+              <div className="mb-5">
+                <input
+                  type="text"
+                  placeholder="نام استارتاپ"
+                  autoComplete="false"
+                  className={'w-full px-4 py-3 border-2 placeholder:text-neutral-800 dark:text-white rounded-md outline-none dark:placeholder:text-neutral-200 dark:bg-neutral-900 focus:ring-4'}
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                />
+              </div>
+
+              <div className="mb-5">
+                <label htmlFor="email_address" className="sr-only">
+                  آدرس ایمیل شما
+                </label>
+                <input
+                  id="email_address"
+                  type="email"
+                  placeholder="آدرس ایمیل استارتاپ"
+                  name="email"
+                  autoComplete="false"
+                  className={'w-full px-4 py-3 border-2 placeholder:text-neutral-800 dark:text-white rounded-md outline-none dark:placeholder:text-neutral-200 dark:bg-neutral-900   focus:ring-4'}
+                  value={formData.email}
+                  onChange={handleChange}
+                />
+              </div>
+
+              <div className="mb-5">
+                <label htmlFor="phone-number" className="sr-only">
+                  شماره تماس
+                </label>
+                <input
+                  id="phone-number"
+                  type="number"
+                  placeholder="شماره تماس ( مثال : ۰۹۱۳۱۲۳۴۵۶۷)"
+                  name="phone"
+                  autoComplete="false"
+                  className={'w-full px-4 py-3 border-2 placeholder:text-neutral-800 dark:text-white rounded-md outline-none dark:placeholder:text-neutral-200 dark:bg-neutral-900   focus:ring-4'}
+                  value={formData.phone}
+                  onChange={handleChange}
+                />
+              </div>
+
+              <div className="mb-5">
+                <label htmlFor="member-count" className="sr-only">
+                  تعداد اعضا
+                </label>
+                <input
+                  id="member-count"
+                  type="number"
+                  placeholder="تعداد اعضای تیم"
+                  name="members_count"
+                  autoComplete="false"
+                  className={'w-full px-4 py-3 border-2 placeholder:text-neutral-800 dark:text-white rounded-md outline-none dark:placeholder:text-neutral-200 dark:bg-neutral-900   focus:ring-4'}
+                  value={formData.members_count}
+                  onChange={handleChange}
+                />
+              </div>
+
+              <div className="mb-5">
+                <label htmlFor="member-count" className="sr-only">
+                  فایل ارائه
+                </label>
+                <input
+                  id="member-count"
+                  type="file"
+                  placeholder="قایل ارائه"
+                  name="pitch"
+                  autoComplete="false"
+                  className={'w-full px-4 py-3 border-2 placeholder:text-neutral-800 dark:text-white rounded-md outline-none dark:placeholder:text-neutral-200 dark:bg-neutral-900   focus:ring-4'}
+                  value={formData.pitch}
+                  onChange={handleChange}
+                />
+              </div>
+              <input type="hidden" name="csrftokenmiddleware" value={csrfToken} />
+              <button
+                type="submit"
+                className="w-full py-4 font-semibold text-white transition-colors bg-neutral-900 rounded-md hover:bg-neutral-800 focus:outline-none focus:ring-offset-2 focus:ring focus:ring-neutral-200 px-7 dark:bg-white dark:text-black "
+              >
+                ارسال
+              </button>
+            </form>
+
+
+        
+        </div>
+      </div>
+    </div>
   );
 };
 
