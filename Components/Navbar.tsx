@@ -68,7 +68,6 @@ export default function Navbar() {
                       
                     ))}
                     <ThemeSwitchButton />
-                    <ThemeSwitchOption />
                   </div>
                 </div>
 
