@@ -69,31 +69,31 @@ const StartUpsForm = () => {
   return (
     <div className="bg-gray-50 dark:bg-neutral-900 mt-16" id="contact">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 text-center">
-        <h2 className="text-4xl font-bold">ثبت استارتاپ ها</h2>
+        <h2 className="text-4xl text-zinc-900 font-bold dark:text-neutral-400">ثبت استارتاپ ها</h2>
 
-        <p className="pt-6 pb-6 text-base max-w-2xl text-center m-auto dark:text-neutral-400">
+        <p className="pt-6 pb-6 text-base text-zinc-600 max-w-2xl text-center m-auto dark:text-neutral-400">
           ثبت استارتاپ های نوپا در شتابدهنده فرازمان
         </p>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-16 grid md:grid-cols-2 lg:grid-cols-2 gap-y-8 md:gap-x-8 md:gap-y-8 lg:gap-x-8 lg:gap-y-16">
         <div>
-          <h2 className="text-lg font-bold">ارتباط با شتابدهنده فرازمان</h2>
-          <p className="max-w-sm mt-4 mb-4 dark:text-neutral-400">
+          <h2 className="text-lg font-bold text-black dark:text-neutral-400">ارتباط با شتابدهنده فرازمان</h2>
+          <p className="max-w-sm mt-4 mb-4 text-black dark:text-neutral-400">
           برای ثبت استارتاپ خود در شتابدهنده فرازمان می توانید فرم زیر را پرکرده و منتظر تماس کارشناسان ما باشید.
           </p>
 
-          <div className="flex items-center mt-8 space-x-2 text-dark-600 dark:text-neutral-400">
+          <div className="flex items-center text-black mt-8 space-x-2 text-dark-600 dark:text-neutral-400">
 
             <span>ایران-اصفهان-خیابان سعادت آباد-مجتمع طلا- واحد c</span>
           </div>
 
-          <div className="flex items-center mt-2 space-x-2 text-dark-600 dark:text-neutral-400">
+          <div className="flex items-center mt-2 text-black space-x-2 text-dark-600 dark:text-neutral-400">
 
             <a href="mailto:hello@halley.vercel.app">farazaman@gmail.com</a>
           </div>
 
-          <div className="flex items-center mt-2 space-x-2 text-dark-600 dark:text-neutral-400">
+          <div className="flex items-center mt-2 text-black space-x-2 text-dark-600 dark:text-neutral-400">
 
             <a href="tel:0313313155">0313313155</a>
           </div>
