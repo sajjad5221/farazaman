@@ -97,11 +97,6 @@ export default function Navbar() {
                   {item.name}
                 </Disclosure.Button>
               ))}
-              <Link href="https://github.com/humberni/halley" target="_blank">
-                <button className="mt-12 bg-rose-500 text-white px-4 p-3 font-medium rounded-full w-full">
-                  GitHub
-                </button>
-              </Link>
             </div>
           </Disclosure.Panel>
         </>
