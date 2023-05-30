@@ -1,0 +1,26 @@
+[
+    {
+      "id": 1,
+      "title": "React Conference",
+      "description": "Join us for the annual React conference where we'll be discussing the latest trends and best practices.",
+      "date": "May 15, 2022",
+      "location": "San Francisco, CA",
+      "image": "https://images.unsplash.com/photo-1521747116042-5a810fda9664?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+    },
+    {
+      "id": 2,
+      "title": "Node.js Workshop",
+      "description": "Learn how to build scalable and performant applications with Node.js in this hands-on workshop.",
+      "date": "June 20, 2022",
+      "location": "New York, NY",
+      "image": "https://images.unsplash.com/photo-1521747116042-5a810fda9664?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+    },
+    {
+      "id": 3,
+      "title": "GraphQL Meetup",
+      "description": "Join us for an evening of talks and networking focused on GraphQL and its ecosystem.",
+      "date": "July 10, 2022",
+      "location": "London, UK",
+      "image": "https://images.unsplash.com/photo-1521747116042-5a810fda9664?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+    }
+  ]
