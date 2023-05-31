@@ -18,7 +18,7 @@ const StartUpsForm = () => {
   // define formData state for store form text to state
   const [formData, setFormData] = useState(initialFormData);
   // define filePost state for store form File to state
-  const [filePost, setFilePost] = useState({pitch:null})
+  const [filePost, setFilePost] = useState<{ pitch: File | null }>({ pitch: null })
   //define csrfToken state for store csrf token to state
   const [csrfToken,setCsrfToken] = useState('');
 
@@ -35,21 +35,23 @@ const StartUpsForm = () => {
 
   // handle change file of form ( text and file)
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if ([e.target.name]=='pitch') {
-      setFilePost({pitch:e.target.files[0]})
+    if (e.target.name === 'pitch') {
+      setFilePost({pitch:e.target.files?.[0] || null});
       console.log(e.target.files);
+    } else {
+      setFormData({ ...formData, [e.target.name]: e.target.value });
     }
-    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
+
 
   // handle submit (for handl send file and text to server)
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     const sendFormData = new FormData();
-    sendFormData.append('pitch',filePost.pitch, filePost.pitch.name); // define file's name and file's url to sendFormData
+    sendFormData.append('pitch',filePost.pitch || ''); // define file's name and file's url to sendFormData
     sendFormData.append('name',formData.name);
     sendFormData.append('phone',formData.phone);
     sendFormData.append('email',formData.email);
-    sendFormData.append('members_count',formData.members_count);
+    sendFormData.append('members_count',formData.members_count.toString());
 
     // send form data with axios to sever
     axios.post("http://localhost:8000/startup-submit/",sendFormData,{
@@ -175,7 +177,7 @@ const StartUpsForm = () => {
                   name="pitch"
                   autoComplete="false"
                   className={'w-full px-4 py-3 border-2 placeholder:text-neutral-800 dark:text-white rounded-md outline-none dark:placeholder:text-neutral-200 dark:bg-neutral-900   focus:ring-4'}
-                  value={formData.pitch}
+                    value={formData.pitch || ''}
                   onChange={handleChange}
                 />
               </div>

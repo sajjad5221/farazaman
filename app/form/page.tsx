@@ -5,6 +5,18 @@ import React, {ReactNode, useState} from "react";
 
 
 export default function page() {
+  const [formData,setFormData] = useState({
+    name : "",
+    member_count : 0,
+    email : "",
+    phone : "",
+    pitch : ""
+  })
+
+  const handleChange = (e:any) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
   const submitData = async () =>{
     const headers = { 'Content-Type': 'application/json' }
     const res = await fetch("/startup-submit", {
@@ -29,18 +41,15 @@ export default function page() {
     };
   }
  
-
-
-
   return (
     <div className="ltr">
       <h2>فرم</h2>
       <p>توضیحات اولیه</p>
       <form className="w-1/2 border mx-auto border-slate-50 rounded-sm whitespace-nowrap p-8" onSubmit={submitData} method="post" action="/startup-submit">
-        <Input label={"نام استارتاپ"} type="text" setName="name"/>
-        <Input label={"شماره تماس"} type="number" setName="phone" onChangeEvent={handleChange} value={formData.phone}/>
-        <Input label={"تعداد اعضا"} type="number" setName="member_count" onChange={handleChange} value={formData.member_count}/>
-        <Input label={"ایمیل"} type="file" setName="email" onChange={handleChange} value={formData.email}/>
+        <input placeholder={"نام استارتاپ"} type="text" name="name" onChange={handleChange} value={formData.name}/>
+        <input placeholder={"شماره تماس"} type="number" name="phone" onChange={handleChange} value={formData.phone}/>
+        <input placeholder={"تعداد اعضا"} type="number" name="member_count" onChange={handleChange} value={formData.member_count}/>
+        <input type="file" name="email" onChange={handleChange} value={formData.email}/>
         <div className="flex items-start mb-6"></div>
         <button
           type="submit"

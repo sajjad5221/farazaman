@@ -1,20 +1,25 @@
 import React from "react";
-import Slider from "../Components/Slider"
-import Table from "../Components/Table"
+// import Slider from "../Components/Slider"
+// import Table from "../Components/Table"
 
-export default function StartUpsDetails({
-  slug,
-  slugTable,
-}: {
-  slug: string;
-  slugTable: string;
-}) {
-  return (
-    <div className="container">
-      <Slider/>
+// export default function StartUpsDetails({
+//   slug,
+//   slugTable,
+// }: {
+//   slug: string;
+//   slugTable: string;
+// }) {
+//   return (
+//     <div className="container">
+//       <Slider/>
 
-      <Table/>
+//       <Table/>
       
-    </div>
+//     </div>
+//   );
+// }
+export default function StartUpDetails() {
+  return (
+    <div>page</div>
   );
 }
