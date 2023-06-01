@@ -83,7 +83,7 @@ const ContactUs = () => {
                 placeholder="نام و نام خانوادگی"
                 autoComplete="false"
                 className={
-                  "w-full px-4 py-3 border-2 placeholder:text-neutral-800 dark:text-white rounded-md outline-none dark:placeholder:text-neutral-200 dark:bg-neutral-900 focus:ring-4"
+                  "w-full px-4 py-3 border-2 placeholder:text-neutral-400 dark:text-white rounded-md outline-none dark:placeholder:text-neutral-200 dark:bg-neutral-900 focus:ring-4"
                 }
                 name="name"
                 value={formData.name}
@@ -102,7 +102,7 @@ const ContactUs = () => {
                 name="email"
                 autoComplete="false"
                 className={
-                  "w-full px-4 py-3 border-2 placeholder:text-neutral-800 dark:text-white rounded-md outline-none dark:placeholder:text-neutral-200 dark:bg-neutral-900   focus:ring-4"
+                  "w-full px-4 py-3 border-2 placeholder:text-neutral-400 dark:text-white rounded-md outline-none dark:placeholder:text-neutral-200 dark:bg-neutral-900   focus:ring-4"
                 }
                 value={formData.email}
                 onChange={handleChange}
@@ -120,7 +120,7 @@ const ContactUs = () => {
                 name="phone"
                 autoComplete="false"
                 className={
-                  "w-full px-4 py-3 border-2 placeholder:text-neutral-800 dark:text-white rounded-md outline-none dark:placeholder:text-neutral-200 dark:bg-neutral-900   focus:ring-4"
+                  "w-full px-4 py-3 border-2 placeholder:text-neutral-400 dark:text-white rounded-md outline-none dark:placeholder:text-neutral-200 dark:bg-neutral-900   focus:ring-4"
                 }
                 value={formData.phone}
                 onChange={handleChange}
@@ -132,7 +132,7 @@ const ContactUs = () => {
                 name="message"
                 placeholder="پیام شما"
                 className={
-                  "w-full px-4 py-3 border-2 placeholder:text-neutral-800 dark:text-white dark:placeholder:text-neutral-200 dark:bg-neutral-900 rounded-md outline-none  h-36 focus:ring-4"
+                  "w-full px-4 py-3 border-2 placeholder:text-neutral-400 dark:text-white dark:placeholder:text-neutral-200 dark:bg-neutral-900 rounded-md outline-none  h-36 focus:ring-4"
                 }
                 value={formData.message}
                 onChange={handleChange}

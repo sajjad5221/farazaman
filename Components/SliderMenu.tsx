@@ -185,8 +185,8 @@ export default function SliderMenu({
   };
 
   return (
-    <div className="select-none bg-gray-50 text-gray-800 dark:bg-neutral-900 w-full px-4 pt-16 pb-16 max-w-full relative">
-      <h1 className="text-3xl font-bold text-center mb-6 text-black dark:text-whitle">{title}</h1>
+    <div className="select-none bg-gray-50 text-gray-300 dark:bg-neutral-900 w-full px-4 pt-16 pb-16 max-w-full relative">
+      <h1 className="text-3xl font-bold text-center mb-6 ">{title}</h1>
       <p className="pt-6 pb-16 text-base max-w-2xl text-center m-auto text-gray-600 dark:text-neutral-400">
         {description}
       </p>
