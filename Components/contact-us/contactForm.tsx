@@ -1,8 +1,7 @@
 "use client";
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import GetCsrfToken from "@/Services/GetCsrfToken";
 import axios from "axios";
-import Button from "../ToggleDark";
 const ContactUs = () => {
   const [formData, setFormData] = useState({
     name: "",
@@ -17,21 +16,23 @@ const ContactUs = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     // send form data with axios to sever
-    axios.post("http://localhost:8000/contact/",JSON.stringify(formData),{
-          headers: {
-            "X-CSRFToken": csrfToken,
-            "Content-Type": "application/json",
-          } 
-        }).then(res => {
-          console.log(res.data);
-        })
-        .catch(err => console.log(err))
-    
+    axios
+      .post("http://localhost:8000/contact/", JSON.stringify(formData), {
+        headers: {
+          "X-CSRFToken": csrfToken,
+          "Content-Type": "application/json",
+        },
+      })
+      .then((res) => {
+        console.log(res.data);
+      })
+      .catch((err) => console.log(err));
+
     e.preventDefault();
   };
 
   // handle csrf token
-  const [csrfToken,setCsrfToken] = useState('');
+  const [csrfToken, setCsrfToken] = useState("");
   useEffect(() => {
     async function fetchCsrfToken() {
       const token = await GetCsrfToken("http://localhost:8000/get-csrf-token/");
@@ -40,8 +41,6 @@ const ContactUs = () => {
 
     fetchCsrfToken();
   }, []);
-
-
 
   return (
     <div className="bg-gray-50 dark:bg-neutral-900 mt-16" id="contact">
@@ -77,75 +76,76 @@ const ContactUs = () => {
         </div>
 
         <div>
+          <form onSubmit={handleSubmit}>
+            <div className="mb-5">
+              <input
+                type="text"
+                placeholder="نام و نام خانوادگی"
+                autoComplete="false"
+                className={
+                  "w-full px-4 py-3 border-2 placeholder:text-neutral-800 dark:text-white rounded-md outline-none dark:placeholder:text-neutral-200 dark:bg-neutral-900 focus:ring-4"
+                }
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+              />
+            </div>
 
-            <form onSubmit={handleSubmit}>
+            <div className="mb-5">
+              <label htmlFor="email_address" className="sr-only">
+                آدرس ایمیل شما
+              </label>
+              <input
+                id="email_address"
+                type="email"
+                placeholder="farazaman@gmail.com"
+                name="email"
+                autoComplete="false"
+                className={
+                  "w-full px-4 py-3 border-2 placeholder:text-neutral-800 dark:text-white rounded-md outline-none dark:placeholder:text-neutral-200 dark:bg-neutral-900   focus:ring-4"
+                }
+                value={formData.email}
+                onChange={handleChange}
+              />
+            </div>
 
+            <div className="mb-5">
+              <label htmlFor="email_address" className="sr-only">
+                شماره تماس
+              </label>
+              <input
+                id="phone-number"
+                type="number"
+                placeholder="091311111111"
+                name="phone"
+                autoComplete="false"
+                className={
+                  "w-full px-4 py-3 border-2 placeholder:text-neutral-800 dark:text-white rounded-md outline-none dark:placeholder:text-neutral-200 dark:bg-neutral-900   focus:ring-4"
+                }
+                value={formData.phone}
+                onChange={handleChange}
+              />
+            </div>
 
-              <div className="mb-5">
-                <input
-                  type="text"
-                  placeholder="نام و نام خانوادگی"
-                  autoComplete="false"
-                  className={'w-full px-4 py-3 border-2 placeholder:text-neutral-800 dark:text-white rounded-md outline-none dark:placeholder:text-neutral-200 dark:bg-neutral-900 focus:ring-4'}
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                />
-              </div>
+            <div className="mb-3">
+              <input
+                name="message"
+                placeholder="پیام شما"
+                className={
+                  "w-full px-4 py-3 border-2 placeholder:text-neutral-800 dark:text-white dark:placeholder:text-neutral-200 dark:bg-neutral-900 rounded-md outline-none  h-36 focus:ring-4"
+                }
+                value={formData.message}
+                onChange={handleChange}
+              />
+            </div>
 
-              <div className="mb-5">
-                <label htmlFor="email_address" className="sr-only">
-                  آدرس ایمیل شما
-                </label>
-                <input
-                  id="email_address"
-                  type="email"
-                  placeholder="farazaman@gmail.com"
-                  name="email"
-                  autoComplete="false"
-                  className={'w-full px-4 py-3 border-2 placeholder:text-neutral-800 dark:text-white rounded-md outline-none dark:placeholder:text-neutral-200 dark:bg-neutral-900   focus:ring-4'}
-                  value={formData.email}
-                  onChange={handleChange}
-                />
-              </div>
-
-              <div className="mb-5">
-                <label htmlFor="email_address" className="sr-only">
-                  شماره تماس
-                </label>
-                <input
-                  id="phone-number"
-                  type="number"
-                  placeholder="091311111111"
-                  name="phone"
-                  autoComplete="false"
-                  className={'w-full px-4 py-3 border-2 placeholder:text-neutral-800 dark:text-white rounded-md outline-none dark:placeholder:text-neutral-200 dark:bg-neutral-900   focus:ring-4'}
-                  value={formData.phone}
-                  onChange={handleChange}
-                />
-              </div>
-
-              <div className="mb-3">
-                <input
-                  name="message"
-                  placeholder="پیام شما"
-                  className={"w-full px-4 py-3 border-2 placeholder:text-neutral-800 dark:text-white dark:placeholder:text-neutral-200 dark:bg-neutral-900 rounded-md outline-none  h-36 focus:ring-4"}
-                  value={formData.message}
-                  onChange={handleChange}
-
-                />
-              </div>
-
-              <button
-                type="submit"
-                className="w-full py-4 font-semibold text-white transition-colors bg-neutral-900 rounded-md hover:bg-neutral-800 focus:outline-none focus:ring-offset-2 focus:ring focus:ring-neutral-200 px-7 dark:bg-white dark:text-black "
-              >
-                ارسال
-              </button>
-            </form>
-
-
-        
+            <button
+              type="submit"
+              className="w-full py-4 font-semibold text-white transition-colors bg-neutral-900 rounded-md hover:bg-neutral-800 focus:outline-none focus:ring-offset-2 focus:ring focus:ring-neutral-200 px-7 dark:bg-white dark:text-black "
+            >
+              ارسال
+            </button>
+          </form>
         </div>
       </div>
       {/* <Button/> */}
