@@ -43,17 +43,17 @@ const customers = [
 export default function Customers() {
   return (
     <div
-      className="bg-white dark:bg-neutral-900 w-full px-4 pt-16 pb-16"
+      className="bg-gray-50 dark:bg-neutral-900 w-full px-4 pt-16 pb-16"
       id="faq"
     >
-      <h2 className="text-4xl font-bold text-center">شرکای تجاری </h2>
+      <h2 className="font-bold text-black dark:text-white text-4xl font-bold text-center">شرکای تجاری </h2>
 
-      <p className="pt-6 pb-8 text-base max-w-2xl text-center m-auto dark:text-neutral-400">
+      <p className="text-gray-600 pt-6 pb-8 text-base max-w-2xl text-center m-auto dark:text-neutral-400">
         لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده
         از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و
         سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز
       </p>
-      <div className="mx-auto w-full max-w-4xl bg-white dark:bg-transparent">
+      <div className="bg-transparent mx-auto w-full max-w-4xl dark:bg-transparent">
         <div className="text-center justify-center items-center grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6">
           {customers.map((item) => (
             <Link key={item.name} href={item.href} target="_blank">
@@ -66,7 +66,7 @@ export default function Customers() {
                 quality={75}
                 sizes="100vw"
               />
-              <span>نام شرکت</span>
+              <span className="text-gray-600 dark:text-neutral">نام شرکت</span>
             </Link>
           ))}
         </div>

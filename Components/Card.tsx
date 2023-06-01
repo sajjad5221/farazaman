@@ -25,8 +25,8 @@ const ClickableCard = ({
           height={50}
           width={50}
         />
-        <span className="text-lg font-bold">{name}</span>
-        <p className="text-sm text-muted">{paragraph}</p>
+        <span className="text-lg font-bold text-gray-700">{name}</span>
+        <p className="text-sm text-muted text-gray-700">{paragraph}</p>
       </div>
     </Link>
   );
