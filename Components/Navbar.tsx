@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import ThemeSwitchButton from "./ThemeSwitchButton";
-import ThemeSwitchOption from "./ThemeSwitchOption";
+
 
 import React from "react";
 import { Disclosure } from "@headlessui/react";
