@@ -16,7 +16,8 @@ module.exports = {
         yakan: ["yekan", 'sans-serif']
       },
       screens: {
-        's' : '500px'
+        's' : '500px' ,
+       
       }
     },
   },
