@@ -71,7 +71,7 @@ const StartUpsForm = () => {
   return (
     <div className="bg-gray-50 dark:bg-neutral-900 mt-16" id="contact">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 text-center">
-        <h2 className="text-4xl text-zinc-900 font-bold dark:text-neutral-400">ثبت استارتاپ ها</h2>
+        <h2 className="text-4xl text-black font-bold dark:text-white">ثبت استارتاپ ها</h2>
 
         <p className="pt-6 pb-6 text-base text-zinc-600 max-w-2xl text-center m-auto dark:text-neutral-400">
           ثبت استارتاپ های نوپا در شتابدهنده فرازمان
@@ -111,7 +111,7 @@ const StartUpsForm = () => {
                   type="text"
                   placeholder="نام استارتاپ"
                   autoComplete="false"
-                  className={'w-full px-4 py-3 border-2 placeholder:text-neutral-800 dark:text-white rounded-md outline-none dark:placeholder:text-neutral-200 dark:bg-neutral-900 focus:ring-4'}
+                  className={'w-full px-4 py-3 border-2 placeholder:text-neutral-400 dark:text-white rounded-md outline-none dark:placeholder:text-neutral-200 dark:bg-neutral-900 focus:ring-4'}
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
@@ -128,7 +128,7 @@ const StartUpsForm = () => {
                   placeholder="آدرس ایمیل استارتاپ"
                   name="email"
                   autoComplete="false"
-                  className={'w-full px-4 py-3 border-2 placeholder:text-neutral-800 dark:text-white rounded-md outline-none dark:placeholder:text-neutral-200 dark:bg-neutral-900   focus:ring-4'}
+                  className={'w-full px-4 py-3 border-2 placeholder:text-neutral-400 dark:text-white rounded-md outline-none dark:placeholder:text-neutral-200 dark:bg-neutral-900   focus:ring-4'}
                   value={formData.email}
                   onChange={handleChange}
                 />
@@ -144,7 +144,7 @@ const StartUpsForm = () => {
                   placeholder="شماره تماس ( مثال : ۰۹۱۳۱۲۳۴۵۶۷)"
                   name="phone"
                   autoComplete="false"
-                  className={'w-full px-4 py-3 border-2 placeholder:text-neutral-800 dark:text-white rounded-md outline-none dark:placeholder:text-neutral-200 dark:bg-neutral-900   focus:ring-4'}
+                  className={'w-full px-4 py-3 border-2 placeholder:text-neutral-400 dark:text-white rounded-md outline-none dark:placeholder:text-neutral-200 dark:bg-neutral-900   focus:ring-4'}
                   value={formData.phone}
                   onChange={handleChange}
                 />
@@ -160,7 +160,7 @@ const StartUpsForm = () => {
                   placeholder="تعداد اعضای تیم"
                   name="members_count"
                   autoComplete="false"
-                  className={'w-full px-4 py-3 border-2 placeholder:text-neutral-800 dark:text-white rounded-md outline-none dark:placeholder:text-neutral-200 dark:bg-neutral-900   focus:ring-4'}
+                  className={'w-full px-4 py-3 border-2 placeholder:text-neutral-400 dark:text-white rounded-md outline-none dark:placeholder:text-neutral-200 dark:bg-neutral-900   focus:ring-4'}
                   value={formData.members_count}
                   onChange={handleChange}
                 />

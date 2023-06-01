@@ -185,9 +185,9 @@ export default function SliderMenu({
   };
 
   return (
-    <div className="select-none bg-white dark:bg-neutral-900 w-full px-4 pt-16 pb-16 max-w-full relative">
-      <h1 className="text-3xl font-bold text-center mb-6">{title}</h1>
-      <p className="pt-6 pb-16 text-base max-w-2xl text-center m-auto dark:text-neutral-400">
+    <div className="select-none bg-gray-50 text-gray-800 dark:bg-neutral-900 w-full px-4 pt-16 pb-16 max-w-full relative">
+      <h1 className="text-3xl font-bold text-center mb-6 text-black dark:text-whitle">{title}</h1>
+      <p className="pt-6 pb-16 text-base max-w-2xl text-center m-auto text-gray-600 dark:text-neutral-400">
         {description}
       </p>
       {StartUpsProps ? (
@@ -253,7 +253,7 @@ export default function SliderMenu({
                       className="mx-auto rounded-full"
                     />
 
-                    <h3 className="text-center mt-2 font-bold">{card.title}</h3>
+                    <h3 className="text-center mt-2 font-bold text-gray-700">{card.title}</h3>
                     <p className="text-center dark:text-neutral-400">
                       {card.description}
                     </p>
@@ -262,7 +262,7 @@ export default function SliderMenu({
               : StartUps.map((card) => (
                   <div
                     key={card.id}
-                    className="flex flex-col justify-evenly w-64 h-64 bg-neutral-50 dark:bg-neutral-700 rounded-lg p-4 cursor-pointer mx-2"
+                    className="flex flex-col justify-evenly w-64 h-64 bg-neutral-50 text-gray-700 dark:bg-neutral-700 rounded-lg p-4 cursor-pointer mx-2"
                     style={{ scrollSnapAlign: "start" }}
                   >
                     <Image
@@ -274,8 +274,8 @@ export default function SliderMenu({
                       className="mx-auto rounded-full"
                     />
 
-                    <h3 className="text-center mt-2 font-bold">{card.title}</h3>
-                    <p className="text-center dark:text-neutral-400">
+                    <h3 className="text-black text-center mt-2 font-bold"><span className="text-black">{card.title}</span></h3>
+                    <p className="text-center text-gray-600 dark:text-neutral-400">
                       {card.description}
                     </p>
                   </div>
