@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
-import ThemeSwitchOption from '@/Components/ThemeSwitchOption'
+
 const social = [
   {
     name: "facebook",
@@ -165,9 +165,7 @@ export default function Footer() {
           &copy; Copyright {new Date().getFullYear()}. All rights reserved
         </Link>
       </div>
-      <div className="mt-12">
-          <ThemeSwitchOption />
-        </div>   
+  
     </footer>
   );
 }
