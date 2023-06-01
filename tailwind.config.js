@@ -17,7 +17,7 @@ module.exports = {
       },
       screens: {
         's' : '500px' ,
-       
+        'mobile' : '420px' ,
       }
     },
   },
