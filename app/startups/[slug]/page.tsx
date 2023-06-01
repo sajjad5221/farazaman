@@ -1,20 +1,9 @@
-import React from "react";
-import Slider from "../Components/Slider"
-import Table from "../Components/Table"
+import React from 'react'
 
-export default function StartUpsDetails({
-  slug,
-  slugTable,
-}: {
-  slug: string;
-  slugTable: string;
-}) {
+export default function page() {
   return (
-    <div className="container">
-      <Slider/>
-
-      <Table/>
-      
+    <div>
+      page
     </div>
-  );
+  )
 }
