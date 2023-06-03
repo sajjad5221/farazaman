@@ -1,5 +1,3 @@
-import { env } from "process";
-
 const production = {
   url: process.env.production_url,
 };

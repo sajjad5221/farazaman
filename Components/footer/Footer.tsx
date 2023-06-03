@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+
 const social = [
   {
     name: "facebook",
@@ -164,6 +165,7 @@ export default function Footer() {
           &copy; Copyright {new Date().getFullYear()}. All rights reserved
         </Link>
       </div>
+  
     </footer>
   );
 }
