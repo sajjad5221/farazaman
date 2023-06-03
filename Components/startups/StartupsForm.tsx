@@ -14,10 +14,10 @@ const initialFormData = {
 
 const StartUpsForm = () => {
   const [formData, setFormData] = useState(initialFormData);
-  // define filePost state for store form File to state
-  const [filePost, setFilePost] = useState<{ pitch: File | null }>({ pitch: null })
-  //define csrfToken state for store csrf token to state
-  const [csrfToken,setCsrfToken] = useState('');
+  const [filePost, setFilePost] = useState<{ pitch: File | null }>({
+    pitch: null,
+  });
+  const [csrfToken, setCsrfToken] = useState("");
 
   useEffect(() => {
     async function fetchCsrfToken() {
@@ -29,35 +29,17 @@ const StartUpsForm = () => {
   }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.name === 'pitch') {
-      setFilePost({pitch:e.target.files?.[0] || null});
+    if (e.target.name === "pitch") {
+      if (e.target.files && e.target.files.length > 0) {
+        setFilePost({ pitch: e.target.files[0] });
+      }
       console.log(e.target.files);
     } else {
       setFormData({ ...formData, [e.target.name]: e.target.value });
     }
   };
 
-
-  // handle submit (for handl send file and text to server)
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    const sendFormData = new FormData();
-    sendFormData.append('pitch',filePost.pitch || ''); // define file's name and file's url to sendFormData
-    sendFormData.append('name',formData.name);
-    sendFormData.append('phone',formData.phone);
-    sendFormData.append('email',formData.email);
-    sendFormData.append('members_count',formData.members_count.toString());
-
-    // send form data with axios to sever
-    axios.post("http://localhost:8000/startup-submit/",sendFormData,{
-      headers: {
-        'content-type': 'multipart/form-data',
-        "X-CSRFToken": csrfToken
-      } 
-    }).then(res => {
-      console.log(res.data);
-    })
-    .catch(err => console.log(err))
-
     e.preventDefault();
 
     const sendFormData = new FormData();
@@ -192,80 +174,31 @@ const StartUpsForm = () => {
               />
             </div>
 
-              <div className="mb-5">
-                <label htmlFor="email_address" className="sr-only">
-                  آدرس ایمیل شما
-                </label>
-                <input
-                  id="email_address"
-                  type="email"
-                  placeholder="آدرس ایمیل استارتاپ"
-                  name="email"
-                  autoComplete="false"
-                  className={'w-full px-4 py-3 border-2 placeholder:text-neutral-800 dark:text-white rounded-md outline-none dark:placeholder:text-neutral-200 dark:bg-neutral-900   focus:ring-4'}
-                  value={formData.email}
-                  onChange={handleChange}
-                />
-              </div>
-
-              <div className="mb-5">
-                <label htmlFor="phone-number" className="sr-only">
-                  شماره تماس
-                </label>
-                <input
-                  id="phone-number"
-                  type="number"
-                  placeholder="شماره تماس ( مثال : ۰۹۱۳۱۲۳۴۵۶۷)"
-                  name="phone"
-                  autoComplete="false"
-                  className={'w-full px-4 py-3 border-2 placeholder:text-neutral-800 dark:text-white rounded-md outline-none dark:placeholder:text-neutral-200 dark:bg-neutral-900   focus:ring-4'}
-                  value={formData.phone}
-                  onChange={handleChange}
-                />
-              </div>
-
-              <div className="mb-5">
-                <label htmlFor="member-count" className="sr-only">
-                  تعداد اعضا
-                </label>
-                <input
-                  id="member-count"
-                  type="number"
-                  placeholder="تعداد اعضای تیم"
-                  name="members_count"
-                  autoComplete="false"
-                  className={'w-full px-4 py-3 border-2 placeholder:text-neutral-800 dark:text-white rounded-md outline-none dark:placeholder:text-neutral-200 dark:bg-neutral-900   focus:ring-4'}
-                  value={formData.members_count}
-                  onChange={handleChange}
-                />
-              </div>
-
-              <div className="mb-5">
-                <label htmlFor="member-count" className="sr-only">
-                  فایل ارائه
-                </label>
-                <input
-                  id="member-count"
-                  type="file"
-                  placeholder="قایل ارائه"
-                  name="pitch"
-                  autoComplete="false"
-                  className={'w-full px-4 py-3 border-2 placeholder:text-neutral-800 dark:text-white rounded-md outline-none dark:placeholder:text-neutral-200 dark:bg-neutral-900   focus:ring-4'}
-                    value={formData.pitch || ''}
-                  onChange={handleChange}
-                />
-              </div>
-              <input type="hidden" name="csrftokenmiddleware" value={csrfToken} />
-              <button
-                type="submit"
-                className="w-full py-4 font-semibold text-white transition-colors bg-neutral-900 rounded-md hover:bg-neutral-800 focus:outline-none focus:ring-offset-2 focus:ring focus:ring-neutral-200 px-7 dark:bg-white dark:text-black "
-              >
-                ارسال
-              </button>
-            </form>
-
-
-        
+            <div className="mb-5">
+              <label htmlFor="member-count" className="sr-only">
+                فایل ارائه
+              </label>
+              <input
+                id="member-count"
+                type="file"
+                placeholder="قایل ارائه"
+                name="pitch"
+                autoComplete="false"
+                className={
+                  "w-full px-4 py-3 border-2 placeholder:text-neutral-800 dark:text-white rounded-md outline-none dark:placeholder:text-neutral-200 dark:bg-neutral-900   focus:ring-4"
+                }
+                value={formData.pitch?.name}
+                onChange={handleChange}
+              />
+            </div>
+            <input type="hidden" name="csrftokenmiddleware" value={csrfToken} />
+            <button
+              type="submit"
+              className="w-full py-4 font-semibold text-white transition-colors bg-neutral-900 rounded-md hover:bg-neutral-800 focus:outline-none focus:ring-offset-2 focus:ring focus:ring-neutral-200 px-7 dark:bg-white dark:text-black "
+            >
+              ارسال
+            </button>
+          </form>
         </div>
       </div>
     </div>
