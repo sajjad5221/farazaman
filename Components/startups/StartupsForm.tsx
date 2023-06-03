@@ -72,7 +72,7 @@ const StartUpsForm = () => {
   return (
     <div className="bg-gray-50 dark:bg-neutral-900 mt-16" id="contact">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 text-center">
-        <h2 className="text-4xl text-zinc-900 font-bold dark:text-neutral-400">
+        <h2 className="text-4xl text-black font-bold dark:text-neutral-100">
           ثبت استارتاپ ها
         </h2>
 
@@ -83,7 +83,7 @@ const StartUpsForm = () => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-16 grid md:grid-cols-2 lg:grid-cols-2 gap-y-8 md:gap-x-8 md:gap-y-8 lg:gap-x-8 lg:gap-y-16">
         <div>
-          <h2 className="text-lg font-bold text-black dark:text-neutral-400">
+          <h2 className="text-lg font-bold text-black dark:text-neutral-200">
             ارتباط با شتابدهنده فرازمان
           </h2>
           <p className="max-w-sm mt-4 mb-4 text-black dark:text-neutral-400">
@@ -112,7 +112,7 @@ const StartUpsForm = () => {
                 placeholder="نام استارتاپ"
                 autoComplete="false"
                 className={
-                  "w-full px-4 py-3 border-2 placeholder:text-neutral-800 dark:text-white rounded-md outline-none dark:placeholder:text-neutral-200 dark:bg-neutral-900 focus:ring-4"
+                  "w-full px-4 py-3 border-2 placeholder:text-neutral-400 dark:text-white rounded-md outline-none dark:placeholder:text-neutral-200 dark:bg-neutral-900 focus:ring-4"
                 }
                 name="name"
                 value={formData.name}
@@ -131,7 +131,7 @@ const StartUpsForm = () => {
                 name="email"
                 autoComplete="false"
                 className={
-                  "w-full px-4 py-3 border-2 placeholder:text-neutral-800 dark:text-white rounded-md outline-none dark:placeholder:text-neutral-200 dark:bg-neutral-900   focus:ring-4"
+                  "w-full px-4 py-3 border-2 placeholder:text-neutral-400 dark:text-white rounded-md outline-none dark:placeholder:text-neutral-200 dark:bg-neutral-900   focus:ring-4"
                 }
                 value={formData.email}
                 onChange={handleChange}
@@ -149,7 +149,7 @@ const StartUpsForm = () => {
                 name="phone"
                 autoComplete="false"
                 className={
-                  "w-full px-4 py-3 border-2 placeholder:text-neutral-800 dark:text-white rounded-md outline-none dark:placeholder:text-neutral-200 dark:bg-neutral-900   focus:ring-4"
+                  "w-full px-4 py-3 border-2 placeholder:text-neutral-400 dark:text-white rounded-md outline-none dark:placeholder:text-neutral-200 dark:bg-neutral-900   focus:ring-4"
                 }
                 value={formData.phone}
                 onChange={handleChange}
@@ -167,7 +167,7 @@ const StartUpsForm = () => {
                 name="members_count"
                 autoComplete="false"
                 className={
-                  "w-full px-4 py-3 border-2 placeholder:text-neutral-800 dark:text-white rounded-md outline-none dark:placeholder:text-neutral-200 dark:bg-neutral-900   focus:ring-4"
+                  "w-full px-4 py-3 border-2 placeholder:text-neutral-400 dark:text-white rounded-md outline-none dark:placeholder:text-neutral-200 dark:bg-neutral-900   focus:ring-4"
                 }
                 value={formData.members_count}
                 onChange={handleChange}
@@ -185,7 +185,7 @@ const StartUpsForm = () => {
                 name="pitch"
                 autoComplete="false"
                 className={
-                  "w-full px-4 py-3 border-2 placeholder:text-neutral-800 dark:text-white rounded-md outline-none dark:placeholder:text-neutral-200 dark:bg-neutral-900   focus:ring-4"
+                  "w-full px-4 py-3 border-2 placeholder:text-neutral-500 dark:text-white rounded-md outline-none dark:placeholder:text-neutral-200 dark:bg-neutral-900   focus:ring-4"
                 }
                 value={formData.pitch?.name}
                 onChange={handleChange}
