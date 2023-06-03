@@ -51,6 +51,9 @@ export default function Navbar() {
 
                 <div className="hidden sm:ml-6 sm:block">
                   <div className="flex flex-row-reverse space-x-5 items-center">
+                  <div className="justify-self-end">
+                  <ThemeSwitchButton />
+                  </div>
                     {navigation.map((item) => (
                       <Link
                         key={item.name}
@@ -67,7 +70,8 @@ export default function Navbar() {
                       </Link>
                       
                     ))}
-                    <ThemeSwitchButton />
+                    
+                    
                   </div>
                 </div>
 

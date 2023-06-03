@@ -24,11 +24,11 @@ export default function RootLayout({
       />
     
     <html dir="rtl" lang="en">
-        <body className="font-yakan">
+        <body className="font-yakan bg-gray-50 drak: bg-transparent">
           <ThemeProvider attribute="class">
           <Navbar />
           </ThemeProvider>
-          <div className="mt-16 mb-3">
+          <div className="mb-3">
           <ThemeProvider attribute="class">
           {children}
           </ThemeProvider>
