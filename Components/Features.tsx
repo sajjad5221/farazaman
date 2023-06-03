@@ -57,7 +57,7 @@ export function Features() {
               <ul className="font-medium space-y-1 flex-1 text-gray-600">
                 {content.features.map((feature) => (
                   <li key={feature} className="leading-6 flex">
-                    <CheckIcon className="mt-2 w-3 h-3 text-rose-500 shrink-0" />
+                    <CheckIcon className="mt-2 w-3 h-3 text-amber-500 shrink-0" />
                     <span className="ml-3 dark:text-neutral-400">
                       {feature}
                     </span>
