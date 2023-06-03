@@ -34,9 +34,8 @@ const StartUpsForm = () => {
         setFilePost({ pitch: e.target.files[0] });
       }
       console.log(e.target.files);
-    } else {
-      setFormData({ ...formData, [e.target.name]: e.target.value });
     }
+    setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
