@@ -1,8 +1,10 @@
+import Script from 'next/script'
 import React from 'react'
 
 export default function page() {
   return (
-    <><><div className='scrollBox fixed h-[5px] bg-slate-600'></div>
+    <><><div>page</div>
+    <div className='scrollBox fixed h-[5px] bg-slate-600'></div>
       <form className='relative top-[9px] left-[30px] m-[30px] mb-0 mt-[55px] w-full border border-solid border-gray-700 bg-white dark:bg-neutral-900'>
         <div className='box relative my-10 mx-auto w-[42%] h-[800px] left-0 top-20 border-[1px] border-solid border-gray-500 rounded-md shadow shadow-slate-800 dark:shadow-slate-100 '></div>
         <div className="absolute right-[29%] top-[120px] w-[33%] p-[10px] m-0 mr-[69px] ml-[68px] mt-[16px] z-0 mb-6 group mobile:right-[18%] s:right-[19%] xl:right-[29%] xl:top-[120px] xl:w-[33%] xl:p-[10px] xl:m-0 xl:mt-[16px] xl:ml-[60px] xl:mr-[55px]  2xl:ml-[69px lg:mr-[55px] lg:right-[29%] md:right-[25%] sm:right-[24%]" id='name-input'>
