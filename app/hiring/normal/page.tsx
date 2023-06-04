@@ -50,7 +50,6 @@ export default function page() {
         </div>
         <button type="submit" className="absolute right-[29%] top-[818px] mr-[268px] ml-[267px] mt-[36px] my-[25px] mx-[279px] text-yellow-700 bg-zinc-400 hover:bg-yellow-700 hover:text-zinc-300 duration-200 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-zinc-400 dark:text-yellow-700 dark:hover:text-zinc-200 dark:hover:bg-yellow-700 dark:focus:ring-yellow-700 mobile:right-[29%] mobile:w-[24%] mobile:mr-[36px] mobile:ml-[38px] s:right-[144px] s:top-[781px] s:w-[20%] s:mr-[52px] s:ml-[56px] sm:top-[762px] sm:right-[198px] sm:ml-[106px] sm:mr-[92px] md:right-[332px] md:mr-[115px] md:ml-[129px] lg:right-[297px] lg:mr-[170px] lg:ml-[175px] xl:right-[29%] xl:mr-[265px] xl:ml-[278px]">ثبت فرم </button>
       </form></>
-      <Script src='./js/app.js' strategy='afterInteractive'/>
       </>
   )
 }
