@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from 'axios'
 
 type Event = {
     id: number;
@@ -15,8 +16,13 @@ type Props = {
 
 
 const EventCard = ({ event }: Props) => {
+  const [users, setUsers] = useState([])
+  useEffect(()=> {
+    axios.get('https://jsonplaceholder.typicode.com/users')
+    .then(res => console.log(res.data[0]))
+  })
   return (
-    <div className="max-w-sm border-2 rounded border-gray-400 overflow-hidden shadow-lg mt-16 mr-5 bg-neutral-900 p-2">
+    <div className="max-w-sm border-1 rounded border-gray-950 overflow-hidden shadow-lg mt-16 mr-5 bg-neutral-900 p-2">
       <img className="w-full" src={event.image} alt={event.title} />
       <div className="px-6 py-4">
         <div className="font-bold text-xl mb-2">{event.title}</div>

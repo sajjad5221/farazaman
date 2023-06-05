@@ -1,8 +1,8 @@
-import React from 'react';
 import EventCard from './eventsCard';
 
 type Props = {
   events: Event[];
+  onEventSelect?: (event: Event) => void;
 };
 
 type Event = {
