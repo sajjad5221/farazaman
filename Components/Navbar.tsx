@@ -2,15 +2,20 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import ThemeSwitchButton from "./ThemeSwitchButton";
+
+
 import React from "react";
 import { Disclosure } from "@headlessui/react";
 import { Bars3Icon } from "@heroicons/react/24/solid";
 import { XMarkIcon } from "@heroicons/react/24/solid";
 
 const navigation = [
-  { name: "رویدادها", href: "#faq", current: false },
-  { name: "فضای کار اشتراکی", href: "#contact", current: false },
+  { name: "ارتباط با ما", href: "/contact-us", current: false },
+  { name: "رویدادها", href: "/events", current: false },
+  { name: "فضای کار اشتراکی", href: "/workspace", current: false },
   { name: "استارت آپ های اجرا شده", href: "#startups", current: false },
+  { name: "ثبت استارتاپ", href: "/startups", current: false },
   { name: "استخدام", href: "/hiring", current: false },
   { name: "خانه", href: "/", current: false },
 ];
@@ -46,6 +51,9 @@ export default function Navbar() {
 
                 <div className="hidden sm:ml-6 sm:block">
                   <div className="flex flex-row-reverse space-x-5 items-center">
+                  <div className="justify-self-end">
+                  <ThemeSwitchButton />
+                  </div>
                     {navigation.map((item) => (
                       <Link
                         key={item.name}
@@ -60,7 +68,10 @@ export default function Navbar() {
                       >
                         {item.name}
                       </Link>
+                      
                     ))}
+                    
+                    
                   </div>
                 </div>
 

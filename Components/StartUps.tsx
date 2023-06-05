@@ -1,7 +1,4 @@
 "use client";
-import Link from "next/link";
-import { useState } from "react";
-import { CheckIcon } from "@heroicons/react/24/solid";
 import React from "react";
 import SliderMenu from "./SliderMenu";
 
