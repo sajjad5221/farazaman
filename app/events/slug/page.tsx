@@ -4,18 +4,18 @@ export default function EventSlug() {
   return (
     <>
       <div className="mt-16"></div>
-      <section className="bg-gray-700 bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/conference.jpg')] bg-center bg-no-repeat bg-blend-multiply">
-        <div className="container mx-auto py-10">
+      <section className="bg-gray-500 bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/conference.jpg')] bg-center bg-no-repeat bg-blend-multiply">
+        <div className="container py-10 mx-auto">
           <div className="grid grid-cols-3">
-            <div className="order-2 col-span-3 mx-3 shrink-0 rounded-lg border border-gray-200 bg-white p-4 shadow dark:border-gray-700 dark:bg-gray-800 sm:p-6 md:mx-10 md:p-8 lg:col-span-1">
-              <form className="space-y-6" action="#">
+            <div className="order-2 col-span-3 p-4 mx-3 my-8 bg-white border border-gray-200 rounded-lg shadow shrink-0 dark:border-gray-700 dark:bg-gray-800 sm:p-6 md:mx-10 md:p-8 lg:col-span-1">
+              <form className="space-y-8" action="#">
                 <h5 className="text-xl font-medium text-gray-900 dark:text-white">
                   در رویداد ما ثبت نام کنید.
                 </h5>
                 <div>
                   <label
                     htmlFor="text"
-                    className="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
+                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                   >
                     نام کاربری
                   </label>
@@ -32,7 +32,7 @@ export default function EventSlug() {
                 <div>
                   <label
                     htmlFor="email"
-                    className="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
+                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                   >
                     آدرس ایمیل
                   </label>
@@ -49,7 +49,7 @@ export default function EventSlug() {
                 <div>
                   <label
                     htmlFor="tel"
-                    className="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
+                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                   >
                     شماره موبایل
                   </label>
@@ -66,7 +66,7 @@ export default function EventSlug() {
                 <div>
                   <label
                     htmlFor="password"
-                    className="mb-2 block text-sm font-medium text-gray-900 dark:text-white"
+                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                   >
                     رمز عبور
                   </label>
@@ -82,12 +82,12 @@ export default function EventSlug() {
                 </div>
                 <div className="flex items-start">
                   <div className="flex items-start">
-                    <div className="flex h-5 items-center">
+                    <div className="flex items-center h-5">
                       <input
                         id="remember"
                         type="checkbox"
                         value=""
-                        className="focus:ring-3 h-4 w-4 rounded border border-gray-300 bg-gray-50 focus:ring-yellow-300 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-yellow-600 dark:focus:ring-offset-gray-800"
+                        className="w-4 h-4 border border-gray-300 rounded focus:ring-3 bg-gray-50 focus:ring-yellow-300 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-yellow-600 dark:focus:ring-offset-gray-800"
                         required
                       />
                     </div>
@@ -100,14 +100,14 @@ export default function EventSlug() {
                   </div>
                   <a
                     href="#"
-                    className="mr-auto text-sm text-yellow-700 hover:underline dark:text-yellow-500"
+                    className="mr-auto text-sm text-[#EAB308] hover:underline dark:text-yellow-500"
                   >
                     گذرواژه خود را فراموش کرده اید؟
                   </a>
                 </div>
                 <button
                   type="submit"
-                  className="w-full rounded-lg bg-yellow-700 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-yellow-800 focus:outline-none focus:ring-4 focus:ring-yellow-300 dark:bg-yellow-600 dark:hover:bg-yellow-700 dark:focus:ring-yellow-800"
+                  className="w-full rounded-lg bg-[#EAB308] px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-yellow-800 focus:outline-none focus:ring-4 focus:ring-yellow-300 dark:bg-yellow-600 dark:hover:bg-yellow-700 dark:focus:ring-yellow-800"
                 >
                   ثبت نام
                 </button>
@@ -129,7 +129,7 @@ export default function EventSlug() {
               <div className="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-x-4 sm:space-y-0">
                 <a
                   href="#"
-                  className="inline-flex items-center justify-center rounded-lg border border-white px-5 py-3 text-center text-base font-medium text-white hover:bg-gray-100 hover:text-gray-900 focus:ring-4 focus:ring-gray-400"
+                  className="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-white border border-white rounded-lg hover:bg-gray-100 hover:text-gray-900 focus:ring-4 focus:ring-gray-400"
                 >
                   اطلاعات بیشتر...
                 </a>
@@ -138,6 +138,29 @@ export default function EventSlug() {
           </div>
         </div>
       </section>
+      <div>
+          <div className="container py-10 mx-auto ">
+            <div className="grid grid-cols-4">
+              <div className="order-1 col-span-4 mx-auto lg:ps-10 lg:pe-5 lg:col-span-2">
+                  <img
+                    src="https://websitedemos.net/event-management-04/wp-content/uploads/sites/638/2020/07/group-of-people-photo-in-room.jpg"></img>
+              </div>
+              <div className="order-2 col-span-4 py-0 mx-10 text-right px-7 lg:col-span-2 ">
+                <h6 className="mb-1 pt-4 md:pt-0  text-[#EAB308]">درباره رویداد</h6>
+                <h1 className="mb-4 text-3xl font-bold">عنوان رویداد</h1>
+                <p className="mb-1">
+                  لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و
+                  با و استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه
+                  و مجله لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت
+                  چاپ، و با لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از
+                  صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون
+                  بلکه روزنامه و مجله .استفاده از طراحان گرافیک است، چاپگرها و
+                  متون بلکه روزنامه و مجله است
+                </p>
+              </div>
+            </div>
+          </div>
+      </div>
     </>
   );
 }
