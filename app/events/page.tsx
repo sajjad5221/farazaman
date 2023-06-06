@@ -1,9 +1,7 @@
 "use client"
 
-
 import React, { useEffect, useState } from 'react'
 import EventList from '@/Components/events/eventsList'
-import events from '../../Components/events/events.json'
 import axios from 'axios'
 
 
@@ -18,27 +16,15 @@ export default function page() {
     image: string
     isFeatured: boolean
   }
-  const [theevents, setEvents] = useState<Event[]>([])
+  const [events, setEvents] = useState<Event[]>([]);
 
-  
-  const [users, setUsers] = useState([])
   useEffect(() => {
     axios.get<Event[]>('http://127.0.0.1:8000/events')
-    .then(res=>console.log(res))
+    .then(res => setEvents(res.data))
   }, [])
-  
+
   return (
-    <div> <EventList events={events}/> </div>
+    <div><EventList events={events}/> </div>
   )
 
-
-  // useEffect(()=> {
-  //   axios.get('https://jsonplaceholder.typicode.com/users')
-  //   .then(res => console.log(res))
-  // })
-  // return (
-  //   <div className='mt-24 mb-8'>
-  //     {/* <EventList events={theevents} /> */}
-  //   </div>
-  // )
 }
