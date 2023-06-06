@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
+
 const social = [
   {
     name: "facebook",
@@ -77,7 +78,7 @@ const column3 = [
 
 export default function Footer() {
   return (
-    <footer className="bg-neutral-900 text-neutral-300 dark:text-neutral-400">
+    <footer className="bg-gray-50  text-neutral-300 dark:text-neutral-400 dark:bg-neutral-900">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-12 pb-12 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-5">
         <div className="col-span-2 sm:col-span-3 md:col-span-3 lg:col-span-2 2xl:col-span-2">
           <Link href="/">
@@ -92,7 +93,7 @@ export default function Footer() {
             />
           </Link>
 
-          <p className="md:text-sm pt-4 w-auto sm:w-6/12 md:w-6/12 lg:w-8/12">
+          <p className="text-neutral-500 md:text-sm pt-4 w-auto sm:w-6/12 md:w-6/12 lg:w-8/12">
             لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
             استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در
             ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز
@@ -101,7 +102,7 @@ export default function Footer() {
           <div className="flex gap-2 pt-6 sm:pt-6 md:pt-6 lg:pt-12 max-w-[300px]">
             {social.map((red) => (
               <Link key={red.name} href={red.href} target="_blank">
-                <div className="w-9 h-9 p-2 text-white bg-neutral-500 hover:opacity-75 rounded-full flex items-center justify-center">
+                <div className="w-9 h-9 p-2 text-slate-300 bg-neutral-500 hover:opacity-75 rounded-full flex items-center justify-center">
                   {red.icon}
                 </div>
               </Link>
@@ -110,14 +111,14 @@ export default function Footer() {
         </div>
 
         <div>
-          <h3 className="text-sm md:text-xs font-bold pb-4 pt-12 lg:pt-0">
+          <h3 className="text-neutral-500 text-sm md:text-xs font-bold pb-4 pt-12 lg:pt-0">
             شرکت
           </h3>
           {column1.map((item) => (
             <Link
               key={item.name}
               href={item.href}
-              className="md:text-sm my-4 grid hover:underline"
+              className="text-neutral-500 md:text-sm my-4 grid hover:underline"
             >
               {item.name}
             </Link>
@@ -125,14 +126,14 @@ export default function Footer() {
         </div>
 
         <div>
-          <h3 className="text-sm md:text-xs font-bold pb-4 pt-12 lg:pt-0">
+          <h3 className="text-neutral-500 text-sm md:text-xs font-bold pb-4 pt-12 lg:pt-0">
             منابع
           </h3>
           {column2.map((item) => (
             <Link
               key={item.name}
               href={item.href}
-              className="md:text-sm my-4 grid hover:underline"
+              className="text-neutral-500 md:text-sm my-4 grid hover:underline"
             >
               {item.name}
             </Link>
@@ -140,14 +141,14 @@ export default function Footer() {
         </div>
 
         <div>
-          <h3 className="text-sm md:text-xs font-bold pb-4 pt-12 lg:pt-0">
+          <h3 className="text-neutral-500 text-sm md:text-xs font-bold pb-4 pt-12 lg:pt-0">
             حقوقی
           </h3>
           {column3.map((item) => (
             <Link
               key={item.name}
               href={item.href}
-              className="md:text-sm my-4 grid hover:underline"
+              className="text-neutral-500 md:text-sm my-4 grid hover:underline"
             >
               {item.name}
             </Link>
@@ -156,14 +157,15 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 p-6 text-center border-t border-neutral-800">
+      <div className="text-neutral-500 mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 p-6 text-center border-t border-neutral-800">
         <Link
           href="/"
-          className="text-neutral-300 dark:text-neutral-400 text-sm hover:underline transition duration-300"
+          className="text-neutral-500 text-neutral-300 dark:text-neutral-400 text-sm hover:underline transition duration-300"
         >
           &copy; Copyright {new Date().getFullYear()}. All rights reserved
         </Link>
       </div>
+  
     </footer>
   );
 }
