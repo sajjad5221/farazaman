@@ -15,7 +15,10 @@ module.exports = {
       },
       fontFamily:{
         yakan: ["yekan", 'sans-serif']
-      }
+      },
+      screens : {
+        'mobile' : '420px'
+      },     
     },
   },
   plugins: [],
