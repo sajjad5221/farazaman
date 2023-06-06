@@ -19,12 +19,13 @@ export default function page() {
   const [events, setEvents] = useState<Event[]>([]);
 
   useEffect(() => {
-    axios.get<Event[]>('http://127.0.0.1:8000/events')
+    axios.get<Event[]>('http://127.0.0.1:8000/events/')
     .then(res => setEvents(res.data))
   }, [])
 
   return (
-    <div><EventList events={events}/> </div>
+    <div>
+      <EventList events={events}/>
+    </div>
   )
-
 }
