@@ -139,36 +139,28 @@ export default function EventSlug() {
         </div>
       </section>
       <div>
-        <div className="">
-        <div className="container py-10 mx-auto ">
-          <div className="grid grid-cols-4">
-          <div className="order-1 col-span-4 mx-auto lg:ps-10 lg:pe-5 lg:col-span-2">
-              <div className="">
-                  <img className="" src="https://websitedemos.net/event-management-04/wp-content/uploads/sites/638/2020/07/group-of-people-photo-in-room.jpg"></img>
+          <div className="container py-10 mx-auto ">
+            <div className="grid grid-cols-4">
+              <div className="order-1 col-span-4 mx-auto lg:ps-10 lg:pe-5 lg:col-span-2">
+                  <img
+                    src="https://websitedemos.net/event-management-04/wp-content/uploads/sites/638/2020/07/group-of-people-photo-in-room.jpg"></img>
+              </div>
+              <div className="order-2 col-span-4 py-0 mx-10 text-right px-7 lg:col-span-2 ">
+                <h6 className="mb-1 pt-4 md:pt-0  text-[#EAB308]">درباره رویداد</h6>
+                <h1 className="mb-4 text-3xl font-bold">عنوان رویداد</h1>
+                <p className="mb-1">
+                  لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و
+                  با و استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه
+                  و مجله لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت
+                  چاپ، و با لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از
+                  صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون
+                  بلکه روزنامه و مجله .استفاده از طراحان گرافیک است، چاپگرها و
+                  متون بلکه روزنامه و مجله است
+                </p>
               </div>
             </div>
-            <div className="order-2 col-span-4 py-0 mx-10 text-right px-7 lg:col-span-2 ">
-              <h6 className="mb-1 md:pt-5 text-[#EAB308]">
-                  درباره رویداد
-              </h6>
-              <h2 className="mb-4 lg:text-2xl">
-                لورم ایپسوم متن ساختگی
-              </h2>
-              <p className="mb-1">
-                لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با
-                 و استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله
-                  لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با
-                 لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با
-                استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله   
-                 .استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله است
-                 
-              </p>
-            </div>
           </div>
-        </div>
-        </div>
       </div>
-      
     </>
   );
 }
