@@ -24,7 +24,7 @@ export default function page() {
   }, [])
 
   return (
-    <div><EventList events={events}/> </div>
+    <div className='mt-16'><EventList events={events}/> </div>
   )
 
 }
