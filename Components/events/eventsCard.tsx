@@ -16,11 +16,6 @@ type Props = {
 
 
 const EventCard = ({ event }: Props) => {
-  const [users, setUsers] = useState([])
-  useEffect(()=> {
-    axios.get('https://jsonplaceholder.typicode.com/users')
-    .then(res => console.log(res.data[0]))
-  })
   return (
     <div className="max-w-sm border-1 rounded border-gray-950 overflow-hidden shadow-lg mt-16 mr-5 bg-neutral-900 p-2">
       <img className="w-full" src={event.image} alt={event.title} />
