@@ -10,7 +10,7 @@ import SliderMenu from "@/Components/SliderMenu";
 export default function Home() {
   return (
     <main>
-      <div className="flex flex-col my-10">
+      <div className="flex flex-col mt-10">
         <Hero />
         <Services />
         <Features />

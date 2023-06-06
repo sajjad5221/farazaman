@@ -3,6 +3,7 @@
 import React, { useRef, useState } from "react";
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/solid";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function SliderMenu({
   title,
@@ -23,55 +24,55 @@ export default function SliderMenu({
       imageUrl: "https://via.placeholder.com/150",
     },
     {
-      id: 1,
+      id: 2,
       title: "Name",
       description: "This is the description for Card 1.",
       imageUrl: "https://via.placeholder.com/150",
     },
     {
-      id: 1,
+      id: 3,
       title: "Name",
       description: "This is the description for Card 1.",
       imageUrl: "https://via.placeholder.com/150",
     },
     {
-      id: 1,
+      id: 4,
       title: "Name",
       description: "This is the description for Card 1.",
       imageUrl: "https://via.placeholder.com/150",
     },
     {
-      id: 1,
+      id: 5,
       title: "Name",
       description: "This is the description for Card 1.",
       imageUrl: "https://via.placeholder.com/150",
     },
     {
-      id: 1,
+      id: 6,
       title: "Name",
       description: "This is the description for Card 1.",
       imageUrl: "https://via.placeholder.com/150",
     },
     {
-      id: 1,
+      id: 7,
       title: "Name",
       description: "This is the description for Card 1.",
       imageUrl: "https://via.placeholder.com/150",
     },
     {
-      id: 1,
+      id: 8,
       title: "Name",
       description: "This is the description for Card 1.",
       imageUrl: "https://via.placeholder.com/150",
     },
     {
-      id: 1,
+      id: 9,
       title: "Name",
       description: "This is the description for Card 1.",
       imageUrl: "https://via.placeholder.com/150",
     },
     {
-      id: 1,
+      id: 10,
       title: "Name",
       description: "This is the description for Card 1.",
       imageUrl: "https://via.placeholder.com/150",
@@ -86,55 +87,55 @@ export default function SliderMenu({
       imageUrl: "https://via.placeholder.com/150",
     },
     {
-      id: 1,
+      id: 2,
       title: "Name",
       description: "This is the description for Card 1.",
       imageUrl: "https://via.placeholder.com/150",
     },
     {
-      id: 1,
+      id: 3,
       title: "Name",
       description: "This is the description for Card 1.",
       imageUrl: "https://via.placeholder.com/150",
     },
     {
-      id: 1,
+      id: 4,
       title: "Name",
       description: "This is the description for Card 1.",
       imageUrl: "https://via.placeholder.com/150",
     },
     {
-      id: 1,
+      id: 5,
       title: "Name",
       description: "This is the description for Card 1.",
       imageUrl: "https://via.placeholder.com/150",
     },
     {
-      id: 1,
+      id: 6,
       title: "Name",
       description: "This is the description for Card 1.",
       imageUrl: "https://via.placeholder.com/150",
     },
     {
-      id: 1,
+      id: 7,
       title: "Name",
       description: "This is the description for Card 1.",
       imageUrl: "https://via.placeholder.com/150",
     },
     {
-      id: 1,
+      id: 8,
       title: "Name",
       description: "This is the description for Card 1.",
       imageUrl: "https://via.placeholder.com/150",
     },
     {
-      id: 1,
+      id: 9,
       title: "Name",
       description: "This is the description for Card 1.",
       imageUrl: "https://via.placeholder.com/150",
     },
     {
-      id: 1,
+      id: 10,
       title: "Name",
       description: "This is the description for Card 1.",
       imageUrl: "https://via.placeholder.com/150",
@@ -185,9 +186,9 @@ export default function SliderMenu({
   };
 
   return (
-    <div className="select-none bg-white dark:bg-neutral-900 w-full px-4 pt-16 pb-16 max-w-full relative">
-      <h1 className="text-3xl font-bold text-center mb-6">{title}</h1>
-      <p className="pt-6 pb-16 text-base max-w-2xl text-center m-auto dark:text-neutral-400">
+    <div className="select-none bg-gray-50 text-gray-300 dark:bg-neutral-900 w-full px-4 pt-16 pb-16 max-w-full relative">
+      <h1 className="text-3xl font-bold text-center mb-6 ">{title}</h1>
+      <p className="pt-6 pb-16 text-base max-w-2xl text-center m-auto text-gray-600 dark:text-neutral-400">
         {description}
       </p>
       {StartUpsProps ? (
@@ -253,16 +254,17 @@ export default function SliderMenu({
                       className="mx-auto rounded-full"
                     />
 
-                    <h3 className="text-center mt-2 font-bold">{card.title}</h3>
+                    <h3 className="text-center mt-2 font-bold text-gray-700">{card.title}</h3>
                     <p className="text-center dark:text-neutral-400">
                       {card.description}
                     </p>
                   </div>
                 ))
               : StartUps.map((card) => (
-                  <div
+                  <Link
+                  href={"/startups/" + card.id}
                     key={card.id}
-                    className="flex flex-col justify-evenly w-64 h-64 bg-neutral-50 dark:bg-neutral-700 rounded-lg p-4 cursor-pointer mx-2"
+                    className="flex flex-col justify-evenly w-64 h-64 bg-neutral-50 text-gray-700 dark:bg-neutral-700 rounded-lg p-4 cursor-pointer mx-2"
                     style={{ scrollSnapAlign: "start" }}
                   >
                     <Image
@@ -274,11 +276,11 @@ export default function SliderMenu({
                       className="mx-auto rounded-full"
                     />
 
-                    <h3 className="text-center mt-2 font-bold">{card.title}</h3>
-                    <p className="text-center dark:text-neutral-400">
+                    <h3 className="text-black text-center mt-2 font-bold"><span className="text-black">{card.title}</span></h3>
+                    <p className="text-center text-gray-600 dark:text-neutral-400">
                       {card.description}
                     </p>
-                  </div>
+                  </Link>
                 ))}
           </div>
           <button
@@ -328,7 +330,8 @@ export default function SliderMenu({
                   </div>
                 ))
               : StartUps.map((card) => (
-                  <div
+                  <Link
+                  href={"/startups/" + card.id}
                     key={card.id}
                     className="flex flex-col justify-evenly w-64 h-64 bg-neutral-100 dark:bg-neutral-800 rounded-lg p-4 cursor-pointer mx-2"
                     style={{ scrollSnapAlign: "start" }}
@@ -346,7 +349,7 @@ export default function SliderMenu({
                     <p className="text-center dark:text-neutral-400">
                       {card.description}
                     </p>
-                  </div>
+                  </Link>
                 ))}
           </div>
           <button
