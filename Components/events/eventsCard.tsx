@@ -60,5 +60,4 @@ const EventCard = ({ event }: Props) => {
   );
 };
 
-
 export default EventCard;
