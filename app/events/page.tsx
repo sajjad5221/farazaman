@@ -9,12 +9,12 @@ import axios from 'axios'
 export default function page() {
   interface Event {
     id: number
-    title: string
+    name: string
     description: string
     date: string
     location: string
     image: string
-    isFeatured: boolean
+    flag: boolean
   }
   const [events, setEvents] = useState<Event[]>([]);
 
@@ -25,7 +25,7 @@ export default function page() {
 
   return (
     <div>
-      <EventList events={events}/>
+      <EventList events={events} />
     </div>
   )
 }
