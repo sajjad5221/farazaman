@@ -20,7 +20,7 @@ const navigation = [
   { name: "خانه", href: "/", current: false },
 ];
 
-function classNames(...classes: any) {
+function classNames(...classes: Array<string>) {
   return classes.filter(Boolean).join(" ");
 }
 

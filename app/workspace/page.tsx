@@ -1,4 +1,3 @@
-import { Hero } from "@/Components/Hero";
 import Image from "next/image";
 import React from "react";
 
