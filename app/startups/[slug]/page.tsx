@@ -1,8 +1,5 @@
 import React from "react";
-import { error } from "console";
-import Fetcher from "@/Services/Fetch";
 import FetchApi from "@/Services/Fetch";
-import { json } from "stream/consumers";
 import Carousel from "@/Components/Carousel";
 
 export default async function page(context: any) {
