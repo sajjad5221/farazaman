@@ -1,9 +1,9 @@
 import React from "react";
-import Slider from "../Components/Slider";
 import { error } from "console";
 import Fetcher from "@/Services/Fetch";
 import FetchApi from "@/Services/Fetch";
 import { json } from "stream/consumers";
+import Carousel from "@/Components/Carousel";
 
 export default async function page(context: any) {
   const id = context.params.slug;
@@ -12,7 +12,7 @@ export default async function page(context: any) {
   );
 
   return (
-    <div className="flex flex-col items-center py-16 bg-gray-50 dark:bg-neutral-900">
+    <div className="flex flex-col items-center py-28 bg-gray-50 dark:bg-neutral-900">
       <div className="rounded-full overflow-hidden w-40 h-40 mb-4">
         <img
           className="w-full h-full object-cover"
@@ -23,9 +23,11 @@ export default async function page(context: any) {
       <h2 className="text-2xl font-bold text-black dark:text-white">
         {startupData.name}
       </h2>
-      <p className="text-lg text-gray-600 my-4">{}</p>
+      <p className="text-lg text-gray-600 my-4 mx-5 mt-5">
+        {startupData.description}
+      </p>
 
-      <Slider />
+      <Carousel />
 
       <div className="relative rounded-lg overflow-x-auto w-10/12">
         <table className="w-full text-sm text-gray-500 dark:text-gray-400">
@@ -65,9 +67,6 @@ export default async function page(context: any) {
             </tr>
           </tbody>
         </table>
-        <p className="text-lg text-gray-600 my-4 mt-5">
-          {startupData.description}
-        </p>
       </div>
     </div>
   );

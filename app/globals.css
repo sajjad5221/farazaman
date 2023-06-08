@@ -5,6 +5,7 @@
 @font-face {
   font-family: yekan;
   src: url(../public/static/fonts/Yekan.ttf);
+  font-display: swap;
 }
 
 :root {

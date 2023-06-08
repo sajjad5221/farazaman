@@ -86,20 +86,20 @@ const StartUpsForm = () => {
           <h2 className="text-lg font-bold text-black dark:text-neutral-200">
             ارتباط با شتابدهنده فرازمان
           </h2>
-          <p className="max-w-sm mt-4 mb-4 text-black dark:text-neutral-400">
+          <p className="max-w-sm mt-4 mb-4 text-zinc-600 dark:text-neutral-400">
             برای ثبت استارتاپ خود در شتابدهنده فرازمان می توانید فرم زیر را
             پرکرده و منتظر تماس کارشناسان ما باشید.
           </p>
 
-          <div className="flex items-center text-black mt-8 space-x-2 text-dark-600 dark:text-neutral-400">
+          <div className="flex items-center text-zinc-600 mt-8 space-x-2 text-dark-600 dark:text-neutral-400">
             <span>ایران-اصفهان-خیابان سعادت آباد-مجتمع طلا- واحد c</span>
           </div>
 
-          <div className="flex items-center mt-2 text-black space-x-2 text-dark-600 dark:text-neutral-400">
+          <div className="flex items-center mt-2 text-zinc-600 space-x-2 text-dark-600 dark:text-neutral-400">
             <a href="mailto:hello@halley.vercel.app">farazaman@gmail.com</a>
           </div>
 
-          <div className="flex items-center mt-2 text-black space-x-2 text-dark-600 dark:text-neutral-400">
+          <div className="flex items-center mt-2 text-zinc-600 space-x-2 text-dark-600 dark:text-neutral-400">
             <a href="tel:0313313155">0313313155</a>
           </div>
         </div>
