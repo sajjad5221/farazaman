@@ -18,14 +18,14 @@ export function Hero() {
           <div className="flex flex-auto pt-10 gap-2 min-w-[350px] justify-center sm:justify-start text-black">
             <div>
               <Link href="#services">
-                <button className="text-white bg-gray-700 dark:text-white bg-gray-700 text-base rounded-full px-4 p-2 font-medium">
+                <button className="text-white dark:text-white bg-gray-700 text-base rounded-full px-4 p-2 font-medium">
                   فرازمین چیست؟
                 </button>
               </Link>
             </div>
 
             <div>
-              <Link href="#invest">
+              <Link href="/startups">
                 <button className="bg-yellow-500 text-white text-base rounded-full px-4 p-2 font-medium">
                   شروع کنید
                 </button>
