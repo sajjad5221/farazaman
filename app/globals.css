@@ -31,6 +31,9 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+.mb-3 {
+   background:#171717
+}
 
 html {
   scroll-behavior: smooth;
