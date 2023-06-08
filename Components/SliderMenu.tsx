@@ -225,6 +225,7 @@ export default function SliderMenu({
         <div className="flex flex-row items-center">
           <button
             className="rounded-full bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-1.5 px-1.5"
+            aria-label="Arrow"
             onClick={handlePrevSlide}
           >
             <ChevronLeftIcon className="h-6 w-6" />
@@ -254,7 +255,7 @@ export default function SliderMenu({
                       className="mx-auto rounded-full"
                     />
 
-                    <h3 className="text-center mt-2 font-bold text-gray-700">{card.title}</h3>
+                    <h1 className="text-center mt-2 font-bold text-gray-700">{card.title}</h1>
                     <p className="text-center dark:text-neutral-400">
                       {card.description}
                     </p>
@@ -276,7 +277,7 @@ export default function SliderMenu({
                       className="mx-auto rounded-full"
                     />
 
-                    <h3 className="text-black text-center mt-2 font-bold"><span className="text-black">{card.title}</span></h3>
+                    <h1 className="text-black text-center mt-2 font-bold"><span className="text-black">{card.title}</span></h1>
                     <p className="text-center text-gray-600 dark:text-neutral-400">
                       {card.description}
                     </p>
@@ -285,6 +286,7 @@ export default function SliderMenu({
           </div>
           <button
             className="rounded-full bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-1.5 px-1.5"
+            aria-label="Arrow"
             onClick={handlePrevSlide}
           >
             <ChevronRightIcon className="h-6 w-6" />
@@ -294,6 +296,7 @@ export default function SliderMenu({
         <div className="flex flex-row items-center">
           <button
             className="rounded-full bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-1.5 px-1.5"
+            aria-label="Arrow"
             onClick={handleNextSlide}
           >
             <ChevronRightIcon className="h-6 w-6" />
@@ -323,7 +326,7 @@ export default function SliderMenu({
                       className="mx-auto rounded-full"
                     />
 
-                    <h3 className="text-center mt-2 font-bold">{card.title}</h3>
+                    <h1 className="text-center mt-2 font-bold">{card.title}</h1>
                     <p className="text-center dark:text-neutral-400">
                       {card.description}
                     </p>
@@ -345,7 +348,7 @@ export default function SliderMenu({
                       className="mx-auto rounded-full"
                     />
 
-                    <h3 className="text-center mt-2 font-bold">{card.title}</h3>
+                    <h1 className="text-center mt-2 font-bold">{card.title}</h1>
                     <p className="text-center dark:text-neutral-400">
                       {card.description}
                     </p>
@@ -354,6 +357,7 @@ export default function SliderMenu({
           </div>
           <button
             className="rounded-full bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-1.5 px-1.5"
+            aria-label="Arrow"
             onClick={handlePrevSlide}
           >
             <ChevronLeftIcon className="h-6 w-6" />
