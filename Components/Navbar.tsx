@@ -4,7 +4,6 @@ import Link from "next/link";
 import Image from "next/image";
 import ThemeSwitchButton from "./ThemeSwitchButton";
 
-
 import React from "react";
 import { Disclosure } from "@headlessui/react";
 import { Bars3Icon } from "@heroicons/react/24/solid";
@@ -14,7 +13,7 @@ const navigation = [
   { name: "ارتباط با ما", href: "/contact-us", current: false },
   { name: "رویدادها", href: "/events", current: false },
   { name: "فضای کار اشتراکی", href: "/workspace", current: false },
-  { name: "استارت آپ های اجرا شده", href: "#startups", current: false },
+  { name: "استارت آپ های اجرا شده", href: "/#startups", current: false },
   { name: "ثبت استارتاپ", href: "/startups", current: false },
   { name: "استخدام", href: "/hiring", current: false },
   { name: "خانه", href: "/", current: false },
@@ -34,11 +33,11 @@ export default function Navbar() {
         <>
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="relative flex h-16 items-center justify-between">
-              <div className="flex flex-row flex-1 items-center justify-start">
+              <div className="flex flex-row flex-1 items-center justify-center lg:justify-start">
                 <div className="flex flex-shrink-0 items-center md:pl-0">
                   <Link href="/">
                     <Image
-                      className="block h-12 w-auto ml-4"
+                      className="h-12 w-auto ml-4"
                       src="/static/images/Farazaman.png"
                       alt="Farazaman"
                       width={200}
@@ -48,12 +47,14 @@ export default function Navbar() {
                     />
                   </Link>
                 </div>
-
+                <div className="absolute left-0 md:hidden">
+                  <ThemeSwitchButton />
+                </div>
                 <div className="hidden sm:ml-6 sm:block">
                   <div className="flex flex-row-reverse space-x-5 items-center">
-                  <div className="justify-self-end">
-                  <ThemeSwitchButton />
-                  </div>
+                    <div className="absolute left-0">
+                      <ThemeSwitchButton />
+                    </div>
                     {navigation.map((item) => (
                       <Link
                         key={item.name}
@@ -68,10 +69,7 @@ export default function Navbar() {
                       >
                         {item.name}
                       </Link>
-                      
                     ))}
-                    
-                    
                   </div>
                 </div>
 
