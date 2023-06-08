@@ -1,5 +1,4 @@
 import React from "react";
-import Slider from "../Components/Slider";
 import { error } from "console";
 import Fetcher from "@/Services/Fetch";
 import FetchApi from "@/Services/Fetch";
