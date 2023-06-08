@@ -32,7 +32,10 @@ body {
     rgb(var(--background-start-rgb));
 }
 .mb-3 {
-   background:#171717
+   background:#171717;
+}
+svg.w-10.h-10.mb-3.bg-none.text-gray-400 {
+   background: none;
 }
 
 html {
