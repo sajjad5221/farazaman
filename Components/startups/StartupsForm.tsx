@@ -108,6 +108,7 @@ const StartUpsForm = () => {
           <form onSubmit={handleSubmit}>
             <div className="mb-5">
               <input
+                id="startup-name"
                 type="text"
                 placeholder="نام استارتاپ"
                 autoComplete="false"
@@ -125,7 +126,7 @@ const StartUpsForm = () => {
                 آدرس ایمیل شما
               </label>
               <input
-                id="email_address"
+                id="email-address"
                 type="email"
                 placeholder="آدرس ایمیل استارتاپ"
                 name="email"
@@ -175,7 +176,7 @@ const StartUpsForm = () => {
             </div>
 
             <div className="mb-5">
-              <label htmlFor="member-count" className="sr-only">
+              <label htmlFor="pitch-file" className="sr-only">
                 فایل ارائه
               </label>
               <input
