@@ -1,4 +1,3 @@
-import { ThemeProvider } from "next-themes";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -166,7 +165,7 @@ export default function Footer() {
       <div className="text-neutral-500 mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 p-6 text-center border-t border-neutral-800">
         <Link
           href="/"
-          className="text-neutral-600 dark:text-neutral-300 dark:text-neutral-400 text-sm hover:underline transition duration-300"
+          className="text-neutral-600 dark:text-neutral-300 text-sm hover:underline transition duration-300"
         >
           &copy; Copyright {new Date().getFullYear()}. All rights reserved
         </Link>

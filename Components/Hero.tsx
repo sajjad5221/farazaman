@@ -4,11 +4,11 @@ import React from "react";
 export function Hero() {
   return (
 
-      <div className="bg-gray-50 dark:bg-neutral-900">
+      <div className="bg-gray-50 dark:bg-neutral-900 px-4">
         <div className="max-w-7xl mx-auto py-2 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2">
           <div className="pt-6 md:pt-32 justify-center text-center sm:justify-start sm:text-start">
-            <h1 className="text-5xl font-bold text-black dark:text-white">
-              شتابدهنده استارت آپ <br />{" "}
+            <h1 className="text-4xl font-bold text-black dark:text-white">
+              شتابدهنده استارت آپ <br />
               <span className="text-yellow-500 font-extrabold">فرازمان</span>
             </h1>
             <p className="pt-6 text-base text-zinc-600 w-auto sm:w-10/12 md:w-10/12 dark:text-neutral-400">
