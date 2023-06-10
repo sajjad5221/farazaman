@@ -39,7 +39,7 @@ export default function Navbar() {
                   <div className="flex flex-shrink-0 items-center md:pl-0">
                     <Link href="/">
                       <Image
-                        className="h-12 w-auto ml-4"
+                        className="h-12 w-auto lg:ml-4"
                         src="/static/images/Farazaman.png"
                         alt="Farazaman"
                         width={200}
