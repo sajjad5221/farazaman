@@ -149,7 +149,7 @@ export default function EventSlug() {
             <h3 className="text-3xl font-bold">سایر رویدادها</h3>
           </div>
           <div className="grid grid-cols-6 gap-6 py-20">
-            <div className="max-w-sm col-span-6 mx-auto mx-10 my-5 bg-white border border-gray-200 rounded-lg shadow lg:col-span-2 md:col-span-3 dark:bg-gray-800 dark:border-gray-700">
+            <div className="max-w-sm col-span-6 mx-auto my-5 bg-white border border-gray-200 rounded-lg shadow lg:col-span-2 md:col-span-3 dark:bg-gray-800 dark:border-gray-700">
               <a href="#" aria-label="image">
                 <img
                   className="rounded-t-lg"
@@ -190,7 +190,7 @@ export default function EventSlug() {
                 </a>
               </div>
             </div>
-            <div className="max-w-sm col-span-6 mx-10 mx-auto my-5 bg-white border border-gray-200 rounded-lg shadow lg:col-span-2 md:col-span-3 dark:bg-gray-800 dark:border-gray-700">
+            <div className="max-w-sm col-span-6 mx-auto my-5 bg-white border border-gray-200 rounded-lg shadow lg:col-span-2 md:col-span-3 dark:bg-gray-800 dark:border-gray-700">
               <a href="#" aria-label="image">
                 <img
                   className="rounded-t-lg"
@@ -231,7 +231,7 @@ export default function EventSlug() {
                 </a>
               </div>
             </div>
-            <div className="max-w-sm col-span-6 mx-10 mx-auto my-5 bg-white border border-gray-200 rounded-lg shadow lg:col-span-2 md:col-span-3 dark:bg-gray-800 dark:border-gray-700">
+            <div className="max-w-sm col-span-6 mx-auto my-5 bg-white border border-gray-200 rounded-lg shadow lg:col-span-2 md:col-span-3 dark:bg-gray-800 dark:border-gray-700">
               <a href="#" aria-label="image">
                 <img
                   className="rounded-t-lg"
