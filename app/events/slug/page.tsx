@@ -47,18 +47,18 @@ export default function EventSlug() {
                 </div>
                 <div>
                   <label
-                    htmlFor="password"
+                    htmlFor="tel"
                     className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                   >
-                    رمز عبور
+                    شماره موبایل
                   </label>
                   <input
                     dir="ltr"
-                    type="password"
-                    name="password"
-                    id="password"
-                    placeholder="••••••••"
+                    type="tel"
+                    name="tel"
+                    id="tel"
                     className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-yellow-500 focus:ring-yellow-500 dark:border-gray-500 dark:bg-gray-600 dark:text-white dark:placeholder-gray-400"
+                    placeholder="09139754682"
                     required
                   />
                 </div>
@@ -123,19 +123,18 @@ export default function EventSlug() {
       <div>
         <div className="container py-20 mx-auto">
           <div className="grid grid-cols-4 mb-10 ">
-            <div className="order-1 col-span-4 px-10 mx-auto lg:col-span-2">
+            <div className="order-1 col-span-4 mx-auto md:px-10 lg:col-span-2">
               <img
                 alt="image"
-                className=""
                 src="https://websitedemos.net/event-management-04/wp-content/uploads/sites/638/2020/07/group-of-people-photo-in-room.jpg"
               ></img>
             </div>
-            <div className="order-2 col-span-4 py-0 mx-20 text-right px-7 lg:col-span-2 ">
+            <div className="order-2 col-span-4 py-0 text-right lg:mx-16 px-7 lg:col-span-2 ">
               <h6 className="mb-2 pt-4 lg:pt-0  text-[#EAB308]">
                 درباره رویداد
               </h6>
               <h1 className="mb-5 text-5xl font-bold">عنوان رویداد</h1>
-              <p className="mb-1 ml-5 text-lg leading-loose text-gray-500">
+              <p className="mb-1 text-lg leading-loose text-gray-500 lg:ml-5">
                 لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با
                 و استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و
                 مجله لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ،
