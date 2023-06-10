@@ -145,8 +145,8 @@ export default function EventSlug() {
               </p>
             </div>
           </div>
-          <div className="grid grid-cols-6 py-20 mx-auto">
-            <div className="max-w-sm col-span-6 mx-10 my-5 bg-white border border-gray-200 rounded-lg shadow lg:col-span-2 md:col-span-3 dark:bg-gray-800 dark:border-gray-700">
+          <div className="grid grid-cols-6 gap-6 py-20 mx-auto">
+            <div className="max-w-sm col-span-6 mx-10 mx-auto my-5 bg-white border border-gray-200 rounded-lg shadow lg:col-span-2 md:col-span-3 dark:bg-gray-800 dark:border-gray-700">
               <a href="#" aria-label="image">
                 <img
                   className="rounded-t-lg"
@@ -187,7 +187,7 @@ export default function EventSlug() {
                 </a>
               </div>
             </div>
-            <div className="max-w-sm col-span-6 mx-10 my-5 bg-white border border-gray-200 rounded-lg shadow lg:col-span-2 md:col-span-3 dark:bg-gray-800 dark:border-gray-700">
+            <div className="max-w-sm col-span-6 mx-10 mx-auto my-5 bg-white border border-gray-200 rounded-lg shadow lg:col-span-2 md:col-span-3 dark:bg-gray-800 dark:border-gray-700">
               <a href="#" aria-label="image">
                 <img
                   className="rounded-t-lg"
@@ -228,7 +228,7 @@ export default function EventSlug() {
                 </a>
               </div>
             </div>
-            <div className="max-w-sm col-span-6 mx-10 my-5 bg-white border border-gray-200 rounded-lg shadow lg:col-span-2 md:col-span-3 dark:bg-gray-800 dark:border-gray-700">
+            <div className="max-w-sm col-span-6 mx-10 mx-auto my-5 bg-white border border-gray-200 rounded-lg shadow lg:col-span-2 md:col-span-3 dark:bg-gray-800 dark:border-gray-700">
               <a href="#" aria-label="image">
                 <img
                   className="rounded-t-lg"
