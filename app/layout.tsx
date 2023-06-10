@@ -22,7 +22,8 @@ export default function RootLayout({
       />
 
       <html dir="rtl" lang="en">
-        <body className="font-yakan bg-gray-50 drak: bg-transparent">
+        
+        <body className="font-yakan">
           <Navbar />
           <div className="mb-3">{children}</div>
 
