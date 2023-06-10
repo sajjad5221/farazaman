@@ -7,7 +7,7 @@ export default function EventSlug() {
       <section className="bg-gray-500 bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/conference.jpg')] bg-center bg-no-repeat bg-blend-multiply">
         <div className="container py-10 mx-auto">
           <div className="grid grid-cols-3">
-            <div className="order-2 col-span-3 p-4 mx-3 my-8 bg-white border border-gray-200 rounded-lg shadow shrink-0 dark:border-gray-700 dark:bg-gray-800 sm:p-6 md:mx-10 md:p-8 lg:col-span-1">
+            <div className="order-2 col-span-3 p-4 m-5 bg-white border border-gray-200 rounded-lg shadow sm:m-16 shrink-0 dark:border-gray-700 dark:bg-gray-800 sm:p-6 lg:mx-10 md:p-8 lg:col-span-1">
               <form className="space-y-8" action="#">
                 <h5 className="text-xl font-medium text-gray-900 dark:text-white">
                   در رویداد ما ثبت نام کنید.
@@ -17,15 +17,14 @@ export default function EventSlug() {
                     htmlFor="text"
                     className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                   >
-                    نام کاربری
+                    نام و نام خانوادگی
                   </label>
                   <input
-                    dir="ltr"
                     type="text"
                     name="text"
                     id="text"
                     className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-yellow-500 focus:ring-yellow-500 dark:border-gray-500 dark:bg-gray-600 dark:text-white dark:placeholder-gray-400"
-                    placeholder="Ali Mohammadi"
+                    placeholder="سهیل حیدری"
                     required
                   />
                 </div>
@@ -43,23 +42,6 @@ export default function EventSlug() {
                     id="email"
                     className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-yellow-500 focus:ring-yellow-500 dark:border-gray-500 dark:bg-gray-600 dark:text-white dark:placeholder-gray-400"
                     placeholder="email@gmail.com"
-                    required
-                  />
-                </div>
-                <div>
-                  <label
-                    htmlFor="tel"
-                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                  >
-                    شماره موبایل
-                  </label>
-                  <input
-                    dir="ltr"
-                    type="tel"
-                    name="tel"
-                    id="tel"
-                    className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-yellow-500 focus:ring-yellow-500 dark:border-gray-500 dark:bg-gray-600 dark:text-white dark:placeholder-gray-400"
-                    placeholder="09139754682"
                     required
                   />
                 </div>
