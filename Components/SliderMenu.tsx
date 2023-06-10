@@ -234,11 +234,11 @@ export default function SliderMenu({
             aria-label="Arrow"
             onClick={handlePrevSlide}
           >
-            <ChevronLeftIcon className="h-6 w-6" />
+            <ChevronRightIcon className="h-6 w-6" />
           </button>
 
           <div
-            className="flex overflow-x-hidden whitespace-nowrap"
+            className="flex overflow-x-auto lg:overflow-x-hidden whitespace-nowrap"
             ref={carouselRef}
             onMouseDown={handleMouseDown}
             onMouseMove={handleMouseMove}
@@ -249,7 +249,7 @@ export default function SliderMenu({
               ? expriences.map((card) => (
                   <div
                     key={card.id}
-                    className="flex flex-col justify-evenly w-64 h-64 bg-neutral-100 dark:bg-neutral-800 rounded-lg p-4 cursor-pointer mx-2"
+                    className="flex flex-col justify-evenly w-64 h-64 bg-neutral-200 dark:bg-neutral-800 rounded-lg p-4 cursor-pointer mx-2"
                     style={{ scrollSnapAlign: "start" }}
                   >
                     <Image
@@ -258,13 +258,13 @@ export default function SliderMenu({
                       quality={100}
                       src={card.imageUrl}
                       alt={card.title}
-                      className="mx-auto rounded-full"
+                      className="mx-auto rounded-full border-2 border-yellow-500 p-[2px]"
                     />
 
-                    <h1 className="text-center mt-2 font-bold text-gray-700">
+                    <h1 className="text-center mt-2 font-bold text-neutral-900 dark:text-neutral-100">
                       {card.title}
                     </h1>
-                    <p className="text-center dark:text-neutral-400">
+                    <p className="text-center text-neutral-900 dark:text-neutral-100">
                       {card.description}
                     </p>
                   </div>
@@ -273,7 +273,7 @@ export default function SliderMenu({
                   <Link
                     href={"/startups/" + card.id}
                     key={card.id}
-                    className="flex flex-col justify-evenly w-64 h-64 bg-neutral-50 text-gray-700 dark:bg-neutral-700 rounded-lg p-4 cursor-pointer mx-2"
+                    className="flex flex-col justify-evenly w-64 h-64 bg-neutral-100 text-gray-700 dark:bg-neutral-700 rounded-lg p-4 cursor-pointer mx-2"
                     style={{ scrollSnapAlign: "start" }}
                   >
                     <Image
@@ -282,13 +282,15 @@ export default function SliderMenu({
                       quality={100}
                       src={card.imageUrl}
                       alt={card.title}
-                      className="mx-auto rounded-full"
+                      className="mx-auto rounded-full border-2 border-yellow-500 p-[2px]"
                     />
 
-                    <h1 className="text-black text-center mt-2 font-bold">
-                      <span className="text-black">{card.title}</span>
+                    <h1 className="text-center mt-2 font-bold">
+                      <span className="text-neutral-900 dark:text-neutral-100">
+                        {card.title}
+                      </span>
                     </h1>
-                    <p className="text-center text-gray-600 dark:text-neutral-400">
+                    <p className="text-center text-neutral-900 dark:text-neutral-100">
                       {card.description}
                     </p>
                   </Link>
@@ -297,9 +299,9 @@ export default function SliderMenu({
           <button
             className="rounded-full bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-1.5 px-1.5"
             aria-label="Arrow"
-            onClick={handlePrevSlide}
+            onClick={handleNextSlide}
           >
-            <ChevronRightIcon className="h-6 w-6" />
+            <ChevronLeftIcon className="h-6 w-6" />
           </button>
         </div>
       ) : (
@@ -307,13 +309,13 @@ export default function SliderMenu({
           <button
             className="rounded-full bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-1.5 px-1.5"
             aria-label="Arrow"
-            onClick={handleNextSlide}
+            onClick={handlePrevSlide}
           >
             <ChevronRightIcon className="h-6 w-6" />
           </button>
 
           <div
-            className="flex overflow-x-hidden whitespace-nowrap"
+            className="flex  overflow-x-auto lg:overflow-x-hidden whitespace-nowrap"
             ref={carouselRef}
             onMouseDown={handleMouseDown}
             onMouseMove={handleMouseMove}
@@ -333,11 +335,13 @@ export default function SliderMenu({
                       quality={100}
                       src={card.imageUrl}
                       alt={card.title}
-                      className="mx-auto rounded-full"
+                      className="mx-auto rounded-full border-2 border-yellow-500 p-[2px]"
                     />
 
-                    <h1 className="text-center mt-2 font-bold">{card.title}</h1>
-                    <p className="text-center dark:text-neutral-400">
+                    <h1 className="text-center mt-2 font-bold text-neutral-900 dark:text-neutral-100">
+                      {card.title}
+                    </h1>
+                    <p className="text-center text-neutral-900 dark:text-neutral-100">
                       {card.description}
                     </p>
                   </div>
@@ -346,7 +350,7 @@ export default function SliderMenu({
                   <Link
                     href={"/startups/" + card.id}
                     key={card.id}
-                    className="flex flex-col justify-evenly w-64 h-64 bg-neutral-100 dark:bg-neutral-800 rounded-lg p-4 cursor-pointer mx-2"
+                    className="flex flex-col justify-evenly w-64 h-64 bg-neutral-200 dark:bg-neutral-800 rounded-lg p-4 cursor-pointer mx-2"
                     style={{ scrollSnapAlign: "start" }}
                   >
                     <Image
@@ -355,11 +359,13 @@ export default function SliderMenu({
                       quality={100}
                       src={card.imageUrl}
                       alt={card.title}
-                      className="mx-auto rounded-full"
+                      className="mx-auto rounded-full border-2 border-yellow-500 p-[2px]"
                     />
 
-                    <h1 className="text-center mt-2 font-bold">{card.title}</h1>
-                    <p className="text-center dark:text-neutral-400">
+                    <h1 className="text-center mt-2 font-bold text-neutral-900 dark:text-neutral-100">
+                      {card.title}
+                    </h1>
+                    <p className="text-center text-neutral-900 dark:text-neutral-100">
                       {card.description}
                     </p>
                   </Link>
