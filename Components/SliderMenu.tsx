@@ -16,7 +16,7 @@ export default function SliderMenu({
   type: string;
   StartUpsProps?: boolean;
 }) {
-  const expriences = [
+  const experiences = [
     {
       id: 1,
       title: "Name",
@@ -190,7 +190,7 @@ export default function SliderMenu({
   };
 
   return (
-    <div className="select-none bg-gray-50 text-gray-300 dark:bg-neutral-900 w-full px-4 pt-16 pb-16 max-w-full relative">
+    <div className="select-none bg-gray-50 text-gray-300 dark:bg-neutral-900 w-full px-4 py-8 max-w-full relative">
       <h1 className="text-3xl text-black font-bold text-center mb-6 dark:text-white">
         {title}
       </h1>
@@ -246,15 +246,15 @@ export default function SliderMenu({
             onMouseLeave={handleMouseUp}
           >
             {type === "exp"
-              ? expriences.map((card) => (
+              ? experiences.map((card) => (
                   <div
                     key={card.id}
                     className="flex flex-col justify-evenly w-64 h-64 bg-neutral-200 dark:bg-neutral-800 rounded-lg p-4 cursor-pointer mx-2"
                     style={{ scrollSnapAlign: "start" }}
                   >
                     <Image
-                      width={80}
-                      height={80}
+                      width={150}
+                      height={150}
                       quality={100}
                       src={card.imageUrl}
                       alt={card.title}
@@ -323,7 +323,7 @@ export default function SliderMenu({
             onMouseLeave={handleMouseUp}
           >
             {type === "exp"
-              ? expriences.map((card) => (
+              ? experiences.map((card) => (
                   <div
                     key={card.id}
                     className="flex flex-col justify-evenly w-64 h-64 bg-neutral-100 dark:bg-neutral-800 rounded-lg p-4 cursor-pointer mx-2"
