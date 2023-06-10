@@ -82,14 +82,14 @@ export default function EventSlug() {
                   </div>
                   <a
                     href="#"
-                    className="mr-auto text-sm text-[#EAB308] hover:underline dark:text-yellow-500"
+                    className="mr-auto text-sm text-[#EAB308] hover:underline dark:text-[#EAB308]"
                   >
                     گذرواژه خود را فراموش کرده اید؟
                   </a>
                 </div>
                 <button
                   type="submit"
-                  className="w-full rounded-lg bg-[#EAB308] px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-yellow-800 focus:outline-none focus:ring-4 focus:ring-yellow-300 dark:bg-yellow-600 dark:hover:bg-yellow-700 dark:focus:ring-yellow-800"
+                  className="w-full rounded-lg bg-[#EAB308] px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-yellow-800 focus:outline-none focus:ring-4 focus:ring-yellow-300 dark:bg-[#EAB308] dark:hover:bg-yellow-700 dark:focus:ring-yellow-800"
                 >
                   ثبت نام
                 </button>
@@ -120,7 +120,7 @@ export default function EventSlug() {
           </div>
         </div>
       </section>
-      <div>
+      <div className="bg-gray-50 dark:bg-neutral-900">
         <div className="container py-20 mx-auto">
           <div className="grid grid-cols-4 mb-10 ">
             <div className="order-1 col-span-4 mx-auto md:px-10 lg:col-span-2">
@@ -129,7 +129,7 @@ export default function EventSlug() {
                 src="https://websitedemos.net/event-management-04/wp-content/uploads/sites/638/2020/07/group-of-people-photo-in-room.jpg"
               ></img>
             </div>
-            <div className="order-2 col-span-4 py-0 text-right lg:mx-16 px-7 lg:col-span-2 ">
+            <div className="order-2 col-span-4 py-0 text-right text-gray-900 dark:text-gray-100 lg:mx-16 px-7 lg:col-span-2 ">
               <h6 className="mb-2 pt-4 lg:pt-0  text-[#EAB308]">
                 درباره رویداد
               </h6>
@@ -168,7 +168,7 @@ export default function EventSlug() {
                 </p>
                 <a
                   href="#"
-                  className="inline-flex px-3 py-2 text-sm font-medium text-center text-white bg-[#EAB308] rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                  className="inline-flex px-3 py-2 text-sm font-medium text-center text-white bg-[#EAB308] rounded-lg hover:bg-yellow-800 focus:ring-4 focus:outline-none focus:ring-yellow-300 dark:bg-[#EAB308] dark:hover:bg-yellow-700 dark:focus:ring-yellow-800"
                 >
                   بیشتر بخوانید
                   <svg
@@ -209,7 +209,7 @@ export default function EventSlug() {
                 </p>
                 <a
                   href="#"
-                  className="inline-flex px-3 py-2 text-sm font-medium text-center text-white bg-[#EAB308] rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                  className="inline-flex px-3 py-2 text-sm font-medium text-center text-white bg-[#EAB308] rounded-lg hover:bg-yellow-800 focus:ring-4 focus:outline-none focus:ring-yellow-300 dark:bg-[#EAB308] dark:hover:bg-yellow-700 dark:focus:ring-yellow-800"
                 >
                   بیشتر
                   <svg
@@ -250,7 +250,7 @@ export default function EventSlug() {
                 </p>
                 <a
                   href="#"
-                  className="inline-flex px-3 py-2 text-sm font-medium text-center text-white bg-[#EAB308] rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                  className="inline-flex px-3 py-2 text-sm font-medium text-center text-white bg-[#EAB308] rounded-lg hover:bg-yellow-800 focus:ring-4 focus:outline-none focus:ring-yellow-300 dark:bg-[#EAB308] dark:hover:bg-yellow-700 dark:focus:ring-yellow-800"
                 >
                   ادامه
                   <svg
