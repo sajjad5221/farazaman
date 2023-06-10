@@ -160,7 +160,7 @@ export default function EventSlug() {
                     رویداد اول
                   </h5>
                 </a>
-                <p className="mb-3 font-normal text-gray-700 dark:text-gray-400 dark:bg-gray-800 dark:border-gray-700">
+                <p className="mb-4 font-normal text-gray-700 dark:text-gray-400">
                   لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و
                   با و استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه
                   و مجله لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت
@@ -168,7 +168,7 @@ export default function EventSlug() {
                 </p>
                 <a
                   href="#"
-                  className="inline-flex px-3 py-2 text-sm font-medium text-center text-white bg-[#EAB308] rounded-lg hover:bg-yellow-800 focus:ring-4 focus:outline-none focus:ring-yellow-300 dark:bg-[#EAB308] dark:hover:bg-yellow-700 dark:focus:ring-yellow-800"
+                  className="inline-flex px-3 items-center py-2 text-sm font-medium text-center text-white bg-[#EAB308] rounded-lg hover:bg-yellow-800 focus:ring-4 focus:outline-none focus:ring-yellow-300 dark:bg-[#EAB308] dark:hover:bg-yellow-700 dark:focus:ring-yellow-800"
                 >
                   بیشتر بخوانید
                   <svg
@@ -201,7 +201,7 @@ export default function EventSlug() {
                     رویداد دوم
                   </h5>
                 </a>
-                <p className="mb-3 font-normal text-gray-700 dark:text-gray-400 dark:bg-gray-800 dark:border-gray-700 ">
+                <p className="mb-4 font-normal text-gray-700 dark:text-gray-400 ">
                   لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و
                   با و استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه
                   و مجله لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت
@@ -209,7 +209,7 @@ export default function EventSlug() {
                 </p>
                 <a
                   href="#"
-                  className="inline-flex px-3 py-2 text-sm font-medium text-center text-white bg-[#EAB308] rounded-lg hover:bg-yellow-800 focus:ring-4 focus:outline-none focus:ring-yellow-300 dark:bg-[#EAB308] dark:hover:bg-yellow-700 dark:focus:ring-yellow-800"
+                  className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-[#EAB308] rounded-lg hover:bg-yellow-800 focus:ring-4 focus:outline-none focus:ring-yellow-300 dark:bg-[#EAB308] dark:hover:bg-yellow-700 dark:focus:ring-yellow-800"
                 >
                   بیشتر
                   <svg
@@ -242,7 +242,7 @@ export default function EventSlug() {
                     رویداد سوم
                   </h5>
                 </a>
-                <p className="mb-3 font-normal text-gray-700 dark:text-gray-400 dark:bg-gray-800 dark:border-gray-700">
+                <p className="mb-4 font-normal text-gray-700 dark:text-gray-400">
                   لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و
                   با و استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه
                   و مجله لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت
@@ -250,7 +250,7 @@ export default function EventSlug() {
                 </p>
                 <a
                   href="#"
-                  className="inline-flex px-3 py-2 text-sm font-medium text-center text-white bg-[#EAB308] rounded-lg hover:bg-yellow-800 focus:ring-4 focus:outline-none focus:ring-yellow-300 dark:bg-[#EAB308] dark:hover:bg-yellow-700 dark:focus:ring-yellow-800"
+                  className="inline-flex px-3 items-center py-2 text-sm font-medium text-center text-white bg-[#EAB308] rounded-lg hover:bg-yellow-800 focus:ring-4 focus:outline-none focus:ring-yellow-300 dark:bg-[#EAB308] dark:hover:bg-yellow-700 dark:focus:ring-yellow-800"
                 >
                   ادامه
                   <svg
