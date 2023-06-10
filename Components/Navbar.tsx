@@ -11,13 +11,13 @@ import { XMarkIcon } from "@heroicons/react/24/solid";
 import { ThemeProvider } from "next-themes";
 
 const navigation = [
-  { name: "ارتباط با ما", href: "/contact-us", current: false },
-  { name: "رویدادها", href: "/events", current: false },
-  { name: "فضای کار اشتراکی", href: "/workspace", current: false },
-  { name: "استارت آپ های اجرا شده", href: "/#startups", current: false },
-  { name: "ثبت استارتاپ", href: "/startups", current: false },
-  { name: "استخدام", href: "/hiring", current: false },
   { name: "خانه", href: "/", current: false },
+  { name: "استخدام", href: "/hiring", current: false },
+  { name: "ثبت استارتاپ", href: "/startups", current: false },
+  { name: "استارت آپ های اجرا شده", href: "/#startups", current: false },
+  { name: "فضای کار اشتراکی", href: "/workspace", current: false },
+  { name: "رویدادها", href: "/events", current: false },
+  { name: "ارتباط با ما", href: "/contact-us", current: false },
 ];
 
 function classNames(...classes: Array<string>) {
@@ -39,7 +39,7 @@ export default function Navbar() {
                   <div className="flex flex-shrink-0 items-center md:pl-0">
                     <Link href="/">
                       <Image
-                        className="h-12 w-auto ml-4"
+                        className="h-12 w-auto lg:ml-4"
                         src="/static/images/Farazaman.png"
                         alt="Farazaman"
                         width={200}
@@ -53,7 +53,7 @@ export default function Navbar() {
                     <ThemeSwitchButton />
                   </div>
                   <div className="hidden sm:ml-6 sm:block">
-                    <div className="flex flex-row-reverse space-x-5 items-center">
+                    <div className="flex flex-row space-x-5 items-center">
                       <div className="absolute left-0">
                         <ThemeSwitchButton />
                       </div>
