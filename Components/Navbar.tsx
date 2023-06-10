@@ -31,7 +31,7 @@ export default function Navbar() {
         as="nav"
         className=" fixed top-0 left-0 right-0 bg-white dark:bg-neutral-900 text-neutral-900 dark:text-neutral-400 border-b border-neutral-200 dark:border-neutral-700 backdrop-blur-sm bg-white/90 dark:bg-neutral-900/80 z-20"
       >
-        {({ open }: { open: any }) => (
+        {({ open }: { open: boolean }) => (
           <>
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
               <div className="relative flex h-16 items-center justify-between">
@@ -64,7 +64,7 @@ export default function Navbar() {
                           className={classNames(
                             item.current
                               ? "text-neutral-900 dark:text-neutral-300 first:ml-4"
-                              : "text-neutral-900 dark:text-neutral-300 hover:underline first:ml-4",
+                              : "text-neutral-900 dark:text-neutral-300 hover:underline underline-offset-4 first:ml-4",
                             "text-base font-medium"
                           )}
                           aria-current={item.current ? "page" : undefined}
