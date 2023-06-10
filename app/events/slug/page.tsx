@@ -145,10 +145,11 @@ export default function EventSlug() {
               </p>
             </div>
           </div>
-          <div className="pt-5 mx-10">
+          <div className="py-3 mx-10">
             <h3 className="text-3xl font-bold">سایر رویدادها</h3>
           </div>
-          <div className="grid grid-cols-6 gap-6 py-20">
+          <hr />
+          <div className="grid grid-cols-6 gap-6 pt-5">
             <div className="max-w-sm col-span-6 mx-auto my-5 bg-white border border-gray-200 rounded-lg shadow lg:col-span-2 md:col-span-3 dark:bg-gray-800 dark:border-gray-700">
               <a href="#" aria-label="image">
                 <img
