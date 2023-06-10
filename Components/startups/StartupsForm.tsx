@@ -60,7 +60,7 @@ const StartUpsForm = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleFormSubmit = async (data: any) => {
+  const handleFormSubmit = async (data: Info) => {
     // e.preventDefault();
     setIsSubmitting(true);
     setSend(true);
