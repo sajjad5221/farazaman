@@ -129,7 +129,7 @@ export default function EventSlug() {
                 src="https://websitedemos.net/event-management-04/wp-content/uploads/sites/638/2020/07/group-of-people-photo-in-room.jpg"
               ></img>
             </div>
-            <div className="order-2 col-span-4 py-0 text-right text-gray-900 dark:text-gray-100 lg:mx-16 px-7 lg:col-span-2 ">
+            <div className="order-2 col-span-4 py-0 text-right text-gray-900 md:px-10 dark:text-gray-100 lg:mx-16 px-7 lg:col-span-2 ">
               <h6 className="mb-2 pt-4 lg:pt-0  text-[#EAB308]">
                 درباره رویداد
               </h6>
@@ -145,8 +145,11 @@ export default function EventSlug() {
               </p>
             </div>
           </div>
-          <div className="grid grid-cols-6 gap-6 py-20 mx-auto">
-            <div className="max-w-sm col-span-6 mx-10 mx-auto my-5 bg-white border border-gray-200 rounded-lg shadow lg:col-span-2 md:col-span-3 dark:bg-gray-800 dark:border-gray-700">
+          <div className="py-5 mx-10">
+            <h3 className="text-3xl font-bold">سایر رویدادها</h3>
+          </div>
+          <div className="grid grid-cols-6 py-20 mx-auto">
+            <div className="max-w-sm col-span-6 mx-10 my-5 bg-white border border-gray-200 rounded-lg shadow lg:col-span-2 md:col-span-3 dark:bg-gray-800 dark:border-gray-700">
               <a href="#" aria-label="image">
                 <img
                   className="rounded-t-lg"
