@@ -170,7 +170,7 @@ export default function EventSlug() {
                   href="#"
                   className="inline-flex px-3 items-center py-2 text-sm font-medium text-center text-white bg-[#EAB308] rounded-lg hover:bg-yellow-800 focus:ring-4 focus:outline-none focus:ring-yellow-300 dark:bg-[#EAB308] dark:hover:bg-yellow-700 dark:focus:ring-yellow-800"
                 >
-                  بیشتر بخوانید
+                  <p className="px-1">بیشتر بخوانید</p>
                   <svg
                     aria-hidden="true"
                     className="w-4 h-4 "
@@ -211,7 +211,7 @@ export default function EventSlug() {
                   href="#"
                   className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-[#EAB308] rounded-lg hover:bg-yellow-800 focus:ring-4 focus:outline-none focus:ring-yellow-300 dark:bg-[#EAB308] dark:hover:bg-yellow-700 dark:focus:ring-yellow-800"
                 >
-                  بیشتر
+                  <p className="px-1">بیشتر</p>
                   <svg
                     aria-hidden="true"
                     className="w-4 h-4 "
@@ -252,7 +252,7 @@ export default function EventSlug() {
                   href="#"
                   className="inline-flex px-3 items-center py-2 text-sm font-medium text-center text-white bg-[#EAB308] rounded-lg hover:bg-yellow-800 focus:ring-4 focus:outline-none focus:ring-yellow-300 dark:bg-[#EAB308] dark:hover:bg-yellow-700 dark:focus:ring-yellow-800"
                 >
-                  ادامه
+                  <p className="px-1">ادامه</p>
                   <svg
                     aria-hidden="true"
                     className="w-4 h-4 "
