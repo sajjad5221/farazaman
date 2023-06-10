@@ -146,7 +146,7 @@ export default function EventSlug() {
             </div>
           </div>
           <div className="grid grid-cols-6 py-20 mx-auto">
-            <div className="max-w-sm col-span-2 mx-10 bg-white border border-gray-200 rounded-lg dark:bg-gray-800 dark:border-gray-700">
+            <div className="max-w-sm col-span-6 mx-10 my-5 bg-white border border-gray-200 rounded-lg shadow lg:col-span-2 md:col-span-3 dark:bg-gray-800 dark:border-gray-700">
               <a href="#" aria-label="image">
                 <img
                   className="rounded-t-lg"
@@ -160,7 +160,7 @@ export default function EventSlug() {
                     رویداد اول
                   </h5>
                 </a>
-                <p className="mb-3 font-normal text-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800 dark:border-gray-700">
+                <p className="mb-3 font-normal text-gray-700 dark:text-gray-400 dark:bg-gray-800 dark:border-gray-700">
                   لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و
                   با و استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه
                   و مجله لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت
@@ -187,7 +187,7 @@ export default function EventSlug() {
                 </a>
               </div>
             </div>
-            <div className="max-w-sm col-span-2 mx-10 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+            <div className="max-w-sm col-span-6 mx-10 my-5 bg-white border border-gray-200 rounded-lg shadow lg:col-span-2 md:col-span-3 dark:bg-gray-800 dark:border-gray-700">
               <a href="#" aria-label="image">
                 <img
                   className="rounded-t-lg"
@@ -201,7 +201,7 @@ export default function EventSlug() {
                     رویداد دوم
                   </h5>
                 </a>
-                <p className="mb-3 font-normal text-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800 dark:border-gray-700">
+                <p className="mb-3 font-normal text-gray-700 dark:text-gray-400 dark:bg-gray-800 dark:border-gray-700 ">
                   لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و
                   با و استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه
                   و مجله لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت
@@ -228,7 +228,7 @@ export default function EventSlug() {
                 </a>
               </div>
             </div>
-            <div className="max-w-sm col-span-2 mx-10 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+            <div className="max-w-sm col-span-6 mx-10 my-5 bg-white border border-gray-200 rounded-lg shadow lg:col-span-2 md:col-span-3 dark:bg-gray-800 dark:border-gray-700">
               <a href="#" aria-label="image">
                 <img
                   className="rounded-t-lg"
@@ -242,7 +242,7 @@ export default function EventSlug() {
                     رویداد سوم
                   </h5>
                 </a>
-                <p className="mb-3 font-normal text-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800 dark:border-gray-700">
+                <p className="mb-3 font-normal text-gray-700 dark:text-gray-400 dark:bg-gray-800 dark:border-gray-700">
                   لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و
                   با و استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه
                   و مجله لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت
