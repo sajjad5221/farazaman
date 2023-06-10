@@ -5,6 +5,7 @@
 @font-face {
   font-family: yekan;
   src: url(../public/static/fonts/Yekan.ttf);
+  font-display: swap;
 }
 
 :root {
@@ -29,6 +30,9 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+}
+.mb-3 {
+   background:#171717;
 }
 
 html {

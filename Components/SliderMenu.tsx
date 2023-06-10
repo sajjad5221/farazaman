@@ -167,18 +167,22 @@ export default function SliderMenu({
   const [startX, setStartX] = useState(0);
   const [scrollLeft, setScrollLeft] = useState(0);
 
-  const handleMouseDown = (e: any) => {
+  const handleMouseDown = (e: React.MouseEvent) => {
     setIsDragging(true);
     setStartX(e.clientX);
-    setScrollLeft(carouselRef.current!.scrollLeft);
+    if (carouselRef.current != null) {
+      setScrollLeft(carouselRef.current.scrollLeft);
+    }
   };
 
-  const handleMouseMove = (e: any) => {
+  const handleMouseMove = (e: React.MouseEvent) => {
     if (!isDragging) return;
     e.preventDefault();
     const x = e.clientX;
     const walk = x - startX;
-    carouselRef.current!.scrollLeft = scrollLeft - walk;
+    if (carouselRef.current != null) {
+      carouselRef.current.scrollLeft = scrollLeft - walk;
+    }
   };
 
   const handleMouseUp = () => {
@@ -187,7 +191,9 @@ export default function SliderMenu({
 
   return (
     <div className="select-none bg-gray-50 text-gray-300 dark:bg-neutral-900 w-full px-4 pt-16 pb-16 max-w-full relative">
-      <h1 className="text-3xl font-bold text-center mb-6 ">{title}</h1>
+      <h1 className="text-3xl text-black font-bold text-center mb-6 dark:text-white">
+        {title}
+      </h1>
       <p className="pt-6 pb-16 text-base max-w-2xl text-center m-auto text-gray-600 dark:text-neutral-400">
         {description}
       </p>
@@ -225,13 +231,14 @@ export default function SliderMenu({
         <div className="flex flex-row items-center">
           <button
             className="rounded-full bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-1.5 px-1.5"
+            aria-label="Arrow"
             onClick={handlePrevSlide}
           >
-            <ChevronLeftIcon className="h-6 w-6" />
+            <ChevronRightIcon className="h-6 w-6" />
           </button>
 
           <div
-            className="flex overflow-x-hidden whitespace-nowrap"
+            className="flex overflow-x-auto lg:overflow-x-hidden whitespace-nowrap"
             ref={carouselRef}
             onMouseDown={handleMouseDown}
             onMouseMove={handleMouseMove}
@@ -242,7 +249,7 @@ export default function SliderMenu({
               ? expriences.map((card) => (
                   <div
                     key={card.id}
-                    className="flex flex-col justify-evenly w-64 h-64 bg-neutral-100 dark:bg-neutral-800 rounded-lg p-4 cursor-pointer mx-2"
+                    className="flex flex-col justify-evenly w-64 h-64 bg-neutral-200 dark:bg-neutral-800 rounded-lg p-4 cursor-pointer mx-2"
                     style={{ scrollSnapAlign: "start" }}
                   >
                     <Image
@@ -251,20 +258,22 @@ export default function SliderMenu({
                       quality={100}
                       src={card.imageUrl}
                       alt={card.title}
-                      className="mx-auto rounded-full"
+                      className="mx-auto rounded-full border-2 border-yellow-500 p-[2px]"
                     />
 
-                    <h3 className="text-center mt-2 font-bold text-gray-700">{card.title}</h3>
-                    <p className="text-center dark:text-neutral-400">
+                    <h1 className="text-center mt-2 font-bold text-neutral-900 dark:text-neutral-100">
+                      {card.title}
+                    </h1>
+                    <p className="text-center text-neutral-900 dark:text-neutral-100">
                       {card.description}
                     </p>
                   </div>
                 ))
               : StartUps.map((card) => (
                   <Link
-                  href={"/startups/" + card.id}
+                    href={"/startups/" + card.id}
                     key={card.id}
-                    className="flex flex-col justify-evenly w-64 h-64 bg-neutral-50 text-gray-700 dark:bg-neutral-700 rounded-lg p-4 cursor-pointer mx-2"
+                    className="flex flex-col justify-evenly w-64 h-64 bg-neutral-100 text-gray-700 dark:bg-neutral-700 rounded-lg p-4 cursor-pointer mx-2"
                     style={{ scrollSnapAlign: "start" }}
                   >
                     <Image
@@ -273,11 +282,15 @@ export default function SliderMenu({
                       quality={100}
                       src={card.imageUrl}
                       alt={card.title}
-                      className="mx-auto rounded-full"
+                      className="mx-auto rounded-full border-2 border-yellow-500 p-[2px]"
                     />
 
-                    <h3 className="text-black text-center mt-2 font-bold"><span className="text-black">{card.title}</span></h3>
-                    <p className="text-center text-gray-600 dark:text-neutral-400">
+                    <h1 className="text-center mt-2 font-bold">
+                      <span className="text-neutral-900 dark:text-neutral-100">
+                        {card.title}
+                      </span>
+                    </h1>
+                    <p className="text-center text-neutral-900 dark:text-neutral-100">
                       {card.description}
                     </p>
                   </Link>
@@ -285,22 +298,24 @@ export default function SliderMenu({
           </div>
           <button
             className="rounded-full bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-1.5 px-1.5"
-            onClick={handlePrevSlide}
+            aria-label="Arrow"
+            onClick={handleNextSlide}
           >
-            <ChevronRightIcon className="h-6 w-6" />
+            <ChevronLeftIcon className="h-6 w-6" />
           </button>
         </div>
       ) : (
         <div className="flex flex-row items-center">
           <button
             className="rounded-full bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-1.5 px-1.5"
-            onClick={handleNextSlide}
+            aria-label="Arrow"
+            onClick={handlePrevSlide}
           >
             <ChevronRightIcon className="h-6 w-6" />
           </button>
 
           <div
-            className="flex overflow-x-hidden whitespace-nowrap"
+            className="flex  overflow-x-auto lg:overflow-x-hidden whitespace-nowrap"
             ref={carouselRef}
             onMouseDown={handleMouseDown}
             onMouseMove={handleMouseMove}
@@ -320,20 +335,22 @@ export default function SliderMenu({
                       quality={100}
                       src={card.imageUrl}
                       alt={card.title}
-                      className="mx-auto rounded-full"
+                      className="mx-auto rounded-full border-2 border-yellow-500 p-[2px]"
                     />
 
-                    <h3 className="text-center mt-2 font-bold">{card.title}</h3>
-                    <p className="text-center dark:text-neutral-400">
+                    <h1 className="text-center mt-2 font-bold text-neutral-900 dark:text-neutral-100">
+                      {card.title}
+                    </h1>
+                    <p className="text-center text-neutral-900 dark:text-neutral-100">
                       {card.description}
                     </p>
                   </div>
                 ))
               : StartUps.map((card) => (
                   <Link
-                  href={"/startups/" + card.id}
+                    href={"/startups/" + card.id}
                     key={card.id}
-                    className="flex flex-col justify-evenly w-64 h-64 bg-neutral-100 dark:bg-neutral-800 rounded-lg p-4 cursor-pointer mx-2"
+                    className="flex flex-col justify-evenly w-64 h-64 bg-neutral-200 dark:bg-neutral-800 rounded-lg p-4 cursor-pointer mx-2"
                     style={{ scrollSnapAlign: "start" }}
                   >
                     <Image
@@ -342,11 +359,13 @@ export default function SliderMenu({
                       quality={100}
                       src={card.imageUrl}
                       alt={card.title}
-                      className="mx-auto rounded-full"
+                      className="mx-auto rounded-full border-2 border-yellow-500 p-[2px]"
                     />
 
-                    <h3 className="text-center mt-2 font-bold">{card.title}</h3>
-                    <p className="text-center dark:text-neutral-400">
+                    <h1 className="text-center mt-2 font-bold text-neutral-900 dark:text-neutral-100">
+                      {card.title}
+                    </h1>
+                    <p className="text-center text-neutral-900 dark:text-neutral-100">
                       {card.description}
                     </p>
                   </Link>
@@ -354,6 +373,7 @@ export default function SliderMenu({
           </div>
           <button
             className="rounded-full bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-1.5 px-1.5"
+            aria-label="Arrow"
             onClick={handlePrevSlide}
           >
             <ChevronLeftIcon className="h-6 w-6" />

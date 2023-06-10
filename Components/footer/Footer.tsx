@@ -58,9 +58,9 @@ const social = [
 const column1 = [
   { name: "خانه", href: "/" },
   { name: "سرویس ها", href: "#services" },
-  { name: "استارت آپ ها", href: "#startups" },
+  { name: "استارت آپ ها", href: "/#startups" },
   { name: "سوالات متداول", href: "#faq" },
-  { name: "ارتباط", href: "#contact" },
+  { name: "ارتباط", href: "/contact-us" },
 ];
 
 const column2 = [
@@ -101,7 +101,12 @@ export default function Footer() {
 
           <div className="flex gap-2 pt-6 sm:pt-6 md:pt-6 lg:pt-12 max-w-[300px]">
             {social.map((red) => (
-              <Link key={red.name} href={red.href} target="_blank">
+              <Link
+                key={red.name}
+                href={red.href}
+                aria-label="Social Icons"
+                target="_blank"
+              >
                 <div className="w-9 h-9 p-2 text-slate-300 bg-neutral-500 hover:opacity-75 rounded-full flex items-center justify-center">
                   {red.icon}
                 </div>
@@ -111,14 +116,14 @@ export default function Footer() {
         </div>
 
         <div>
-          <h3 className="text-neutral-500 text-sm md:text-xs font-bold pb-4 pt-12 lg:pt-0">
+          <h3 className="text-neutral-600 dark:text-neutral-300 text-sm md:text-xs font-bold pb-4 pt-12 lg:pt-0">
             شرکت
           </h3>
           {column1.map((item) => (
             <Link
               key={item.name}
               href={item.href}
-              className="text-neutral-500 md:text-sm my-4 grid hover:underline"
+              className="text-neutral-600 dark:text-neutral-300 md:text-sm my-4 grid hover:underline underline-offset-4"
             >
               {item.name}
             </Link>
@@ -126,14 +131,14 @@ export default function Footer() {
         </div>
 
         <div>
-          <h3 className="text-neutral-500 text-sm md:text-xs font-bold pb-4 pt-12 lg:pt-0">
+          <h3 className="text-neutral-600 dark:text-neutral-300 text-sm md:text-xs font-bold pb-4 pt-12 lg:pt-0">
             منابع
           </h3>
           {column2.map((item) => (
             <Link
               key={item.name}
               href={item.href}
-              className="text-neutral-500 md:text-sm my-4 grid hover:underline"
+              className="text-neutral-600 dark:text-neutral-300 md:text-sm my-4 grid hover:underline underline-offset-4"
             >
               {item.name}
             </Link>
@@ -141,14 +146,14 @@ export default function Footer() {
         </div>
 
         <div>
-          <h3 className="text-neutral-500 text-sm md:text-xs font-bold pb-4 pt-12 lg:pt-0">
+          <h3 className="text-neutral-600 dark:text-neutral-300 text-sm md:text-xs font-bold pb-4 pt-12 lg:pt-0">
             حقوقی
           </h3>
           {column3.map((item) => (
             <Link
               key={item.name}
               href={item.href}
-              className="text-neutral-500 md:text-sm my-4 grid hover:underline"
+              className="text-neutral-600 dark:text-neutral-300 md:text-sm my-4 grid hover:underline"
             >
               {item.name}
             </Link>
@@ -160,12 +165,11 @@ export default function Footer() {
       <div className="text-neutral-500 mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 p-6 text-center border-t border-neutral-800">
         <Link
           href="/"
-          className="text-neutral-500 text-neutral-300 dark:text-neutral-400 text-sm hover:underline transition duration-300"
+          className="text-neutral-600 dark:text-neutral-300 text-sm hover:underline underline-offset-4 transition duration-300"
         >
           &copy; Copyright {new Date().getFullYear()}. All rights reserved
         </Link>
       </div>
-  
     </footer>
   );
 }
