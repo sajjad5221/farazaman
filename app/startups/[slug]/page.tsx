@@ -1,9 +1,10 @@
 import React from "react";
 import FetchApi from "@/Services/Fetch";
 import Carousel from "@/Components/Carousel";
+import { GetServerSidePropsContext } from "next";
 
-export default async function page(context: any) {
-  const id = context.params.slug;
+export default async function page(context: GetServerSidePropsContext) {
+  const id = context.params?.slug as string | undefined;
   const startupData = await FetchApi(
     `https://647aecc9d2e5b6101db0a6a2.mockapi.io/api/v1/startups/${id}`
   );
