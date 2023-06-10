@@ -73,7 +73,7 @@ export function Services() {
                 priority
               />
             </div>
-            <h2 className="font-bold py-3 text-lg text-center text-neutral-100 dark:neutral-900">
+            <h2 className="font-bold py-3 text-lg text-center text-neutral-900 dark:neutral-100">
               {title}
             </h2>
             <p className="text-base text-center text-gray-600 dark:text-neutral-400">
