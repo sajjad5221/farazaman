@@ -3,7 +3,7 @@ import FetchApi from "@/Services/Fetch";
 import Carousel from "@/Components/Carousel";
 
 export default async function page(context: any) {
-  const id = context.params.slug;
+  const id = context.params?.slug as string | undefined;
   const startupData = await FetchApi(
     `https://647aecc9d2e5b6101db0a6a2.mockapi.io/api/v1/startups/${id}`
   );

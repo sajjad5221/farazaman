@@ -58,9 +58,9 @@ const social = [
 const column1 = [
   { name: "خانه", href: "/" },
   { name: "سرویس ها", href: "#services" },
-  { name: "استارت آپ ها", href: "#startups" },
+  { name: "استارت آپ ها", href: "/#startups" },
   { name: "سوالات متداول", href: "#faq" },
-  { name: "ارتباط", href: "#contact" },
+  { name: "ارتباط", href: "/contact-us" },
 ];
 
 const column2 = [
@@ -123,7 +123,7 @@ export default function Footer() {
             <Link
               key={item.name}
               href={item.href}
-              className="text-neutral-600 dark:text-neutral-300 md:text-sm my-4 grid hover:underline"
+              className="text-neutral-600 dark:text-neutral-300 md:text-sm my-4 grid hover:underline underline-offset-4"
             >
               {item.name}
             </Link>
@@ -138,7 +138,7 @@ export default function Footer() {
             <Link
               key={item.name}
               href={item.href}
-              className="text-neutral-600 dark:text-neutral-300 md:text-sm my-4 grid hover:underline"
+              className="text-neutral-600 dark:text-neutral-300 md:text-sm my-4 grid hover:underline underline-offset-4"
             >
               {item.name}
             </Link>
@@ -162,13 +162,22 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="text-neutral-500 mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 p-6 text-center border-t border-neutral-800">
-        <Link
-          href="/"
-          className="text-neutral-600 dark:text-neutral-300 text-sm hover:underline transition duration-300"
-        >
-          &copy; Copyright {new Date().getFullYear()}. All rights reserved
-        </Link>
+      <div className="flex-col text-neutral-500 mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 p-6 text-center border-t border-neutral-800">
+        <p className="text-sm">
+          کلیه حقوق برای{" "}
+          <Link href={"/"} className="text-yellow-500">
+            فرازمان
+          </Link>{" "}
+          محفوظ است.
+        </p>
+        <p className="text-sm">
+          Copyright &copy; {new Date().getFullYear()}{" "}
+          <Link className="text-yellow-500" href={"/"}>
+            {" "}
+            Farazaman&trade;
+          </Link>{" "}
+          , All rights reserved.
+        </p>
       </div>
     </footer>
   );

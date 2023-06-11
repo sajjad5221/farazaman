@@ -48,7 +48,9 @@ export function Services() {
   return (
     <div className="bg-gray-50 dark:bg-neutral-900" id="services">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 text-center">
-        <h2 className="text-4xl font-bold text-black dark:text-white">فرازمان چیست؟</h2>
+        <h2 className="text-4xl font-bold text-black dark:text-white">
+          فرازمان چیست؟
+        </h2>
 
         <p className="pt-6 pb-6 text-base max-w-2xl text-center m-auto text-gray-600 dark:text-neutral-400">
           لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده
@@ -71,8 +73,10 @@ export function Services() {
                 priority
               />
             </div>
-            <h2 className="font-bold text-lg text-center dark:text-white">{title}</h2>
-            <p className="pt-2 text-base text-center text-gray-600 dark:text-neutral-400">
+            <h2 className="font-bold py-3 text-lg text-center text-neutral-900 dark:neutral-100">
+              {title}
+            </h2>
+            <p className="text-base text-center text-gray-600 dark:text-neutral-400">
               {description}
             </p>
           </div>

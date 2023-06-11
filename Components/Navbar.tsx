@@ -11,13 +11,13 @@ import { XMarkIcon } from "@heroicons/react/24/solid";
 import { ThemeProvider } from "next-themes";
 
 const navigation = [
-  { name: "ارتباط با ما", href: "/contact-us", current: false },
-  { name: "رویدادها", href: "/events", current: false },
-  { name: "فضای کار اشتراکی", href: "/workspace", current: false },
-  { name: "استارت آپ های اجرا شده", href: "/#startups", current: false },
-  { name: "ثبت استارتاپ", href: "/startups", current: false },
-  { name: "استخدام", href: "/hiring", current: false },
   { name: "خانه", href: "/", current: false },
+  { name: "استخدام", href: "/hiring", current: false },
+  { name: "ثبت استارتاپ", href: "/startups", current: false },
+  { name: "استارت آپ های اجرا شده", href: "/#startups", current: false },
+  { name: "فضای کار اشتراکی", href: "/workspace", current: false },
+  { name: "رویدادها", href: "/events", current: false },
+  { name: "ارتباط با ما", href: "/contact-us", current: false },
 ];
 
 function classNames(...classes: Array<string>) {
@@ -31,7 +31,7 @@ export default function Navbar() {
         as="nav"
         className=" fixed top-0 left-0 right-0 bg-white dark:bg-neutral-900 text-neutral-900 dark:text-neutral-400 border-b border-neutral-200 dark:border-neutral-700 backdrop-blur-sm bg-white/90 dark:bg-neutral-900/80 z-20"
       >
-        {({ open }: { open: any }) => (
+        {({ open }: { open: boolean }) => (
           <>
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
               <div className="relative flex h-16 items-center justify-between">
@@ -39,7 +39,7 @@ export default function Navbar() {
                   <div className="flex flex-shrink-0 items-center md:pl-0">
                     <Link href="/">
                       <Image
-                        className="h-12 w-auto ml-4"
+                        className="h-12 w-auto lg:ml-4"
                         src="/static/images/Farazaman.png"
                         alt="Farazaman"
                         width={200}
@@ -53,7 +53,7 @@ export default function Navbar() {
                     <ThemeSwitchButton />
                   </div>
                   <div className="hidden sm:ml-6 sm:block">
-                    <div className="flex flex-row-reverse space-x-5 items-center">
+                    <div className="flex flex-row space-x-5 items-center">
                       <div className="absolute left-0">
                         <ThemeSwitchButton />
                       </div>
@@ -64,7 +64,7 @@ export default function Navbar() {
                           className={classNames(
                             item.current
                               ? "text-neutral-900 dark:text-neutral-300 first:ml-4"
-                              : "text-neutral-900 dark:text-neutral-300 hover:underline first:ml-4",
+                              : "text-neutral-900 dark:text-neutral-300 hover:underline underline-offset-4 first:ml-4",
                             "text-base font-medium"
                           )}
                           aria-current={item.current ? "page" : undefined}
