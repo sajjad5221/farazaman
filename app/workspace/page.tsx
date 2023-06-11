@@ -1,14 +1,27 @@
-import { Hero } from "@/Components/Hero";
 import Image from "next/image";
 import React from "react";
 
 export default function page() {
   return (
-    <div className="py-24 px-12 bg-white dark:bg-neutral-900">
-      <div className="flex flex-row">
-        <div className="flex flex-col w-1/2">
-          <h1>فضای کار اشتراکی</h1>
-          <p className="text-neutral-500 md:text-sm pt-4 w-auto sm:w-6/12 md:w-6/12 lg:w-8/12">
+    <div className="py-16 bg-gray-50 dark:bg-neutral-900 text-black dark:text-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 text-center">
+        <h1 className="text-4xl text-black font-bold dark:text-neutral-100">
+          فضای کار اشتراکی
+        </h1>
+        <p className="pt-6 pb-6 text-base text-zinc-600 max-w-2xl text-center m-auto dark:text-neutral-400">
+          تجربه کار در فضای کار اشتراکی فرازمان
+        </p>
+      </div>
+      <div className="flex-col mx-10">
+        <div className="flex flex-col lg:flex-row-reverse">
+          <Image
+            className="lg:w-1/3 my-5 lg:mr-5"
+            src="https://via.placeholder.com/150"
+            width={500}
+            height={500}
+            alt="workspace"
+          />
+          <p className="lg:w-2/3 lg:mt-5">
             لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با
             استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله در
             ستون و سطرآنچنان که لازم است، و برای شرایط فعلی تکنولوژی مورد نیاز،
@@ -22,15 +35,7 @@ export default function page() {
             طراحی اساسا مورد استفاده قرار گیرد.
           </p>
         </div>
-        <Image
-          className=""
-          src={"/static/images/img.jpg"}
-          alt="image"
-          width={500}
-          height={500}
-        />
       </div>
-      <div>Form Goes Here.</div>
     </div>
   );
 }
