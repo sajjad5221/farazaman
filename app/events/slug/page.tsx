@@ -63,29 +63,6 @@ export default function EventSlug() {
                   />
                 </div>
                 <div className="flex items-start">
-                  <div className="flex items-start">
-                    <div className="flex items-center h-5">
-                      <input
-                        id="remember"
-                        type="checkbox"
-                        value=""
-                        className="w-4 h-4 border border-gray-300 rounded focus:ring-3 bg-gray-50 focus:ring-yellow-300 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-yellow-600 dark:focus:ring-offset-gray-800"
-                        required
-                      />
-                    </div>
-                    <label
-                      htmlFor="remember"
-                      className="mr-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-                    >
-                      مرا به خاطر بسپار
-                    </label>
-                  </div>
-                  <a
-                    href="#"
-                    className="mr-auto text-sm text-[#EAB308] hover:underline dark:text-[#EAB308]"
-                  >
-                    گذرواژه خود را فراموش کرده اید؟
-                  </a>
                 </div>
                 <button
                   type="submit"
