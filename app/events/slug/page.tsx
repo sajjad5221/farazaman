@@ -122,7 +122,7 @@ export default function EventSlug() {
             </div>
           </div>
           <div className="py-3 mx-10">
-            <h3 className="text-3xl font-bold">سایر رویدادها</h3>
+            <h3 className="text-3xl font-bold text-gray-900 dark:text-gray-100">سایر رویدادها</h3>
           </div>
           <hr />
           <div className="grid grid-cols-6 gap-6 pt-5">
