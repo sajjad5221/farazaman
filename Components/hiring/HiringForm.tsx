@@ -43,9 +43,9 @@ const HiringForm = () => {
   }, []);
 
     return (
-      <form onSubmit={handleSubmit} className='relative top-[9px] left-[30px] h-[1060px] m-[30px] mb-0 mt-[55px] w-full border-none bg-white dark:bg-neutral-900 2xl:h-[1060px] xl:h-[1060px] lg:h-[1060px] md:h-[1060px] sm:h-[1060px] s:h-[1450px] mobile:h-[1492px] little:h-[1387px]'>
+      <form onSubmit={handleSubmit} className='relative top-[9px] left-[30px] h-[1060px] m-[30px] mb-0 mt-[55px] w-full border-b-[2px] border-neutral-900 dark:border-white bg-white dark:bg-neutral-900 2xl:h-[1060px] xl:h-[1060px] lg:h-[1060px] md:h-[1060px] sm:h-[1060px] s:h-[1450px] mobile:h-[1492px] little:h-[1387px]'>
         <div className="subject-form relative grid place-items-center p-3">
-          <h1 className="subject-box text-[40px] text-neutral-950 dark:text-white font-bold">
+          <h1 className="subject-box text-[40px] text-neutral-950 dark:text-white font-bold ">
             استخدام
           </h1>
           <p className="descrption-subject text-lg text-neutral-950 dark:text-zinc-400 2xl:text-lg xl:text-lg lg:text-lg md:text-lg sm:text-lg mobile:text-[15px] little:text-[12px]">
