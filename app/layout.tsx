@@ -22,10 +22,9 @@ export default function RootLayout({
       />
 
       <html dir="rtl" lang="en">
-        
         <body className="font-yakan">
           <Navbar />
-          <div className="mb-3">{children}</div>
+          <div>{children}</div>
 
           <Footer />
         </body>
