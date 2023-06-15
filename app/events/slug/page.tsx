@@ -1,13 +1,12 @@
 import React from "react";
-
 export default function EventSlug() {
   return (
-    <>
+<>
       <div className="mt-16"></div>
       <section className="bg-gray-500 bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/conference.jpg')] bg-center bg-no-repeat bg-blend-multiply">
         <div className="container py-10 mx-auto">
           <div className="grid grid-cols-3">
-            <div className="order-2 col-span-3 p-4 mx-3 my-8 bg-white border border-gray-200 rounded-lg shadow shrink-0 dark:border-gray-700 dark:bg-gray-800 sm:p-6 md:mx-10 md:p-8 lg:col-span-1">
+            <div className="order-2 col-span-3 p-4 m-5 bg-white border border-gray-200 rounded-lg shadow sm:m-16 shrink-0 dark:border-gray-700 dark:bg-gray-800 sm:p-6 lg:mx-10 md:p-8 lg:col-span-1">
               <form className="space-y-8" action="#">
                 <h5 className="text-xl font-medium text-gray-900 dark:text-white">
                   در رویداد ما ثبت نام کنید.
@@ -17,15 +16,14 @@ export default function EventSlug() {
                     htmlFor="text"
                     className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                   >
-                    نام کاربری
+                    نام و نام خانوادگی
                   </label>
                   <input
-                    dir="ltr"
                     type="text"
                     name="text"
                     id="text"
                     className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-yellow-500 focus:ring-yellow-500 dark:border-gray-500 dark:bg-gray-600 dark:text-white dark:placeholder-gray-400"
-                    placeholder="Ali Mohammadi"
+                    placeholder="سهیل حیدری"
                     required
                   />
                 </div>
@@ -63,51 +61,11 @@ export default function EventSlug() {
                     required
                   />
                 </div>
-                <div>
-                  <label
-                    htmlFor="password"
-                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                  >
-                    رمز عبور
-                  </label>
-                  <input
-                    dir="ltr"
-                    type="password"
-                    name="password"
-                    id="password"
-                    placeholder="••••••••"
-                    className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-yellow-500 focus:ring-yellow-500 dark:border-gray-500 dark:bg-gray-600 dark:text-white dark:placeholder-gray-400"
-                    required
-                  />
-                </div>
                 <div className="flex items-start">
-                  <div className="flex items-start">
-                    <div className="flex items-center h-5">
-                      <input
-                        id="remember"
-                        type="checkbox"
-                        value=""
-                        className="w-4 h-4 border border-gray-300 rounded focus:ring-3 bg-gray-50 focus:ring-yellow-300 dark:border-gray-600 dark:bg-gray-700 dark:ring-offset-gray-800 dark:focus:ring-yellow-600 dark:focus:ring-offset-gray-800"
-                        required
-                      />
-                    </div>
-                    <label
-                      htmlFor="remember"
-                      className="mr-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-                    >
-                      مرا به خاطر بسپار
-                    </label>
-                  </div>
-                  <a
-                    href="#"
-                    className="mr-auto text-sm text-[#EAB308] hover:underline dark:text-yellow-500"
-                  >
-                    گذرواژه خود را فراموش کرده اید؟
-                  </a>
                 </div>
                 <button
                   type="submit"
-                  className="w-full rounded-lg bg-[#EAB308] px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-yellow-800 focus:outline-none focus:ring-4 focus:ring-yellow-300 dark:bg-yellow-600 dark:hover:bg-yellow-700 dark:focus:ring-yellow-800"
+                  className="w-full rounded-lg bg-[#EAB308] px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-yellow-800 focus:outline-none focus:ring-4 focus:ring-yellow-300 dark:bg-[#EAB308] dark:hover:bg-yellow-700 dark:focus:ring-yellow-800"
                 >
                   ثبت نام
                 </button>
@@ -138,22 +96,21 @@ export default function EventSlug() {
           </div>
         </div>
       </section>
-      <div>
+      <div className="bg-gray-50 dark:bg-neutral-900">
         <div className="container py-20 mx-auto">
           <div className="grid grid-cols-4 mb-10 ">
-            <div className="order-1 col-span-4 px-10 mx-auto lg:col-span-2">
+            <div className="order-1 col-span-4 mx-auto md:px-10 lg:col-span-2">
               <img
                 alt="image"
-                className=""
                 src="https://websitedemos.net/event-management-04/wp-content/uploads/sites/638/2020/07/group-of-people-photo-in-room.jpg"
               ></img>
             </div>
-            <div className="order-2 col-span-4 py-0 mx-20 text-right px-7 lg:col-span-2 ">
+            <div className="order-2 col-span-4 py-0 text-right text-gray-900 md:px-10 dark:text-gray-100 lg:mx-16 px-7 lg:col-span-2 ">
               <h6 className="mb-2 pt-4 lg:pt-0  text-[#EAB308]">
                 درباره رویداد
               </h6>
               <h1 className="mb-5 text-5xl font-bold">عنوان رویداد</h1>
-              <p className="mb-1 ml-5 text-lg leading-loose text-gray-500">
+              <p className="mb-1 text-lg leading-loose text-gray-500 lg:ml-5">
                 لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با
                 و استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و
                 مجله لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ،
@@ -164,8 +121,12 @@ export default function EventSlug() {
               </p>
             </div>
           </div>
-          <div className="grid grid-cols-6 py-20 mx-auto">
-            <div className="max-w-sm col-span-2 mx-10 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+          <div className="py-3 mx-10">
+            <h3 className="text-3xl font-bold text-gray-900 dark:text-gray-100">سایر رویدادها</h3>
+          </div>
+          <hr />
+          <div className="grid grid-cols-6 gap-6 pt-5">
+            <div className="max-w-sm col-span-6 mx-auto my-5 bg-white border border-gray-200 rounded-lg shadow lg:col-span-2 md:col-span-3 dark:bg-gray-800 dark:border-gray-700">
               <a href="#" aria-label="image">
                 <img
                   className="rounded-t-lg"
@@ -179,7 +140,7 @@ export default function EventSlug() {
                     رویداد اول
                   </h5>
                 </a>
-                <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                <p className="mb-4 font-normal text-gray-700 dark:text-gray-400">
                   لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و
                   با و استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه
                   و مجله لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت
@@ -187,9 +148,9 @@ export default function EventSlug() {
                 </p>
                 <a
                   href="#"
-                  className="inline-flex px-3 py-2 text-sm font-medium text-center text-white bg-[#EAB308] rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                  className="inline-flex px-3 items-center py-2 text-sm font-medium text-center text-white bg-[#EAB308] rounded-lg hover:bg-yellow-800 focus:ring-4 focus:outline-none focus:ring-yellow-300 dark:bg-[#EAB308] dark:hover:bg-yellow-700 dark:focus:ring-yellow-800"
                 >
-                  بیشتر بخوانید
+                  <p className="px-1">بیشتر بخوانید</p>
                   <svg
                     aria-hidden="true"
                     className="w-4 h-4 "
@@ -206,7 +167,7 @@ export default function EventSlug() {
                 </a>
               </div>
             </div>
-            <div className="max-w-sm col-span-2 mx-10 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+            <div className="max-w-sm col-span-6 mx-auto my-5 bg-white border border-gray-200 rounded-lg shadow lg:col-span-2 md:col-span-3 dark:bg-gray-800 dark:border-gray-700">
               <a href="#" aria-label="image">
                 <img
                   className="rounded-t-lg"
@@ -220,7 +181,7 @@ export default function EventSlug() {
                     رویداد دوم
                   </h5>
                 </a>
-                <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                <p className="mb-4 font-normal text-gray-700 dark:text-gray-400 ">
                   لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و
                   با و استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه
                   و مجله لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت
@@ -228,9 +189,9 @@ export default function EventSlug() {
                 </p>
                 <a
                   href="#"
-                  className="inline-flex px-3 py-2 text-sm font-medium text-center text-white bg-[#EAB308] rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                  className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-[#EAB308] rounded-lg hover:bg-yellow-800 focus:ring-4 focus:outline-none focus:ring-yellow-300 dark:bg-[#EAB308] dark:hover:bg-yellow-700 dark:focus:ring-yellow-800"
                 >
-                  بیشتر
+                  <p className="px-1">بیشتر</p>
                   <svg
                     aria-hidden="true"
                     className="w-4 h-4 "
@@ -247,7 +208,7 @@ export default function EventSlug() {
                 </a>
               </div>
             </div>
-            <div className="max-w-sm col-span-2 mx-10 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+            <div className="max-w-sm col-span-6 mx-auto my-5 bg-white border border-gray-200 rounded-lg shadow lg:col-span-2 md:col-span-3 dark:bg-gray-800 dark:border-gray-700">
               <a href="#" aria-label="image">
                 <img
                   className="rounded-t-lg"
@@ -261,7 +222,7 @@ export default function EventSlug() {
                     رویداد سوم
                   </h5>
                 </a>
-                <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
+                <p className="mb-4 font-normal text-gray-700 dark:text-gray-400">
                   لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و
                   با و استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه
                   و مجله لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت
@@ -269,9 +230,9 @@ export default function EventSlug() {
                 </p>
                 <a
                   href="#"
-                  className="inline-flex px-3 py-2 text-sm font-medium text-center text-white bg-[#EAB308] rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                  className="inline-flex px-3 items-center py-2 text-sm font-medium text-center text-white bg-[#EAB308] rounded-lg hover:bg-yellow-800 focus:ring-4 focus:outline-none focus:ring-yellow-300 dark:bg-[#EAB308] dark:hover:bg-yellow-700 dark:focus:ring-yellow-800"
                 >
-                  ادامه
+                  <p className="px-1">ادامه</p>
                   <svg
                     aria-hidden="true"
                     className="w-4 h-4 "

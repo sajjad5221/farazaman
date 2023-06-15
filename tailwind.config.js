@@ -19,7 +19,14 @@ module.exports = {
       screens : {
         's' : '500px' ,
         'mobile' : '420px',
-        'little' : '350px'
+        'mobile2' : '450px',
+        'little' : '350px',
+        'little2' : '360px',
+        'long' : '1350px',
+        'long2' : '1080px',
+        'long3' : '1010px',
+        'long4' : '850px',
+        'long5' : '767px',
       },     
     },
   },

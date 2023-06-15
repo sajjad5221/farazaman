@@ -1,6 +1,34 @@
+<<<<<<< HEAD
 import React from 'react'
+=======
+"use client"
+
+import React, { useEffect, useState } from 'react'
+import EventList from '@/Components/events/eventsList'
+import axios from 'axios'
+
+
+
+>>>>>>> main
 export default function page() {
+  interface Event {
+    id: number
+    name: string
+    description: string
+    date: string
+    location: string
+    image: string
+    flag: boolean
+  }
+  const [events, setEvents] = useState<Event[]>([]);
+
+  useEffect(() => {
+    axios.get<Event[]>('http://127.0.0.1:8000/events/')
+    .then(res => setEvents(res.data))
+  }, [])
+
   return (
+<<<<<<< HEAD
 <div>
         <div className="container py-20 mx-auto">
           <div className="grid grid-cols-4 mb-10 ">
@@ -154,5 +182,10 @@ export default function page() {
           </div>
         </div>
       </div>
+=======
+    <div>
+      <EventList events={events} />
+    </div>
+>>>>>>> main
   )
 }
