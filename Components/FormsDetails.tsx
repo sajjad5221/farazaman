@@ -9,13 +9,12 @@ export default function FormsDetails({
 })
 {
   return (
-<div className="px-1 py-8">
+<div className="px-1 py-8 md:order-last lg:order-first max-[768px]:order-last">
           <h2 className="text-lg font-bold text-black dark:text-white">
-            ارتباط با شتابدهنده فرازمان
+            {title}
           </h2>
           <p className="max-w-sm mt-4 mb-4 text-gray-600 dark:text-neutral-400">
-            برای ارتباط با تیم شتابدهنده فرازمان میتوانیداز طریق پر کردن فرم
-            روبه رو یا روش های زیر اقدام نمایید.
+            {description}
           </p>
 
           <div className="flex items-center mt-8 space-x-2 text-dark-600 dark:text-neutral-400">

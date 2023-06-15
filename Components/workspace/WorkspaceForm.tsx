@@ -89,10 +89,13 @@ const ContactUs = () => {
           </p>
         </div>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 px-12" style={{direction:"rtl"}}>
-        
-      <FormsDetails title={""} description={""} />       
-      <div className="w-full px-4 py-4 md:px-1 py-8 ">
+      <div
+        className="grid grid-cols-1 md:grid-cols-2 px-12 bg-gray-50 dark:bg-neutral-900">
+        <FormsDetails 
+        title={"ثبت نام در فضای کار اشتراکی فرازمان"} 
+        description={"برای ثبت نام در فضای کار اشتراکی فرازمان فرم رو به رو را پر کنید."}
+        />
+        <div className="w-full px-8 py-8 md:order-last lg:order-last max-[768px]:order-first px-1 py-8 ">
           <div>
             <form onSubmit={handleSubmit(onSubmit)}>
               <div className="mb-5">
@@ -226,12 +229,9 @@ const ContactUs = () => {
             )}
           </div>
         </div>
-        
-
       </div>
     </div>
   );
 };
 
 export default ContactUs;
- 
