@@ -59,6 +59,10 @@ html {
   background: #555;
 }
 
+form{
+  color: black;
+}
+
 @layer {
   body {
       @apply dark:bg-gray-800 bg-white

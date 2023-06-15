@@ -1,5 +1,6 @@
 import Image from "next/image";
 import React from "react";
+import Link from "next/link";
 
 export default function page() {
   return (
@@ -33,6 +34,13 @@ export default function page() {
             راهکارها، و شرایط سخت تایپ به پایان رسد و زمان مورد نیاز شامل
             حروفچینی دستاوردهای اصلی، و جوابگوی سوالات پیوسته اهل دنیای موجود
             طراحی اساسا مورد استفاده قرار گیرد.
+            <div className="mt-6">
+              <Link href="/workspace/form/">
+                <button className="bg-yellow-500 text-white text-base rounded-full px-4 p-2 font-medium">
+                  ثبت نام فضای کار اشتراکی
+                </button>
+              </Link>
+            </div>
           </p>
         </div>
       </div>

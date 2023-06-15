@@ -224,7 +224,7 @@ const StartUpsForm = () => {
                 type="number"
                 placeholder="تعداد اعضای تیم"
                 autoComplete="false"
-                className={`w-full px-4 py-3 border-2 placeholder:text-neutral-400 text-gray-500 dark:text-white rounded-md outline-none dark:placeholder:text-neutral-200 dark:bg-neutral-900 focus:ring-4 ${
+                className={`w-full px-4 py-3 border-2 placeholder:text-neutral-400 dark:text-white rounded-md outline-none dark:placeholder:text-neutral-200 dark:bg-neutral-900 focus:ring-4 ${
                   errors.members_count ? "border-yellow-500" : ""
                 }`}
                 {...register("members_count", {
@@ -252,7 +252,7 @@ const StartUpsForm = () => {
                 type="file"
                 placeholder="قایل ارائه"
                 autoComplete="false"
-                className={`w-full px-4 py-3 border-2 style="visibility:hidden placeholder:text-neutral-400 dark:text-white rounded-md outline-none dark:placeholder:text-neutral-200 dark:bg-neutral-900 focus:ring-4 ${
+                className={`w-full px-4 py-3 border-2 text-gray-400 style="visibility:hidden placeholder:text-neutral-400 dark:text-white rounded-md outline-none dark:placeholder:text-neutral-200 dark:bg-neutral-900 focus:ring-4 ${
                   errors.pitch ? "border-yellow-500" : ""
                 }`}
                 value={formData.pitch?.name}

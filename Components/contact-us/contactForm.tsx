@@ -130,10 +130,10 @@ const ContactUs = () => {
                   errors.name ? "border-yellow-500" : ""
                 }`}
                 {...register("name", {
-                  required: "نام استارتاپ را وارد کنید.",
+                  required: "نام خود را وارد کنید.",
                   pattern: {
                     value: /^[\u0600-\u06FF\s]+$/,
-                    message: "نام استارتاپ را به درستی وارد کنید.",
+                    message: "نام خود را به درستی وارد کنید.",
                   },
                 })}
                 onChange={handleChange}
@@ -193,7 +193,7 @@ const ContactUs = () => {
               )}
             </div>
 
-            <div className="mb-3">
+            <div className="mb-3" style={{backgroundColor:"transparent"}}>
               <textarea
                 placeholder="پیام شما"
                 className={`w-full px-4 py-3 border-2 placeholder:text-neutral-400 dark:text-white dark:placeholder:text-neutral-200 dark:bg-neutral-900 rounded-md outline-none h-36 focus:ring-4 ${

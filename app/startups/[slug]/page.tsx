@@ -5,7 +5,7 @@ import Carousel from "@/Components/Carousel";
 export default async function page(context: any) {
   const id = context.params?.slug as string | undefined;
   const startupData = await FetchApi(
-    `https://647aecc9d2e5b6101db0a6a2.mockapi.io/api/v1/startups/${id}`
+    ` http://127.0.0.1:8000/startups/${id}`
   );
 
   return (
@@ -13,7 +13,7 @@ export default async function page(context: any) {
       <div className="rounded-full overflow-hidden w-40 h-40 mb-4">
         <img
           className="w-full h-full object-cover"
-          src={startupData.avatar}
+          src={startupData.logo}
           alt="Placeholder"
         />
       </div>
@@ -59,7 +59,7 @@ export default async function page(context: any) {
                 سرمایه
               </th>
               <td className="px-6 py-4 text-center font-medium text-gray-900 whitespace-nowrap dark:text-gray-400">
-                {startupData.budget}
+                {startupData.fund}
               </td>
             </tr>
           </tbody>
