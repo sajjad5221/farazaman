@@ -9,7 +9,7 @@ export default function FormsDetails({
 })
 {
   return (
-<div className="px-1 py-8 md:order-last lg:order-first max-[768px]:order-last">
+<div className="px-8 py-8 md:order-last lg:order-first max-[768px]:order-last">
           <h2 className="text-lg font-bold text-black dark:text-white">
             {title}
           </h2>

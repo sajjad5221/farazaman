@@ -3,10 +3,11 @@ import React, { useState, useEffect } from "react";
 import GetCsrfToken from "@/Services/GetCsrfToken";
 import axios from "axios";
 import { useForm } from "react-hook-form";
+import FormsDetails from "../FormsDetails";
 
 const initialFormData = {
   name: "",
-  last_name:"",
+  last_name: "",
   email: "",
   phone: "",
   hireType: "",
@@ -15,7 +16,7 @@ const initialFormData = {
 
 interface Info {
   name: string;
-  last_name:string;
+  last_name: string;
   email: string;
   phone: string;
   hireType: number;
@@ -98,8 +99,8 @@ const HiringForm = () => {
     }
   };
 
-    return (
-      <div className="bg-gray-50 dark:bg-neutral-900 mt-16 w-screen" id="contact">
+  return (
+    <div className="bg-gray-50 dark:bg-neutral-900 mt-16 w-screen" id="contact">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 text-center">
         <h2 className="text-4xl text-black font-bold dark:text-neutral-100">
           استخدام
@@ -110,248 +111,247 @@ const HiringForm = () => {
         </p>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-16 grid md:grid-cols-2 lg:grid-cols-2 gap-y-8 md:gap-x-8 md:gap-y-8 lg:gap-x-8 lg:gap-y-16">
-        <div>
-          <h2 className="text-lg font-bold text-black dark:text-neutral-200">
-            ارتباط با شتابدهنده فرازمان
-          </h2>
-          <p className="max-w-sm mt-4 mb-4 text-zinc-600 dark:text-neutral-400">
-            برای استخدام در شتابدهنده فرازمان می توانید فرم زیر را
-            پرکرده و منتظر تماس کارشناسان ما باشید.
-          </p>
-
-          <div className="flex items-center text-zinc-600 mt-8 space-x-2 text-dark-600 dark:text-neutral-400">
-            <span>ایران-اصفهان-خیابان سعادت آباد-مجتمع طلا- واحد c</span>
-          </div>
-
-          <div className="flex items-center mt-2 text-zinc-600 space-x-2 text-dark-600 dark:text-neutral-400">
-            <a href="mailto:hello@halley.vercel.app">farazaman@gmail.com</a>
-          </div>
-
-          <div className="flex items-center mt-2 text-zinc-600 space-x-2 text-dark-600 dark:text-neutral-400">
-            <a href="tel:0313313155">0313313155</a>
-          </div>
-        </div>
-
-        <div>
-          <form onSubmit={handleSubmit(handleFormSubmit)}>
-            <div className="mb-5">
-              <input
-                id="startup-name"
-                type="text"
-                placeholder="نام و نام خانوادگی "
-                autoComplete="false"
-                className={`w-full px-4 py-3 border-2 placeholder:text-neutral-400 dark:text-white rounded-md outline-none dark:placeholder:text-neutral-200 dark:bg-neutral-900 focus:ring-4 ${
-                  errors.name ? "border-yellow-500" : ""
-                }`}
-                {...register("name", {
-                  required: "نام و نام خانوادگی خود را وارد کنید.",
-                  pattern: {
-                    value: /^[\u0600-\u06FF\s]+$/,
-                    message: "نام و نام خانوادگی خود را به درستی وارد کنید.",
-                  },
-                })}
-                onChange={handleChange}
-              />
-              {errors.name && (
-                <span className="text-yellow-500 text-sm">
-                  {errors.name.message}
-                </span>
-              )}
-            </div>
-
-            <div className="mb-5">
-              <label htmlFor="email_address" className="sr-only">
-                آدرس ایمیل شما
-              </label>
-              <input
-                id="email-address"
-                type="email"
-                placeholder="آدرس ایمیل شما"
-                autoComplete="false"
-                className={`w-full px-4 py-3 border-2 placeholder:text-neutral-400 dark:text-white rounded-md outline-none dark:placeholder:text-neutral-200 dark:bg-neutral-900 focus:ring-4 ${
-                  errors.email ? "border-yellow-500" : ""
-                }`}
-                {...register("email", {
-                  required: "آدرس ایمیل خود را وارد کنید.",
-                  pattern: {
-                    value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                    message: "آدرس ایمیل را به درستی وارد کنید.",
-                  },
-                })}
-                onChange={handleChange}
-              />
-              {errors.email && (
-                <span className="text-yellow-500 text-sm">
-                  {errors.email.message}
-                </span>
-              )}
-            </div>
-
-            <div className="mb-5">
-              <label htmlFor="phone-number" className="sr-only">
-                شماره تماس
-              </label>
-              <input
-                id="phone-number"
-                type="number"
-                placeholder="شماره تماس ( مثال : ۰۹۱۳۱۲۳۴۵۶۷)"
-                autoComplete="false"
-                className={`w-full px-4 py-3 border-2 placeholder:text-neutral-400 dark:text-white rounded-md outline-none dark:placeholder:text-neutral-200 dark:bg-neutral-900 focus:ring-4 ${
-                  errors.phone ? "border-yellow-500" : ""
-                }`}
-                {...register("phone", {
-                  required: "شماره تماس را وارد کنید.",
-                  pattern: {
-                    value: /^\d{11}$/,
-                    message: "شماره تماس را به درستی وارد کنید.",
-                  },
-                })}
-                onChange={handleChange}
-              />
-              {errors.phone && (
-                <span className="text-yellow-500 text-sm">
-                  {errors.phone.message}
-                </span>
-              )}
-            </div>
-
-            <div className="mb-5">
-            <p className="description-type text-zinc-600 w-full text-xl dark:text-gray-400 mobile:text-[18px] s:text-[18px] sm:text-lg inline">نوع طرح :</p>
-           <label htmlFor="hireType-1" className="cursor-pointer mr-[10px] text-[18px] ml-2 text-sm font-medium text-zinc-600 dark:text-gray-300 mobile:text-[14px] s:text-[14px] sm:text-[16px]">طرح عادی  </label>
-              <input
-                id="hireType-1"
-                type="radio"
-                value='NO'
-                placeholder=""
-                autoComplete="false"
-                className={`cursor-pointer w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600 mobile:w-[16%] s:w-[15%] sm:w-[14px] sm:-ml-[5px]" name="default-box" value="normal" checked="" ${
-                  errors.hireType ? "border-yellow-500" : ""
-                }`}
-                {...register("hireType", {
-                  required: "نوع استخدام خود را مشخص کنید.",
-                })}
-                onChange={handleChange}
-              />
-              {errors.hireType && (
-                <span className="text-yellow-500 text-sm">
-                  {errors.hireType.message}
-                </span>
-              )}
-
-<label htmlFor="hireType-2" className="cursor-pointer mr-[10px] text-[18px] ml-2 text-sm font-medium text-zinc-600 dark:text-gray-300 mobile:text-[14px] s:text-[14px] sm:text-[16px]">طرح پویش  </label>
-              <input
-                id="hireType-2"
-                type="radio"
-                value='PU'
-                placeholder=""
-                autoComplete="false"
-                className={`cursor-pointer w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600 mobile:w-[16%] s:w-[15%] sm:w-[14px] sm:-ml-[5px]" name="default-box" value="normal" checked="" ${
-                  errors.hireType ? "border-yellow-500" : ""
-                }`}
-                {...register("hireType", {
-                  required: "نوع استخدام خود را مشخص کنید.",
-                })}
-                onChange={handleChange}
-              />
-              {errors.hireType && (
-                <span className="text-yellow-500 text-sm">
-                  {errors.hireType.message}
-                </span>
-              )}
-            </div>
-
-
-            <div className="mb-5">
-              <label htmlFor="resume-file" className="sr-only">
-                فایل ارائه
-              </label>
-              <input
-                id="member-count"
-                type="file"
-                placeholder="قایل ارائه"
-                autoComplete="false"
-                className={`w-full px-4 py-3 border-2 text-gray-400 style="visibility:hidden placeholder:text-neutral-400 dark:text-white rounded-md outline-none dark:placeholder:text-neutral-200 dark:bg-neutral-900 focus:ring-4 ${
-                  errors.resume ? "border-yellow-500" : ""
-                }`}
-                value={formData.resume?.name}
-                {...register("resume", {
-                  required: "فایل را وارد کنید.",
-                  pattern: {
-                    value: /b'[a-f]+\d+'/,
-                    message: "فایل را به درستی وارد کنید.",
-                  },
-                })}
-                onChange={handleChange}
-              />
-              {errors.resume && (
-                <span className="text-yellow-500 text-sm">
-                  {errors.resume.message}
-                </span>
-              )}
-            </div>
-            <input type="hidden" name="csrftokenmiddleware" value={csrfToken} />
-            <button
-              type="submit"
-              disabled={Send}
-              className="w-full py-4 font-semibold text-white transition-colors bg-neutral-900 rounded-md hover:bg-neutral-800 focus:outline-none focus:ring-offset-2 focus:ring focus:ring-neutral-200 px-7 dark:bg-white dark:text-black"
-            >
-              {Send ? "در حال ارسال..." : "ارسال"}
-            </button>
-          </form>
-          {isSuccess && isSubmitting && Message != "" && (
-            <div
-              className="flex p-4 mb-4 mt-6 text-sm text-bold text-green-900 rounded-lg bg-green-10 dark:bg-neutral-700 dark:text-green-400"
-              role="alert"
-            >
-              <svg
-                aria-hidden="true"
-                className="flex-shrink-0 inline w-5 h-5 mr-3"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
-                  clipRule="evenodd"
-                ></path>
-              </svg>
-              <span className="sr-only">پیام</span>
-              <div>
-                <span className="font-medium">{Message}</span>!
+      <div className="grid grid-cols-1 gap-px md:grid-cols-2 px-12 bg-gray-50 dark:bg-neutral-900">
+        <FormsDetails
+          title="ثبت استارتاپ در شتابدهند فرازمان"
+          description="ثبت استارتاپ شما"
+        />
+        <div className="w-full px-8 py-8 md:order-last lg:order-last max-[768px]:order-first px-1 py-8">
+          <div>
+            <form onSubmit={handleSubmit(handleFormSubmit)}>
+              <div className="mb-5">
+                <input
+                  id="startup-name"
+                  type="text"
+                  placeholder="نام و نام خانوادگی "
+                  autoComplete="false"
+                  className={`w-full px-4 py-3 border-2 placeholder:text-neutral-400 dark:text-white rounded-md outline-none dark:placeholder:text-neutral-200 dark:bg-neutral-900 focus:ring-4 ${
+                    errors.name ? "border-yellow-500" : ""
+                  }`}
+                  {...register("name", {
+                    required: "نام و نام خانوادگی خود را وارد کنید.",
+                    pattern: {
+                      value: /^[\u0600-\u06FF\s]+$/,
+                      message: "نام و نام خانوادگی خود را به درستی وارد کنید.",
+                    },
+                  })}
+                  onChange={handleChange}
+                />
+                {errors.name && (
+                  <span className="text-yellow-500 text-sm">
+                    {errors.name.message}
+                  </span>
+                )}
               </div>
-            </div>
-          )}
 
-          {!isSuccess && isSubmitting && Message != "" && (
-            <div
-              className="flex p-4 mb-4 mt-6 text-sm text-bold text-red-900 rounded-lg bg-red-90 dark:bg-neutral-700 dark:text-red-400"
-              role="alert"
-            >
-              <svg
-                aria-hidden="true"
-                className="flex-shrink-0 inline w-5 h-5 mr-3"
-                fill="currentColor"
-                viewBox="0 0 20 20"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
-                  clipRule="evenodd"
-                ></path>
-              </svg>
-              <span className="sr-only">پیام</span>
-              <div>
-                <span className="font-medium">{Message}</span>!
+              <div className="mb-5">
+                <label htmlFor="email_address" className="sr-only">
+                  آدرس ایمیل شما
+                </label>
+                <input
+                  id="email-address"
+                  type="email"
+                  placeholder="آدرس ایمیل شما"
+                  autoComplete="false"
+                  className={`w-full px-4 py-3 border-2 placeholder:text-neutral-400 dark:text-white rounded-md outline-none dark:placeholder:text-neutral-200 dark:bg-neutral-900 focus:ring-4 ${
+                    errors.email ? "border-yellow-500" : ""
+                  }`}
+                  {...register("email", {
+                    required: "آدرس ایمیل خود را وارد کنید.",
+                    pattern: {
+                      value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                      message: "آدرس ایمیل را به درستی وارد کنید.",
+                    },
+                  })}
+                  onChange={handleChange}
+                />
+                {errors.email && (
+                  <span className="text-yellow-500 text-sm">
+                    {errors.email.message}
+                  </span>
+                )}
               </div>
-            </div>
-          )}
+
+              <div className="mb-5">
+                <label htmlFor="phone-number" className="sr-only">
+                  شماره تماس
+                </label>
+                <input
+                  id="phone-number"
+                  type="number"
+                  placeholder="شماره تماس ( مثال : ۰۹۱۳۱۲۳۴۵۶۷)"
+                  autoComplete="false"
+                  className={`w-full px-4 py-3 border-2 placeholder:text-neutral-400 dark:text-white rounded-md outline-none dark:placeholder:text-neutral-200 dark:bg-neutral-900 focus:ring-4 ${
+                    errors.phone ? "border-yellow-500" : ""
+                  }`}
+                  {...register("phone", {
+                    required: "شماره تماس را وارد کنید.",
+                    pattern: {
+                      value: /^\d{11}$/,
+                      message: "شماره تماس را به درستی وارد کنید.",
+                    },
+                  })}
+                  onChange={handleChange}
+                />
+                {errors.phone && (
+                  <span className="text-yellow-500 text-sm">
+                    {errors.phone.message}
+                  </span>
+                )}
+              </div>
+
+              <div className="mb-5">
+                <p className="description-type text-zinc-600 w-full text-xl dark:text-gray-400 mobile:text-[18px] s:text-[18px] sm:text-lg inline">
+                  نوع طرح :
+                </p>
+                <label
+                  htmlFor="hireType-1"
+                  className="cursor-pointer mr-[10px] text-[18px] ml-2 text-sm font-medium text-zinc-600 dark:text-gray-300 mobile:text-[14px] s:text-[14px] sm:text-[16px]"
+                >
+                  طرح عادی{" "}
+                </label>
+                <input
+                  id="hireType-1"
+                  type="radio"
+                  value="NO"
+                  placeholder=""
+                  autoComplete="false"
+                  className={`cursor-pointer w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600 mobile:w-[16%] s:w-[15%] sm:w-[14px] sm:-ml-[5px]" name="default-box" value="normal" checked="" ${
+                    errors.hireType ? "border-yellow-500" : ""
+                  }`}
+                  {...register("hireType", {
+                    required: "نوع استخدام خود را مشخص کنید.",
+                  })}
+                  onChange={handleChange}
+                />
+                {errors.hireType && (
+                  <span className="text-yellow-500 text-sm">
+                    {errors.hireType.message}
+                  </span>
+                )}
+
+                <label
+                  htmlFor="hireType-2"
+                  className="cursor-pointer mr-[10px] text-[18px] ml-2 text-sm font-medium text-zinc-600 dark:text-gray-300 mobile:text-[14px] s:text-[14px] sm:text-[16px]"
+                >
+                  طرح پویش{" "}
+                </label>
+                <input
+                  id="hireType-2"
+                  type="radio"
+                  value="PU"
+                  placeholder=""
+                  autoComplete="false"
+                  className={`cursor-pointer w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600 mobile:w-[16%] s:w-[15%] sm:w-[14px] sm:-ml-[5px]" name="default-box" value="normal" checked="" ${
+                    errors.hireType ? "border-yellow-500" : ""
+                  }`}
+                  {...register("hireType", {
+                    required: "نوع استخدام خود را مشخص کنید.",
+                  })}
+                  onChange={handleChange}
+                />
+                {errors.hireType && (
+                  <span className="text-yellow-500 text-sm">
+                    {errors.hireType.message}
+                  </span>
+                )}
+              </div>
+
+              <div className="mb-5">
+                <label htmlFor="resume-file" className="sr-only">
+                  فایل ارائه
+                </label>
+                <input
+                  id="member-count"
+                  type="file"
+                  placeholder="قایل ارائه"
+                  autoComplete="false"
+                  className={`w-full px-4 py-3 border-2 text-gray-400 style="visibility:hidden placeholder:text-neutral-400 dark:text-white rounded-md outline-none dark:placeholder:text-neutral-200 dark:bg-neutral-900 focus:ring-4 ${
+                    errors.resume ? "border-yellow-500" : ""
+                  }`}
+                  value={formData.resume?.name}
+                  {...register("resume", {
+                    required: "فایل را وارد کنید.",
+                    pattern: {
+                      value: /b'[a-f]+\d+'/,
+                      message: "فایل را به درستی وارد کنید.",
+                    },
+                  })}
+                  onChange={handleChange}
+                />
+                {errors.resume && (
+                  <span className="text-yellow-500 text-sm">
+                    {errors.resume.message}
+                  </span>
+                )}
+              </div>
+              <input
+                type="hidden"
+                name="csrftokenmiddleware"
+                value={csrfToken}
+              />
+              <button
+                type="submit"
+                disabled={Send}
+                className="w-full py-4 font-semibold text-white transition-colors bg-neutral-900 rounded-md hover:bg-neutral-800 focus:outline-none focus:ring-offset-2 focus:ring focus:ring-neutral-200 px-7 dark:bg-white dark:text-black"
+              >
+                {Send ? "در حال ارسال..." : "ارسال"}
+              </button>
+            </form>
+            {isSuccess && isSubmitting && Message != "" && (
+              <div
+                className="flex p-4 mb-4 mt-6 text-sm text-bold text-green-900 rounded-lg bg-green-10 dark:bg-neutral-700 dark:text-green-400"
+                role="alert"
+              >
+                <svg
+                  aria-hidden="true"
+                  className="flex-shrink-0 inline w-5 h-5 mr-3"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+                    clipRule="evenodd"
+                  ></path>
+                </svg>
+                <span className="sr-only">پیام</span>
+                <div>
+                  <span className="font-medium">{Message}</span>!
+                </div>
+              </div>
+            )}
+
+            {!isSuccess && isSubmitting && Message != "" && (
+              <div
+                className="flex p-4 mb-4 mt-6 text-sm text-bold text-red-900 rounded-lg bg-red-90 dark:bg-neutral-700 dark:text-red-400"
+                role="alert"
+              >
+                <svg
+                  aria-hidden="true"
+                  className="flex-shrink-0 inline w-5 h-5 mr-3"
+                  fill="currentColor"
+                  viewBox="0 0 20 20"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+                    clipRule="evenodd"
+                  ></path>
+                </svg>
+                <span className="sr-only">پیام</span>
+                <div>
+                  <span className="font-medium">{Message}</span>!
+                </div>
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </div>
-    );
+  );
 };
 
 export default HiringForm;
