@@ -1,75 +1,14 @@
+import EventForm from "@/Components/events/EventForm";
 import React from "react";
-export default function EventSlug() {
+export default function EventSlug({eventId}:{eventId:number}) {
   return (
-<>
+  <div>
       <div className="mt-16"></div>
       <section className="bg-gray-500 bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/conference.jpg')] bg-center bg-no-repeat bg-blend-multiply">
         <div className="container py-10 mx-auto">
           <div className="grid grid-cols-3">
             <div className="order-2 col-span-3 p-4 m-5 bg-white border border-gray-200 rounded-lg shadow sm:m-16 shrink-0 dark:border-gray-700 dark:bg-gray-800 sm:p-6 lg:mx-10 md:p-8 lg:col-span-1">
-              <form className="space-y-8" action="#">
-                <h5 className="text-xl font-medium text-gray-900 dark:text-white">
-                  در رویداد ما ثبت نام کنید.
-                </h5>
-                <div>
-                  <label
-                    htmlFor="text"
-                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                  >
-                    نام و نام خانوادگی
-                  </label>
-                  <input
-                    type="text"
-                    name="text"
-                    id="text"
-                    className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-yellow-500 focus:ring-yellow-500 dark:border-gray-500 dark:bg-gray-600 dark:text-white dark:placeholder-gray-400"
-                    placeholder="سهیل حیدری"
-                    required
-                  />
-                </div>
-                <div>
-                  <label
-                    htmlFor="email"
-                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                  >
-                    آدرس ایمیل
-                  </label>
-                  <input
-                    dir="ltr"
-                    type="email"
-                    name="email"
-                    id="email"
-                    className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-yellow-500 focus:ring-yellow-500 dark:border-gray-500 dark:bg-gray-600 dark:text-white dark:placeholder-gray-400"
-                    placeholder="email@gmail.com"
-                    required
-                  />
-                </div>
-                <div>
-                  <label
-                    htmlFor="tel"
-                    className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                  >
-                    شماره موبایل
-                  </label>
-                  <input
-                    dir="ltr"
-                    type="tel"
-                    name="tel"
-                    id="tel"
-                    className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-yellow-500 focus:ring-yellow-500 dark:border-gray-500 dark:bg-gray-600 dark:text-white dark:placeholder-gray-400"
-                    placeholder="09139754682"
-                    required
-                  />
-                </div>
-                <div className="flex items-start">
-                </div>
-                <button
-                  type="submit"
-                  className="w-full rounded-lg bg-[#EAB308] px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-yellow-800 focus:outline-none focus:ring-4 focus:ring-yellow-300 dark:bg-[#EAB308] dark:hover:bg-yellow-700 dark:focus:ring-yellow-800"
-                >
-                  ثبت نام
-                </button>
-              </form>
+              <EventForm eventId={eventId}/>
             </div>
             <div className="order-1 col-span-3 px-4 py-24 text-center lg:col-span-2 lg:py-56">
               <h1 className="mb-4 text-4xl font-extrabold leading-none tracking-tight text-white md:text-5xl lg:text-6xl">
@@ -252,6 +191,6 @@ export default function EventSlug() {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }

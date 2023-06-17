@@ -29,7 +29,7 @@ export default function Navbar() {
     <ThemeProvider attribute="class">
       <Disclosure
         as="nav"
-        className=" fixed top-0 left-0 right-0 bg-white dark:bg-neutral-900 text-neutral-900 dark:text-neutral-400 border-b border-neutral-200 dark:border-neutral-700 backdrop-blur-sm bg-white/90 dark:bg-neutral-900/80 z-20"
+        className=" fixed top-0 left-0 right-0 bg-white dark:bg-neutral-900 text-neutral-900 dark:text-neutral-400 border-b border-neutral-200 dark:border-neutral-700 backdrop-blur-sm bg-white dark:bg-neutral-900/80 z-20"
       >
         {({ open }: { open: boolean }) => (
           <>
