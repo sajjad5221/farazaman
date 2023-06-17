@@ -21,7 +21,7 @@ export default function RootLayout({
         strategy="afterInteractive"
       />
 
-      <html dir="rtl" lang="en">
+      <html dir="rtl" lang="en" className="bg-neutral-900 light:bg-gray-50">
         <body className="font-yakan">
           <Navbar />
           <div>{children}</div>
