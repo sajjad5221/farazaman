@@ -8,6 +8,7 @@ export default function EventSlug(context: any) {
   }
   return (
   <div>
+    {/* TODO: make event header component and move codes to the new component */}
       <div className="mt-16"></div>
       <section className="bg-gray-500 bg-[url('https://flowbite.s3.amazonaws.com/docs/jumbotron/conference.jpg')] bg-center bg-no-repeat bg-blend-multiply">
         <div className="container py-10 mx-auto">
@@ -43,7 +44,7 @@ export default function EventSlug(context: any) {
       <div className="bg-gray-50 dark:bg-neutral-900">
         <div className="container py-20 mx-auto">
           <EventDetails eventId={eventId}/>
-
+      {/* TODO: برای رویداد ها باید از کامپوننتی که فرزاد نوشته استفاده بشه. تا از نوشتن کدهای چندباره جلوگیری بشه */}
           <div className="py-3 mx-10">
             <h3 className="text-3xl font-bold text-gray-900 dark:text-gray-100">سایر رویدادها</h3>
           </div>
