@@ -1,7 +1,11 @@
 import EventDetails from "@/Components/events/EventDetails";
 import EventForm from "@/Components/events/EventForm";
 import React from "react";
-export default function EventSlug({eventId}:{eventId:number}) {
+export default function EventSlug(context: any) {
+  const eventId = context.params?.slug as number | undefined;
+  if (eventId === undefined) {
+    throw new Error("Event ID is undefined");
+  }
   return (
   <div>
       <div className="mt-16"></div>
