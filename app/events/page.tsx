@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from 'react'
 import EventList from '@/Components/events/eventsList'
-import axios from 'axios'
+import Apiclient from '@/Services/Apiclient'
 
 
 
@@ -19,7 +19,7 @@ export default function page() {
   const [events, setEvents] = useState<Event[]>([]);
 
   useEffect(() => {
-    axios.get<Event[]>('http://127.0.0.1:8000/events/')
+    Apiclient.get<Event[]>('events/')
     .then(res => setEvents(res.data))
   }, [])
 

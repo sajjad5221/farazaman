@@ -1,9 +1,9 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import GetCsrfToken from "@/Services/GetCsrfToken";
-import axios from "axios";
 import { useForm } from "react-hook-form";
 import FormsDetails from "../FormsDetails";
+import Apiclient from "@/Services/Apiclient";
 
 const initialFormData = {
   name: "",
@@ -76,8 +76,8 @@ const HiringForm = () => {
     sendFormData.append("hireType", data.hireType.toString());
 
     try {
-      const response = await axios.post(
-        "http://localhost:8000/hire/",
+      const response = await Apiclient.post(
+        "hire/",
         sendFormData,
         {
           headers: {
