@@ -1,9 +1,9 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import GetCsrfToken from "@/Services/GetCsrfToken";
-import axios from "axios";
 import { useForm } from "react-hook-form";
 import FormsDetails from "../FormsDetails";
+import Apiclient from "@/Services/Apiclient";
 interface Info {
   name: string;
   email: string;
@@ -43,8 +43,8 @@ const ContactUs = () => {
     setSend(true);
     setIsSubmitting(true);
     try {
-      const response = await axios.post(
-        "http://localhost:8000/workspace/",
+      const response = await Apiclient.post(
+        "workspace/",
         JSON.stringify(data),
         {
           headers: {
