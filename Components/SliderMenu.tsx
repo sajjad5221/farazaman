@@ -1,9 +1,10 @@
 "use client";
 
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/solid";
-import Image from "next/image";
+import Apiclient from "@/Services/Apiclient";
 import Link from "next/link";
+
 
 export default function SliderMenu({
   title,
@@ -16,131 +17,26 @@ export default function SliderMenu({
   type: string;
   StartUpsProps?: boolean;
 }) {
-  const experiences = [
-    {
-      id: 1,
-      title: "Name",
-      description: "This is the description for Card 1.",
-      imageUrl: "https://via.placeholder.com/150",
-    },
-    {
-      id: 2,
-      title: "Name",
-      description: "This is the description for Card 1.",
-      imageUrl: "https://via.placeholder.com/150",
-    },
-    {
-      id: 3,
-      title: "Name",
-      description: "This is the description for Card 1.",
-      imageUrl: "https://via.placeholder.com/150",
-    },
-    {
-      id: 4,
-      title: "Name",
-      description: "This is the description for Card 1.",
-      imageUrl: "https://via.placeholder.com/150",
-    },
-    {
-      id: 5,
-      title: "Name",
-      description: "This is the description for Card 1.",
-      imageUrl: "https://via.placeholder.com/150",
-    },
-    {
-      id: 6,
-      title: "Name",
-      description: "This is the description for Card 1.",
-      imageUrl: "https://via.placeholder.com/150",
-    },
-    {
-      id: 7,
-      title: "Name",
-      description: "This is the description for Card 1.",
-      imageUrl: "https://via.placeholder.com/150",
-    },
-    {
-      id: 8,
-      title: "Name",
-      description: "This is the description for Card 1.",
-      imageUrl: "https://via.placeholder.com/150",
-    },
-    {
-      id: 9,
-      title: "Name",
-      description: "This is the description for Card 1.",
-      imageUrl: "https://via.placeholder.com/150",
-    },
-    {
-      id: 10,
-      title: "Name",
-      description: "This is the description for Card 1.",
-      imageUrl: "https://via.placeholder.com/150",
-    },
-  ];
 
-  const StartUps = [
-    {
-      id: 1,
-      title: "Name",
-      description: "This is the description for Card 1.",
-      imageUrl: "https://via.placeholder.com/150",
-    },
-    {
-      id: 2,
-      title: "Name",
-      description: "This is the description for Card 1.",
-      imageUrl: "https://via.placeholder.com/150",
-    },
-    {
-      id: 3,
-      title: "Name",
-      description: "This is the description for Card 1.",
-      imageUrl: "https://via.placeholder.com/150",
-    },
-    {
-      id: 4,
-      title: "Name",
-      description: "This is the description for Card 1.",
-      imageUrl: "https://via.placeholder.com/150",
-    },
-    {
-      id: 5,
-      title: "Name",
-      description: "This is the description for Card 1.",
-      imageUrl: "https://via.placeholder.com/150",
-    },
-    {
-      id: 6,
-      title: "Name",
-      description: "This is the description for Card 1.",
-      imageUrl: "https://via.placeholder.com/150",
-    },
-    {
-      id: 7,
-      title: "Name",
-      description: "This is the description for Card 1.",
-      imageUrl: "https://via.placeholder.com/150",
-    },
-    {
-      id: 8,
-      title: "Name",
-      description: "This is the description for Card 1.",
-      imageUrl: "https://via.placeholder.com/150",
-    },
-    {
-      id: 9,
-      title: "Name",
-      description: "This is the description for Card 1.",
-      imageUrl: "https://via.placeholder.com/150",
-    },
-    {
-      id: 10,
-      title: "Name",
-      description: "This is the description for Card 1.",
-      imageUrl: "https://via.placeholder.com/150",
-    },
-  ];
+  interface StartUps {
+    id: number
+    name: string
+    description: string
+    date: string
+    location: string
+    logo: string
+    flag: boolean
+  }
+  const [startups, setStartups] = useState<StartUps[]>([]);
+  
+  
+  
+  useEffect(() => {
+    Apiclient.get<StartUps[]>('startups/')
+    .then(res => setStartups(res.data))
+  }, [])
+
+
   type BillingInterval = "doing" | "done";
 
   const [billingInterval, setBillingInterval] =
@@ -245,56 +141,32 @@ export default function SliderMenu({
             onMouseUp={handleMouseUp}
             onMouseLeave={handleMouseUp}
           >
-            {type === "exp"
-              ? experiences.map((card) => (
-                  <div
-                    key={card.id}
-                    className="flex flex-col justify-evenly w-64 h-64 bg-neutral-200 dark:bg-neutral-800 rounded-lg p-4 cursor-pointer mx-2"
-                    style={{ scrollSnapAlign: "start" }}
-                  >
-                    <Image
-                      width={150}
-                      height={150}
-                      quality={100}
-                      src={card.imageUrl}
-                      alt={card.title}
-                      className="mx-auto rounded-full border-2 border-yellow-500 p-[2px]"
-                    />
+            {startups.map((card:any) => (
+              <Link
+                href={"/startups/" + card.id}
+                key={card.id}
+                className="flex flex-col justify-evenly w-64 h-64 bg-neutral-100 text-gray-700 dark:bg-neutral-700 rounded-lg p-4 cursor-pointer mx-2"
+                style={{ scrollSnapAlign: "start" }}
+              >
+                <img
+                  width={80}
+                  height={80}
+                  
+                  src={card.logo}
+                  alt={card.name}
+                  className="mx-auto rounded-full border-2 border-yellow-500 p-[2px]"
+                />
 
-                    <h1 className="text-center mt-2 font-bold text-neutral-900 dark:text-neutral-100">
-                      {card.title}
-                    </h1>
-                    <p className="text-center text-neutral-900 dark:text-neutral-100">
-                      {card.description}
-                    </p>
-                  </div>
-                ))
-              : StartUps.map((card) => (
-                  <Link
-                    href={"/startups/" + card.id}
-                    key={card.id}
-                    className="flex flex-col justify-evenly w-64 h-64 bg-neutral-100 text-gray-700 dark:bg-neutral-700 rounded-lg p-4 cursor-pointer mx-2"
-                    style={{ scrollSnapAlign: "start" }}
-                  >
-                    <Image
-                      width={80}
-                      height={80}
-                      quality={100}
-                      src={card.imageUrl}
-                      alt={card.title}
-                      className="mx-auto rounded-full border-2 border-yellow-500 p-[2px]"
-                    />
-
-                    <h1 className="text-center mt-2 font-bold">
-                      <span className="text-neutral-900 dark:text-neutral-100">
-                        {card.title}
-                      </span>
-                    </h1>
-                    <p className="text-center text-neutral-900 dark:text-neutral-100">
-                      {card.description}
-                    </p>
-                  </Link>
-                ))}
+                <h1 className="text-center mt-2 font-bold">
+                  <span className="text-neutral-900 dark:text-neutral-100">
+                    {card.name}
+                  </span>
+                </h1>
+                <p className="text-center text-neutral-900 dark:text-neutral-100">
+                  {card.description}
+                </p>
+              </Link>
+            ))}
           </div>
           <button
             className="rounded-full bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-1.5 px-1.5"
@@ -322,54 +194,29 @@ export default function SliderMenu({
             onMouseUp={handleMouseUp}
             onMouseLeave={handleMouseUp}
           >
-            {type === "exp"
-              ? experiences.map((card) => (
-                  <div
-                    key={card.id}
-                    className="flex flex-col justify-evenly w-64 h-64 bg-neutral-100 dark:bg-neutral-800 rounded-lg p-4 cursor-pointer mx-2"
-                    style={{ scrollSnapAlign: "start" }}
-                  >
-                    <Image
-                      width={80}
-                      height={80}
-                      quality={100}
-                      src={card.imageUrl}
-                      alt={card.title}
-                      className="mx-auto rounded-full border-2 border-yellow-500 p-[2px]"
-                    />
+            {startups.map((card) => (
+              <Link
+                href={"/startups/" + card.id}
+                key={card.id}
+                className="flex flex-col justify-evenly w-64 h-64 bg-neutral-200 dark:bg-neutral-800 rounded-lg p-4 cursor-pointer mx-2"
+                style={{ scrollSnapAlign: "start" }}
+              >
+                <img
+                  width={80}
+                  height={80}
+                  src={card.logo}
+                  alt={card.name}
+                  className="mx-auto rounded-full border-2 border-yellow-500 p-[2px]"
+                />
 
-                    <h1 className="text-center mt-2 font-bold text-neutral-900 dark:text-neutral-100">
-                      {card.title}
-                    </h1>
-                    <p className="text-center text-neutral-900 dark:text-neutral-100">
-                      {card.description}
-                    </p>
-                  </div>
-                ))
-              : StartUps.map((card) => (
-                  <Link
-                    href={"/startups/" + card.id}
-                    key={card.id}
-                    className="flex flex-col justify-evenly w-64 h-64 bg-neutral-200 dark:bg-neutral-800 rounded-lg p-4 cursor-pointer mx-2"
-                    style={{ scrollSnapAlign: "start" }}
-                  >
-                    <Image
-                      width={80}
-                      height={80}
-                      quality={100}
-                      src={card.imageUrl}
-                      alt={card.title}
-                      className="mx-auto rounded-full border-2 border-yellow-500 p-[2px]"
-                    />
-
-                    <h1 className="text-center mt-2 font-bold text-neutral-900 dark:text-neutral-100">
-                      {card.title}
-                    </h1>
-                    <p className="text-center text-neutral-900 dark:text-neutral-100">
-                      {card.description}
-                    </p>
-                  </Link>
-                ))}
+                <h1 className="text-center mt-2 font-bold text-neutral-900 dark:text-neutral-100">
+                  {card.name}
+                </h1>
+                <p className="text-center text-neutral-900 dark:text-neutral-100">
+                  {card.description}
+                </p>
+              </Link>
+            ))}
           </div>
           <button
             className="rounded-full bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-1.5 px-1.5"
