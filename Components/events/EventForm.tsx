@@ -4,16 +4,14 @@ import GetCsrfToken from "@/Services/GetCsrfToken";
 import { useForm } from "react-hook-form";
 import Apiclient from "@/Services/Apiclient";
 
-
 interface Info {
   name: string;
   email: string;
   phone: string;
-  event:number;
+  event: number;
 }
 
-export default function EventForm({eventId}:{eventId:number}) {
-
+export default function EventForm({ eventId }: { eventId: number }) {
   const [formData, setFormData] = useState<Info>({
     name: "",
     email: "",
@@ -167,8 +165,12 @@ export default function EventForm({eventId}:{eventId:number}) {
           </span>
         )}
       </div>
-      <input type="hidden" id="" value={1}
-      {...register("event",{required:"رویداد انتخاب نشده است"})}/>
+      <input
+        type="hidden"
+        id=""
+        value={1}
+        {...register("event", { required: "رویداد انتخاب نشده است" })}
+      />
       <div className="flex items-start"></div>
       <button
         type="submit"
@@ -181,6 +183,7 @@ export default function EventForm({eventId}:{eventId:number}) {
         <div
           className="flex p-4 mb-4 mt-6 text-sm text-bold text-green-900 rounded-lg bg-green-10 dark:bg-neutral-700 dark:text-green-400"
           role="alert"
+          style={{ backgroundColor: "#26ff2a54" }}
         >
           <svg
             aria-hidden="true"
@@ -202,10 +205,11 @@ export default function EventForm({eventId}:{eventId:number}) {
         </div>
       )}
 
-      {!isSuccess && isSubmitting && Message != "" && ( 
+      {!isSuccess && isSubmitting && Message != "" && (
         <div
           className="flex p-4 mb-4 mt-6 text-sm text-bold text-red-900 rounded-lg bg-red-90 dark:bg-neutral-700 dark:text-red-400"
           role="alert"
+          style={{ backgroundColor: "#ff24244f" }}
         >
           <svg
             aria-hidden="true"

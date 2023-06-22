@@ -75,16 +75,12 @@ const StartUpsForm = () => {
     sendFormData.append("members_count", data.members_count.toString());
 
     try {
-      const response = await Apiclient.post(
-        "startup-submit/",
-        sendFormData,
-        {
-          headers: {
-            "content-type": "multipart/form-data",
-            "X-CSRFToken": csrfToken,
-          },
-        }
-      );
+      const response = await Apiclient.post("startup-submit/", sendFormData, {
+        headers: {
+          "content-type": "multipart/form-data",
+          "X-CSRFToken": csrfToken,
+        },
+      });
 
       setIsSuccess(true);
       setMessage("ارسال موفقیت آمیز بود");
@@ -119,6 +115,12 @@ const StartUpsForm = () => {
           <div>
             <form onSubmit={handleSubmit(handleFormSubmit)}>
               <div className="mb-5">
+                <label
+                  htmlFor="startup-name"
+                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                >
+                  نام استارتاپ
+                </label>
                 <input
                   id="startup-name"
                   type="text"
@@ -144,8 +146,11 @@ const StartUpsForm = () => {
               </div>
 
               <div className="mb-5">
-                <label htmlFor="email_address" className="sr-only">
-                  آدرس ایمیل شما
+                <label
+                  htmlFor="email-address"
+                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                >
+                  آدرس ایمیل استارتاپ
                 </label>
                 <input
                   id="email-address"
@@ -172,8 +177,11 @@ const StartUpsForm = () => {
               </div>
 
               <div className="mb-5">
-                <label htmlFor="phone-number" className="sr-only">
-                  شماره تماس
+                <label
+                  htmlFor="phone-number"
+                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                >
+                  شماره موبایل
                 </label>
                 <input
                   id="phone-number"
@@ -199,8 +207,11 @@ const StartUpsForm = () => {
               </div>
 
               <div className="mb-5">
-                <label htmlFor="member-count" className="sr-only">
-                  تعداد اعضا
+                <label
+                  htmlFor="member-count"
+                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                >
+                  تعداد اعضای تیم
                 </label>
                 <input
                   id="member-count"
@@ -227,15 +238,18 @@ const StartUpsForm = () => {
               </div>
 
               <div className="mb-5">
-                <label htmlFor="pitch-file" className="sr-only">
-                  فایل ارائه
+                <label
+                  htmlFor="file"
+                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                >
+                  فایل معرفی شرکت
                 </label>
                 <input
-                  id="member-count"
+                  id="file"
                   type="file"
                   placeholder="قایل ارائه"
                   autoComplete="false"
-                  className={`w-full px-4 py-3 border-2 text-gray-400 style="visibility:hidden placeholder:text-neutral-400 dark:text-white rounded-md outline-none dark:placeholder:text-neutral-200 dark:bg-neutral-900 focus:ring-4 ${
+                  className={`block w-full px-4 py-3 border-2 text-gray-400 style="visibility:hidden placeholder:text-neutral-400 dark:text-white rounded-md outline-none dark:placeholder:text-neutral-200 dark:bg-neutral-900 focus:ring-4 ${
                     errors.pitch ? "border-yellow-500" : ""
                   }`}
                   value={formData.pitch?.name}
@@ -262,7 +276,7 @@ const StartUpsForm = () => {
               <button
                 type="submit"
                 disabled={Send}
-                className="w-full py-4 font-semibold text-white transition-colors bg-neutral-900 rounded-md hover:bg-neutral-800 focus:outline-none focus:ring-offset-2 focus:ring focus:ring-neutral-200 px-7 dark:bg-white dark:text-black"
+                className="w-full py-4 mt-2 font-semibold text-white transition-colors bg-neutral-900 rounded-md hover:bg-neutral-800 focus:outline-none focus:ring-offset-2 focus:ring focus:ring-neutral-200 px-7 dark:bg-white dark:text-black"
               >
                 {Send ? "در حال ارسال..." : "ارسال"}
               </button>
@@ -271,6 +285,7 @@ const StartUpsForm = () => {
               <div
                 className="flex p-4 mb-4 mt-6 text-sm text-bold text-green-900 rounded-lg bg-green-10 dark:bg-neutral-700 dark:text-green-400"
                 role="alert"
+                style={{ backgroundColor: "#26ff2a54" }}
               >
                 <svg
                   aria-hidden="true"
@@ -296,6 +311,7 @@ const StartUpsForm = () => {
               <div
                 className="flex p-4 mb-4 mt-6 text-sm text-bold text-red-900 rounded-lg bg-red-90 dark:bg-neutral-700 dark:text-red-400"
                 role="alert"
+                style={{ backgroundColor: "#ff24244f" }}
               >
                 <svg
                   aria-hidden="true"

@@ -1,7 +1,7 @@
 "use client"
 
 import React, { useEffect, useState } from 'react'
-import EventList from '@/Components/events/eventsList'
+import EventList from '@/Components/events/EventsList'
 import Apiclient from '@/Services/Apiclient'
 
 

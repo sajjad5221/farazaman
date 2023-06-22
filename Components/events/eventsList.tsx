@@ -1,4 +1,5 @@
-import EventCard from './eventsCard';
+import EventCard from './EventsCard';
+import React from 'react'
 
 type Props = {
   events: Event[];
