@@ -1,21 +1,45 @@
 import React from "react";
 import FetchApi from "@/Services/Fetch";
 import Carousel from "@/Components/Carousel";
+import Image from "next/image";
+import GetFiles from "@/Services/GetFileNames";
 
 export default async function page(context: any) {
-  const id = context.params?.slug as string | undefined;
-  const startupData = await FetchApi(
-    ` http://127.0.0.1:8000/startups/${id}`
-  );
+  const id = context.params?.slug as number | undefined;
+  const startupData = await FetchApi(` http://127.0.0.1:8000/startups/${id}`);
+  const imageRoute = "/static/images/startups/" + id + "/";
+
+  // const folderPath = "public/static/images/startups/1/";
+
+  const files = GetFiles(id);
+
+  
 
   return (
     <div className="flex flex-col items-center py-28 bg-gray-50 dark:bg-neutral-900">
+      
       <div className="rounded-full overflow-hidden w-40 h-40 mb-4">
         <img
           className="w-full h-full object-cover"
           src={startupData.logo}
           alt="Placeholder"
         />
+      </div>
+      <div>
+      <div>
+      {files.map((image) => (
+        // eslint-disable-next-line react/jsx-key
+        <div>
+          <Image
+            width={500}
+            height={500}            
+            src={imageRoute + image}
+            alt="Image"
+          />
+        </div>
+      ))}
+    </div>
+      
       </div>
       <h2 className="text-2xl font-bold text-black dark:text-white">
         {startupData.name}
@@ -24,8 +48,7 @@ export default async function page(context: any) {
         {startupData.description}
       </p>
 
-      <Carousel />
-
+      <Carousel id={id} />
       <div className="relative rounded-lg overflow-x-auto w-10/12">
         <table className="w-full text-sm text-gray-500 dark:text-gray-400">
           <tbody>
