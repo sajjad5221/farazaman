@@ -84,19 +84,19 @@ export default function SliderMenu({
       id: 1,
       title: "Landa Trip",
       description: "This is the description for Card 1.",
-      imageUrl: "/static/images/logo-startup/Landa-trip-logo6.PNG",
+      imageUrl: "/static/images/Home/logo-startup/Landa-trip-logo7.PNG",
     },
     {
       id: 2,
       title: "Steady Skull",
       description: "This is the description for Card 1.",
-      imageUrl: "/static/images/logo-startup/IMG_2541.PNG",
+      imageUrl: "/static/images/Home/logo-startup/IMG_2541.PNG",
     },
     {
       id: 3,
       title: "Vision Raft",
       description: "This is the description for Card 1.",
-      imageUrl: "/static/images/logo-startup/VisionRaftLogo.PNG",
+      imageUrl: "/static/images/Home/logo-startup/VisionRaftLogo.PNG",
     },
     {
       id: 4,
@@ -352,7 +352,7 @@ export default function SliderMenu({
                         quality={100}
                         src={card.imageUrl}
                         alt={card.title}
-                        className="mx-auto rounded border-2 border-yellow-500 p-[2px] object-contain"
+                        className="mx-auto rounded-full border-2 border-yellow-500 p-[2px] object-contain"
                       />
                     </div>
                    

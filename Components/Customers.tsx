@@ -5,37 +5,37 @@ const customers = [
   {
     name: "google-play",
     href: "https://play.google.com/",
-    src: "/static/images/logo/Diaco.PNG",
+    src: "/static/images/Home/logo/Diaco.PNG",
     alt: "Google play logo",
   },
   {
     name: "github",
     href: "https://github.com/",
-    src: "/static/images/logo/Forough.PNG",
+    src: "/static/images/Home/logo/Forough.PNG",
     alt: "Github logo",
   },
   {
     name: "docker",
     href: "https://www.docker.com/",
-    src: "/static/images/logo/IMG.PNG",
+    src: "/static/images/Home/logo/IMG.PNG",
     alt: "Docker logo",
   },
   {
     name: "python",
     href: "https://www.python.org/",
-    src: "/static/images/logo/IR-immigration.PNG",
+    src: "/static/images/Home/logo/IR-immigration.PNG",
     alt: "Python logo",
   },
   {
     name: "slack",
     href: "https://slack.com/",
-    src: "/static/images/logo/Landa-main-logo.PNG",
+    src: "/static/images/Home/logo/Landa-main-logo.PNG",
     alt: "Slack logo",
   },
   {
     name: "discord",
     href: "https://discord.com/",
-    src: "/static/images/logo/tolo.PNG",
+    src: "/static/images/Home/logo/tolo.PNG",
     alt: "Discord logo",
   },
 ];

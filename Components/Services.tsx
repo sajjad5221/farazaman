@@ -5,7 +5,7 @@ const services = [
     title: "سرویس 1",
     description:
       "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است",
-    image: "/static/images/seminar/world-map.jpg",
+    image: "/static/images/Home/seminar/world-map.jpg",
     alt: "Service description",
   },
   {
