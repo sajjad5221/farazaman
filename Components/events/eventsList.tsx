@@ -15,7 +15,7 @@ type Event = {
   image: string;
 };
 
-const EventList = ({ events }: Props) => {
+const EventsList = ({ events }: Props) => {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 mt-5 pl-3 pb-5 bg-white dark:bg-neutral-900">
       {events.map((event) => (
@@ -27,4 +27,4 @@ const EventList = ({ events }: Props) => {
   );
 };
 
-export default EventList;
+export default EventsList;
