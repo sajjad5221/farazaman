@@ -116,30 +116,30 @@ export default function SliderMenu({
       description: "This is the description for Card 1.",
       imageUrl: "https://via.placeholder.com/150",
     },
-    {
-      id: 7,
-      title: "Name",
-      description: "This is the description for Card 1.",
-      imageUrl: "https://via.placeholder.com/150",
-    },
-    {
-      id: 8,
-      title: "Name",
-      description: "This is the description for Card 1.",
-      imageUrl: "https://via.placeholder.com/150",
-    },
-    {
-      id: 9,
-      title: "Name",
-      description: "This is the description for Card 1.",
-      imageUrl: "https://via.placeholder.com/150",
-    },
-    {
-      id: 10,
-      title: "Name",
-      description: "This is the description for Card 1.",
-      imageUrl: "https://via.placeholder.com/150",
-    },
+    // {
+    //   id: 7,
+    //   title: "Name",
+    //   description: "This is the description for Card 1.",
+    //   imageUrl: "https://via.placeholder.com/150",
+    // },
+    // {
+    //   id: 8,
+    //   title: "Name",
+    //   description: "This is the description for Card 1.",
+    //   imageUrl: "https://via.placeholder.com/150",
+    // },
+    // {
+    //   id: 9,
+    //   title: "Name",
+    //   description: "This is the description for Card 1.",
+    //   imageUrl: "https://via.placeholder.com/150",
+    // },
+    // {
+    //   id: 10,
+    //   title: "Name",
+    //   description: "This is the description for Card 1.",
+    //   imageUrl: "https://via.placeholder.com/150",
+    // },
   ];
   type BillingInterval = "doing" | "done";
 
@@ -203,22 +203,20 @@ export default function SliderMenu({
             <button
               onClick={() => setBillingInterval("doing")}
               type="button"
-              className={`${
-                billingInterval === "doing"
+              className={`${billingInterval === "doing"
                   ? "relative w-1/2 bg-white dark:bg-neutral-600 text-neutral-900 dark:text-neutral-100"
                   : "ml-0.5 relative w-1/2 text-neutral-900 dark:text-neutral-400"
-              } rounded-md m-1 py-2 whitespace-nowrap sm:w-auto sm:px-8`}
+                } rounded-md m-1 py-2 whitespace-nowrap sm:w-auto sm:px-8`}
             >
               انجام شده
             </button>
             <button
               onClick={() => setBillingInterval("done")}
               type="button"
-              className={`${
-                billingInterval === "done"
+              className={`${billingInterval === "done"
                   ? "relative w-1/2 bg-white dark:bg-neutral-600 text-neutral-900 dark:text-neutral-100"
                   : "ml-0.5 relative w-1/2 text-neutral-900 dark:text-neutral-400"
-              } rounded-md m-1 py-2 whitespace-nowrap sm:w-auto sm:px-8`}
+                } rounded-md m-1 py-2 whitespace-nowrap sm:w-auto sm:px-8`}
             >
               در حال انجام
             </button>
@@ -247,46 +245,46 @@ export default function SliderMenu({
           >
             {type === "exp"
               ? experiences.map((card) => (
-                  <div
-                    key={card.id}
-                    className="flex flex-col w-64 h-64 p-4 mx-2 rounded-lg cursor-pointer justify-evenly bg-neutral-200 dark:bg-neutral-800"
-                    style={{ scrollSnapAlign: "start" }}
-                  >
-                    <Image
-                      width={150}
-                      height={150}
-                      quality={100}
-                      src={card.imageUrl}
-                      alt={card.title}
-                      className="mx-auto rounded-full border-2 border-yellow-500 p-[2px]"
-                    />
+                <div
+                  key={card.id}
+                  className="flex flex-col w-64 h-64 p-4 mx-2 rounded-lg cursor-pointer justify-evenly bg-neutral-200 dark:bg-neutral-800"
+                  style={{ scrollSnapAlign: "start" }}
+                >
+                  <Image
+                    width={150}
+                    height={150}
+                    quality={100}
+                    src={card.imageUrl}
+                    alt={card.title}
+                    className="mx-auto rounded-full border-2 border-yellow-500 p-[2px]"
+                  />
 
-                    <h1 className="mt-2 font-bold text-center text-neutral-900 dark:text-neutral-100">
-                      {card.title}
-                    </h1>
-                    <p className="text-center text-neutral-900 dark:text-neutral-100">
-                      {card.description}
-                    </p>
-                  </div>
-                ))
+                  <h1 className="mt-2 font-bold text-center text-neutral-900 dark:text-neutral-100">
+                    {card.title}
+                  </h1>
+                  <p className="text-center text-neutral-900 dark:text-neutral-100">
+                    {card.description}
+                  </p>
+                </div>
+              ))
               : StartUps.map((card) => (
-                  <Link
-                    href={"/startups/" + card.id}
-                    key={card.id}
-                    className="flex flex-col w-64 h-64 p-4 mx-2 text-gray-700 rounded-lg cursor-pointer justify-evenly bg-neutral-100 dark:bg-neutral-700"
-                    style={{ scrollSnapAlign: "start" }}
-                  >
-                    
-                    <h1 className="mt-2 font-bold text-center">
-                      <span className="text-neutral-900 dark:text-neutral-100">
-                        {card.title}
-                      </span>
-                    </h1>
-                    <p className="text-center text-neutral-900 dark:text-neutral-100">
-                      {card.description}
-                    </p>
-                  </Link>
-                ))}
+                <Link
+                  href={"/startups/" + card.id}
+                  key={card.id}
+                  className="flex flex-col w-64 h-64 p-4 mx-2 text-gray-700 rounded-lg cursor-pointer justify-evenly bg-neutral-100 dark:bg-neutral-700"
+                  style={{ scrollSnapAlign: "start" }}
+                >
+
+                  <h1 className="mt-2 font-bold text-center">
+                    <span className="text-neutral-900 dark:text-neutral-100">
+                      {card.title}
+                    </span>
+                  </h1>
+                  <p className="text-center text-neutral-900 dark:text-neutral-100">
+                    {card.description}
+                  </p>
+                </Link>
+              ))}
           </div>
           <button
             className="rounded-full bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-1.5 px-1.5"
@@ -316,55 +314,55 @@ export default function SliderMenu({
           >
             {type === "exp"
               ? experiences.map((card) => (
-                  <div
-                    key={card.id}
-                    className="flex flex-col w-64 h-64 p-4 mx-2 rounded-lg cursor-pointer justify-evenly bg-neutral-100 dark:bg-neutral-800"
-                    style={{ scrollSnapAlign: "start" }}
-                  >
+                <div
+                  key={card.id}
+                  className="flex flex-col w-64 h-64 p-4 mx-2 rounded-lg cursor-pointer justify-evenly bg-neutral-100 dark:bg-neutral-800"
+                  style={{ scrollSnapAlign: "start" }}
+                >
+                  <Image
+                    width={80}
+                    height={80}
+                    quality={100}
+                    src={card.imageUrl}
+                    alt={card.title}
+                    className="mx-auto rounded-full border-2 border-yellow-500 p-[2px]"
+                  />
+
+                  <h1 className="mt-2 font-bold text-center text-neutral-900 dark:text-neutral-100">
+                    {card.title}
+                  </h1>
+                  <p className="text-center text-neutral-900 dark:text-neutral-100">
+                    {card.description}
+                  </p>
+                </div>
+              ))
+              : StartUps.map((card) => (
+                <Link
+                  href={"/startups/" + card.id}
+                  key={card.id}
+                  className="flex flex-col w-64 h-64 p-4 mx-2 rounded-lg cursor-pointer justify-evenly bg-neutral-200 dark:bg-neutral-800"
+                  style={{ scrollSnapAlign: "start" }}
+                >
+                  <div>
                     <Image
                       width={80}
                       height={80}
                       quality={100}
                       src={card.imageUrl}
                       alt={card.title}
-                      className="mx-auto rounded-full border-2 border-yellow-500 p-[2px]"
+                      className="mx-auto rounded-full border-2 border-yellow-500 p-[2px] object-contain"
                     />
-
-                    <h1 className="mt-2 font-bold text-center text-neutral-900 dark:text-neutral-100">
-                      {card.title}
-                    </h1>
-                    <p className="text-center text-neutral-900 dark:text-neutral-100">
-                      {card.description}
-                    </p>
                   </div>
-                ))
-              : StartUps.map((card) => (
-                  <Link
-                    href={"/startups/" + card.id}
-                    key={card.id}
-                    className="flex flex-col w-64 h-64 p-4 mx-2 rounded-lg cursor-pointer justify-evenly bg-neutral-200 dark:bg-neutral-800"
-                    style={{ scrollSnapAlign: "start" }}
-                  >
-                    <div>
-                      <Image
-                        width={80}
-                        height={80}
-                        quality={100}
-                        src={card.imageUrl}
-                        alt={card.title}
-                        className="mx-auto rounded-full border-2 border-yellow-500 p-[2px] object-contain"
-                      />
-                    </div>
-                   
 
-                    <h1 className="mt-2 font-bold text-center text-neutral-900 dark:text-neutral-100">
-                      {card.title}
-                    </h1>
-                    <p className="text-center text-neutral-900 dark:text-neutral-100">
-                      {card.description}
-                    </p>
-                  </Link>
-                ))}
+
+                  <h1 className="mt-2 font-bold text-center text-neutral-900 dark:text-neutral-100">
+                    {card.title}
+                  </h1>
+                  <p className="text-center text-neutral-900 dark:text-neutral-100">
+                    {card.description}
+                  </p>
+                </Link>
+              ))}
           </div>
           <button
             className="rounded-full bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-1.5 px-1.5"
