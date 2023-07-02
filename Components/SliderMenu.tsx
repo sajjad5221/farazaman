@@ -352,7 +352,7 @@ export default function SliderMenu({
                         quality={100}
                         src={card.imageUrl}
                         alt={card.title}
-                        className="mx-auto rounded-full border-2 border-yellow-500 p-[2px] object-contain"
+                        className="mx-auto rounded-full border-2 border-yellow-500 p-[2px] object-contain bg-white"
                       />
                     </div>
                    

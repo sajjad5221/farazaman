@@ -35,7 +35,7 @@ export function Hero() {
           </div>
           <div className="flex items-center mt-12">
             <Image
-              src="/static/images/Home/presentation.jpg"
+              src="/static/images/Home/about/presentation.jpg"
               alt="Image hero description"
               width={700}
               height={700}

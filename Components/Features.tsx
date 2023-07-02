@@ -7,7 +7,7 @@ const contents = [
     description:
       "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز      ",
     features: ["توضیح 1", "توضیح 2", "توضیح 3"],
-    image: "/static/images/Home/office2.jpg",
+    image: "/static/images/Home/features/office.jpg",
     order: false,
   },
   {
@@ -15,7 +15,7 @@ const contents = [
     description:
       "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز",
     features: ["اول", "دوم", "سوم"],
-    image: "/static/images/Home/amozesh/group-students-posing-table.jpg",
+    image: "/static/images/Home/features/students.jpg",
     order: true,
   },
   {
@@ -23,7 +23,7 @@ const contents = [
     description:
       "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز",
     features: ["اول", "دوم", "سوم"],
-    image: "/static/images/Home/estekhdam/applicant3.jpg",
+    image: "/static/images/Home/features/table.jpg",
     order: false,
   },
 ];

@@ -5,37 +5,37 @@ const customers = [
   {
     name: "google-play",
     href: "https://play.google.com/",
-    src: "/static/images/Home/logo/Diaco.PNG",
+    src: "/static/images/Home/logo-customers/Diaco.PNG",
     alt: "Google play logo",
   },
   {
     name: "github",
     href: "https://github.com/",
-    src: "/static/images/Home/logo/Forough.PNG",
+    src: "/static/images/Home/logo-customers/Forough.PNG",
     alt: "Github logo",
   },
   {
     name: "docker",
     href: "https://www.docker.com/",
-    src: "/static/images/Home/logo/IMG.PNG",
+    src: "/static/images/Home/logo-customers/IMG.PNG",
     alt: "Docker logo",
   },
   {
     name: "python",
     href: "https://www.python.org/",
-    src: "/static/images/Home/logo/IR-immigration.PNG",
+    src: "/static/images/Home/logo-customers/irimmig.png",
     alt: "Python logo",
   },
   {
     name: "slack",
     href: "https://slack.com/",
-    src: "/static/images/Home/logo/Landa-main-logo.PNG",
+    src: "/static/images/Home/logo-customers/Landa-main-logo2.PNG",
     alt: "Slack logo",
   },
   {
     name: "discord",
     href: "https://discord.com/",
-    src: "/static/images/Home/logo/tolo.PNG",
+    src: "/static/images/Home/logo-customers/tolu4.jpg",
     alt: "Discord logo",
   },
 ];
@@ -58,11 +58,11 @@ export default function Customers() {
           {customers.map((item) => (
             <Link key={item.name} href={item.href} target="_blank">
               <Image
-                className="justify-center w-auto h-10 mx-auto mt-6 mb-1 text-center transition rounded-full hover:scale-110"
+                className="justify-center mx-auto mt-6 mb-1 text-center transition rounded-full hover:scale-110"
                 src={item.src}
                 alt={item.alt}
-                width={150}
-                height={150}
+                width={70}
+                height={70}
                 quality={75}
                 sizes="100vw"
               />
