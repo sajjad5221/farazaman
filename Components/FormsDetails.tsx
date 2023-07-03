@@ -19,7 +19,7 @@ export default function FormsDetails({
 
           <div className="flex items-center mt-8 space-x-2 text-dark-600 dark:text-neutral-400">
             <span className="text-gray-600 dark:text-neutral-400">
-              ایران-اصفهان-خیابان سعادت آباد-مجتمع طلا- واحد c
+              ایران-اصفهان-خیابان سعادت آباد-مجتمع طلا- طبقه 5 - واحد c
             </span>
           </div>
 
