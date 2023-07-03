@@ -2,44 +2,44 @@ import Image from "next/image";
 import React from "react";
 const services = [
   {
-    title: "سرویس 1",
+    title: "ثبت استارتاپ",
     description:
-      "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است",
-    image: "/static/images/Home/seminar/world-map.jpg",
-    alt: "Service description",
-  },
-  {
-    title: "سرویس 2",
-    description:
-      "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است",
+      "شرکت ما با افتخار در فرآیند ثبت استارتاپ‌ها همراهی می‌کند؛ حمایتی قوی برای رشد و پیشرفت شما.",
     image: "https://via.placeholder.com/150",
     alt: "Service description",
   },
   {
-    title: "سرویس 3",
+    title: "فضای کار اشتراکی",
     description:
-      "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است",
+      "فراهم کردن جایی برای الهام‌بخشی، همکاری و ارتقاء تجارت؛ با تسهیلات و محیطی آماده برای رشد و خلاقیت.",
     image: "https://via.placeholder.com/150",
     alt: "Service description",
   },
   {
-    title: "سرویس 4",
+    title: "رویدادها",
     description:
-      "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است",
+      "   فرصتی برای ارتباط، یادگیری و شبکه‌سازی؛ تجربه‌های منحصربه‌فرد برای ارتقاء شغلی و توسعه کسب و کار.",
     image: "https://via.placeholder.com/150",
     alt: "Service description",
   },
   {
-    title: "سرویس 5",
+    title: "استخدام",
     description:
-      "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است ",
+      "شرایطی برای همکاری با تیم پویا و متخصص، رشد حرفه‌ای و شکوفایی در محیطی الهام‌بخش و پراحساس.",
     image: "https://via.placeholder.com/150",
     alt: "Service description",
   },
   {
-    title: "سرویس 6",
+    title: "طرح پویش",
     description:
-      "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده از طراحان گرافیک است",
+      "امکانی برای دانشجویان جهت ایجاد ارتباط مستقیم با صنعت، کسب تجربه‌های عملی و توسعه مهارت‌های شغلی در محیط کاری واقعی.",
+    image: "https://via.placeholder.com/150",
+    alt: "Service description",
+  },
+  {
+    title: "ارتباط با ما",
+    description:
+      "همواره آماده شنیدن نظرات، سوالات و درخواست‌های شما هستیم. لطفاً با ما تماس بگیرید، منتظر ارتباط با شما هستیم.",
     image: "https://via.placeholder.com/150",
     alt: "Service description",
   },
@@ -52,10 +52,9 @@ export function Services() {
           فرازمان چیست؟
         </h2>
 
-        <p className="max-w-2xl pt-6 pb-6 m-auto text-base text-center text-gray-600 dark:text-neutral-400">
-          لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده
-          از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و
-          سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز
+        <p className="pt-6 pb-6 text-base max-w-2xl text-center m-auto text-gray-600 dark:text-neutral-400">
+          شرکت شتاب دهنده با هدف ایده‌پردازی و پشتیبانی استارتاپ‌ها بهبود جامعه
+          کارآفرینی را تسهیل می‌کند.{" "}
         </p>
       </div>
 
@@ -73,7 +72,7 @@ export function Services() {
                 priority
               />
             </div>
-            <h2 className="py-3 text-lg font-bold text-center text-neutral-900 dark:neutral-100">
+            <h2 className="font-bold py-3 text-lg text-center text-neutral-900 dark:text-neutral-100">
               {title}
             </h2>
             <p className="text-base text-center text-gray-600 dark:text-neutral-400">
