@@ -5,7 +5,7 @@ const services = [
     title: "ثبت استارتاپ",
     description:
       "شرکت ما با افتخار در فرآیند ثبت استارتاپ‌ها همراهی می‌کند؛ حمایتی قوی برای رشد و پیشرفت شما.",
-      image: "/static/images/Home/services/present2-square.jpg",
+    image: "/static/images/Home/services/present2-square.jpg",
     alt: "Service description",
   },
   {
@@ -26,14 +26,14 @@ const services = [
     title: "استخدام",
     description:
       "شرایطی برای همکاری با تیم پویا و متخصص، رشد حرفه‌ای و شکوفایی در محیطی الهام‌بخش و پراحساس.",
-      image: "/static/images/Home/services/laptop3.jpg",
+    image: "/static/images/Home/services/laptop1.jpg",
     alt: "Service description",
   },
   {
     title: "طرح پویش",
     description:
       "امکانی برای دانشجویان جهت ایجاد ارتباط مستقیم با صنعت، کسب تجربه‌های عملی و توسعه مهارت‌های شغلی در محیط کاری واقعی.",
-    image: "https://via.placeholder.com/150",
+    image: "/static/images/Home/services/laptop1.jpg",
     alt: "Service description",
   },
   {
@@ -57,7 +57,7 @@ export function Services() {
           کارآفرینی را تسهیل می‌کند.{" "}
         </p>
       </div>
-
+      {/* TODO: create ServiceCard.tsx component */}
       <div className="grid px-4 pt-8 pb-16 mx-auto max-w-7xl sm:px-6 lg:px-8 md:grid-cols-2 lg:grid-cols-3 gap-y-8 md:gap-x-8 md:gap-y-8 lg:gap-x-8 lg:gap-y-16">
         {services.map(({ title, description, image, alt }) => (
           <div key={title}>

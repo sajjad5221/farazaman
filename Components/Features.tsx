@@ -43,7 +43,7 @@ export function Features() {
         <h2 className="text-black text-4xl font-bold text-center dark:text-white">
           مزیّت ها
         </h2>
-
+        {/* TODO: create FeatureCard.tsx component */}
         {contents.map((content) => (
           <div
             key={content.title}

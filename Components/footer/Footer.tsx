@@ -78,27 +78,9 @@ const column3 = [
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-50  text-neutral-300 dark:text-neutral-400 dark:bg-neutral-900">
+    <footer className="bg-gray-50 text-neutral-300 dark:text-neutral-400 dark:bg-neutral-900">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-12 pb-12 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-5">
         <div className="col-span-2 sm:col-span-3 md:col-span-3 lg:col-span-2 2xl:col-span-2">
-          <Link href="/">
-            <Image
-              className="h-12 w-auto"
-              src="/static/images/Farazaman.png"
-              alt="Farazaman"
-              width={500}
-              height={500}
-              quality={100}
-              sizes="100vw"
-            />
-          </Link>
-
-          <p className="text-neutral-500 md:text-sm pt-4 w-auto sm:w-6/12 md:w-6/12 lg:w-8/12">
-            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
-            استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در
-            ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز
-          </p>
-
           <div className="flex gap-2 pt-6 sm:pt-6 md:pt-6 lg:pt-12 max-w-[300px]">
             {social.map((red) => (
               <Link

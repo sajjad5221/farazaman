@@ -47,12 +47,7 @@ export default function Customers() {
       id="faq"
     >
       <h2 className="text-4xl font-bold text-center text-black dark:text-white">شرکای تجاری </h2>
-
-      <p className="max-w-2xl pt-6 pb-8 m-auto text-base text-center text-gray-600 dark:text-neutral-400">
-        لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده
-        از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در ستون و
-        سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز
-      </p>
+      {/* TODO: create CustomerCard.tsx */}
       <div className="w-full max-w-4xl mx-auto bg-transparent dark:bg-transparent">
         <div className="grid items-center justify-center grid-cols-2 text-center sm:grid-cols-3 md:grid-cols-6">
           {customers.map((item) => (
