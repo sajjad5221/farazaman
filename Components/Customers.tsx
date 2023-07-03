@@ -3,37 +3,37 @@ import Link from "next/link";
 import React from "react";
 const customers = [
   {
-    name: "google-play",
+    name: "دیاکو",
     href: "https://play.google.com/",
-    src: "/static/images/Home/logo-customers/Diaco.PNG",
+    src: "/static/images/Home/logo-customers/Diaco2.png",
     alt: "Google play logo",
   },
   {
-    name: "github",
+    name: "فروغ روشن",
     href: "https://github.com/",
-    src: "/static/images/Home/logo-customers/Forough.PNG",
+    src: "/static/images/Home/logo-customers/fouroq.png",
     alt: "Github logo",
   },
   {
-    name: "docker",
+    name: "لاندا مدرسه استارتاپ ",
     href: "https://www.docker.com/",
     src: "/static/images/Home/logo-customers/IMG.PNG",
     alt: "Docker logo",
   },
   {
-    name: "python",
+    name: "IR Immigration",
     href: "https://www.python.org/",
     src: "/static/images/Home/logo-customers/irimmig.png",
     alt: "Python logo",
   },
   {
-    name: "slack",
+    name: "لاندا هلدینگ",
     href: "https://slack.com/",
     src: "/static/images/Home/logo-customers/Landa-main-logo2.PNG",
     alt: "Slack logo",
   },
   {
-    name: "discord",
+    name: "طلوع روشن",
     href: "https://discord.com/",
     src: "/static/images/Home/logo-customers/tolu4.jpg",
     alt: "Discord logo",
@@ -61,12 +61,12 @@ export default function Customers() {
                 className="justify-center mx-auto mt-6 mb-1 text-center transition rounded-full hover:scale-110"
                 src={item.src}
                 alt={item.alt}
-                width={70}
-                height={70}
+                width={80}
+                height={80}
                 quality={75}
                 sizes="100vw"
               />
-              <span className="text-gray-600 dark:text-neutral">نام شرکت</span>
+              <span className="text-gray-600 dark:text-neutral">{item.name}</span>
             </Link>
           ))}
         </div>
