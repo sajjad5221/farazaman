@@ -95,21 +95,21 @@ const StartUpsForm = () => {
   };
 
   return (
-    <div className="bg-gray-50 dark:bg-neutral-900 mt-16 w-screen" id="contact">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 text-center">
-        <h2 className="text-4xl text-black font-bold dark:text-neutral-100">
+    <div className="w-screen mt-16 bg-gray-50 dark:bg-neutral-900" id="contact">
+      <div className="px-4 pt-16 mx-auto text-center max-w-7xl sm:px-6 lg:px-8">
+        <h2 className="text-4xl font-bold text-black dark:text-neutral-100">
           ثبت استارتاپ ها
         </h2>
 
-        <p className="pt-6 pb-6 text-base text-zinc-600 max-w-2xl text-center m-auto dark:text-neutral-400">
+        <p className="max-w-2xl pt-6 pb-6 m-auto text-base text-center text-zinc-600 dark:text-neutral-400">
           ثبت استارتاپ های نوپا در شتابدهنده فرازمان
         </p>
       </div>
 
-      <div className="grid grid-cols-1 gap-px md:grid-cols-2 px-12 bg-gray-50 dark:bg-neutral-900">
+      <div className="grid grid-cols-1 gap-px px-12 md:grid-cols-2 bg-gray-50 dark:bg-neutral-900">
         <FormsDetails
-          title="ثبت استارتاپ در شتابدهند فرازمان"
-          description="ثبت استارتاپ شما"
+          title="ثبت استارتاپ در شتابدهنده فرازمان"
+          description=" ثبت اطلاعات استارتاپ شما برای همکاری با فرازمان"
         />
         <div className="w-full px-8 py-8 md:order-last lg:order-last max-[768px]:order-first px-1 py-8">
           <div>
@@ -139,7 +139,7 @@ const StartUpsForm = () => {
                   onChange={handleChange}
                 />
                 {errors.name && (
-                  <span className="text-yellow-500 text-sm">
+                  <span className="text-sm text-yellow-500">
                     {errors.name.message}
                   </span>
                 )}
@@ -170,7 +170,7 @@ const StartUpsForm = () => {
                   onChange={handleChange}
                 />
                 {errors.email && (
-                  <span className="text-yellow-500 text-sm">
+                  <span className="text-sm text-yellow-500">
                     {errors.email.message}
                   </span>
                 )}
@@ -200,7 +200,7 @@ const StartUpsForm = () => {
                   onChange={handleChange}
                 />
                 {errors.phone && (
-                  <span className="text-yellow-500 text-sm">
+                  <span className="text-sm text-yellow-500">
                     {errors.phone.message}
                   </span>
                 )}
@@ -231,7 +231,7 @@ const StartUpsForm = () => {
                   onChange={handleChange}
                 />
                 {errors.members_count && (
-                  <span className="text-yellow-500 text-sm">
+                  <span className="text-sm text-yellow-500">
                     {errors.members_count.message}
                   </span>
                 )}
@@ -263,7 +263,7 @@ const StartUpsForm = () => {
                   onChange={handleChange}
                 />
                 {errors.pitch && (
-                  <span className="text-yellow-500 text-sm">
+                  <span className="text-sm text-yellow-500">
                     {errors.pitch.message}
                   </span>
                 )}
@@ -276,14 +276,14 @@ const StartUpsForm = () => {
               <button
                 type="submit"
                 disabled={Send}
-                className="w-full py-4 mt-2 font-semibold text-white transition-colors bg-neutral-900 rounded-md hover:bg-neutral-800 focus:outline-none focus:ring-offset-2 focus:ring focus:ring-neutral-200 px-7 dark:bg-white dark:text-black"
+                className="w-full py-4 mt-2 font-semibold text-white transition-colors rounded-md bg-neutral-900 hover:bg-neutral-800 focus:outline-none focus:ring-offset-2 focus:ring focus:ring-neutral-200 px-7 dark:bg-white dark:text-black"
               >
                 {Send ? "در حال ارسال..." : "ارسال"}
               </button>
             </form>
             {isSuccess && isSubmitting && Message != "" && (
               <div
-                className="flex p-4 mb-4 mt-6 text-sm text-bold text-green-900 rounded-lg bg-green-10 dark:bg-neutral-700 dark:text-green-400"
+                className="flex p-4 mt-6 mb-4 text-sm text-green-900 rounded-lg text-bold bg-green-10 dark:bg-neutral-700 dark:text-green-400"
                 role="alert"
                 style={{ backgroundColor: "#26ff2a54" }}
               >
@@ -309,7 +309,7 @@ const StartUpsForm = () => {
 
             {!isSuccess && isSubmitting && Message != "" && (
               <div
-                className="flex p-4 mb-4 mt-6 text-sm text-bold text-red-900 rounded-lg bg-red-90 dark:bg-neutral-700 dark:text-red-400"
+                className="flex p-4 mt-6 mb-4 text-sm text-red-900 rounded-lg text-bold bg-red-90 dark:bg-neutral-700 dark:text-red-400"
                 role="alert"
                 style={{ backgroundColor: "#ff24244f" }}
               >

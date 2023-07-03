@@ -34,31 +34,29 @@ export default function Faq() {
       <h2 className="text-black text-4xl font-bold text-center dark:text-white">سوالات متداول </h2>
 
       <div className="bg-transparent mx-auto w-full max-w-2xl rounded-2xl dark:bg-transparent">
+        {/* TODO: create FaqCard.tsx */}
         {faqitems.map(({ question, response }) => (
           <div key={question}>
             <Disclosure>
               {({ open }) => (
                 <div className="mt-4">
                   <Disclosure.Button
-                    className={`${
-                      open
+                    className={`${open
                         ? "bg-yellow-500 dark:bg-neutral-800 hover:bg-yellow-500 rounded-b-none"
                         : ""
-                    } flex w-full justify-between rounded-lg bg-yellow-500 dark:bg-neutral-800 dark:hover:bg-neutral-800 px-4 py-4 text-left text-base font-medium `}
+                      } flex w-full justify-between rounded-lg bg-yellow-500 dark:bg-neutral-800 dark:hover:bg-neutral-800 px-4 py-4 text-left text-base font-medium `}
                   >
                     <h2 className="font-semibold">{question}</h2>
                     <ChevronDownIcon
-                      className={`${
-                        open ? "rotate-180 transition-transform" : ""
-                      } h-5 w-5 flex-shrink-0`}
+                      className={`${open ? "rotate-180 transition-transform" : ""
+                        } h-5 w-5 flex-shrink-0`}
                     />
                   </Disclosure.Button>
                   <Disclosure.Panel
-                    className={`${
-                      open
+                    className={`${open
                         ? "text-gray-50 px-4 pt-4 pb-2 text-base dark:text-neutral-400"
                         : ""
-                    } bg-yellow-500 dark:bg-neutral-800 rounded-b-lg`}
+                      } bg-yellow-500 dark:bg-neutral-800 rounded-b-lg`}
                   >
                     <p>{response}</p>
                   </Disclosure.Panel>
