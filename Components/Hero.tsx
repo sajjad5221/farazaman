@@ -25,35 +25,20 @@ export function Hero() {
             پر کنید.
           </p>
           <div className="flex justify-center mt-3  sm:w-10/12 md:w-10/12">
-            <button
-              type="button"
-              className="text-white flex justify-center basis-1/2	rounded px-5 py-2 text-base font-medium text-center bg-yellow-500 border border-yellow-500 focus:outline-none hover:bg-yellow-600 focus:ring-4 focus:ring-yellow-700  mr-2 mb-2 dark:bg-yellow-800 dark:text-white dark:border-yellow-600 dark:hover:bg-yellow-700 dark:hover:border-yellow-600 dark:focus:ring-yellow-700"
-            >
-              استخدام
-            </button>
+            <Link href="/hiring" className="text-white flex justify-center basis-1/2	rounded px-5 py-2 text-base font-medium text-center bg-yellow-500 border border-yellow-500 focus:outline-none hover:bg-yellow-600 focus:ring-4 focus:ring-yellow-700  mr-2 mb-2 dark:bg-yellow-800 dark:text-white dark:border-yellow-600 dark:hover:bg-yellow-700 dark:hover:border-yellow-600 dark:focus:ring-yellow-700">
+              <button
+                type="button"
+              >
+                استخدام
+              </button>
+            </Link>
           </div>
           <div className="flex flex-auto pt-10 gap-2 min-w-[350px] justify-center sm:justify-start text-black">
-            {/* <div>
-                <Link href="#services">
-                  <button className="text-white dark:text-white bg-gray-700 text-base rounded-full px-4 p-2 font-medium">
-                    فرازمان چیست؟
-                  </button>
-                </Link>
-              </div> */}
-
-            {/* <div>
-                <Link href="/startups">
-                  <button className="bg-yellow-500 text-white text-base rounded-full px-4 p-2 font-medium">
-                    شروع کنید
-                  </button>
-                </Link>
-              </div> */}
           </div>
         </div>
-
         <div className="flex items-center mt-12">
           <Image
-            src="https://via.placeholder.com/150"
+            src="/static/images/Home/about/presentation.jpg"
             alt="Image hero description"
             width={700}
             height={700}
@@ -63,6 +48,7 @@ export function Hero() {
           />
         </div>
       </div>
+
     </div>
   );
 }

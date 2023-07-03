@@ -5,28 +5,28 @@ const services = [
     title: "ثبت استارتاپ",
     description:
       "شرکت ما با افتخار در فرآیند ثبت استارتاپ‌ها همراهی می‌کند؛ حمایتی قوی برای رشد و پیشرفت شما.",
-    image: "https://via.placeholder.com/150",
+      image: "/static/images/Home/services/present2-square.jpg",
     alt: "Service description",
   },
   {
     title: "فضای کار اشتراکی",
     description:
       "فراهم کردن جایی برای الهام‌بخشی، همکاری و ارتقاء تجارت؛ با تسهیلات و محیطی آماده برای رشد و خلاقیت.",
-    image: "https://via.placeholder.com/150",
+    image: "/static/images/Home/services/discuss2.jpg",
     alt: "Service description",
   },
   {
     title: "رویدادها",
     description:
       "   فرصتی برای ارتباط، یادگیری و شبکه‌سازی؛ تجربه‌های منحصربه‌فرد برای ارتقاء شغلی و توسعه کسب و کار.",
-    image: "https://via.placeholder.com/150",
+    image: "/static/images/Home/services/discuss.jpg",
     alt: "Service description",
   },
   {
     title: "استخدام",
     description:
       "شرایطی برای همکاری با تیم پویا و متخصص، رشد حرفه‌ای و شکوفایی در محیطی الهام‌بخش و پراحساس.",
-    image: "https://via.placeholder.com/150",
+      image: "/static/images/Home/services/laptop3.jpg",
     alt: "Service description",
   },
   {
@@ -40,7 +40,7 @@ const services = [
     title: "ارتباط با ما",
     description:
       "همواره آماده شنیدن نظرات، سوالات و درخواست‌های شما هستیم. لطفاً با ما تماس بگیرید، منتظر ارتباط با شما هستیم.",
-    image: "https://via.placeholder.com/150",
+    image: "/static/images/Home/services/laptop1.jpg",
     alt: "Service description",
   },
 ];
@@ -61,12 +61,12 @@ export function Services() {
       <div className="grid px-4 pt-8 pb-16 mx-auto max-w-7xl sm:px-6 lg:px-8 md:grid-cols-2 lg:grid-cols-3 gap-y-8 md:gap-x-8 md:gap-y-8 lg:gap-x-8 lg:gap-y-16">
         {services.map(({ title, description, image, alt }) => (
           <div key={title}>
-            <div className="flex justify-center w-32 h-32 mx-auto">
+            <div className="flex justify-center mx-auto h-35 w-35 ">
               <Image
                 src={image}
                 alt={alt}
-                width={130}
-                height={130}
+                width={150}
+                height={150}
                 quality={75}
                 sizes="100vw"
                 priority

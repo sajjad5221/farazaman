@@ -162,7 +162,7 @@ export default function SliderMenu({
                 </p>
               </Link>
             ))}
-            {type === "exp"
+            {/* {type === "exp"
               ? startups.map((card) => (
                 <div
                   key={card.id}
@@ -203,7 +203,7 @@ export default function SliderMenu({
                     {card.description}
                   </p>
                 </Link>
-              ))}
+              ))} */}
           </div>
           <button
             className="rounded-full bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-1.5 px-1.5"
