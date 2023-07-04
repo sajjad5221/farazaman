@@ -26,7 +26,7 @@ const services = [
     title: "استخدام",
     description:
       "شرایطی برای همکاری با تیم پویا و متخصص، رشد حرفه‌ای و شکوفایی در محیطی الهام‌بخش و پراحساس.",
-    image: "/static/images/Home/services/laptop1.jpg",
+    image: "/static/images/Home/services/pexels-fauxels-3184465.jpg",
     alt: "Service description",
   },
   {
@@ -40,7 +40,7 @@ const services = [
     title: "ارتباط با ما",
     description:
       "همواره آماده شنیدن نظرات، سوالات و درخواست‌های شما هستیم. لطفاً با ما تماس بگیرید، منتظر ارتباط با شما هستیم.",
-    image: "/static/images/Home/services/laptop1.jpg",
+    image: "/static/images/Home/services/contact.jpg",
     alt: "Service description",
   },
 ];
@@ -52,7 +52,7 @@ export function Services() {
           فرازمان چیست؟
         </h2>
 
-        <p className="pt-6 pb-6 text-base max-w-2xl text-center m-auto text-gray-600 dark:text-neutral-400">
+        <p className="max-w-2xl pt-6 pb-6 m-auto text-base text-center text-gray-600 dark:text-neutral-400">
           شرکت شتاب دهنده با هدف ایده‌پردازی و پشتیبانی استارتاپ‌ها بهبود جامعه
           کارآفرینی را تسهیل می‌کند.{" "}
         </p>
@@ -72,7 +72,7 @@ export function Services() {
                 priority
               />
             </div>
-            <h2 className="font-bold py-3 text-lg text-center text-neutral-900 dark:text-neutral-100">
+            <h2 className="py-3 text-lg font-bold text-center text-neutral-900 dark:text-neutral-100">
               {title}
             </h2>
             <p className="text-base text-center text-gray-600 dark:text-neutral-400">

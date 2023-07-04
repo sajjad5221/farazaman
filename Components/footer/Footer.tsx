@@ -57,30 +57,44 @@ const social = [
 
 const column1 = [
   { name: "خانه", href: "/" },
-  { name: "سرویس ها", href: "#services" },
-  { name: "استارت آپ ها", href: "/#startups" },
-  { name: "سوالات متداول", href: "#faq" },
-  { name: "ارتباط", href: "/contact-us" },
+  { name: "استخدام", href: "/hiring" },
+  { name: "ثبت استارتاپ", href: "/startups" },
+  { name: "فضای کار اشتراکی", href: "/workspace" },
+  { name: "رویدادها", href: "/events" },
 ];
 
 const column2 = [
-  { name: "منابع اول", href: "/" },
-  { name: "منابع دوم", href: "/" },
-  { name: "منابع سوم", href: "/" },
-  { name: "منابع چهارم", href: "/" },
+  { name: " فرم استخدام ", href: "/hiring" },
+  { name: "فرم ثبت استارتاپ", href: "/startups" },
+  { name: "فرم ثبت نام فضای کار اشتراکی", href: "/workspace/form" },
+  { name: " ارتباط با ما", href: "/contact-us" },
+
 ];
 
-const column3 = [
-  { name: "حقوقی اول", href: "/" },
-  { name: "حقوقی دوم", href: "/" },
-  { name: "حقوقی سوم", href: "/" },
-];
 
 export default function Footer() {
   return (
     <footer className="bg-gray-50 text-neutral-300 dark:text-neutral-400 dark:bg-neutral-900">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-12 pb-12 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-5">
+      <div className="grid grid-cols-2 px-4 pt-12 pb-12 mx-auto max-w-7xl sm:px-6 lg:px-8 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-5">
         <div className="col-span-2 sm:col-span-3 md:col-span-3 lg:col-span-2 2xl:col-span-2">
+          <Link href="/">
+            <Image
+              className="w-auto h-12"
+              src="/static/images/Farazaman.png"
+              alt="Farazaman"
+              width={500}
+              height={500}
+              quality={100}
+              sizes="100vw"
+            />
+          </Link>
+
+          <p className="w-auto pt-4 text-neutral-500 md:text-sm sm:w-6/12 md:w-6/12 lg:w-8/12">
+            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
+            استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در
+            ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز
+          </p>
+
           <div className="flex gap-2 pt-6 sm:pt-6 md:pt-6 lg:pt-12 max-w-[300px]">
             {social.map((red) => (
               <Link
@@ -89,7 +103,7 @@ export default function Footer() {
                 aria-label="Social Icons"
                 target="_blank"
               >
-                <div className="w-9 h-9 p-2 text-slate-300 bg-neutral-500 hover:opacity-75 rounded-full flex items-center justify-center">
+                <div className="flex items-center justify-center p-2 rounded-full w-9 h-9 text-slate-300 bg-neutral-500 hover:opacity-75">
                   {red.icon}
                 </div>
               </Link>
@@ -98,14 +112,14 @@ export default function Footer() {
         </div>
 
         <div>
-          <h3 className="text-neutral-600 dark:text-neutral-300 text-sm md:text-xs font-bold pb-4 pt-12 lg:pt-0">
+          <h3 className="pt-12 pb-4 text-sm font-bold text-neutral-600 dark:text-neutral-300 md:text-xs lg:pt-0">
             شرکت
           </h3>
           {column1.map((item) => (
             <Link
               key={item.name}
               href={item.href}
-              className="text-neutral-600 dark:text-neutral-300 md:text-sm my-4 grid hover:underline underline-offset-4"
+              className="grid my-4 text-neutral-600 dark:text-neutral-300 md:text-sm hover:underline underline-offset-4"
             >
               {item.name}
             </Link>
@@ -113,14 +127,14 @@ export default function Footer() {
         </div>
 
         <div>
-          <h3 className="text-neutral-600 dark:text-neutral-300 text-sm md:text-xs font-bold pb-4 pt-12 lg:pt-0">
-            منابع
+          <h3 className="pt-12 pb-4 text-sm font-bold text-neutral-600 dark:text-neutral-300 md:text-xs lg:pt-0">
+            فرم ها
           </h3>
           {column2.map((item) => (
             <Link
               key={item.name}
               href={item.href}
-              className="text-neutral-600 dark:text-neutral-300 md:text-sm my-4 grid hover:underline underline-offset-4"
+              className="grid my-4 text-neutral-600 dark:text-neutral-300 md:text-sm hover:underline underline-offset-4"
             >
               {item.name}
             </Link>
@@ -128,23 +142,15 @@ export default function Footer() {
         </div>
 
         <div>
-          <h3 className="text-neutral-600 dark:text-neutral-300 text-sm md:text-xs font-bold pb-4 pt-12 lg:pt-0">
-            حقوقی
+          <h3 className="pt-12 pb-4 text-sm font-bold text-neutral-600 dark:text-neutral-300 md:text-xs lg:pt-0">
+            
           </h3>
-          {column3.map((item) => (
-            <Link
-              key={item.name}
-              href={item.href}
-              className="text-neutral-600 dark:text-neutral-300 md:text-sm my-4 grid hover:underline"
-            >
-              {item.name}
-            </Link>
-          ))}
+          
           <div className="mt-12"></div>
         </div>
       </div>
 
-      <div className="flex-col text-neutral-500 mx-auto max-w-7xl px-2 sm:px-6 lg:px-8 p-6 text-center border-t border-neutral-800">
+      <div className="flex-col p-6 px-2 mx-auto text-center border-t text-neutral-500 max-w-7xl sm:px-6 lg:px-8 border-neutral-800">
         <p className="text-sm">
           کلیه حقوق برای{" "}
           <Link href={"/"} className="text-yellow-500">

@@ -39,9 +39,9 @@ const contents = [
 export function Features() {
   return (
     <div className="bg-gray-50 dark:bg-neutral-900" id="features">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 gap-x-40 pt-16 pb-16">
-        <h2 className="text-black text-4xl font-bold text-center dark:text-white">
-          مزیّت ها
+      <div className="px-4 pt-16 pb-16 mx-auto max-w-7xl sm:px-6 lg:px-8 gap-x-40">
+        <h2 className="text-4xl font-bold text-center text-black dark:text-white">
+          مزایا
         </h2>
         {/* TODO: create FeatureCard.tsx component */}
         {contents.map((content) => (
