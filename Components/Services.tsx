@@ -1,5 +1,6 @@
 import Image from "next/image";
 import React from "react";
+import { ServiceCard } from "./ServiceCard";
 const services = [
   {
     title: "ثبت استارتاپ",
@@ -57,28 +58,15 @@ export function Services() {
           کارآفرینی را تسهیل می‌کند.{" "}
         </p>
       </div>
-      {/* TODO: create ServiceCard.tsx component */}
       <div className="grid px-4 pt-8 pb-16 mx-auto max-w-7xl sm:px-6 lg:px-8 md:grid-cols-2 lg:grid-cols-3 gap-y-8 md:gap-x-8 md:gap-y-8 lg:gap-x-8 lg:gap-y-16">
         {services.map(({ title, description, image, alt }) => (
-          <div key={title}>
-            <div className="flex justify-center mx-auto h-35 w-35 ">
-              <Image
-                src={image}
-                alt={alt}
-                width={150}
-                height={150}
-                quality={75}
-                sizes="100vw"
-                priority
-              />
-            </div>
-            <h2 className="py-3 text-lg font-bold text-center text-neutral-900 dark:text-neutral-100">
-              {title}
-            </h2>
-            <p className="text-base text-center text-gray-600 dark:text-neutral-400">
-              {description}
-            </p>
-          </div>
+          <ServiceCard
+          key={title}
+          title={title}
+          description={description}
+          image={image}
+          alt={alt}
+        />
         ))}
       </div>
     </div>
