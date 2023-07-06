@@ -1,35 +1,35 @@
-"use client"
-
-import React, { useEffect, useState } from "react";
-import Apiclient from "@/Services/Apiclient";
+'use client'
 import EventDetails from "@/Components/events/EventDetails";
 import EventForm from "@/Components/events/EventForm";
 import EventHeader from "@/Components/events/EventHeader";
-import { GetServerSidePropsContext } from "next";
 // import EventsList from "@/Components/events/EventsList";
 
-export default function EventSlug(context: GetServerSidePropsContext) {
+import Apiclient from "@/Services/Apiclient";
+import React, { useEffect, useState } from "react";
+export default function EventSlug(context: any) {
   const eventId = context.params?.slug as number | undefined;
   if (eventId === undefined) {
     throw new Error("Event ID is undefined");
   }
-
   interface Event {
-    id: number;
-    name: string;
-    description: string;
-    date: string;
-    location: string;
-    image: string;
-    flag: boolean;
+    id: number
+    name: string
+    description: string
+    date: string
+    location: string
+    image: string
+    flag: boolean
   }
-
   const [events, setEvents] = useState<Event[]>([]);
 
+
+
   useEffect(() => {
-    // Fetch events data
-    Apiclient.get<Event[]>("events/").then((res) => setEvents(res.data));
-  }, []);
+    Apiclient.get<Event[]>('events/')
+      .then(res => setEvents(res.data))
+  }, [])
+
+
 
   return (
     <div>
@@ -43,6 +43,7 @@ export default function EventSlug(context: GetServerSidePropsContext) {
             </div>
             <div className="order-1 col-span-3 px-4 py-24 text-center lg:col-span-2 lg:py-56">
               <EventHeader events={events} eventId={eventId} />
+
             </div>
           </div>
         </div>
