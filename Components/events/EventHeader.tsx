@@ -1,5 +1,6 @@
 "use client"
 
+import Link from "next/link";
 import React, { useState } from "react";
 
 type Event = {
@@ -59,12 +60,12 @@ export default function EventHeader({ events, eventId }: Props) {
 
       {/* Button to show more event information */}
       <div className="flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-x-4 sm:space-y-0">
-        <a
+        <Link
           href="#description"
           className="inline-flex items-center justify-center px-5 py-3 text-base font-medium text-center text-white border border-white rounded-lg hover:bg-gray-100 hover:text-gray-900 focus:ring-4 focus:ring-gray-400"
         >
           اطلاعات بیشتر...
-        </a>
+        </Link>
       </div>
     </div>
   );

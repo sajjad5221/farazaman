@@ -147,7 +147,8 @@ export default function SliderMenu({
           <div className="flex space-x-4">
             {startups.map((startUp, index) => (
               <Link href={`/${type}/${startUp.id}`} key={index}>
-                <a
+                <Link
+                href={"/"} //Add link here
                   className="flex-none flex items-center justify-center w-48 h-48 bg-gray-300 bg-cover bg-center rounded-lg cursor-pointer select-none"
                   style={{ backgroundImage: `url(${startUp.logo})` }}
                 >
@@ -159,7 +160,7 @@ export default function SliderMenu({
                     <p>{startUp.name}</p>
                     <p>{startUp.location}</p>
                   </div>
-                </a>
+                </Link>
               </Link>
             ))}
           </div>

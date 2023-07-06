@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 /**
@@ -34,12 +35,12 @@ export default function FormsDetails({
 
       {/* Form email */}
       <div className="flex items-center mt-2 space-x-2 text-gray-600 dark:text-neutral-400">
-        <a href="mailto:hello@halley.vercel.app">farazaman@gmail.com</a>
+        <Link href="mailto:hello@halley.vercel.app">farazaman@gmail.com</Link>
       </div>
 
       {/* Form phone number */}
       <div className="flex items-center mt-2 space-x-2 text-gray-600 text-dark-600 dark:text-neutral-400">
-        <a href="tel:0313313155">0313313155</a>
+        <Link href="tel:0313313155">0313313155</Link>
       </div>
     </div>
   );

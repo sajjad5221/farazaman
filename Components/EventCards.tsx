@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 // Define the props interface for the Cards component
 interface CardsProps {
@@ -22,7 +23,7 @@ export default function Cards(props: CardsProps) {
     <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 my-6">
       {/* Card image */}
       <div className="relative p-12 max-w-sm">
-        <a href="#">
+        <Link href="#">
           <Image
             draggable="false"
             src={image}
@@ -30,17 +31,17 @@ export default function Cards(props: CardsProps) {
             className="rounded-t-lg"
             alt="..."
           />
-        </a>
+        </Link>
       </div>
 
       {/* Card content */}
       <div className="p-5">
-        <a href="#">
+        <Link href="#">
           {/* Card title */}
           <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
             {title}
           </h5>
-        </a>
+        </Link>
 
         {/* Card description */}
         <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
@@ -48,7 +49,7 @@ export default function Cards(props: CardsProps) {
         </p>
 
         {/* "Learn more" button */}
-        <a
+        <Link
           href="#"
           className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
         >
@@ -66,7 +67,7 @@ export default function Cards(props: CardsProps) {
               clipRule="evenodd"
             ></path>
           </svg>
-        </a>
+        </Link>
       </div>
     </div>
   );

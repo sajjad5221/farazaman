@@ -26,8 +26,7 @@ const ClickableCard: React.FC<ClickableCardProps> = ({
 
   // Render the clickable card element with startup information
   return (
-    <Link href={`/startups/${id}`}>
-      <a className={cardClassNames}>
+    <Link href={`/startups/${id}`} className={cardClassNames}>
         <div className="text-center">
           {/* Display the startup's logo */}
           <Image
@@ -42,7 +41,6 @@ const ClickableCard: React.FC<ClickableCardProps> = ({
           {/* Display a short paragraph about the startup */}
           <p className={descriptionClassNames}>{description}</p>
         </div>
-      </a>
     </Link>
   );
 };
