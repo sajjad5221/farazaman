@@ -43,7 +43,7 @@ export default function SliderMenu({
   const handleNextSlide = () => {
     if (carouselRef.current) {
       carouselRef.current.scrollBy({
-        left: window.innerWidth,
+        left: carouselRef.current.offsetWidth,
         behavior: "smooth",
       });
     }
@@ -52,7 +52,7 @@ export default function SliderMenu({
   const handlePrevSlide = () => {
     if (carouselRef.current) {
       carouselRef.current.scrollBy({
-        left: -window.innerWidth,
+        left: -carouselRef.current.offsetWidth,
         behavior: "smooth",
       });
     }
