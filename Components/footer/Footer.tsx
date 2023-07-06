@@ -140,14 +140,6 @@ export default function Footer() {
             </Link>
           ))}
         </div>
-
-        <div>
-          <h3 className="pt-12 pb-4 text-sm font-bold text-neutral-600 dark:text-neutral-300 md:text-xs lg:pt-0">
-            
-          </h3>
-          
-          <div className="mt-12"></div>
-        </div>
       </div>
 
       <div className="flex-col p-6 px-2 mx-auto text-center border-t text-neutral-500 max-w-7xl sm:px-6 lg:px-8 border-neutral-800">
