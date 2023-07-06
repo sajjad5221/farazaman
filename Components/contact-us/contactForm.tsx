@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import Apiclient from "@/Services/Apiclient";
-import FormsDetails from "../FormsDetails";
+import FormsDetails from "@/Components/misc/FormsDetails";
 import GetCsrfToken from "@/Services/GetCsrfToken";
 
 interface Info {

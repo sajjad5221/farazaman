@@ -2,7 +2,7 @@ import "./globals.css"; // Import global CSS file
 import Script from "next/script";
 import React from "react";
 import Footer from "@/Components/footer/Footer";
-import Navbar from "@/Components/Navbar";
+import Navbar from "@/Components/home/Navbar";
 
 // Define metadata object
 export const metadata = {
