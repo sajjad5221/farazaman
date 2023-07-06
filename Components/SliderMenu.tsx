@@ -9,7 +9,6 @@ import Link from "next/link";
 export default function SliderMenu({
   title,
   description,
-  type,
   StartUpsProps,
 }: {
   title: string;
@@ -42,19 +41,21 @@ export default function SliderMenu({
   const carouselRef: React.RefObject<HTMLDivElement> = useRef(null);
 
   const handleNextSlide = () => {
-    carouselRef.current?.scrollBy({
-      top: 0,
-      left: window.innerWidth,
-      behavior: "smooth",
-    });
+    if (carouselRef.current) {
+      carouselRef.current.scrollBy({
+        left: window.innerWidth,
+        behavior: "smooth",
+      });
+    }
   };
 
   const handlePrevSlide = () => {
-    carouselRef.current?.scrollBy({
-      top: 0,
-      left: -window.innerWidth,
-      behavior: "smooth",
-    });
+    if (carouselRef.current) {
+      carouselRef.current.scrollBy({
+        left: -window.innerWidth,
+        behavior: "smooth",
+      });
+    }
   };
 
   const [isDragging, setIsDragging] = useState(false);
@@ -206,7 +207,7 @@ export default function SliderMenu({
               ))} */}
           </div>
           <button
-            className="rounded-full bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-1.5 px-1.5"
+            className="rounded-full bg-yellow-500 hover:bg-yellow-700 text-white font-bold"
             aria-label="Arrow"
             onClick={handleNextSlide}
           >
@@ -216,7 +217,7 @@ export default function SliderMenu({
       ) : (
         <div className="flex flex-row items-center">
           <button
-            className="rounded-full bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-1.5 px-1.5"
+            className="rounded-full bg-yellow-500 hover:bg-yellow-700 text-white font-bold"
             aria-label="Arrow"
             onClick={handlePrevSlide}
           >
@@ -256,7 +257,7 @@ export default function SliderMenu({
             ))}
           </div>
           <button
-            className="rounded-full bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-1.5 px-1.5"
+            className="rounded-full bg-yellow-500 hover:bg-yellow-700 text-white font-bold"
             aria-label="Arrow"
             onClick={handlePrevSlide}
           >
