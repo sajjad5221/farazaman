@@ -1,9 +1,10 @@
-"use client";
+"use client"
+
 import React, { useState, useEffect } from "react";
-import GetCsrfToken from "@/Services/GetCsrfToken";
 import { useForm } from "react-hook-form";
-import FormsDetails from "../FormsDetails";
 import Apiclient from "@/Services/Apiclient";
+import FormsDetails from "../FormsDetails";
+import GetCsrfToken from "@/Services/GetCsrfToken";
 
 interface Info {
   name: string;
@@ -20,7 +21,6 @@ const ContactUs = () => {
     message: "",
   });
 
-  [];
   const {
     register,
     handleSubmit,
@@ -31,13 +31,23 @@ const ContactUs = () => {
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [Send, setSend] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
-  const [Message, setMessage] = useState("");
+  const [send, setSend] = useState(false);
+  const [message, setMessage] = useState("");
+  const [csrfToken, setCsrfToken] = useState("");
+
+  useEffect(() => {
+    // Fetch CSRF token
+    async function fetchCsrfToken() {
+      const token = await GetCsrfToken("http://localhost:8000/get-csrf-token/");
+      setCsrfToken(token);
+    }
+
+    fetchCsrfToken();
+  }, []);
+
   const handleChange = (
-    e:
-      | React.ChangeEvent<HTMLInputElement>
-      | React.ChangeEvent<HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -46,16 +56,23 @@ const ContactUs = () => {
     setSend(true);
     setIsSubmitting(true);
     try {
-      const response = await Apiclient.post("contact/", JSON.stringify(data), {
-        headers: {
-          "X-CSRFToken": csrfToken,
-          "Content-Type": "application/json",
-        },
-      });
+      // Send form data to the server
+
+      //Response is unused. Remove if unnecessary.
+      const response = await Apiclient.post(
+        "contact/",
+        JSON.stringify(data),
+        {
+          headers: {
+            "X-CSRFToken": csrfToken,
+            "Content-Type": "application/json",
+          },
+        }
+      );
       setIsSuccess(true);
       setMessage("ارسال موفقیت آمیز بود");
       setSend(false);
-      reset(); // Reset the form field
+      reset();
     } catch (error) {
       console.log(error);
       setMessage("ارسال ناموفق بود !");
@@ -63,16 +80,6 @@ const ContactUs = () => {
       setIsSuccess(false);
     }
   };
-
-  const [csrfToken, setCsrfToken] = useState("");
-  useEffect(() => {
-    async function fetchCsrfToken() {
-      const token = await GetCsrfToken("http://localhost:8000/get-csrf-token/");
-      setCsrfToken(token);
-    }
-
-    fetchCsrfToken();
-  }, []);
 
   return (
     <div className="w-screen mt-16 bg-gray-50 dark:bg-neutral-900" id="contact">
@@ -94,7 +101,7 @@ const ContactUs = () => {
             "ثبت اطلاعات و پیام شما برای ارتباط با شتابدهنده فرازمان  ."
           }
         />
-        <div className="w-full px-8 py-8 md:order-last lg:order-last max-[768px]:order-first px-1 py-8">
+        <div className="w-full px-8 py-8 md:order-last lg:order-last max-[768px]:order-first">
           <div>
             <form onSubmit={handleSubmit(onSubmit)}>
               <div className="mb-5">
@@ -105,7 +112,7 @@ const ContactUs = () => {
                   نام و نام خانوادگی
                 </label>
                 <input
-                id="name"
+                  id="name"
                   type="text"
                   placeholder="نام و نام خانوادگی"
                   autoComplete="off"
@@ -137,7 +144,7 @@ const ContactUs = () => {
                   آدرس ایمیل شما
                 </label>
                 <input
-                id="email"
+                  id="email"
                   type="email"
                   placeholder="farazaman@gmail.com"
                   autoComplete="off"
@@ -168,7 +175,7 @@ const ContactUs = () => {
                   شماره موبایل
                 </label>
                 <input
-                id="tel"
+                  id="tel"
                   placeholder="091311111111"
                   autoComplete="off"
                   className={`w-full px-4 py-3 border-2 placeholder:text-neutral-400 dark:text-white rounded-md outline-none dark:placeholder:text-neutral-200 dark:bg-neutral-900 focus:ring-4 ${
@@ -191,14 +198,14 @@ const ContactUs = () => {
               </div>
 
               <div className="mb-3" style={{ backgroundColor: "transparent" }}>
-              <label
+                <label
                   htmlFor="message"
                   className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                 >
-                پیام شما 
+                  پیام شما
                 </label>
                 <textarea
-                id="message"
+                  id="message"
                   placeholder="پیام شما"
                   className={`w-full px-4 py-3 border-2 placeholder:text-neutral-400 dark:text-white dark:placeholder:text-neutral-200 dark:bg-neutral-900 rounded-md outline-none h-36 focus:ring-4 ${
                     errors.message ? "border-yellow-500" : ""
@@ -217,13 +224,13 @@ const ContactUs = () => {
 
               <button
                 type="submit"
-                disabled={Send}
+                disabled={send}
                 className="w-full py-4 font-semibold text-white transition-colors rounded-md bg-neutral-900 hover:bg-neutral-800 focus:outline-none focus:ring-offset-2 focus:ring focus:ring-neutral-200 px-7 dark:bg-white dark:text-black"
               >
-                {Send ? "در حال ارسال..." : "ارسال"}
+                {send ? "در حال ارسال..." : "ارسال"}
               </button>
             </form>
-            {isSuccess && isSubmitting && Message != "" && (
+            {isSuccess && isSubmitting && message !== "" && (
               <div
                 className="flex p-4 mt-6 mb-4 text-sm text-green-900 rounded-lg text-bold bg-green-10 dark:bg-neutral-700 dark:text-green-400"
                 role="alert"
@@ -234,44 +241,14 @@ const ContactUs = () => {
                   className="flex-shrink-0 inline w-5 h-5 mr-3"
                   fill="currentColor"
                   viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
                 >
                   <path
                     fillRule="evenodd"
-                    d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+                    d="M10 2a8 8 0 100 16 8 8 0 000-16zm0 14a6 6 0 100-12 6 6 0 000 12z"
                     clipRule="evenodd"
                   ></path>
                 </svg>
-                <span className="sr-only">پیام</span>
-                <div>
-                  <span className="font-medium">{Message}</span>!
-                </div>
-              </div>
-            )}
-
-            {!isSuccess && isSubmitting && Message != "" && (
-              <div
-                className="flex p-4 mt-6 mb-4 text-sm text-red-900 rounded-lg text-bold bg-red-90 dark:bg-neutral-700 dark:text-red-400"
-                role="alert"
-                style={{ backgroundColor: "#ff24244f" }}
-              >
-                <svg
-                  aria-hidden="true"
-                  className="flex-shrink-0 inline w-5 h-5 mr-3"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
-                    clipRule="evenodd"
-                  ></path>
-                </svg>
-                <span className="sr-only">پیام</span>
-                <div>
-                  <span className="font-medium">{Message}</span>!
-                </div>
+                {message}
               </div>
             )}
           </div>
