@@ -46,7 +46,7 @@ export default function Navbar() {
                         alt="Farazaman"
                         width={200}
                         height={200}
-                        quality={100}
+                        quality={75}
                         sizes="100vw"
                       />
                     </Link>

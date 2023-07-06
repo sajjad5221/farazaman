@@ -84,7 +84,7 @@ export default function Footer() {
               alt="Farazaman"
               width={500}
               height={500}
-              quality={100}
+              quality={75}
               sizes="100vw"
             />
           </Link>

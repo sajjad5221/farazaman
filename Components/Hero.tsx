@@ -57,8 +57,7 @@ export function Hero(): JSX.Element {
             alt="Image hero description"
             width={700}
             height={700}
-            quality={100}
-            sizes="100vw"
+            quality={75}
             priority
           />
         </div>
