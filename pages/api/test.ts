@@ -1,7 +1,7 @@
-//deprecated: In next 13.4, handling apis has been changed!
+import { NextApiHandler } from 'next';
 
-import type { NextApiRequest, NextApiResponse } from "next";
-
-export default function handler(req: NextApiRequest, res: NextApiResponse) {
+const handler: NextApiHandler = (req, res) => {
   res.status(200).json({ message: "Hello from the API!" });
-}
+};
+
+export default handler;
