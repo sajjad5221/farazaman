@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import GetCsrfToken from "@/Services/GetCsrfToken";
 import { useForm } from "react-hook-form";
-import FormsDetails from "../FormsDetails";
+import FormsDetails from "@/Components/misc/FormsDetails";
 import Apiclient from "@/Services/Apiclient";
 
 const initialFormData = {

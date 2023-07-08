@@ -1,6 +1,6 @@
 import React from "react";
 import FetchApi from "@/Services/Fetch";
-import Carousel from "@/Components/Carousel";
+import Carousel from "@/Components/home/Carousel";
 import Image from "next/image";
 import GetFiles from "@/Services/GetFileNames";
 

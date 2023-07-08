@@ -1,5 +1,5 @@
 import React from "react";
-import SliderMenu from "./SliderMenu";
+import SliderMenu from "@/Components/misc/SliderMenu";
 
 export default function Pricing() {
   // Render the component
