@@ -1,4 +1,5 @@
-"use client";
+"use client"
+
 import Error from "@/app/global-error";
 import React, { Component, ErrorInfo, ReactNode } from "react";
 
@@ -13,25 +14,26 @@ type ErrorBoundaryState = {
 class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
   constructor(props: ErrorBoundaryProps) {
     super(props);
+    // Set the initial state to indicate that no error has occurred yet
     this.state = { hasError: false };
   }
 
   componentDidCatch(error: Error, errorInfo: ErrorInfo): void {
-    // You can log the error or send it to an error reporting service
+    // Log the error and error info to the console
     console.error("Error:", error);
     console.error("Error Info:", errorInfo);
 
-    // Update state to display fallback UI
+    // Update state to indicate that an error has occurred
     this.setState({ hasError: true });
   }
 
   render() {
     if (this.state.hasError) {
-      // Render a fallback UI
-      <Error />;
+      // If an error has occurred, render the Error component
+      return <Error />;
     }
 
-    // Render the normal component tree
+    // If no error has occurred, render the normal component tree
     return this.props.children;
   }
 }

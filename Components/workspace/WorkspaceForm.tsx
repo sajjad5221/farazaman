@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import GetCsrfToken from "@/Services/GetCsrfToken";
 import { useForm } from "react-hook-form";
-import FormsDetails from "../FormsDetails";
+import FormsDetails from "@/Components/misc/FormsDetails";
 import Apiclient from "@/Services/Apiclient";
 interface Info {
   name: string;
@@ -96,7 +96,7 @@ const ContactUs = () => {
             " ثبت اطلاعات شما برای استفاده از فضای کار اشتراکی فرازمان."
           }
         />
-        <div className="w-full px-8 py-8 md:order-last lg:order-last max-[768px]:order-first px-1 py-8">
+        <div className="w-full px-8 py-8 md:order-last lg:order-last max-[768px]:order-first">
           <div>
             <form onSubmit={handleSubmit(onSubmit)}>
               <div className="mb-5">

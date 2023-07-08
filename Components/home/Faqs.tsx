@@ -2,6 +2,8 @@
 import { Disclosure } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/24/solid";
 import React from "react";
+
+// Define an array of FAQ items, each with a question and response
 const faqitems = [
   {
     question: "مدت زمان قرارداد طرح پویش چقدر است؟",
@@ -25,21 +27,27 @@ const faqitems = [
   },
 ];
 
+// Define the Faq component
 export default function Faq() {
+  // Render the component
   return (
     <div
       className="bg-gray-50 dark:bg-neutral-900 w-full px-4 pt-16 pb-16"
       id="faq"
     >
+      {/* Faq title */}
       <h2 className="text-black text-4xl font-bold text-center dark:text-white">سوالات متداول </h2>
 
+      {/* Faq items */}
       <div className="bg-transparent mx-auto w-full max-w-2xl rounded-2xl dark:bg-transparent">
         {/* TODO: create FaqCard.tsx */}
         {faqitems.map(({ question, response }) => (
           <div key={question}>
+            {/* Disclosure component for each faq item */}
             <Disclosure>
               {({ open }) => (
                 <div className="mt-4">
+                  {/* Disclosure button */}
                   <Disclosure.Button
                     className={`${open
                         ? "bg-yellow-500 dark:bg-neutral-800 hover:bg-yellow-500 rounded-b-none"
@@ -52,6 +60,8 @@ export default function Faq() {
                         } h-5 w-5 flex-shrink-0`}
                     />
                   </Disclosure.Button>
+
+                  {/* Disclosure panel */}
                   <Disclosure.Panel
                     className={`${open
                         ? "text-gray-50 px-4 pt-4 pb-2 text-base dark:text-neutral-400"

@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import GetCsrfToken from "@/Services/GetCsrfToken";
 import { useForm } from "react-hook-form";
-import FormsDetails from "../FormsDetails";
+import FormsDetails from "@/Components/misc/FormsDetails";
 import Apiclient from "@/Services/Apiclient";
 
 const initialFormData = {
@@ -112,7 +112,7 @@ const HiringForm = () => {
           title="استخدام در شتابدهنده فرازمان"
           description="ثبت مشخصات شما برای استخدام در فرازمان"
         />
-        <div className="w-full px-8 py-8 md:order-last lg:order-last max-[768px]:order-first px-1 py-8">
+        <div className="w-full px-8 py-8 md:order-last lg:order-last max-[768px]:order-first">
           <div>
             <form onSubmit={handleSubmit(handleFormSubmit)}>
               <div className="mb-5">

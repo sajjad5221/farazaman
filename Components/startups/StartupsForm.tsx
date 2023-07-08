@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from "react";
 import GetCsrfToken from "@/Services/GetCsrfToken";
 import { useForm } from "react-hook-form";
-import FormsDetails from "../FormsDetails";
+import FormsDetails from "@/Components/misc/FormsDetails";
 import Apiclient from "@/Services/Apiclient";
 
 const initialFormData = {
@@ -75,6 +75,7 @@ const StartUpsForm = () => {
     sendFormData.append("members_count", data.members_count.toString());
 
     try {
+      // Response unused. Remove if unnecessary.
       const response = await Apiclient.post("startup-submit/", sendFormData, {
         headers: {
           "content-type": "multipart/form-data",
@@ -111,7 +112,7 @@ const StartUpsForm = () => {
           title="ثبت استارتاپ در شتابدهنده فرازمان"
           description=" ثبت اطلاعات استارتاپ شما برای همکاری با فرازمان"
         />
-        <div className="w-full px-8 py-8 md:order-last lg:order-last max-[768px]:order-first px-1 py-8">
+        <div className="w-full px-8 py-8 md:order-last lg:order-last max-[768px]:order-first">
           <div>
             <form onSubmit={handleSubmit(handleFormSubmit)}>
               <div className="mb-5">

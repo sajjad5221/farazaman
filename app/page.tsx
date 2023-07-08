@@ -1,12 +1,12 @@
-import Customers from "@/Components/Customers";
-import Faq from "@/Components/Faqs";
-import { Features } from "@/Components/Features";
-import { Hero } from "@/Components/Hero";
-import Pricing from "@/Components/StartUps";
-import { Services } from "@/Components/Services";
+import Customers from "@/Components/home/Customers";
+import Faq from "@/Components/home/Faqs";
+import { Features } from "@/Components/home/Features";
+import { Hero } from "@/Components/home/Hero";
+import Pricing from "@/Components/misc/StartUps";
+import { Services } from "@/Components/misc/Services";
 import React, { Suspense } from "react";
-import SliderMenu from "@/Components/SliderMenu";
-import ErrorBoundary from "@/Components/ErrorBoundry";
+import SliderMenu from "@/Components/misc/SliderMenu";
+import ErrorBoundary from "@/Components/Boundaries/ErrorBoundry";
 import Loading from "./loading";
 
 export default function Home() {
