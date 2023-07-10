@@ -42,7 +42,7 @@ export default function SliderMenu({
 
   const handleNextSlide = () => {
     if (carouselRef.current) {
-      carouselRef.current.scrollBy({
+      carouselRef.current.scroll({
         left: carouselRef.current.offsetWidth,
         behavior: "smooth",
       });
@@ -51,8 +51,8 @@ export default function SliderMenu({
 
   const handlePrevSlide = () => {
     if (carouselRef.current) {
-      carouselRef.current.scrollBy({
-        left: -carouselRef.current.offsetWidth,
+      carouselRef.current.scroll({
+        left: -carouselRef.current.offsetWidth, // Change to a negative value
         behavior: "smooth",
       });
     }
@@ -122,11 +122,11 @@ export default function SliderMenu({
       {billingInterval === "done" ? (
         <div className="flex flex-row items-center">
           <button
-            className="rounded-full bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-1.5 px-1.5"
+            className="rounded-full bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-2"
             aria-label="Arrow"
             onClick={handlePrevSlide}
           >
-            <ChevronRightIcon className="w-6 h-6" />
+            <ChevronRightIcon className="w-8 h-8" />
           </button>
 
           <div
@@ -209,9 +209,9 @@ export default function SliderMenu({
           <button
             className="rounded-full bg-yellow-500 hover:bg-yellow-700 text-white font-bold"
             aria-label="Arrow"
-            onClick={handleNextSlide}
+            onClick={handlePrevSlide}
           >
-            <ChevronLeftIcon className="w-6 h-6" />
+            <ChevronLeftIcon className="w-8 h-8" />
           </button>
         </div>
       ) : (
@@ -219,13 +219,13 @@ export default function SliderMenu({
           <button
             className="rounded-full bg-yellow-500 hover:bg-yellow-700 text-white font-bold"
             aria-label="Arrow"
-            onClick={handlePrevSlide}
+            onClick={handleNextSlide}
           >
-            <ChevronRightIcon className="w-6 h-6" />
+            <ChevronRightIcon className="w-8 h-8" />
           </button>
 
           <div
-            className="flex overflow-x-auto lg:overflow-x-hidden whitespace-nowrap"
+            className="flex whitespace-nowrap overflow-auto lg:overflow-hidden"
             ref={carouselRef}
             onMouseDown={handleMouseDown}
             onMouseMove={handleMouseMove}
@@ -236,7 +236,7 @@ export default function SliderMenu({
               <Link
                 href={"/startups/" + card.id}
                 key={card.id}
-                className="flex flex-col justify-evenly w-64 h-64 bg-neutral-200 dark:bg-neutral-800 rounded-lg p-4 cursor-pointer mx-2"
+                className="flex flex-col flex-shrink-0 justify-evenly h-64 w-1/6 bg-neutral-200 dark:bg-neutral-800 rounded-lg p-4 cursor-pointer mx-2"
                 style={{ scrollSnapAlign: "start" }}
               >
                 <img
@@ -250,18 +250,18 @@ export default function SliderMenu({
                 <h1 className="text-center mt-2 font-bold text-neutral-900 dark:text-neutral-100">
                   {card.name}
                 </h1>
-                <p className="text-center text-neutral-900 dark:text-neutral-100">
+                <p className="text-center break-words text-neutral-900 dark:text-neutral-100">
                   {card.description}
                 </p>
               </Link>
             ))}
           </div>
           <button
-            className="rounded-full bg-yellow-500 hover:bg-yellow-700 text-white font-bold"
+            className="rounded-full mr-2 bg-yellow-500 hover:bg-yellow-700 text-white font-bold"
             aria-label="Arrow"
             onClick={handlePrevSlide}
           >
-            <ChevronLeftIcon className="w-6 h-6" />
+            <ChevronLeftIcon className="w-8 h-8" />
           </button>
         </div>
       )}
