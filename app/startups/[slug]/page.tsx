@@ -12,12 +12,21 @@ export default async function page(context: any) {
   // const folderPath = "public/static/images/startups/1/";
 
   const files = GetFiles(id);
+  let imageUrl;
+  // let images:string[] = [];
+  // {files.map((image) => (
+  //   imageUrl = "/static/images/startups/" + id + "/" + image;
+  // ))}
 
-  
+  const images = [
+    "/static/images/startups/1/1.jpg",
+    "/static/images/startups/1/2.jpg",
+    "/static/images/startups/1/3.jpg",
+    "/static/images/startups/1/4.jpg",
+  ];
 
   return (
     <div className="flex flex-col items-center py-28 bg-gray-50 dark:bg-neutral-900">
-      
       <div className="rounded-full overflow-hidden w-40 h-40 mb-4">
         <img
           className="w-full h-full object-cover"
@@ -26,20 +35,7 @@ export default async function page(context: any) {
         />
       </div>
       <div>
-      <div>
-      {files.map((image) => (
-        // eslint-disable-next-line react/jsx-key
-        <div>
-          <Image
-            width={500}
-            height={500}            
-            src={imageRoute + image}
-            alt="Image"
-          />
-        </div>
-      ))}
-    </div>
-      
+        <div></div>
       </div>
       <h2 className="text-2xl font-bold text-black dark:text-white">
         {startupData.name}
@@ -48,7 +44,8 @@ export default async function page(context: any) {
         {startupData.description}
       </p>
 
-      <Carousel id={id} />
+      <Carousel images={images} />
+
       <div className="relative rounded-lg overflow-x-auto w-10/12">
         <table className="w-full text-sm text-gray-500 dark:text-gray-400">
           <tbody>
