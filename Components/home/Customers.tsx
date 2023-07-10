@@ -7,13 +7,13 @@ const customers = [
   {
     name: "دیاکو",
     href: "#",
-    src: "/static/images/Home/logo-customers/Diaco2.png",
+    src: "/static/images/Home/logo-customers/434b.png",
     alt: "Google play logo",
   },
   {
     name: "فروغ روشن",
     href: "#",
-    src: "/static/images/Home/logo-customers/fouroq.png",
+    src: "/static/images/Home/logo-customers/438b.png",
     alt: "Github logo",
   },
   {
@@ -25,7 +25,7 @@ const customers = [
   {
     name: "IR Immigration",
     href: "#",
-    src: "/static/images/Home/logo-customers/irimmig.png",
+    src: "/static/images/Home/logo-customers/436c.png",
     alt: "Python logo",
   },
   {
@@ -50,7 +50,9 @@ export default function Customers() {
       id="faq"
     >
       {/* Heading */}
-      <h2 className="text-4xl font-bold text-center text-black dark:text-white">شرکای تجاری </h2>
+      <h2 className="text-4xl font-bold text-center text-black dark:text-white">
+        شرکای تجاری{" "}
+      </h2>
       {/* TODO: create CustomerCard.tsx */}
       {/* Customer grid */}
       <div className="w-full max-w-4xl mx-auto bg-transparent dark:bg-transparent">
@@ -67,7 +69,9 @@ export default function Customers() {
                 quality={75}
                 sizes="100vw"
               />
-              <span className="text-gray-600 dark:text-neutral">{customer.name}</span>
+              <span className="text-gray-600 dark:text-neutral">
+                {customer.name}
+              </span>
             </Link>
           ))}
         </div>

@@ -11,7 +11,7 @@ const contents = [
       "قرار گرفتن در اولویت استخدام",
       "آشنایی با محیط کار همزمان با تحصیل",
     ],
-    image: "/static/images/Home/features/students.jpg",
+    image: "/static/images/Home/features/students.jpeg",
     order: false,
   },
   {

@@ -57,9 +57,6 @@ const social = [
 
 const column1 = [
   { name: "خانه", href: "/" },
-  { name: "استخدام", href: "/hiring" },
-  { name: "ثبت استارتاپ", href: "/startups" },
-  { name: "فضای کار اشتراکی", href: "/workspace" },
   { name: "رویدادها", href: "/events" },
 ];
 
@@ -90,9 +87,8 @@ export default function Footer() {
           </Link>
 
           <p className="w-auto pt-4 text-neutral-500 md:text-sm sm:w-6/12 md:w-6/12 lg:w-8/12">
-            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
-            استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در
-            ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز
+             شرکت فرازمان بزرگترین شتابدهنده استارتاپ ها در ایران است.با تمرکز بر نوآوری و ایده‌های پرسرعت، هدف ما بهبود جامعه
+            کارآفرینی است.
           </p>
 
           <div className="flex gap-2 pt-6 sm:pt-6 md:pt-6 lg:pt-12 max-w-[300px]">
