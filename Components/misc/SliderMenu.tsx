@@ -215,7 +215,7 @@ export default function SliderMenu({
           </button>
         </div>
       ) : (
-        <div className="flex flex-row items-center">
+        <div className="flex flex-row items-center justify-center">
           <button
             className="rounded-full bg-yellow-500 hover:bg-yellow-700 text-white font-bold"
             aria-label="Arrow"

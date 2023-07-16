@@ -10,7 +10,7 @@ export default function Pricing() {
         {/* TODO: Replace this comment with a request to the backend to fetch data */}
       </div>
       {/* Render the SliderMenu component with the fetched data */}
-      <div className="">
+      <div className="bg-red-100">
         <SliderMenu
           StartUpsProps={true}
           type="notExp"
