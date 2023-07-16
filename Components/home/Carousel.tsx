@@ -1,59 +1,46 @@
-import { GetServerSidePropsContext } from 'next';
-import Image from 'next/image'
-import React from 'react'
+"use client";
 
-// Define the functional component
-export default function Carousel(context: GetServerSidePropsContext) {
-  // Get the ID of the startup from the context
-  const id = context.params?.slug as number | undefined;
+import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/solid";
+import React, { useState } from "react";
 
-  // Return the carousel element with startup images and controls
+export default function Carousel({ images }: { images: any }) {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  const handlePrevSlide = () => {
+    setCurrentSlide((prevSlide) =>
+      prevSlide === 0 ? images.length - 1 : prevSlide - 1
+    );
+  };
+
+  const handleNextSlide = () => {
+    setCurrentSlide((prevSlide) =>
+      prevSlide === images.length - 1 ? 0 : prevSlide + 1
+    );
+  };
+
   return (
-    <div id="default-carousel" className="relative w-10/12" data-carousel="slide">
-      {/* Carousel wrapper */}
-      <div className="relative h-56 overflow-hidden rounded-lg md:h-96">
-        {/* Item 1 */}
-        {/* <div className="hidden duration-700 ease-in-out" data-carousel-item>
-          <Image fill src={slide1} className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..." />
-        </div> */}
-        {/* Item 2 */}
-        <div className="hidden duration-700 ease-in-out" data-carousel-item>
-          <Image fill src={`/public/static/images/startups/startups-${id}/1.jpg`} className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..." />
-        </div>
-        {/* Item 3 */}
-        {/* <div className="hidden duration-700 ease-in-out" data-carousel-item>
-          <Image fill src={`../public/static/images/startups/startups-${id}/2.jpg`} className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..." />
-        </div> */}
-        {/* Item 4 */}
-        {/* <div className="hidden duration-700 ease-in-out" data-carousel-item>
-          <Image fill src={`../public/static/images/startups/startups-${id}/3.jpg`} className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..." />
-        </div> */}
-        {/* Item 5 */}
-        {/* <div className="hidden duration-700 ease-in-out" data-carousel-item>
-          <Image fill src={`../public/static/startups/startups-${id}/4.jpg`} className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..." />
-        </div> */}
-      </div>
-      {/* Slider indicators */}
-      <div className="absolute z-30 flex space-x-3 -translate-x-1/2 bottom-5 left-1/2">
-        <button type="button" className="w-3 h-3 rounded-full" aria-current="true" aria-label="Slide 1" data-carousel-slide-to={0} />
-        <button type="button" className="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 2" data-carousel-slide-to={1} />
-        <button type="button" className="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 3" data-carousel-slide-to={2} />
-        <button type="button" className="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 4" data-carousel-slide-to={3} />
-        <button type="button" className="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 5" data-carousel-slide-to={4} />
-      </div>
-      {/* Slider controls */}
-      <button type="button" className="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
-        <span className="inline-flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-slate-400 dark:bg-slate-700 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-          <svg aria-hidden="true" className="w-5 h-5 text-white sm:w-6 sm:h-6 dark:text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" /></svg>
-          <span className="sr-only">Previous</span>
-        </span>
+    <div className="flex flex-row items-center my-10">
+      <button
+        className="rounded-full bg-yellow-500 hover:bg-yellow-700 text-white font-bold p-1 ml-2"
+        aria-label="Previous Slide"
+        onClick={handlePrevSlide}
+      >
+        <ChevronRightIcon className="w-8 h-8" />
       </button>
-      <button type="button" className="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-next>
-        <span className="inline-flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-slate-400 dark:bg-slate-700 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-          <svg aria-hidden="true" className="w-5 h-5 text-white sm:w-6 sm:h-6 dark:text-gray-800" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
-          <span className="sr-only">Next</span>
-        </span>
+      <div className="w-[80rem] h-72 relative overflow-hidden">
+        <img
+          className="absolute top-0 left-0 w-full h-full object-cover rounded-md transition-opacity duration-300"
+          src={images[currentSlide]}
+          alt={`Slide ${currentSlide + 1}`}
+        />
+      </div>
+      <button
+        className="rounded-full bg-yellow-500 hover:bg-yellow-700 text-white font-bold p-1 mr-2"
+        aria-label="Next Slide"
+        onClick={handleNextSlide}
+      >
+        <ChevronLeftIcon className="w-8 h-8" />
       </button>
     </div>
-  )
+  );
 }
