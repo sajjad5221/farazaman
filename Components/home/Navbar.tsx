@@ -15,7 +15,7 @@ const navigation = [
   { name: "استخدام", href: "/hiring", current: false },
   { name: "ثبت استارتاپ", href: "/startups", current: false },
   { name: "فضای کار اشتراکی", href: "/workspace", current: false },
-  { name: "رویدادها", href: "/events", current: false },
+  // { name: "رویدادها", href: "/events", current: false },
   { name: "ارتباط با ما", href: "/contact-us", current: false },
 ];
 

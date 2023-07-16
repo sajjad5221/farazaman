@@ -32,7 +32,7 @@ const HiringForm = () => {
   } = useForm<Info>({
     mode: "onBlur",
   });
-
+  const description = "شرکت ما با تمرکز بر نوآوری و ایده‌های پرسرعت، استارتاپ‌های نوپا را در حوزه‌های مختلف پشتیبانی می‌کند. با تیم متخصص و برنامه‌های آموزشی منحصربه‌فرد، ما شرکت‌ها را به موفقیت و پیشرفت هدایت می‌کنیم. در حال حاضر، در حال استخدام هستیم و قصد داریم تیممان را با افراد متخصص و متعهد توسعه دهیم. اگر به یادگیری، همکاری و خلاقیت علاقه‌مند هستید و می‌خواهید به یک تیم پویا و پرشور بپیوندید، منتظر شما هستیم. لطفاً فرم استخدام را پر کنید تا اطلاعات بیشتری دریافت کنید و رزومه خود را ارسال کنید."
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [Message, setMessage] = useState("");
@@ -110,7 +110,7 @@ const HiringForm = () => {
       <div className="grid grid-cols-1 gap-px px-12 md:grid-cols-2 bg-gray-50 dark:bg-neutral-900">
         <FormsDetails
           title="استخدام در شتابدهنده فرازمان"
-          description="ثبت مشخصات شما برای استخدام در فرازمان"
+          description={description}
         />
         <div className="w-full px-8 py-8 md:order-last lg:order-last max-[768px]:order-first">
           <div>
@@ -127,9 +127,8 @@ const HiringForm = () => {
                   type="text"
                   placeholder="نام و نام خانوادگی "
                   autoComplete="false"
-                  className={`w-full px-4 py-3 border-2 placeholder:text-neutral-400 dark:text-white rounded-md outline-none dark:placeholder:text-neutral-200 dark:bg-neutral-900 focus:ring-4 ${
-                    errors.name ? "border-yellow-500" : ""
-                  }`}
+                  className={`w-full px-4 py-3 border-2 placeholder:text-neutral-400 dark:text-white rounded-md outline-none dark:placeholder:text-neutral-200 dark:bg-neutral-900 focus:ring-4 ${errors.name ? "border-yellow-500" : ""
+                    }`}
                   {...register("name", {
                     required: "نام و نام خانوادگی خود را وارد کنید.",
                     pattern: {
@@ -158,9 +157,8 @@ const HiringForm = () => {
                   type="email"
                   placeholder="آدرس ایمیل شما"
                   autoComplete="true"
-                  className={`w-full px-4 py-3 border-2 placeholder:text-neutral-400 dark:text-white rounded-md outline-none dark:placeholder:text-neutral-200 dark:bg-neutral-900 focus:ring-4 ${
-                    errors.email ? "border-yellow-500" : ""
-                  }`}
+                  className={`w-full px-4 py-3 border-2 placeholder:text-neutral-400 dark:text-white rounded-md outline-none dark:placeholder:text-neutral-200 dark:bg-neutral-900 focus:ring-4 ${errors.email ? "border-yellow-500" : ""
+                    }`}
                   {...register("email", {
                     required: "آدرس ایمیل خود را وارد کنید.",
                     pattern: {
@@ -189,9 +187,8 @@ const HiringForm = () => {
                   type="number"
                   placeholder="شماره تماس ( مثال : ۰۹۱۳۱۲۳۴۵۶۷)"
                   autoComplete="false"
-                  className={`w-full px-4 py-3 border-2 placeholder:text-neutral-400 dark:text-white rounded-md outline-none dark:placeholder:text-neutral-200 dark:bg-neutral-900 focus:ring-4 ${
-                    errors.phone ? "border-yellow-500" : ""
-                  }`}
+                  className={`w-full px-4 py-3 border-2 placeholder:text-neutral-400 dark:text-white rounded-md outline-none dark:placeholder:text-neutral-200 dark:bg-neutral-900 focus:ring-4 ${errors.phone ? "border-yellow-500" : ""
+                    }`}
                   {...register("phone", {
                     required: "شماره تماس را وارد کنید.",
                     pattern: {
@@ -224,9 +221,8 @@ const HiringForm = () => {
                   value="NO"
                   placeholder=""
                   autoComplete="false"
-                  className={`cursor-pointer w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600 mobile:w-[16%] s:w-[15%] sm:w-[14px] sm:-ml-[5px]" name="default-box" value="normal" checked="" ${
-                    errors.hireType ? "border-yellow-500" : ""
-                  }`}
+                  className={`cursor-pointer w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600 mobile:w-[16%] s:w-[15%] sm:w-[14px] sm:-ml-[5px]" name="default-box" value="normal" checked="" ${errors.hireType ? "border-yellow-500" : ""
+                    }`}
                   {...register("hireType", {
                     required: "نوع استخدام خود را مشخص کنید.",
                   })}
@@ -250,9 +246,8 @@ const HiringForm = () => {
                   value="PU"
                   placeholder=""
                   autoComplete="false"
-                  className={`cursor-pointer w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600 mobile:w-[16%] s:w-[15%] sm:w-[14px] sm:-ml-[5px]" name="default-box" value="normal" checked="" ${
-                    errors.hireType ? "border-yellow-500" : ""
-                  }`}
+                  className={`cursor-pointer w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600 mobile:w-[16%] s:w-[15%] sm:w-[14px] sm:-ml-[5px]" name="default-box" value="normal" checked="" ${errors.hireType ? "border-yellow-500" : ""
+                    }`}
                   {...register("hireType", {
                     required: "نوع استخدام خود را مشخص کنید.",
                   })}
@@ -277,9 +272,8 @@ const HiringForm = () => {
                   type="file"
                   placeholder="قایل ارائه"
                   autoComplete="false"
-                  className={`w-full px-4 py-3 border-2 text-gray-400 style="visibility:hidden placeholder:text-neutral-400 dark:text-white rounded-md outline-none dark:placeholder:text-neutral-200 dark:bg-neutral-900 focus:ring-4 ${
-                    errors.resume ? "border-yellow-500" : ""
-                  }`}
+                  className={`w-full px-4 py-3 border-2 text-gray-400 style="visibility:hidden placeholder:text-neutral-400 dark:text-white rounded-md outline-none dark:placeholder:text-neutral-200 dark:bg-neutral-900 focus:ring-4 ${errors.resume ? "border-yellow-500" : ""
+                    }`}
                   value={formData.resume?.name}
                   {...register("resume", {
                     required: "فایل را وارد کنید.",

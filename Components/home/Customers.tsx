@@ -57,7 +57,9 @@ export default function Customers() {
         <div className="grid items-center justify-center grid-cols-2 text-center sm:grid-cols-3 md:grid-cols-6">
           {/* Map over the array of customers and create a CustomerCard for each */}
           {customers.map((customer) => (
-            <Link key={customer.name} href={customer.href} target="_blank">
+            // <Link key={customer.name} href={customer.href} target="_blank">
+            <div>
+
               <Image
                 className="justify-center mx-auto mt-6 mb-1 text-center transition rounded-full hover:scale-110"
                 src={customer.src}
@@ -68,7 +70,8 @@ export default function Customers() {
                 sizes="100vw"
               />
               <span className="text-gray-600 dark:text-neutral">{customer.name}</span>
-            </Link>
+            </div>
+            // </Link>
           ))}
         </div>
       </div>

@@ -22,7 +22,7 @@ export default function FormsDetails({
       </h2>
 
       {/* Form description */}
-      <p className="max-w-sm mt-4 mb-4 text-gray-600 dark:text-neutral-400">
+      <p className="max-w-sm mt-4 mb-4 text-gray-600 dark:text-neutral-400 text-justify">
         {description}
       </p>
 

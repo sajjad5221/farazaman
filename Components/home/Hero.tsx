@@ -18,7 +18,6 @@ export function Hero(): JSX.Element {
             <span className="text-yellow-500 font-extrabold">فرازمان</span>
           </h1>
           {/* TODO: Move all strings to lang folder */}
-          {/* Description */}
           <p className="pt-6 text-base text-zinc-600 w-auto sm:w-10/12 md:w-10/12 dark:text-neutral-400">
             شرکت شتاب دهنده ما استارتاپ‌های نوپا را در حوزه‌های مختلف پشتیبانی
             می‌کند. با تمرکز بر نوآوری و ایده‌های پرسرعت، هدف ما بهبود جامعه

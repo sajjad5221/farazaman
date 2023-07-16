@@ -27,10 +27,10 @@ export default function SliderMenu({
     flag: boolean
   }
   const [startups, setStartups] = useState<StartUps[]>([]);
-  
+
   useEffect(() => {
     Apiclient.get<StartUps[]>('startups/')
-    .then(res => setStartups(res.data))
+      .then(res => setStartups(res.data))
   }, [])
 
 
@@ -98,8 +98,8 @@ export default function SliderMenu({
               onClick={() => setBillingInterval("doing")}
               type="button"
               className={`${billingInterval === "doing"
-                  ? "relative w-1/2 bg-white dark:bg-neutral-600 text-neutral-900 dark:text-neutral-100"
-                  : "ml-0.5 relative w-1/2 text-neutral-900 dark:text-neutral-400"
+                ? "relative w-1/2 bg-white dark:bg-neutral-600 text-neutral-900 dark:text-neutral-100"
+                : "ml-0.5 relative w-1/2 text-neutral-900 dark:text-neutral-400"
                 } rounded-md m-1 py-2 whitespace-nowrap sm:w-auto sm:px-8`}
             >
               انجام شده
@@ -108,8 +108,8 @@ export default function SliderMenu({
               onClick={() => setBillingInterval("done")}
               type="button"
               className={`${billingInterval === "done"
-                  ? "relative w-1/2 bg-white dark:bg-neutral-600 text-neutral-900 dark:text-neutral-100"
-                  : "ml-0.5 relative w-1/2 text-neutral-900 dark:text-neutral-400"
+                ? "relative w-1/2 bg-white dark:bg-neutral-600 text-neutral-900 dark:text-neutral-100"
+                : "ml-0.5 relative w-1/2 text-neutral-900 dark:text-neutral-400"
                 } rounded-md m-1 py-2 whitespace-nowrap sm:w-auto sm:px-8`}
             >
               در حال انجام
@@ -137,7 +137,7 @@ export default function SliderMenu({
             onMouseUp={handleMouseUp}
             onMouseLeave={handleMouseUp}
           >
-            {startups.map((card:any) => (
+            {startups.map((card: any) => (
               <Link
                 href={"/startups/" + card.id}
                 key={card.id}
@@ -147,7 +147,7 @@ export default function SliderMenu({
                 <img
                   width={80}
                   height={80}
-                  
+
                   src={card.logo}
                   alt={card.name}
                   className="mx-auto rounded-full border-2 border-yellow-500 p-[2px]"
@@ -233,7 +233,7 @@ export default function SliderMenu({
             onMouseLeave={handleMouseUp}
           >
             {startups.map((card) => (
-              <Link
+              <div
                 href={"/startups/" + card.id}
                 key={card.id}
                 className="flex flex-col justify-evenly w-64 h-64 bg-neutral-200 dark:bg-neutral-800 rounded-lg p-4 cursor-pointer mx-2"
@@ -253,7 +253,7 @@ export default function SliderMenu({
                 <p className="text-center text-neutral-900 dark:text-neutral-100">
                   {card.description}
                 </p>
-              </Link>
+              </div>
             ))}
           </div>
           <button
