@@ -1,34 +1,25 @@
 import Customers from "@/Components/home/Customers";
 import Faq from "@/Components/home/Faqs";
 import { Features } from "@/Components/home/Features";
-// import { Hero } from "@/Components/home/Hero";
 import Banner from "@/Components/home/Banner";
-import Pricing from "@/Components/misc/StartUps";
 import { Services } from "@/Components/misc/Services";
 import React, { Suspense } from "react";
-import SliderMenu from "@/Components/misc/SliderMenu";
 import ErrorBoundary from "@/Components/Boundaries/ErrorBoundry";
 import Loading from "./loading";
-
+import Startups from "@/Components/home/Startups";
+import Hires from "@/Components/home/Hires";
 export default function Home() {
   return (
     <ErrorBoundary>
       <Suspense fallback={<Loading />}>
         <main>
-          <div className="flex flex-col mt-10">
-            {/* TODO: components names are wrong. like Hero! */}
-            {/* <Hero /> */}
+          <div className="flex flex-col mt-16">
             <Banner />
             <Services />
             <Features />
-            <Pricing />
+            <Hires />
             <Faq />
-            {/* TODO: create a component like Features for below like:  */}
-            <SliderMenu
-              type="exp"
-              title="تجربه استخدامی ها"
-              description=""
-            />
+            <Startups />
             <Customers />
             <div className="border-t border-neutral-800 mx-16 "></div>
           </div>
