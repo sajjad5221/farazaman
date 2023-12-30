@@ -1,0 +1,31 @@
+{
+  "lng": "fa",
+  "ServiceData": [
+    {
+      "title": "برگزاری رویداد",
+      "image": "/static/images/Home/services/present2-square.jpg",
+      "alt": "make an event"
+    },
+    {
+      "title": "ثبت استارپ",
+      "image": "/static/images/Home/services/discuss2.jpg",
+      "alt": "Startup registration"
+    },
+    {
+      "title": "فضای کار اشتراکی",
+      "image": "/static/images/Home/services/discuss.jpg",
+      "alt": "Shared workspace"
+    },
+    {
+      "title": "طرح پویش",
+      "image": "/static/images/Home/services/pexels-fauxels-3184465.jpg",
+      "alt": "Internship"
+    },
+    {
+      "title": "طرح پویش",
+      "description": "امکانی برای دانشجویان جهت ایجاد ارتباط مستقیم با صنعت، کسب تجربه‌های عملی و توسعه مهارت‌های شغلی در محیط کاری واقعی.",
+      "image": "/static/images/Home/services/laptop1.jpg",
+      "alt": "Service description"
+    }
+  ]
+}
