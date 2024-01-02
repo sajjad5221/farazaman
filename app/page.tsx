@@ -16,7 +16,7 @@ export default function Home() {
           <div className="flex flex-col mt-16">
             <Banner />
             <Services />
-            <Features />
+            <Features title="فضای کار اشتراکی" />
             <Hires />
             <Faq />
             <Startups />
