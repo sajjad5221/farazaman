@@ -64,13 +64,20 @@ html {
 }
 
 /* Customize form styles */
-form{
+form {
   color: black;
 }
 
 /* Apply dark mode styles to body using @layer directive */
 @layer {
   body {
-      @apply dark:bg-gray-800 bg-white; /* Apply dark mode background color */
+    @apply dark:bg-gray-800 bg-white; /* Apply dark mode background color */
   }
+}
+
+.featureBackground {
+  background-image: url('../public/static/images/Brand/farazaman-Logo.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
