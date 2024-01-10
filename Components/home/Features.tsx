@@ -7,7 +7,7 @@ export function Features({ title }: { title: string }) {
   return (
     <section className="bg-gray-50 z-0 relative" id="features">
       <div className="w-80 h-80 absolute -z-10 left-12 top-60 sm:left-36 sm:top-32 featureBackground"></div>
-      <div className="px-4 text-customGray leading-10 pt-16 pb-10 mx-auto max-w-7xl sm:px-6 lg:px-8 gap-x-40">
+      <div className="px-4 text-customGray leading-10 pt-16 pb-8 mx-auto max-w-7xl sm:px-6 lg:px-8 gap-x-40">
         <SectionHeader title={title} />
         <div className="md:mr-4 py-5">
           <h2 className="text-black text-xl mb-3">
