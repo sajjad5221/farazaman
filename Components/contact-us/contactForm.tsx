@@ -1,10 +1,10 @@
-"use client"
+'use client';
 
-import React, { useState, useEffect } from "react";
-import { useForm } from "react-hook-form";
-import Apiclient from "@/Services/Apiclient";
-import FormsDetails from "@/Components/misc/FormsDetails";
-import GetCsrfToken from "@/Services/GetCsrfToken";
+import React, { useState, useEffect } from 'react';
+import { useForm } from 'react-hook-form';
+import Apiclient from '@/Services/Apiclient';
+import FormsDetails from '@/Components/misc/FormsDetails';
+import GetCsrfToken from '@/Services/GetCsrfToken';
 
 interface Info {
   name: string;
@@ -13,12 +13,12 @@ interface Info {
   message: string;
 }
 
-const ContactUs = () => {
+const ContactUsForm = () => {
   const [formData, setFormData] = useState<Info>({
-    name: "",
-    email: "",
-    phone: "",
-    message: "",
+    name: '',
+    email: '',
+    phone: '',
+    message: '',
   });
 
   const {
@@ -27,19 +27,19 @@ const ContactUs = () => {
     formState: { errors },
     reset,
   } = useForm<Info>({
-    mode: "onBlur",
+    mode: 'onBlur',
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [send, setSend] = useState(false);
-  const [message, setMessage] = useState("");
-  const [csrfToken, setCsrfToken] = useState("");
+  const [message, setMessage] = useState('');
+  const [csrfToken, setCsrfToken] = useState('');
 
   useEffect(() => {
     // Fetch CSRF token
     async function fetchCsrfToken() {
-      const token = await GetCsrfToken("http://localhost:8000/get-csrf-token/");
+      const token = await GetCsrfToken('http://localhost:8000/get-csrf-token/');
       setCsrfToken(token);
     }
 
@@ -59,23 +59,19 @@ const ContactUs = () => {
       // Send form data to the server
 
       //Response is unused. Remove if unnecessary.
-      const response = await Apiclient.post(
-        "contact/",
-        JSON.stringify(data),
-        {
-          headers: {
-            "X-CSRFToken": csrfToken,
-            "Content-Type": "application/json",
-          },
-        }
-      );
+      const response = await Apiclient.post('contact/', JSON.stringify(data), {
+        headers: {
+          'X-CSRFToken': csrfToken,
+          'Content-Type': 'application/json',
+        },
+      });
       setIsSuccess(true);
-      setMessage("ارسال موفقیت آمیز بود");
+      setMessage('ارسال موفقیت آمیز بود');
       setSend(false);
       reset();
     } catch (error) {
       console.log(error);
-      setMessage("ارسال ناموفق بود !");
+      setMessage('ارسال ناموفق بود !');
       setSend(false);
       setIsSuccess(false);
     }
@@ -96,9 +92,9 @@ const ContactUs = () => {
 
       <div className="grid grid-cols-1 gap-px px-12 md:grid-cols-2 bg-gray-50 dark:bg-neutral-900">
         <FormsDetails
-          title={"فرم ارتباط با ما "}
+          title={'فرم ارتباط با ما '}
           description={
-            "ثبت اطلاعات و پیام شما برای ارتباط با شتابدهنده فرازمان  ."
+            'ثبت اطلاعات و پیام شما برای ارتباط با شتابدهنده فرازمان  .'
           }
         />
         <div className="w-full px-8 py-8 md:order-last lg:order-last max-[768px]:order-first">
@@ -118,13 +114,13 @@ const ContactUs = () => {
                   autoComplete="off"
                   pattern="^[\u0600-\u06FF\s]+$"
                   className={`w-full px-4 py-3 border-2 placeholder:text-neutral-400 dark:text-white rounded-md outline-none dark:placeholder:text-neutral-200 dark:bg-neutral-900 focus:ring-4 ${
-                    errors.name ? "border-yellow-500" : ""
+                    errors.name ? 'border-yellow-500' : ''
                   }`}
-                  {...register("name", {
-                    required: "نام خود را وارد کنید.",
+                  {...register('name', {
+                    required: 'نام خود را وارد کنید.',
                     pattern: {
                       value: /^[\u0600-\u06FF\s]+$/,
-                      message: "نام خود را به درستی وارد کنید.",
+                      message: 'نام خود را به درستی وارد کنید.',
                     },
                   })}
                   onChange={handleChange}
@@ -149,13 +145,13 @@ const ContactUs = () => {
                   placeholder="farazaman@gmail.com"
                   autoComplete="off"
                   className={`w-full px-4 py-3 border-2 placeholder:text-neutral-400 dark:text-white rounded-md outline-none dark:placeholder:text-neutral-200 dark:bg-neutral-900 focus:ring-4 ${
-                    errors.email ? "border-yellow-500" : ""
+                    errors.email ? 'border-yellow-500' : ''
                   }`}
-                  {...register("email", {
-                    required: "آدرس ایمیل خود را وارد کنید.",
+                  {...register('email', {
+                    required: 'آدرس ایمیل خود را وارد کنید.',
                     pattern: {
                       value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                      message: "آدرس ایمیل را به درستی وارد کنید.",
+                      message: 'آدرس ایمیل را به درستی وارد کنید.',
                     },
                   })}
                   onChange={handleChange}
@@ -179,13 +175,13 @@ const ContactUs = () => {
                   placeholder="091311111111"
                   autoComplete="off"
                   className={`w-full px-4 py-3 border-2 placeholder:text-neutral-400 dark:text-white rounded-md outline-none dark:placeholder:text-neutral-200 dark:bg-neutral-900 focus:ring-4 ${
-                    errors.phone ? "border-yellow-500" : ""
+                    errors.phone ? 'border-yellow-500' : ''
                   }`}
-                  {...register("phone", {
-                    required: "شماره تماس را وارد کنید.",
+                  {...register('phone', {
+                    required: 'شماره تماس را وارد کنید.',
                     pattern: {
                       value: /^\d{11}$/,
-                      message: "شماره تماس را به درستی وارد کنید.",
+                      message: 'شماره تماس را به درستی وارد کنید.',
                     },
                   })}
                   onChange={handleChange}
@@ -197,7 +193,7 @@ const ContactUs = () => {
                 )}
               </div>
 
-              <div className="mb-3" style={{ backgroundColor: "transparent" }}>
+              <div className="mb-3" style={{ backgroundColor: 'transparent' }}>
                 <label
                   htmlFor="message"
                   className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
@@ -208,10 +204,10 @@ const ContactUs = () => {
                   id="message"
                   placeholder="پیام شما"
                   className={`w-full px-4 py-3 border-2 placeholder:text-neutral-400 dark:text-white dark:placeholder:text-neutral-200 dark:bg-neutral-900 rounded-md outline-none h-36 focus:ring-4 ${
-                    errors.message ? "border-yellow-500" : ""
+                    errors.message ? 'border-yellow-500' : ''
                   }`}
-                  {...register("message", {
-                    required: "متن پیام را وارد کنید.",
+                  {...register('message', {
+                    required: 'متن پیام را وارد کنید.',
                   })}
                   onChange={handleChange}
                 />
@@ -227,14 +223,14 @@ const ContactUs = () => {
                 disabled={send}
                 className="w-full py-4 font-semibold text-white transition-colors rounded-md bg-neutral-900 hover:bg-neutral-800 focus:outline-none focus:ring-offset-2 focus:ring focus:ring-neutral-200 px-7 dark:bg-white dark:text-black"
               >
-                {send ? "در حال ارسال..." : "ارسال"}
+                {send ? 'در حال ارسال...' : 'ارسال'}
               </button>
             </form>
-            {isSuccess && isSubmitting && message !== "" && (
+            {isSuccess && isSubmitting && message !== '' && (
               <div
                 className="flex p-4 mt-6 mb-4 text-sm text-green-900 rounded-lg text-bold bg-green-10 dark:bg-neutral-700 dark:text-green-400"
                 role="alert"
-                style={{ backgroundColor: "#26ff2a54" }}
+                style={{ backgroundColor: '#26ff2a54' }}
               >
                 <svg
                   aria-hidden="true"
@@ -258,4 +254,4 @@ const ContactUs = () => {
   );
 };
 
-export default ContactUs;
+export default ContactUsForm;
