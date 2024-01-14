@@ -18,9 +18,9 @@ export default function Home() {
             <Services />
             <Features title="فضای کار اشتراکی" />
             <Hires />
-            <Faq />
             <Startups />
             <Customers />
+            <Faq />
             <div className="border-t border-neutral-800 mx-16 "></div>
           </div>
         </main>
