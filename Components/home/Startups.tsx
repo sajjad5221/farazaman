@@ -8,6 +8,7 @@ export default function Startups() {
       <div className="mx-auto max-w-7xl sm:px-6 lg:px-8 gap-x-40">
         <SectionHeader title="استارتاپ های ما" />
         <div className="w-full text-black flex flex-col sm:flex-row items-center justify-center md:justify-between py-7">
+          {/* problem */}
           <Startup />
         </div>
       </div>
