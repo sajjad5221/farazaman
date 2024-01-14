@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function ArrowLeft() {
+export default function ArrowLeft({ color = 'withe' }: { color?: string }) {
   return (
     <svg
       width="18"
@@ -11,7 +11,7 @@ export default function ArrowLeft() {
     >
       <path
         d="M12.9999 20.67C12.8416 20.67 12.6832 20.6 12.5582 20.45L7.1249 13.93C6.24157 12.87 6.24157 11.13 7.1249 10.07L12.5582 3.55002C12.7999 3.26002 13.1999 3.26002 13.4416 3.55002C13.6832 3.84002 13.6832 4.32002 13.4416 4.61002L8.00824 11.13C7.60824 11.61 7.60824 12.39 8.00824 12.87L13.4416 19.39C13.6832 19.68 13.6832 20.16 13.4416 20.45C13.3166 20.59 13.1582 20.67 12.9999 20.67Z"
-        fill="white"
+        fill={color}
       />
     </svg>
   );

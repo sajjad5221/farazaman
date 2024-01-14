@@ -20,7 +20,7 @@ export default async function Services() {
   return (
     <div className="bg-gray-50 dark:bg-neutral-900 px-10 md:p-6" id="services">
       {/* Page header */}
-      <div className="pt-16 mx-auto max-w-7xl order">
+      <div className="pt-16 mx-auto max-w-7xl sm:px-6 lg:px-8 gap-x-40">
         <h2 className="text-4xl text-brand dark:text-white">
           {t('mainPageTitle')}
         </h2>
