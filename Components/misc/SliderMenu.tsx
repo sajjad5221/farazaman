@@ -85,13 +85,13 @@ export default function SliderMenu({
           {items.map((item) => (
             <div
               key={item.id}
-              className="flex flex-col overflow-hidden flex-shrink-0 justify-evenly h-64 sm:w-1/3 md:w-1/4 shadow-md rounded-lg p-4 cursor-pointer mx-2"
+              className="flex flex-col overflow-hidden flex-shrink-0 justify-evenly h-56 sm:w-1/3 md:w-1/4 shadow-md rounded-lg p-4 cursor-pointer mx-2"
               style={{ scrollSnapAlign: 'start' }}
             >
               <div className="flex">
-                <div className="w-16 h-16 bg-gray-400 rounded-tl-[32px] rounded-tr-[8px] rounded-br-[8px] rounded-bl-[8px] border-brand"></div>
-                <div className="mr-4">
-                  <p className="mt-2 font-bold text-neutral-900 dark:text-neutral-100">
+                <div className="w-16 h-16 bg-gray-300 rounded-tl-[32px] rounded-tr-[8px] rounded-br-[8px] rounded-bl-[8px] border border-brand"></div>
+                <div className="mr-4 flex flex-col justify-between">
+                  <p className="mt-2 text-brand dark:text-neutral-100">
                     {item.name}
                   </p>
                   <p className="text-customGray">{item.jobTitle}</p>
