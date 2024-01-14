@@ -1,29 +1,30 @@
-"use client";
-import { Disclosure } from "@headlessui/react";
-import { ChevronDownIcon } from "@heroicons/react/24/solid";
-import React from "react";
+'use client';
+import { Disclosure } from '@headlessui/react';
+import { ChevronDownIcon } from '@heroicons/react/24/solid';
+import React from 'react';
+import SectionHeader from '../common/SectionHeader';
 
 // Define an array of FAQ items, each with a question and response
 const faqitems = [
   {
-    question: "مدت زمان قرارداد طرح پویش چقدر است؟",
+    question: 'مدت زمان قرارداد طرح پویش چقدر است؟',
     response:
-      "به مدت 240 ساعت در طول یک ترم",
+      'طبق هماهنگی‌هایی که با دانشگاه انجام شده، مدت زمان این طرح به مدت 240 ساعت است.',
   },
   {
-    question: "ساعت کاری به چه صورت می باشد؟",
+    question: 'ساعت کاری به چه‌ صورت برنامه ریزی شده است؟',
     response:
-      "منعطف و وابسته به شرایط تحصیلی دانشجو",
+      'طبق هماهنگی‌هایی که با دانشگاه انجام شده، مدت زمان این طرح به مدت 240 ساعت است.',
   },
   {
-    question: "آیا فقط داشتن ایده برای استارتاپ کافی است؟",
+    question: 'آیا داشتن ایده برای یک استارت‌آپ کافی است؟',
     response:
-      "خیر. نیاز به MVP (حداقل محصول قابل ارائه) دارد.",
+      'باوجود اینکه اولین قدم در تاسیس و شروع یک استارت‌آپ، ایده اولیه آن است؛ اما شرط کافی نیست. داشتن MVP (حداقل محصول قابل ارائه) شرط کافی برای شروع یک استارت‌آپ است.',
   },
   {
-    question: "فضای کار اشتراکی چه امکاناتی را فراهم می کند؟",
+    question: 'فضای کار اشتراکی چه امکاناتی را فراهم می کند؟',
     response:
-      "شرکت ما فضای مناسب و امکانات فنی و رفاهی (اینترنت آزاد و نامحدود، نوشیدنی و ...) را برای شما فراهم می کند",
+      'شرکت ما فضای مناسب رفاهی و امکانات فنی ازجمله اینترنت آزاد و نامحدود، نوشیدنی و غیره را برای شما فراهم می کند.',
   },
 ];
 
@@ -31,51 +32,19 @@ const faqitems = [
 export default function Faq() {
   // Render the component
   return (
-    <div
-      className="bg-gray-50 dark:bg-neutral-900 w-full px-4 pt-16 pb-16"
-      id="faq"
-    >
-      {/* Faq title */}
-      <h2 className="text-black text-4xl font-bold text-center dark:text-white">سوالات متداول </h2>
-
-      {/* Faq items */}
-      <div className="bg-transparent mx-auto w-full max-w-2xl rounded-2xl dark:bg-transparent">
-        {/* TODO: create FaqCard.tsx */}
-        {faqitems.map(({ question, response }) => (
-          <div key={question}>
-            {/* Disclosure component for each faq item */}
-            <Disclosure>
-              {({ open }) => (
-                <div className="mt-4">
-                  {/* Disclosure button */}
-                  <Disclosure.Button
-                    className={`${open
-                        ? "bg-yellow-500 dark:bg-neutral-800 hover:bg-yellow-500 rounded-b-none"
-                        : ""
-                      } flex w-full justify-between rounded-lg bg-yellow-500 dark:bg-neutral-800 dark:hover:bg-neutral-800 px-4 py-4 text-left text-base font-medium `}
-                  >
-                    <h2 className="font-semibold">{question}</h2>
-                    <ChevronDownIcon
-                      className={`${open ? "rotate-180 transition-transform" : ""
-                        } h-5 w-5 flex-shrink-0`}
-                    />
-                  </Disclosure.Button>
-
-                  {/* Disclosure panel */}
-                  <Disclosure.Panel
-                    className={`${open
-                        ? "text-gray-50 px-4 pt-4 pb-2 text-base dark:text-neutral-400"
-                        : ""
-                      } bg-yellow-500 dark:bg-neutral-800 rounded-b-lg`}
-                  >
-                    <p>{response}</p>
-                  </Disclosure.Panel>
-                </div>
-              )}
-            </Disclosure>
-          </div>
-        ))}
+    <section className="bg-gray-50 px-4 pt-16 pb-16" id="faq">
+      <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
+        <SectionHeader title="سوالات متداول" />
+        <div className="my-8 mx-auto">
+          {/* TODO: create FaqCard.tsx */}
+          {faqitems.map(({ question, response }) => (
+            <div className="pr-4 my-3 text-black shadow-sm rounded-md">
+              <p className="text-brand">{question}</p>
+              <p className="py-3">{response}</p>
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
+    </section>
   );
 }
