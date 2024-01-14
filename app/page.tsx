@@ -8,6 +8,7 @@ import Loading from './loading';
 import Startups from '@/Components/home/Startups';
 import Hires from '@/Components/home/Hires';
 import Services from '@/Components/home/Services';
+import ContactUs from '@/Components/home/ContactUs';
 export default function Home() {
   return (
     <ErrorBoundary>
@@ -21,7 +22,7 @@ export default function Home() {
             <Startups />
             <Customers />
             <Faq />
-            <div className="border-t border-neutral-800 mx-16 "></div>
+            <ContactUs />
           </div>
         </main>
       </Suspense>
