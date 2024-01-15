@@ -1,21 +1,21 @@
-import Image from 'next/image';
-import React, { useEffect } from 'react';
-import ServiceCard from './ServiceCard';
-import { useLang } from '@/stores/langStore';
-import { useTranslation } from './../../app/i18n';
+import Image from "next/image";
+import React, { useEffect } from "react";
+import ServiceCard from "./ServiceCard";
+import { useLang } from "@/stores/langStore";
+import { useTranslation } from "./../../app/i18n";
 
 export default async function Services() {
   const lang = useLang.getState().lang;
-  const { t } = await useTranslation(lang, 'mainPage');
+  const { t } = await useTranslation(lang, "mainPage");
   // const a: any = t('ServiceData', { returnObjects: true })[0];
-  // console.log(t('ServiceData', { returnObjects: true }));
+  // (t('ServiceData', { returnObjects: true }));
 
   const servicesData: Array<{ title: string; image: string; alt: string }> = t(
-    'ServiceData',
+    "ServiceData",
     { returnObjects: true }
   );
 
-  // console.log(servicesData);
+  // (servicesData);
 
   return (
     <div className="bg-gray-50 px-10 md:p-6" id="services">
@@ -24,7 +24,7 @@ export default async function Services() {
         <h2 className="text-4xl text-brand  ">{t('mainPageTitle')}</h2>
         <div>
           <p className="text-black py-2 text-2xl leading-[3.1rem]">
-            {t('mainPageSubTitle')}
+            {t("mainPageSubTitle")}
           </p>
           <p className="pb-6 text-base lg:max-w-[77rem] text-gray-600   leading-[3.1rem]">
             {t('mainPageParagraph')}
