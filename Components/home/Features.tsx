@@ -1,9 +1,26 @@
-import React from 'react';
+'use client';
+
+import React, { useState } from 'react';
 import SectionHeader from '../common/SectionHeader';
 import Circle from '../icons/Circle';
 import ArrowLeft from '../icons/ArrowLeft';
+import FormModal from '../common/FormModal';
 
 export function Features({ title }: { title: string }) {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const showModal = () => {
+    setIsModalOpen(false);
+  };
+
+  const handleOk = () => {
+    setIsModalOpen(false);
+  };
+
+  const handleCancel = () => {
+    setIsModalOpen(false);
+  };
+
   return (
     <section className="bg-gray-50 z-0 relative" id="features">
       <div className="w-80 h-80 absolute -z-10 left-12 top-96 sm:left-36 sm:top-32 featureBackground"></div>
@@ -61,6 +78,11 @@ export function Features({ title }: { title: string }) {
           <ArrowLeft color="#fff" />
         </button>
       </div>
+      <FormModal
+        showModal={showModal}
+        handleOk={handleOk}
+        handleCancel={handleCancel}
+      />
     </section>
   );
 }
