@@ -78,19 +78,17 @@ const ContactUsForm = () => {
   };
 
   return (
-    <div className="w-screen mt-16 bg-gray-50 dark:bg-neutral-900" id="contact">
+    <div className="w-screen mt-16 bg-gray-50" id="contact">
       <div className="px-4 pt-16 mx-auto text-center max-w-7xl sm:px-6 lg:px-8">
-        <h2 className="text-4xl font-bold text-black dark:text-white">
-          ارتباط با ما
-        </h2>
+        <h2 className="text-4xl font-bold text-black">ارتباط با ما</h2>
 
-        <p className="max-w-2xl pt-6 pb-6 m-auto text-base text-center text-gray-700 dark:text-neutral-400">
+        <p className="max-w-2xl pt-6 pb-6 m-auto text-base text-center text-gray-700">
           برای ارتباط با ما میتوانید فرم زیر را پر کنید تا کارشناسان ما هرچه
           سریعتر با شما تماس برقرار نمایند
         </p>
       </div>
 
-      <div className="grid grid-cols-1 gap-px px-12 md:grid-cols-2 bg-gray-50 dark:bg-neutral-900">
+      <div className="grid grid-cols-1 gap-px px-12 md:grid-cols-2 bg-gray-50">
         <FormsDetails
           title={'فرم ارتباط با ما '}
           description={
@@ -103,7 +101,7 @@ const ContactUsForm = () => {
               <div className="mb-5">
                 <label
                   htmlFor="name"
-                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  className="block mb-2 text-sm font-medium text-gray-900"
                 >
                   نام و نام خانوادگی
                 </label>
@@ -113,7 +111,7 @@ const ContactUsForm = () => {
                   placeholder="نام و نام خانوادگی"
                   autoComplete="off"
                   pattern="^[\u0600-\u06FF\s]+$"
-                  className={`w-full px-4 py-3 border-2 placeholder:text-neutral-400 dark:text-white rounded-md outline-none dark:placeholder:text-neutral-200 dark:bg-neutral-900 focus:ring-4 ${
+                  className={`w-full px-4 py-3 border-2 rounded-md outline-none focus:ring-4 ${
                     errors.name ? 'border-yellow-500' : ''
                   }`}
                   {...register('name', {
@@ -135,7 +133,7 @@ const ContactUsForm = () => {
               <div className="mb-5">
                 <label
                   htmlFor="email"
-                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  className="block mb-2 text-sm font-medium text-gray-900"
                 >
                   آدرس ایمیل شما
                 </label>
@@ -144,7 +142,7 @@ const ContactUsForm = () => {
                   type="email"
                   placeholder="farazaman@gmail.com"
                   autoComplete="off"
-                  className={`w-full px-4 py-3 border-2 placeholder:text-neutral-400 dark:text-white rounded-md outline-none dark:placeholder:text-neutral-200 dark:bg-neutral-900 focus:ring-4 ${
+                  className={`w-full px-4 py-3 border-2 rounded-md outline-none focus:ring-4 ${
                     errors.email ? 'border-yellow-500' : ''
                   }`}
                   {...register('email', {
@@ -166,7 +164,7 @@ const ContactUsForm = () => {
               <div className="mb-5">
                 <label
                   htmlFor="tel"
-                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  className="block mb-2 text-sm font-medium text-gray-900"
                 >
                   شماره موبایل
                 </label>
@@ -174,7 +172,7 @@ const ContactUsForm = () => {
                   id="tel"
                   placeholder="091311111111"
                   autoComplete="off"
-                  className={`w-full px-4 py-3 border-2 placeholder:text-neutral-400 dark:text-white rounded-md outline-none dark:placeholder:text-neutral-200 dark:bg-neutral-900 focus:ring-4 ${
+                  className={`w-full px-4 py-3 border-2 rounded-md outline-none focus:ring-4 ${
                     errors.phone ? 'border-yellow-500' : ''
                   }`}
                   {...register('phone', {
@@ -196,14 +194,14 @@ const ContactUsForm = () => {
               <div className="mb-3" style={{ backgroundColor: 'transparent' }}>
                 <label
                   htmlFor="message"
-                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  className="block mb-2 text-sm font-medium text-gray-900"
                 >
                   پیام شما
                 </label>
                 <textarea
                   id="message"
                   placeholder="پیام شما"
-                  className={`w-full px-4 py-3 border-2 placeholder:text-neutral-400 dark:text-white dark:placeholder:text-neutral-200 dark:bg-neutral-900 rounded-md outline-none h-36 focus:ring-4 ${
+                  className={`w-full px-4 py-3 border-2 rounded-md outline-none h-36 focus:ring-4 ${
                     errors.message ? 'border-yellow-500' : ''
                   }`}
                   {...register('message', {
@@ -221,14 +219,14 @@ const ContactUsForm = () => {
               <button
                 type="submit"
                 disabled={send}
-                className="w-full py-4 font-semibold text-white transition-colors rounded-md bg-neutral-900 hover:bg-neutral-800 focus:outline-none focus:ring-offset-2 focus:ring focus:ring-neutral-200 px-7 dark:bg-white dark:text-black"
+                className="w-full py-4 font-semibold text-white transition-colors rounded-md bg-neutral-900 hover:bg-neutral-800 focus:outline-none focus:ring-offset-2 focus:ring focus:ring-neutral-200 px-7"
               >
                 {send ? 'در حال ارسال...' : 'ارسال'}
               </button>
             </form>
             {isSuccess && isSubmitting && message !== '' && (
               <div
-                className="flex p-4 mt-6 mb-4 text-sm text-green-900 rounded-lg text-bold bg-green-10 dark:bg-neutral-700 dark:text-green-400"
+                className="flex p-4 mt-6 mb-4 text-sm text-green-900 rounded-lg text-bold bg-green-10"
                 role="alert"
                 style={{ backgroundColor: '#26ff2a54' }}
               >

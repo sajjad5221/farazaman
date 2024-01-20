@@ -1,4 +1,4 @@
-"use client"
+'use client';
 
 import React, { useState } from 'react';
 
@@ -28,16 +28,14 @@ export default function EventDetails({ events, eventId }: Props) {
   const event = events[eventId];
 
   return (
-    <div className="bg-gray-50 dark:bg-neutral-900">
+    <div className="bg-gray-50">
       <div className="container py-20 mx-auto">
         <div className="grid grid-cols-4 mb-10 ">
           <div className="order-1 col-span-4 mx-auto md:px-10 lg:col-span-2">
             <img alt="image" src={event?.image}></img>
           </div>
-          <div className="order-2 col-span-4 py-0 text-right text-gray-900 md:px-10 dark:text-gray-100 lg:mx-16 px-7 lg:col-span-2 ">
-            <h6 className="mb-2 pt-4 lg:pt-0  text-[#EAB308]">
-              درباره رویداد
-            </h6>
+          <div className="order-2 col-span-4 py-0 text-right text-gray-900 md:px-10 lg:mx-16 px-7 lg:col-span-2 ">
+            <h6 className="mb-2 pt-4 lg:pt-0  text-[#EAB308]">درباره رویداد</h6>
             <h1 className="mb-5 text-5xl font-bold">{event?.name}</h1>
             <p
               className="mb-1 text-lg leading-loose text-gray-500 lg:ml-5"

@@ -58,7 +58,7 @@ export function Features({ title }: { title: string }) {
       <div className="w-full flex justify-center">
         <button className="bg-brand py-2 px-4 flex text-sm rounded-md">
           <p className="pl-2">فرم ثبت نام در فضای کار اشتراکی</p>
-          <ArrowLeft />
+          <ArrowLeft color='#fff' />
         </button>
       </div>
     </section>

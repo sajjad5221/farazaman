@@ -69,7 +69,7 @@ export default function SliderMenu({
   console.log(items);
 
   return (
-    <div className="px-4 py-4 w-full max-w-full text-gray-300 select-none bg-gray-50 dark:bg-neutral-900">
+    <div className="px-4 py-4 w-full max-w-full text-gray-300 select-none bg-gray-50  ">
       <div className="px-4 leading-10 pt-16 pb-8 mx-auto max-w-7xl sm:px-6 lg:px-8 gap-x-40">
         <SectionHeader title="نظرات شما" />
       </div>
@@ -91,9 +91,7 @@ export default function SliderMenu({
               <div className="flex">
                 <div className="w-16 h-16 bg-gray-300 rounded-tl-[32px] rounded-tr-[8px] rounded-br-[8px] rounded-bl-[8px] border border-brand"></div>
                 <div className="mr-4 flex flex-col justify-between">
-                  <p className="mt-2 text-brand dark:text-neutral-100">
-                    {item.name}
-                  </p>
+                  <p className="mt-2 text-brand  ">{item.name}</p>
                   <p className="text-customGray">{item.jobTitle}</p>
                 </div>
               </div>

@@ -1,16 +1,16 @@
-"use client";
-import React, { useState, useEffect } from "react";
-import GetCsrfToken from "@/Services/GetCsrfToken";
-import { useForm } from "react-hook-form";
-import FormsDetails from "@/Components/misc/FormsDetails";
-import Apiclient from "@/Services/Apiclient";
+'use client';
+import React, { useState, useEffect } from 'react';
+import GetCsrfToken from '@/Services/GetCsrfToken';
+import { useForm } from 'react-hook-form';
+import FormsDetails from '@/Components/misc/FormsDetails';
+import Apiclient from '@/Services/Apiclient';
 
 const initialFormData = {
-  name: "",
-  last_name: "",
-  email: "",
-  phone: "",
-  hireType: "",
+  name: '',
+  last_name: '',
+  email: '',
+  phone: '',
+  hireType: '',
   resume: null as File | null,
 };
 
@@ -30,22 +30,23 @@ const HiringForm = () => {
     formState: { errors },
     reset,
   } = useForm<Info>({
-    mode: "onBlur",
+    mode: 'onBlur',
   });
-  const description = "شرکت ما با تمرکز بر نوآوری و ایده‌های پرسرعت، استارتاپ‌های نوپا را در حوزه‌های مختلف پشتیبانی می‌کند. با تیم متخصص و برنامه‌های آموزشی منحصربه‌فرد، ما شرکت‌ها را به موفقیت و پیشرفت هدایت می‌کنیم. در حال حاضر، در حال استخدام هستیم و قصد داریم تیممان را با افراد متخصص و متعهد توسعه دهیم. اگر به یادگیری، همکاری و خلاقیت علاقه‌مند هستید و می‌خواهید به یک تیم پویا و پرشور بپیوندید، منتظر شما هستیم. لطفاً فرم استخدام را پر کنید تا اطلاعات بیشتری دریافت کنید و رزومه خود را ارسال کنید."
+  const description =
+    'شرکت ما با تمرکز بر نوآوری و ایده‌های پرسرعت، استارتاپ‌های نوپا را در حوزه‌های مختلف پشتیبانی می‌کند. با تیم متخصص و برنامه‌های آموزشی منحصربه‌فرد، ما شرکت‌ها را به موفقیت و پیشرفت هدایت می‌کنیم. در حال حاضر، در حال استخدام هستیم و قصد داریم تیممان را با افراد متخصص و متعهد توسعه دهیم. اگر به یادگیری، همکاری و خلاقیت علاقه‌مند هستید و می‌خواهید به یک تیم پویا و پرشور بپیوندید، منتظر شما هستیم. لطفاً فرم استخدام را پر کنید تا اطلاعات بیشتری دریافت کنید و رزومه خود را ارسال کنید.';
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
-  const [Message, setMessage] = useState("");
+  const [Message, setMessage] = useState('');
   const [Send, setSend] = useState(false);
   const [formData, setFormData] = useState(initialFormData);
   const [filePost, setFilePost] = useState<{ resume: File | null }>({
     resume: null,
   });
-  const [csrfToken, setCsrfToken] = useState("");
+  const [csrfToken, setCsrfToken] = useState('');
 
   useEffect(() => {
     async function fetchCsrfToken() {
-      const token = await GetCsrfToken("http://localhost:8000/get-csrf-token/");
+      const token = await GetCsrfToken('http://localhost:8000/get-csrf-token/');
       setCsrfToken(token);
     }
 
@@ -53,7 +54,7 @@ const HiringForm = () => {
   }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.name === "resume") {
+    if (e.target.name === 'resume') {
       if (e.target.files && e.target.files.length > 0) {
         setFilePost({ resume: e.target.files[0] });
       }
@@ -68,46 +69,44 @@ const HiringForm = () => {
     setSend(true);
     const sendFormData = new FormData();
     if (filePost.resume) {
-      sendFormData.append("resume", filePost.resume, filePost.resume.name);
+      sendFormData.append('resume', filePost.resume, filePost.resume.name);
     }
-    sendFormData.append("name", data.name);
-    sendFormData.append("phone", data.phone);
-    sendFormData.append("email", data.email);
-    sendFormData.append("hireType", data.hireType.toString());
+    sendFormData.append('name', data.name);
+    sendFormData.append('phone', data.phone);
+    sendFormData.append('email', data.email);
+    sendFormData.append('hireType', data.hireType.toString());
 
     try {
-      const response = await Apiclient.post("hire/", sendFormData, {
+      const response = await Apiclient.post('hire/', sendFormData, {
         headers: {
-          "content-type": "multipart/form-data",
-          "X-CSRFToken": csrfToken,
+          'content-type': 'multipart/form-data',
+          'X-CSRFToken': csrfToken,
         },
       });
 
       setIsSuccess(true);
-      setMessage("ارسال موفقیت آمیز بود");
+      setMessage('ارسال موفقیت آمیز بود');
       setSend(false);
       reset(); // Reset the form fields
     } catch (error) {
       console.log(error);
-      setMessage("ارسال ناموفق بود !");
+      setMessage('ارسال ناموفق بود !');
       setSend(false);
       setIsSuccess(false);
     }
   };
 
   return (
-    <div className="w-screen mt-16 bg-gray-50 dark:bg-neutral-900" id="contact">
+    <div className="w-screen mt-16 bg-gray-50  " id="contact">
       <div className="px-4 pt-16 mx-auto text-center max-w-7xl sm:px-6 lg:px-8">
-        <h2 className="text-4xl font-bold text-black dark:text-neutral-100">
-          استخدام
-        </h2>
+        <h2 className="text-4xl font-bold text-black  ">استخدام</h2>
 
-        <p className="max-w-2xl pt-6 pb-6 m-auto text-base text-center text-zinc-600 dark:text-neutral-400">
+        <p className="max-w-2xl pt-6 pb-6 m-auto text-base text-center text-zinc-600  ">
           استخدام در شتابدهنده فرازمان
         </p>
       </div>
 
-      <div className="grid grid-cols-1 gap-px px-12 md:grid-cols-2 bg-gray-50 dark:bg-neutral-900">
+      <div className="grid grid-cols-1 gap-px px-12 md:grid-cols-2 bg-gray-50  ">
         <FormsDetails
           title="استخدام در شتابدهنده فرازمان"
           description={description}
@@ -118,7 +117,7 @@ const HiringForm = () => {
               <div className="mb-5">
                 <label
                   htmlFor="name"
-                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  className="block mb-2 text-sm font-medium text-gray-900  "
                 >
                   نام و نام خانوادگی
                 </label>
@@ -127,13 +126,14 @@ const HiringForm = () => {
                   type="text"
                   placeholder="نام و نام خانوادگی "
                   autoComplete="false"
-                  className={`w-full px-4 py-3 border-2 placeholder:text-neutral-400 dark:text-white rounded-md outline-none dark:placeholder:text-neutral-200 dark:bg-neutral-900 focus:ring-4 ${errors.name ? "border-yellow-500" : ""
-                    }`}
-                  {...register("name", {
-                    required: "نام و نام خانوادگی خود را وارد کنید.",
+                  className={`w-full px-4 py-3 border-2 placeholder:text-neutral-400   rounded-md outline-none     focus:ring-4 ${
+                    errors.name ? 'border-yellow-500' : ''
+                  }`}
+                  {...register('name', {
+                    required: 'نام و نام خانوادگی خود را وارد کنید.',
                     pattern: {
                       value: /^[\u0600-\u06FF\s]+$/,
-                      message: "نام و نام خانوادگی خود را به درستی وارد کنید.",
+                      message: 'نام و نام خانوادگی خود را به درستی وارد کنید.',
                     },
                   })}
                   onChange={handleChange}
@@ -148,7 +148,7 @@ const HiringForm = () => {
               <div className="mb-5">
                 <label
                   htmlFor="email-address"
-                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  className="block mb-2 text-sm font-medium text-gray-900  "
                 >
                   آدرس ایمیل شما
                 </label>
@@ -157,13 +157,14 @@ const HiringForm = () => {
                   type="email"
                   placeholder="آدرس ایمیل شما"
                   autoComplete="true"
-                  className={`w-full px-4 py-3 border-2 placeholder:text-neutral-400 dark:text-white rounded-md outline-none dark:placeholder:text-neutral-200 dark:bg-neutral-900 focus:ring-4 ${errors.email ? "border-yellow-500" : ""
-                    }`}
-                  {...register("email", {
-                    required: "آدرس ایمیل خود را وارد کنید.",
+                  className={`w-full px-4 py-3 border-2 placeholder:text-neutral-400   rounded-md outline-none     focus:ring-4 ${
+                    errors.email ? 'border-yellow-500' : ''
+                  }`}
+                  {...register('email', {
+                    required: 'آدرس ایمیل خود را وارد کنید.',
                     pattern: {
                       value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                      message: "آدرس ایمیل را به درستی وارد کنید.",
+                      message: 'آدرس ایمیل را به درستی وارد کنید.',
                     },
                   })}
                   onChange={handleChange}
@@ -178,7 +179,7 @@ const HiringForm = () => {
               <div className="mb-5">
                 <label
                   htmlFor="phone-number"
-                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  className="block mb-2 text-sm font-medium text-gray-900  "
                 >
                   شماره موبایل
                 </label>
@@ -187,13 +188,14 @@ const HiringForm = () => {
                   type="number"
                   placeholder="شماره تماس ( مثال : ۰۹۱۳۱۲۳۴۵۶۷)"
                   autoComplete="false"
-                  className={`w-full px-4 py-3 border-2 placeholder:text-neutral-400 dark:text-white rounded-md outline-none dark:placeholder:text-neutral-200 dark:bg-neutral-900 focus:ring-4 ${errors.phone ? "border-yellow-500" : ""
-                    }`}
-                  {...register("phone", {
-                    required: "شماره تماس را وارد کنید.",
+                  className={`w-full px-4 py-3 border-2 placeholder:text-neutral-400   rounded-md outline-none     focus:ring-4 ${
+                    errors.phone ? 'border-yellow-500' : ''
+                  }`}
+                  {...register('phone', {
+                    required: 'شماره تماس را وارد کنید.',
                     pattern: {
                       value: /^\d{11}$/,
-                      message: "شماره تماس را به درستی وارد کنید.",
+                      message: 'شماره تماس را به درستی وارد کنید.',
                     },
                   })}
                   onChange={handleChange}
@@ -206,14 +208,14 @@ const HiringForm = () => {
               </div>
 
               <div className="mb-5">
-                <p className="description-type text-zinc-600 w-full text-xl dark:text-gray-400 mobile:text-[18px] s:text-[18px] sm:text-lg inline">
+                <p className="description-type text-zinc-600 w-full text-xl   mobile:text-[18px] s:text-[18px] sm:text-lg inline">
                   نوع طرح :
                 </p>
                 <label
                   htmlFor="hireType-1"
-                  className="cursor-pointer mr-[10px] text-[18px] ml-2 text-sm font-medium text-zinc-600 dark:text-gray-300 mobile:text-[14px] s:text-[14px] sm:text-[16px]"
+                  className="cursor-pointer mr-[10px] text-[18px] ml-2 text-sm font-medium text-zinc-600   mobile:text-[14px] s:text-[14px] sm:text-[16px]"
                 >
-                  طرح عادی{" "}
+                  طرح عادی{' '}
                 </label>
                 <input
                   id="hireType-1"
@@ -221,10 +223,11 @@ const HiringForm = () => {
                   value="NO"
                   placeholder=""
                   autoComplete="false"
-                  className={`cursor-pointer w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600 mobile:w-[16%] s:w-[15%] sm:w-[14px] sm:-ml-[5px]" name="default-box" value="normal" checked="" ${errors.hireType ? "border-yellow-500" : ""
-                    }`}
-                  {...register("hireType", {
-                    required: "نوع استخدام خود را مشخص کنید.",
+                  className={`cursor-pointer w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-2     mobile:w-[16%] s:w-[15%] sm:w-[14px] sm:-ml-[5px]" name="default-box" value="normal" checked="" ${
+                    errors.hireType ? 'border-yellow-500' : ''
+                  }`}
+                  {...register('hireType', {
+                    required: 'نوع استخدام خود را مشخص کنید.',
                   })}
                   onChange={handleChange}
                 />
@@ -236,9 +239,9 @@ const HiringForm = () => {
 
                 <label
                   htmlFor="hireType-2"
-                  className="cursor-pointer mr-[10px] text-[18px] ml-2 text-sm font-medium text-zinc-600 dark:text-gray-300 mobile:text-[14px] s:text-[14px] sm:text-[16px]"
+                  className="cursor-pointer mr-[10px] text-[18px] ml-2 text-sm font-medium text-zinc-600   mobile:text-[14px] s:text-[14px] sm:text-[16px]"
                 >
-                  طرح پویش{" "}
+                  طرح پویش{' '}
                 </label>
                 <input
                   id="hireType-2"
@@ -246,10 +249,11 @@ const HiringForm = () => {
                   value="PU"
                   placeholder=""
                   autoComplete="false"
-                  className={`cursor-pointer w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600 mobile:w-[16%] s:w-[15%] sm:w-[14px] sm:-ml-[5px]" name="default-box" value="normal" checked="" ${errors.hireType ? "border-yellow-500" : ""
-                    }`}
-                  {...register("hireType", {
-                    required: "نوع استخدام خود را مشخص کنید.",
+                  className={`cursor-pointer w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-2   mobile:w-[16%] s:w-[15%] sm:w-[14px] sm:-ml-[5px]" name="default-box" value="normal" checked="" ${
+                    errors.hireType ? 'border-yellow-500' : ''
+                  }`}
+                  {...register('hireType', {
+                    required: 'نوع استخدام خود را مشخص کنید.',
                   })}
                   onChange={handleChange}
                 />
@@ -263,7 +267,7 @@ const HiringForm = () => {
               <div className="mb-5">
                 <label
                   htmlFor="file"
-                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                  className="block mb-2 text-sm font-medium text-gray-900  "
                 >
                   رزومه شما
                 </label>
@@ -272,14 +276,15 @@ const HiringForm = () => {
                   type="file"
                   placeholder="قایل ارائه"
                   autoComplete="false"
-                  className={`w-full px-4 py-3 border-2 text-gray-400 style="visibility:hidden placeholder:text-neutral-400 dark:text-white rounded-md outline-none dark:placeholder:text-neutral-200 dark:bg-neutral-900 focus:ring-4 ${errors.resume ? "border-yellow-500" : ""
-                    }`}
+                  className={`w-full px-4 py-3 border-2 text-gray-400 style="visibility:hidden placeholder:text-neutral-400   rounded-md outline-none     focus:ring-4 ${
+                    errors.resume ? 'border-yellow-500' : ''
+                  }`}
                   value={formData.resume?.name}
-                  {...register("resume", {
-                    required: "فایل را وارد کنید.",
+                  {...register('resume', {
+                    required: 'فایل را وارد کنید.',
                     pattern: {
                       value: /b'[a-f]+\d+'/,
-                      message: "فایل را به درستی وارد کنید.",
+                      message: 'فایل را به درستی وارد کنید.',
                     },
                   })}
                   onChange={handleChange}
@@ -298,16 +303,16 @@ const HiringForm = () => {
               <button
                 type="submit"
                 disabled={Send}
-                className="w-full py-4 font-semibold text-white transition-colors rounded-md bg-neutral-900 hover:bg-neutral-800 focus:outline-none focus:ring-offset-2 focus:ring focus:ring-neutral-200 px-7 dark:bg-white dark:text-black"
+                className="w-full py-4 font-semibold text-white transition-colors rounded-md bg-neutral-900 hover:bg-neutral-800 focus:outline-none focus:ring-offset-2 focus:ring focus:ring-neutral-200 px-7  "
               >
-                {Send ? "در حال ارسال..." : "ارسال"}
+                {Send ? 'در حال ارسال...' : 'ارسال'}
               </button>
             </form>
-            {isSuccess && isSubmitting && Message != "" && (
+            {isSuccess && isSubmitting && Message != '' && (
               <div
-                className="flex p-4 mt-6 mb-4 text-sm text-green-900 rounded-lg text-bold bg-green-10 dark:bg-neutral-700 dark:text-green-400"
+                className="flex p-4 mt-6 mb-4 text-sm text-green-900 rounded-lg text-bold bg-green-10    "
                 role="alert"
-                style={{ backgroundColor: "#26ff2a54" }}
+                style={{ backgroundColor: '#26ff2a54' }}
               >
                 <svg
                   aria-hidden="true"
@@ -329,11 +334,11 @@ const HiringForm = () => {
               </div>
             )}
 
-            {!isSuccess && isSubmitting && Message != "" && (
+            {!isSuccess && isSubmitting && Message != '' && (
               <div
-                className="flex p-4 mt-6 mb-4 text-sm text-red-900 rounded-lg text-bold bg-red-90 dark:bg-neutral-700 dark:text-red-400"
+                className="flex p-4 mt-6 mb-4 text-sm text-red-900 rounded-lg text-bold bg-red-90    "
                 role="alert"
-                style={{ backgroundColor: "#ff24244f" }}
+                style={{ backgroundColor: '#ff24244f' }}
               >
                 <svg
                   aria-hidden="true"

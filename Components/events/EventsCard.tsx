@@ -24,7 +24,7 @@ const EventCard = ({ event }: Props) => {
   const [showFullDescription, setShowFullDescription] = useState(false);
 
   return (
-    <div className="border-1 rounded-md overflow-hidden shadow-lg mt-16 mr-5 bg-neutral-200 dark:bg-neutral-800 p-2">
+    <div className="border-1 rounded-md overflow-hidden shadow-lg mt-16 mr-5 bg-neutral-200 p-2">
       {/* Link to the event page */}
       <Link href={`/events/${event.id}`}>
         {/* Event image */}
@@ -35,11 +35,11 @@ const EventCard = ({ event }: Props) => {
         />
         <div className="px-6">
           {/* Event name */}
-          <div className="font-bold text-md mb-2  dark:text-neutral-100 text-neutral-900">
+          <div className="font-bold text-md mb-2    text-neutral-900">
             {event.name}
           </div>
           {/* Event description */}
-          <p className="text-neutral-900 text-sm  dark:text-neutral-100">
+          <p className="text-neutral-900 text-sm   ">
             {event.description.length > MAX_DESCRIPTION_LENGTH &&
             !showFullDescription
               ? event.description.slice(0, MAX_DESCRIPTION_LENGTH)

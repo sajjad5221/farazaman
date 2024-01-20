@@ -1,11 +1,11 @@
-import Image from "next/image";
-import Link from "next/link";
-import React from "react";
+import Image from 'next/image';
+import Link from 'next/link';
+import React from 'react';
 
 const social = [
   {
-    name: "facebook",
-    href: "https://www.facebook.com/",
+    name: 'facebook',
+    href: 'https://www.facebook.com/',
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
         <path
@@ -16,8 +16,8 @@ const social = [
     ),
   },
   {
-    name: "instagram",
-    href: "https://www.instagram.com/",
+    name: 'instagram',
+    href: 'https://www.instagram.com/',
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="none">
         <path
@@ -29,8 +29,8 @@ const social = [
   },
 
   {
-    name: "youtube",
-    href: "https://www.youtube.com/",
+    name: 'youtube',
+    href: 'https://www.youtube.com/',
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" fill="none">
         <path
@@ -42,8 +42,8 @@ const social = [
   },
 
   {
-    name: "linkedin",
-    href: "https://www.linkedin.com/",
+    name: 'linkedin',
+    href: 'https://www.linkedin.com/',
     icon: (
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="none">
         <path
@@ -56,25 +56,23 @@ const social = [
 ];
 
 const column1 = [
-  { name: "خانه", href: "/" },
-  { name: "استخدام", href: "/hiring" },
-  { name: "ثبت استارتاپ", href: "/startups" },
-  { name: "فضای کار اشتراکی", href: "/workspace" },
-  { name: "رویدادها", href: "/events" },
+  { name: 'خانه', href: '/' },
+  { name: 'استخدام', href: '/hiring' },
+  { name: 'ثبت استارتاپ', href: '/startups' },
+  { name: 'فضای کار اشتراکی', href: '/workspace' },
+  { name: 'رویدادها', href: '/events' },
 ];
 
 const column2 = [
-  { name: " فرم استخدام ", href: "/hiring" },
-  { name: "فرم ثبت استارتاپ", href: "/startups" },
-  { name: "فرم ثبت نام فضای کار اشتراکی", href: "/workspace/form" },
-  { name: " ارتباط با ما", href: "/contact-us" },
-
+  { name: ' فرم استخدام ', href: '/hiring' },
+  { name: 'فرم ثبت استارتاپ', href: '/startups' },
+  { name: 'فرم ثبت نام فضای کار اشتراکی', href: '/workspace/form' },
+  { name: ' ارتباط با ما', href: '/contact-us' },
 ];
-
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-50 text-neutral-300 dark:text-neutral-400 dark:bg-neutral-900">
+    <footer className="bg-gray-50 text-neutral-300  ">
       <div className="grid grid-cols-2 px-4 pt-12 pb-12 mx-auto max-w-7xl sm:px-6 lg:px-8 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-5">
         <div className="col-span-2 sm:col-span-3 md:col-span-3 lg:col-span-2 2xl:col-span-2">
           <Link href="/">
@@ -112,14 +110,14 @@ export default function Footer() {
         </div>
 
         <div>
-          <h3 className="pt-12 pb-4 text-sm font-bold text-neutral-600 dark:text-neutral-300 md:text-xs lg:pt-0">
+          <h3 className="pt-12 pb-4 text-sm font-bold text-neutral-600   md:text-xs lg:pt-0">
             شرکت
           </h3>
           {column1.map((item) => (
             <Link
               key={item.name}
               href={item.href}
-              className="grid my-4 text-neutral-600 dark:text-neutral-300 md:text-sm hover:underline underline-offset-4"
+              className="grid my-4 text-neutral-600   md:text-sm hover:underline underline-offset-4"
             >
               {item.name}
             </Link>
@@ -127,14 +125,14 @@ export default function Footer() {
         </div>
 
         <div>
-          <h3 className="pt-12 pb-4 text-sm font-bold text-neutral-600 dark:text-neutral-300 md:text-xs lg:pt-0">
+          <h3 className="pt-12 pb-4 text-sm font-bold text-neutral-600   md:text-xs lg:pt-0">
             فرم ها
           </h3>
           {column2.map((item) => (
             <Link
               key={item.name}
               href={item.href}
-              className="grid my-4 text-neutral-600 dark:text-neutral-300 md:text-sm hover:underline underline-offset-4"
+              className="grid my-4 text-neutral-600   md:text-sm hover:underline underline-offset-4"
             >
               {item.name}
             </Link>
@@ -144,18 +142,18 @@ export default function Footer() {
 
       <div className="flex-col p-6 px-2 mx-auto text-center border-t text-neutral-500 max-w-7xl sm:px-6 lg:px-8 border-neutral-800">
         <p className="text-sm">
-          کلیه حقوق برای{" "}
-          <Link href={"/"} className="text-yellow-500">
+          کلیه حقوق برای{' '}
+          <Link href={'/'} className="text-yellow-500">
             فرازمان
-          </Link>{" "}
+          </Link>{' '}
           محفوظ است.
         </p>
         <p className="text-sm">
-          Copyright &copy; {new Date().getFullYear()}{" "}
-          <Link className="text-yellow-500" href={"/"}>
-            {" "}
+          Copyright &copy; {new Date().getFullYear()}{' '}
+          <Link className="text-yellow-500" href={'/'}>
+            {' '}
             Farazaman&trade;
-          </Link>{" "}
+          </Link>{' '}
           , All rights reserved.
         </p>
       </div>

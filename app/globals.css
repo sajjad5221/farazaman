@@ -17,15 +17,6 @@
   --background-end-rgb: 255, 255, 255; /* Default end color for background gradient */
 }
 
-/* Media query for dark mode */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255; /* Foreground color for dark mode */
-    --background-start-rgb: 0, 0, 0; /* Start color for background gradient in dark mode */
-    --background-end-rgb: 0, 0, 0; /* End color for background gradient in dark mode */
-  }
-}
-
 /* Apply background gradient to body */
 body {
   color: rgb(var(--foreground-rgb)); /* Set foreground color */
@@ -66,13 +57,6 @@ html {
 /* Customize form styles */
 form {
   color: black;
-}
-
-/* Apply dark mode styles to body using @layer directive */
-@layer {
-  body {
-    @apply dark:bg-gray-800 bg-white; /* Apply dark mode background color */
-  }
 }
 
 .featureBackground {

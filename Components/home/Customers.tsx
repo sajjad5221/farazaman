@@ -64,9 +64,7 @@ export default function Customers() {
                 quality={75}
                 sizes="100vw"
               />
-              <span className="text-gray-600 dark:text-neutral">
-                {customer.name}
-              </span>
+              <span className="text-gray-600">{customer.name}</span>
             </div>
           ))}
         </div>
