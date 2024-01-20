@@ -10,7 +10,7 @@ export function Features({ title }: { title: string }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const showModal = () => {
-    setIsModalOpen(false);
+    setIsModalOpen(true);
   };
 
   const handleOk = () => {
@@ -73,13 +73,16 @@ export function Features({ title }: { title: string }) {
         </div>
       </div>
       <div className="w-full flex justify-center">
-        <button className="bg-brand py-2 px-4 flex text-sm rounded-md">
+        <button
+          className="bg-brand py-2 px-4 flex text-sm rounded-md"
+          onClick={() => showModal()}
+        >
           <p className="pl-2 text-white">فرم ثبت نام در فضای کار اشتراکی</p>
           <ArrowLeft color="#fff" />
         </button>
       </div>
       <FormModal
-        showModal={showModal}
+        isModalOpen={isModalOpen}
         handleOk={handleOk}
         handleCancel={handleCancel}
       />
