@@ -65,3 +65,10 @@ form {
   background-repeat: no-repeat;
   background-size: cover;
 }
+
+.footer-background {
+  background-image: url('../public/static/images/Home/footer-wave.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}

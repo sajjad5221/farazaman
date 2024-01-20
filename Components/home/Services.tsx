@@ -18,7 +18,7 @@ export default async function Services() {
   // console.log(servicesData);
 
   return (
-    <div className="bg-gray-50   px-10 md:p-6" id="services">
+    <div className="bg-gray-50 px-10 md:p-6" id="services">
       {/* Page header */}
       <div className="pt-16 mx-auto max-w-7xl sm:px-6 lg:px-8 gap-x-40">
         <h2 className="text-4xl text-brand  ">{t('mainPageTitle')}</h2>
@@ -26,7 +26,7 @@ export default async function Services() {
           <p className="text-black py-2 text-2xl leading-[3.1rem]">
             {t('mainPageSubTitle')}
           </p>
-          <p className="pb-6 text-base lg:w-[77rem] text-gray-600   leading-[3.1rem]">
+          <p className="pb-6 text-base lg:max-w-[77rem] text-gray-600   leading-[3.1rem]">
             {t('mainPageParagraph')}
           </p>
         </div>
