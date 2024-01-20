@@ -69,7 +69,7 @@ export default function SliderMenu({
   console.log(items);
 
   return (
-    <div className="px-4 py-4 w-full max-w-full text-gray-300 select-none bg-gray-50  ">
+    <div className="px-4 py-4 w-full max-w-full text-gray-300 select-none bg-gray-50 hidden sm:block">
       <div className="px-4 leading-10 pt-16 pb-8 mx-auto max-w-7xl sm:px-6 lg:px-8 gap-x-40">
         <SectionHeader title="نظرات شما" />
       </div>

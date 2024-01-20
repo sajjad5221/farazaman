@@ -6,11 +6,11 @@ import ArrowLeft from '../icons/ArrowLeft';
 export function Features({ title }: { title: string }) {
   return (
     <section className="bg-gray-50 z-0 relative" id="features">
-      <div className="w-80 h-80 absolute -z-10 left-12 top-60 sm:left-36 sm:top-32 featureBackground"></div>
-      <div className="px-4 text-customGray leading-10 pt-16 pb-8 mx-auto max-w-7xl sm:px-6 lg:px-8 gap-x-40">
+      <div className="w-80 h-80 absolute -z-10 left-12 top-96 sm:left-36 sm:top-32 featureBackground"></div>
+      <div className="px-8 text-customGray leading-10 pt-16 pb-8 mx-auto max-w-7xl sm:px-6 lg:px-8 gap-x-40">
         <SectionHeader title={title} />
         <div className="md:mr-4 py-5">
-          <h2 className="text-black text-xl mb-3">
+          <h2 className="text-black text-xl mb-3 leading-10">
             ما در شرکت فرازمان محیطی تعاملی و اشتراکی را جهت ایجاد همکاری، رشد و
             خلاقیت دانشجویان فراهم کرده‌ایم.
           </h2>
@@ -57,8 +57,8 @@ export function Features({ title }: { title: string }) {
       </div>
       <div className="w-full flex justify-center">
         <button className="bg-brand py-2 px-4 flex text-sm rounded-md">
-          <p className="pl-2">فرم ثبت نام در فضای کار اشتراکی</p>
-          <ArrowLeft color='#fff' />
+          <p className="pl-2 text-white">فرم ثبت نام در فضای کار اشتراکی</p>
+          <ArrowLeft color="#fff" />
         </button>
       </div>
     </section>

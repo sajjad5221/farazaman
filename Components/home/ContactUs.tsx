@@ -24,9 +24,15 @@ function ContactUs() {
             placeholder="آدرس الکترونیکی"
           />
         </div>
-        <div></div>
-        <div className="flex justify-center">
-          <button className="flex text-sm bg-brand px-5 py-2 justify-center items-center rounded-lg">
+        <div>
+          <textarea
+            rows={4}
+            className="textarea rounded-md textarea-lg w-full mt-3 mb-1 drop-shadow-md resize-none placeholder:text-gray-300 placeholder:font-thin px-4 py-3"
+            placeholder="شما می توانید با نوشتن پیام خود در این بخش با ما در ارتباط باشید. کارشناسان ما در اسرع وقت با شما تماس خواهند گرفت"
+          ></textarea>
+        </div>
+        <div className="flex justify-center mt-6">
+          <button className="flex text-sm bg-brand px-5 py-2 justify-center items-center rounded-lg text-white">
             <p>ارسال پیام</p>
             <ArrowLeft color="#fff" />
           </button>
