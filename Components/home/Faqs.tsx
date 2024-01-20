@@ -2,6 +2,8 @@
 import { Disclosure } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/24/solid";
 import React from "react";
+import { useTranslation } from 'app/i18n';
+import { useLang } from 'stores/langStore';
 
 // Define an array of FAQ items, each with a question and response
 const faqitems = [
@@ -28,7 +30,9 @@ const faqitems = [
 ];
 
 // Define the Faq component
-export default function Faq() {
+export default async function Faq() {
+  const lang = useLang.getState().lang;
+  const { t } =await useTranslation(lang,'mainPage');
   // Render the component
   return (
     <div
@@ -36,7 +40,7 @@ export default function Faq() {
       id="faq"
     >
       {/* Faq title */}
-      <h2 className="text-black text-4xl font-bold text-center dark:text-white">سوالات متداول </h2>
+      <h2 className="text-black text-4xl font-bold text-center dark:text-white">{t('Frequently Questions' , {returnObjects: true}).title}</h2>
 
       {/* Faq items */}
       <div className="bg-transparent mx-auto w-full max-w-2xl rounded-2xl dark:bg-transparent">

@@ -2,8 +2,14 @@ import React from 'react';
 import SectionHeader from '../common/SectionHeader';
 import Circle from '../icons/Circle';
 import ArrowLeft from '../icons/ArrowLeft';
+import { useTranslation } from 'app/i18n';
+import { useLang } from 'stores/langStore';
 
-export function Features({ title }: { title: string }) {
+export async function Features({ title }: { title: string }) {
+
+  const lang = useLang.getState().lang;
+  const { t } =await useTranslation(lang,'mainPage');
+
   return (
     <section className="bg-gray-50 z-0 relative" id="features">
       <div className="w-80 h-80 absolute -z-10 left-12 top-60 sm:left-36 sm:top-32 featureBackground"></div>
@@ -11,19 +17,16 @@ export function Features({ title }: { title: string }) {
         <SectionHeader title={title} />
         <div className="md:mr-4 py-5">
           <h2 className="text-black text-xl mb-3">
-            ما در شرکت فرازمان محیطی تعاملی و اشتراکی را جهت ایجاد همکاری، رشد و
-            خلاقیت دانشجویان فراهم کرده‌ایم.
+          {t('startupAcademyService' , {returnObjects: true}).subTitle}
+
           </h2>
           <p className="">
-            امروزه افراد می‌توانند در فضای تعاملی و اشتراکی در کنار یکدیگر
-            فعالیت خود را انجام دهند. این محیط‌های اشتراکی در اصطلاح Coworking
-            Space نامیده می‌شوند.
+          {t('startupAcademyService' , {returnObjects: true}).text1}
+
           </p>
           <div>
             <p>
-              از مزایای حضور در فضای کار تعاملی می‌توان به افزایش بهره‌وری،
-              دسترسی آسان به امکانات محلی و ایجاد شبکه ارتباطی با سایر افراد
-              اشاره کرد :
+            {t('startupAcademyService' , {returnObjects: true}).text2}
             </p>
             <ul className="list-disc mr-4">
               <li>
@@ -43,21 +46,18 @@ export function Features({ title }: { title: string }) {
             <div className="flex items-center mb-3">
               <Circle />
               <h2 className="text-brand text-xl mr-4">
-                تجربه در فضای کار اشتراکی فرازمان
+              {t('ExperienceCoWorking' , {returnObjects: true}).title}
               </h2>
             </div>
             <p>
-              امروزه افراد می‌توانند در فضای کار اشتراکی در کنار یکدیگر فعالیت
-              خود را انجام دهند. از مزایای حضور در فضای کار تعاملی می‌توان به
-              افزایش بهره‌وری، دسترسی آسان به امکانات محلی و ایجاد شبکه ارتباطی
-              با سایر افراد اشاره کرد
+            {t('ExperienceCoWorking' , {returnObjects: true}).text}
             </p>
           </div>
         </div>
       </div>
       <div className="w-full flex justify-center">
         <button className="bg-brand py-2 px-4 flex text-sm rounded-md">
-          <p className="pl-2">فرم ثبت نام در فضای کار اشتراکی</p>
+          <p className="pl-2">{t('RegisterForm' , {returnObjects: true}).text}</p>
           <ArrowLeft />
         </button>
       </div>
