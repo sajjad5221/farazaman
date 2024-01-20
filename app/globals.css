@@ -12,14 +12,12 @@
 
 /* Define root variables for foreground and background colors */
 :root {
-  --foreground-rgb: 0, 0, 0; /* Default foreground color */
   --background-start-rgb: 214, 219, 220; /* Default start color for background gradient */
   --background-end-rgb: 255, 255, 255; /* Default end color for background gradient */
 }
 
 /* Apply background gradient to body */
 body {
-  color: rgb(var(--foreground-rgb)); /* Set foreground color */
   background: linear-gradient(
       to bottom,
       transparent,
