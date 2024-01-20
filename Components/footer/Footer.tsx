@@ -127,9 +127,9 @@ const column2 = [
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-50 footer-background">
-      <div className="flex flex-wrap  px-4 py-6 mx-auto max-w-7xl sm:px-6 lg:px-8 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-5">
-        <div className="w-1/3">
+    <footer className="bg-gray-50 justify-center footer-background">
+      <div className="px-4 flex flex-wrap-reverse py-6 mx-auto max-w-7xl sm:px-6 lg:px-8 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-5">
+        <div className="w-full md:w-1/3">
           <h3 className="pt-12 text-brand pb-4 lg:pt-0">فرازمان</h3>
           {column1.map((item) => (
             <Link key={item.name} href={item.href} className="grid my-4">
@@ -138,7 +138,7 @@ export default function Footer() {
           ))}
         </div>
 
-        <div className="w-1/3 text-black">
+        <div className="w-full md:w-1/3 text-black">
           <h3 className="text-brand pt-12 pb-4 lg:pt-0">ارتباط با ما</h3>
           {column2.map((item) => (
             <div className="border-b flex flex-col items-start border-black w-3/4 py-1">
@@ -167,7 +167,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="w-1/3">
+        <div className="w-full md:w-1/3 flex flex-col justify-center">
           <Link href="/">
             <Image
               className="w-auto h-12"
