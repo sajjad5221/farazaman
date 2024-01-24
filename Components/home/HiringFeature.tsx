@@ -5,6 +5,7 @@ import SectionHeader from '../common/SectionHeader';
 import Circle from '../icons/Circle';
 import ArrowLeft from '../icons/ArrowLeft';
 import FormModal from '../common/FormModal';
+import HiringModal from '../common/HiringModal';
 
 export default function HiringFeature({ title }: { title: string }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -61,7 +62,7 @@ export default function HiringFeature({ title }: { title: string }) {
           <ArrowLeft color="#fff" />
         </button>
       </div>
-      <FormModal isOpen={isModalOpen} closeModal={closeModal} />
+      <HiringModal isOpen={isModalOpen} closeModal={closeModal} />
     </section>
   );
 }
