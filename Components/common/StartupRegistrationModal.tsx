@@ -19,7 +19,7 @@ const customStyles = {
 
 Modal.setAppElement('.drawer'); // Set the root element for accessibility
 
-export default function FormModal({
+export default function StartupRegistrationModal({
   isOpen,
   closeModal,
 }: {
@@ -40,24 +40,28 @@ export default function FormModal({
         </div>
         <div className="w-full px-16">
           <div className="flex w-full justify-between">
-            <div className="w-1/2">
+            <div className="w-full">
               <p className="text-brand text-2xl">فضای کار اشتراکی</p>
-              <div className="mt-8 ">
-                <p className="text-xl mb-4">نام و نام خانوادگی</p>
-                <input
-                  type="text"
-                  className="px-3 py-4 shadow-md rounded-md w-4/5 mt-2 placeholder:text-gray-200"
-                  placeholder="نام و نام خانوادگی"
-                />
+              <div className="mt-8 w-full">
+                <div className="flex w-full justify-between">
+                  <div className="w-1/2">
+                    <p className="text-xl mb-4">نام استارتاپ</p>
+                    <input
+                      type="text"
+                      className="px-3 py-4 shadow-md rounded-md w-4/5 mt-2 placeholder:text-gray-200"
+                      placeholder="نام استارتاپ"
+                    />
+                  </div>
+                  <div className="w-1/2">
+                    <p className="text-xl mb-4">تعداد اعضای تیم</p>
+                    <input
+                      type="number"
+                      className="px-3 py-4 shadow-md rounded-md w-full mt-2 placeholder:text-gray-200"
+                      placeholder="تعداد اعضای تیم"
+                    />
+                  </div>
+                </div>
               </div>
-            </div>
-            <div className="w-1/2">
-              {/* <Image
-              src="../public/static/images/Brand/farazaman-Logo.png"
-              alt="لوگو"
-              width={500}
-              height={500}
-            /> */}
             </div>
           </div>
           <div className="w-full flex flex-col justify-between my-9">

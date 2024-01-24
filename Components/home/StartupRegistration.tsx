@@ -5,6 +5,7 @@ import SectionHeader from '../common/SectionHeader';
 import Circle from '../icons/Circle';
 import ArrowLeft from '../icons/ArrowLeft';
 import FormModal from '../common/FormModal';
+import StartupRegistrationModal from '../common/StartupRegistrationModal';
 
 export default function StartupRegistration({ title }: { title: string }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -66,7 +67,7 @@ export default function StartupRegistration({ title }: { title: string }) {
           <ArrowLeft color="#fff" />
         </button>
       </div>
-      <FormModal isOpen={isModalOpen} closeModal={closeModal} />
+      <StartupRegistrationModal isOpen={isModalOpen} closeModal={closeModal} />
     </section>
   );
 }
