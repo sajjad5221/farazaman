@@ -9,6 +9,8 @@ import Startups from '@/Components/home/Startups';
 import Hires from '@/Components/home/Hires';
 import Services from '@/Components/home/Services';
 import ContactUs from '@/Components/home/ContactUs';
+import HiringFeature from '@/Components/home/HiringFeature';
+
 export default function Home() {
   return (
     <ErrorBoundary>
@@ -19,6 +21,7 @@ export default function Home() {
             {/* problem */}
             <Services />
             <Features title="فضای کار اشتراکی" />
+            <HiringFeature title="جذب نیرو" />
             <Hires />
             <Startups />
             <Customers />
