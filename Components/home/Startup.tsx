@@ -32,7 +32,7 @@ import React from 'react';
 
 function Startup() {
   return startupsList.map((item) => (
-    <div className="w-[21rem] md:w-[22rem] shadow-xl rounded-md py-3 h-[21rem] flex flex-col justify-between">
+    <div className="custom-shadow w-[21rem] md:w-[22rem] custom-s rounded-md py-3 h-[21rem] flex flex-col justify-between">
       <div className="flex justify-center">
         <Image src={item.logo} width={120} height={120} alt={item.title} />
       </div>
