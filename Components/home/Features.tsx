@@ -6,7 +6,7 @@ import Circle from '../icons/Circle';
 import ArrowLeft from '../icons/ArrowLeft';
 import FormModal from '../common/FormModal';
 
-export function Features({ title }: { title: string }) {
+export default function Features({ title }: { title: string }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const openModal = () => {
