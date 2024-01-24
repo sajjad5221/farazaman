@@ -4,8 +4,8 @@ import React, { useState } from 'react';
 import SectionHeader from '../common/SectionHeader';
 import Circle from '../icons/Circle';
 import ArrowLeft from '../icons/ArrowLeft';
-import FormModal from '../common/FormModal';
-import InternshipModal from '../common/InternshipModal';
+import FormModal from '../common/form/FormModal';
+import InternshipModal from '../common/form/InternshipModal';
 
 export default function InternshipFeature({ title }: { title: string }) {
   const [isModalOpen, setIsModalOpen] = useState(false);

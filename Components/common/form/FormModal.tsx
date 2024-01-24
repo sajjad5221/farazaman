@@ -1,7 +1,7 @@
 import React from 'react';
 import Modal from 'react-modal';
-import XLg from './XLg';
-import ArrowLeft from '../icons/ArrowLeft';
+import XLg from '../XLg';
+import ArrowLeft from '../../icons/ArrowLeft';
 
 const customStyles = {
   content: {
@@ -19,7 +19,7 @@ const customStyles = {
 
 Modal.setAppElement('.drawer'); // Set the root element for accessibility
 
-export default function InternshipModal({
+export default function FormModal({
   isOpen,
   closeModal,
 }: {
@@ -41,10 +41,8 @@ export default function InternshipModal({
         <div className="w-full px-16">
           <div className="flex w-full justify-between">
             <div className="w-1/2">
-              <p className="text-brand text-2xl">
-                استخدام در شتابدهنده فرازمان
-              </p>
-              <div className="mt-8">
+              <p className="text-brand text-2xl">فضای کار اشتراکی</p>
+              <div className="mt-8 ">
                 <p className="text-xl mb-4">نام و نام خانوادگی</p>
                 <input
                   type="text"
@@ -62,8 +60,8 @@ export default function InternshipModal({
             /> */}
             </div>
           </div>
-          <div className="w-full flex flex-col justify-between">
-            <div className="flex justify-between my-8">
+          <div className="w-full flex flex-col justify-between my-9">
+            <div className="flex justify-between">
               <div className="w-1/2">
                 <p className="text-xl mb-4">شماره تلفن همراه</p>
                 <input
@@ -81,23 +79,12 @@ export default function InternshipModal({
                 />
               </div>
             </div>
-            <div className="w-full flex justify-between items-center">
-              <div className="w-1/2">
-                <p className="text-xl mb-4">نام دانشگاه</p>
-                <input
-                  type="text"
-                  className="px-3 py-4 shadow-md rounded-md w-4/5 mt-2 placeholder:text-gray-200"
-                  placeholder="نام دانشگاه"
-                />
-              </div>
-              <div className="w-1/2">
-                <p className="text-xl mb-4">رزومه شما</p>
-                <input
-                  type="file"
-                  className="px-3 py-4 shadow-md rounded-md w-full mt-2 placeholder:text-gray-200"
-                  placeholder="لطفا فایل مورد نظر را آپلود کنید"
-                />
-              </div>
+            <div>
+              <textarea
+                rows={4}
+                className="textarea mt-8 rounded-md textarea-lg w-full mb-1 drop-shadow-md resize-none placeholder:text-gray-300 placeholder:font-thin px-4 py-3"
+                placeholder="توضیحات...."
+              ></textarea>
             </div>
           </div>
           <div className="w-full flex justify-center mt-8">

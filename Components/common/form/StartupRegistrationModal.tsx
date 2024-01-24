@@ -1,7 +1,7 @@
 import React from 'react';
 import Modal from 'react-modal';
-import XLg from './XLg';
-import ArrowLeft from '../icons/ArrowLeft';
+import XLg from '../XLg';
+import ArrowLeft from '../../icons/ArrowLeft';
 
 const customStyles = {
   content: {

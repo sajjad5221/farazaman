@@ -4,8 +4,8 @@ import React, { useState } from 'react';
 import SectionHeader from '../common/SectionHeader';
 import Circle from '../icons/Circle';
 import ArrowLeft from '../icons/ArrowLeft';
-import FormModal from '../common/FormModal';
-import HiringModal from '../common/HiringModal';
+import FormModal from '../common/form/FormModal';
+import HiringModal from '../common/form/HiringModal';
 
 export default function HiringFeature({ title }: { title: string }) {
   const [isModalOpen, setIsModalOpen] = useState(false);

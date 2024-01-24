@@ -1,7 +1,7 @@
 import React from 'react';
 import Modal from 'react-modal';
-import XLg from './XLg';
-import ArrowLeft from '../icons/ArrowLeft';
+import XLg from '../XLg';
+import ArrowLeft from '../../icons/ArrowLeft';
 
 const customStyles = {
   content: {
@@ -19,7 +19,7 @@ const customStyles = {
 
 Modal.setAppElement('.drawer'); // Set the root element for accessibility
 
-export default function HiringModal({
+export default function InternshipModal({
   isOpen,
   closeModal,
 }: {
@@ -44,7 +44,7 @@ export default function HiringModal({
               <p className="text-brand text-2xl">
                 استخدام در شتابدهنده فرازمان
               </p>
-              <div className="mt-8 ">
+              <div className="mt-8">
                 <p className="text-xl mb-4">نام و نام خانوادگی</p>
                 <input
                   type="text"
@@ -81,13 +81,23 @@ export default function HiringModal({
                 />
               </div>
             </div>
-            <div className="">
-              <p className="text-xl mb-4">رزومه شما</p>
-              <input
-                type="file"
-                className="px-3 py-4 shadow-md rounded-md w-full mt-2 placeholder:text-gray-200"
-                placeholder="لطفا فایل مورد نظر را آپلود کنید"
-              />
+            <div className="w-full flex justify-between items-center">
+              <div className="w-1/2">
+                <p className="text-xl mb-4">نام دانشگاه</p>
+                <input
+                  type="text"
+                  className="px-3 py-4 shadow-md rounded-md w-4/5 mt-2 placeholder:text-gray-200"
+                  placeholder="نام دانشگاه"
+                />
+              </div>
+              <div className="w-1/2">
+                <p className="text-xl mb-4">رزومه شما</p>
+                <input
+                  type="file"
+                  className="px-3 py-4 shadow-md rounded-md w-full mt-2 placeholder:text-gray-200"
+                  placeholder="لطفا فایل مورد نظر را آپلود کنید"
+                />
+              </div>
             </div>
           </div>
           <div className="w-full flex justify-center mt-8">

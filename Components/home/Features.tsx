@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import SectionHeader from '../common/SectionHeader';
 import Circle from '../icons/Circle';
 import ArrowLeft from '../icons/ArrowLeft';
-import FormModal from '../common/FormModal';
+import FormModal from '../common/form/FormModal';
 
 export default function Features({ title }: { title: string }) {
   const [isModalOpen, setIsModalOpen] = useState(false);

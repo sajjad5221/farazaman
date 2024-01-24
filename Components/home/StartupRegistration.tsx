@@ -4,8 +4,8 @@ import React, { useState } from 'react';
 import SectionHeader from '../common/SectionHeader';
 import Circle from '../icons/Circle';
 import ArrowLeft from '../icons/ArrowLeft';
-import FormModal from '../common/FormModal';
-import StartupRegistrationModal from '../common/StartupRegistrationModal';
+import FormModal from '../common/form/FormModal';
+import StartupRegistrationModal from '../common/form/StartupRegistrationModal';
 
 export default function StartupRegistration({ title }: { title: string }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
