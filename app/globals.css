@@ -70,3 +70,7 @@ form {
   background-repeat: no-repeat;
   background-size: cover;
 }
+
+.custom-shadow {
+  box-shadow: 0px 0px 11px 4px rgba(74, 74, 74, 0.07);
+}
