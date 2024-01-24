@@ -9,15 +9,11 @@ import FormModal from '../common/FormModal';
 export function Features({ title }: { title: string }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  const showModal = () => {
+  const openModal = () => {
     setIsModalOpen(true);
   };
 
-  const handleOk = () => {
-    setIsModalOpen(false);
-  };
-
-  const handleCancel = () => {
+  const closeModal = () => {
     setIsModalOpen(false);
   };
 
@@ -75,17 +71,13 @@ export function Features({ title }: { title: string }) {
       <div className="w-full flex justify-center">
         <button
           className="bg-brand py-2 px-4 flex text-sm rounded-md"
-          onClick={() => showModal()}
+          onClick={() => openModal()}
         >
           <p className="pl-2 text-white">فرم ثبت نام در فضای کار اشتراکی</p>
           <ArrowLeft color="#fff" />
         </button>
       </div>
-      <FormModal
-        isModalOpen={isModalOpen}
-        handleOk={handleOk}
-        handleCancel={handleCancel}
-      />
+      <FormModal isOpen={isModalOpen} closeModal={closeModal} />
     </section>
   );
 }

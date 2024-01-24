@@ -26,7 +26,7 @@ export default function Navbar() {
   return (
     <Disclosure
       as="nav"
-      className="fixed top-0 left-0 right-0 bg-white   text-neutral-900 border-b border-neutral-200   backdrop-blur-sm  /80 z-20"
+      className="drawer fixed top-0 left-0 right-0 bg-white   text-neutral-900 border-b border-neutral-200   backdrop-blur-sm  /80 z-20"
     >
       {({ open }: { open: boolean }) => (
         <>

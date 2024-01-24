@@ -5,7 +5,7 @@ import Startup from './Startup';
 export default function Startups() {
   return (
     <section className="bg-gray-50 pb-6" id="startups">
-      <div className="mx-auto max-w-7xl sm:px-6 lg:px-8 gap-x-40 px-4">
+      <div className="mx-auto max-w-7xl sm:px-6 lg:px-8 gap-x-40 px-4 mt-8">
         <SectionHeader title="استارتاپ های ما" />
         <div className="w-full text-black flex flex-col sm:flex-row items-center justify-center md:justify-between py-7">
           {/* problem */}
