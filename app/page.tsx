@@ -10,6 +10,7 @@ import Hires from '@/Components/home/Hires';
 import Services from '@/Components/home/Services';
 import ContactUs from '@/Components/home/ContactUs';
 import HiringFeature from '@/Components/home/HiringFeature';
+import InternshipFeature from '@/Components/home/InternshipFeature';
 
 export default function Home() {
   return (
@@ -22,6 +23,7 @@ export default function Home() {
             <Services />
             <Features title="فضای کار اشتراکی" />
             <HiringFeature title="جذب نیرو" />
+            <InternshipFeature title="طرح پویش" />
             <Hires />
             <Startups />
             <Customers />
