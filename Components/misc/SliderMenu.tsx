@@ -83,6 +83,8 @@ export default function SliderMenu({
           onMouseLeave={handleMouseUp}
         >
           {items.map((item) => (
+            // TODO: create carouselItem component :<CarouselItem key={item.id} item={item} />
+
             <div
               key={item.id}
               className="flex flex-col overflow-hidden flex-shrink-0 justify-evenly h-56 sm:w-1/3 md:w-1/4 shadow-md rounded-lg p-4 cursor-pointer mx-2"

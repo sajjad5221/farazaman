@@ -22,6 +22,7 @@ export default function Home() {
             <Banner />
             {/* problem */}
             <Services />
+            {/* TODO: create one component for all below components and use openModal inside that component */}
             <Features title="فضای کار اشتراکی" />
             <HiringFeature title="جذب نیرو" />
             <InternshipFeature title="طرح پویش" />
