@@ -1,6 +1,8 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
+import { useTranslation } from "app/i18n";
+import { useLang } from "stores/langStore";
 
 const social = [
   {
@@ -125,12 +127,15 @@ const column2 = [
   },
 ];
 
-export default function Footer() {
+export default async function Footer() {
+  const lang = useLang.getState().lang;
+  const { t } = await useTranslation(lang, "layout");
+  const footer = t("explore", { returnObjects: true });
   return (
     <footer className="bg-gray-50 justify-center footer-background">
       <div className="px-4 flex flex-wrap-reverse py-6 mx-auto max-w-7xl sm:px-6 lg:px-8 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-5">
         <div className="w-full md:w-1/3">
-          <h3 className="pt-12 text-brand pb-4 lg:pt-0">فرازمان</h3>
+          <h3 className="pt-12 text-brand pb-4 lg:pt-0">{t('explore', { returnObjects: true }).title}</h3>
           {column1.map((item) => (
             <Link key={item.name} href={item.href} className="grid my-4">
               {item.name}

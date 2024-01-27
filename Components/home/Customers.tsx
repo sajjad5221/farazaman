@@ -2,6 +2,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 import SectionHeader from '../common/SectionHeader';
+import { useTranslation } from "app/i18n";
+import { useLang } from "stores/langStore";
 
 // Define an array of customer objects
 const customers = [
@@ -43,7 +45,10 @@ const customers = [
 ];
 
 // Define the Customers component
-export default function Customers() {
+export default async function Customers() {
+  const lang = useLang.getState().lang;
+  const { t } = await useTranslation(lang, "mainPage");
+  const customers = t("BusinessPartners", { returnObjects: true });
   return (
     <section className="px-4 pt-16 pb-3 bg-gray-50" id="faq">
       <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
@@ -53,18 +58,17 @@ export default function Customers() {
         {/* Customer grid */}
         <div className="w-100 grid mt-8 items-center gap-4 justify-between grid-cols-1 text-center xs:grid-cols-2 md:grid-cols-5">
           {/* Map over the array of customers and create a CustomerCard for each */}
-          {customers.map((customer) => (
-            <div className="shadow-md rounded-xl pb-3" key={customer.id}>
+          {customers.map((BusinessPartners) => (
+            <div className="shadow-md rounded-xl pb-3" key={BusinessPartners.id}>
               <Image
                 className="justify-center mx-auto mt-6 mb-1 text-center transition rounded-full hover:scale-110"
-                src={customer.src}
-                alt={customer.alt}
+                src={BusinessPartners.image}
                 width={80}
                 height={80}
                 quality={75}
                 sizes="100vw"
               />
-              <span className="text-gray-600">{customer.name}</span>
+              <span className="text-gray-600">{BusinessPartners.title}</span>
             </div>
           ))}
         </div>

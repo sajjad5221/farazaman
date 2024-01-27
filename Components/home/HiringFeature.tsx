@@ -6,8 +6,10 @@ import Circle from '../icons/Circle';
 import ArrowLeft from '../icons/ArrowLeft';
 import FormModal from '../common/form/FormModal';
 import HiringModal from '../common/form/HiringModal';
+import { useTranslation } from 'app/i18n';
+import { useLang } from 'stores/langStore';
 
-export default function HiringFeature({ title }: { title: string }) {
+export default async function HiringFeature({ title }: { title: string }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const openModal = () => {
@@ -18,6 +20,10 @@ export default function HiringFeature({ title }: { title: string }) {
     setIsModalOpen(false);
   };
 
+  const lang = useLang.getState().lang;
+
+  const { t } = await useTranslation(lang, 'mainPage');
+
   return (
     <section className="bg-gray-50 z-0 relative" id="features">
       <div className="w-80 h-80 absolute -z-10 left-12 top-96 sm:left-36 sm:top-32 featureBackground"></div>
@@ -25,13 +31,10 @@ export default function HiringFeature({ title }: { title: string }) {
         <SectionHeader title={title} />
         <div className="md:mr-4 py-5">
           <h2 className="text-black text-xl mb-3 leading-10">
-            ما به عنوان بخشی از جامعه آموزش عالی، متعهد به حمایت و پرورش
-            دانشجویان و جوانان در مراکز رشد و شتابدهنده هستیم.
-          </h2>
+          {t('Recruitment', { returnObjects: true }).subTitle}
+         </h2>
           <p className="">
-            فرازمان با تمرکز روی نوآوری و ایده‌های خلاقانه در کنار بهره‌گیری از
-            یک تیم باتجربه و متخصص و ارائه برنامه‌های آموزشی منحصربه‌فرد،
-            استارت‌آپ‌ها را در حوزه‌های مختلف پشتیبانی و هدایت می‌کند.
+          {t('Recruitment', { returnObjects: true }).text}
           </p>
         </div>
         {/* bottom */}
@@ -40,15 +43,11 @@ export default function HiringFeature({ title }: { title: string }) {
             <div className="flex items-center mb-3">
               <Circle />
               <h2 className="text-brand text-xl mr-4">
-                استخدام در شتابدهنده فرازمان
+              {t('RecruitmentInAccelerator', { returnObjects: true }).title}    
               </h2>
             </div>
             <p>
-              در حال حاضر به دنبال جذب نیروهای مستعد و گسترش تیم خود هستیم. شما
-              به راحتی می‌توانید با کمک تیم ما که متشکل از افراد باتجربه داخلی و
-              بین‌المللی است مهارت‌های لازم در دنیای تجارت امروز را کسب کنید. پس
-              اگر به یادگیری، همکاری و خلاقیت علاقه‌مند هستید و دنبال یک تیم
-              پویا می‌گردید، لطفاً فرم استخدام زیر را پر کنید
+            {t('RecruitmentInAccelerator', { returnObjects: true }).text} 
             </p>
           </div>
         </div>
@@ -58,7 +57,7 @@ export default function HiringFeature({ title }: { title: string }) {
           className="bg-brand py-2 px-4 flex text-sm rounded-md"
           onClick={() => openModal()}
         >
-          <p className="pl-2 text-white">فرم استخدام در فرازمان</p>
+          <p className="pl-2 text-white">{t('RecruitmentForm', { returnObjects: true }).text} </p>
           <ArrowLeft color="#fff" />
         </button>
       </div>

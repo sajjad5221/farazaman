@@ -9,9 +9,10 @@ import SectionHeader from "../common/SectionHeader";
 type Item = {
   id: number;
   name: string;
-  description: string;
+  text: string;
   image: string;
   jobTitle: string;
+  subTitle: string;
 };
 
 export default function SliderMenu({
@@ -95,11 +96,11 @@ export default function SliderMenu({
                 <div className="w-16 h-16 bg-gray-300 rounded-tl-[32px] rounded-tr-[8px] rounded-br-[8px] rounded-bl-[8px] border border-brand"></div>
                 <div className="mr-4 flex flex-col justify-between">
                   <p className="mt-2 text-brand  ">{item.name}</p>
-                  <p className="text-customGray">{item.jobTitle}</p>
+                  <p className="text-customGray">{item.subTitle}</p>
                 </div>
               </div>
               <p className="text-black whitespace-pre-wrap text-justify text-sm">
-                {item.description}
+                {item.text}
               </p>
             </div>
           ))}
