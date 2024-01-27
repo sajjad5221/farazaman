@@ -1,16 +1,13 @@
 'use client';
+
 import React, { useState } from 'react';
 import SectionHeader from '../common/SectionHeader';
 import Circle from '../icons/Circle';
 import ArrowLeft from '../icons/ArrowLeft';
 import FormModal from '../common/form/FormModal';
-import HiringModal from '../common/form/HiringModal';
-import { useTranslation } from 'app/i18n';
-import { useLang } from 'stores/langStore';
-import InternshipModal from '../common/form/InternshipModal';
 import StartupRegistrationModal from '../common/form/StartupRegistrationModal';
 
-export default async function StartupRegistration({ title }: { title: string }) {
+export default function StartupRegistration({ title }: { title: string }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const openModal = () => {
@@ -21,10 +18,6 @@ export default async function StartupRegistration({ title }: { title: string }) 
     setIsModalOpen(false);
   };
 
-  const lang = useLang.getState().lang;
-
-  const { t } = await useTranslation(lang, 'mainPage');
-
   return (
     <section className="bg-gray-50 z-0 relative" id="features">
       <div className="w-80 h-80 absolute -z-10 left-12 top-96 sm:left-36 sm:top-32 featureBackground"></div>
@@ -32,16 +25,20 @@ export default async function StartupRegistration({ title }: { title: string }) 
         <SectionHeader title={title} />
         <div className="md:mr-4 py-5">
           <h2 className="text-black text-xl mb-3 leading-10">
-          {t('StartupRegistration', { returnObjects: true }).subTitle}
+            شرکت فرازمان با افتخار شما را در مسیر ثبت استارت‌آپ و رشد و گسترش آن
+            همراهی می‌کند. 
           </h2>
           <div>
             <p>
-            {t('StartupRegistration', { returnObjects: true }).text}
+              امروزه کسب‌وکارهای نوپا و استارت‌آپ‌ها از محبوبیت بسیار بالایی
+              برخوردار هستند. اولین و مهمترین قدم برای رشد هر استات‌آپی، جذب
+              سرمایه است. برای حفظ مالکیت و منافع اصلی بنیانگذاران، انتخاب
+              سرمایه‌گذار مناسب اهمیت بالایی دارد. 
             </p>
             <ul className="list-disc mr-4">
-              <li>{t('StartupRegistrationItems', { returnObjects: true }).text1}</li>
-              <li>{t('StartupRegistrationItems', { returnObjects: true }).text2}</li>
-              <li>{t('StartupRegistrationItems', { returnObjects: true }).text3}</li>
+              <li>شناسایی رقبا</li>
+              <li>مشاوره با افراد با تجربه</li>
+              <li>تجربه دانشجویان از همکاری با ما</li>
             </ul>
           </div>
         </div>
@@ -51,11 +48,12 @@ export default async function StartupRegistration({ title }: { title: string }) 
             <div className="flex items-center mb-3">
               <Circle />
               <h2 className="text-brand text-xl mr-4">
-              {t('Start-upRegistration', { returnObjects: true }).title}
+                ثبت استارت‌آپ در شتابدهنده فرازمان
               </h2>
             </div>
             <p>
-            {t('Start-upRegistration', { returnObjects: true }).text}
+              درصورت تمایل جهت همکاری با شرکت فرازمان، لطفا با تکمیل فرم زیر،
+              اطلاعات استارتاپ خود را با ما به اشتراک بگذارید.
             </p>
           </div>
         </div>
@@ -65,7 +63,7 @@ export default async function StartupRegistration({ title }: { title: string }) 
           className="bg-brand py-2 px-4 flex text-sm rounded-md"
           onClick={() => openModal()}
         >
-          <p className="pl-2 text-white">{t('StartupForm', { returnObjects: true }).text}</p>
+          <p className="pl-2 text-white">فرم ثبت استارت‌آپ</p>
           <ArrowLeft color="#fff" />
         </button>
       </div>
