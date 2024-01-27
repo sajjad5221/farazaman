@@ -1,0 +1,12 @@
+{
+    "lng": "fa",
+    "name":"نام و نام خانوادگی",
+    "namePlaceholder":"نام و نام خانوادگی",
+    "number":"شماره تلفن همراه",
+    "numberPlaceholder":"شماره تلفن همراه",
+    "email":"آدرس ایمیل شما",
+    "emailPlaceholder":"آدرس الکترونیکی",
+    "Description":"توضیحات",
+
+    "sendButton":"ارسال"
+}
