@@ -4,44 +4,43 @@ import GetCsrfToken from '@/Services/GetCsrfToken';
 import { useForm } from 'react-hook-form';
 import FormsDetails from '@/Components/misc/FormsDetails';
 import Apiclient from '@/Services/Apiclient';
-interface Info {
-  name: string;
-  email: string;
-  phone: string;
-}
+import { WorkSpaceInfo } from '@/types/global';
+import { useData } from '@/stores/dataStore';
 
 const ContactUs = () => {
-  const [formData, setFormData] = useState<Info>({
-    name: '',
-    email: '',
-    phone: '',
-  });
+  // const [formData, setFormData] = useState<WorkSpaceInfo>({
+  //   name: '',
+  //   email: '',
+  //   phone: '',
+  // });
 
-  [];
+  const Data = useData();
+
   const {
     register,
     handleSubmit,
     formState: { errors },
     reset,
-  } = useForm<Info>({
+  } = useForm<WorkSpaceInfo>({
     mode: 'onBlur',
   });
 
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [Send, setSend] = useState(false);
-  const [isSuccess, setIsSuccess] = useState(false);
-  const [Message, setMessage] = useState('');
+  // const [isSubmitting, setIsSubmitting] = useState(false);
+  // const [Send, setSend] = useState(false);
+  // const [isSuccess, setIsSuccess] = useState(false);
+  // const [Message, setMessage] = useState('');
+
   const handleChange = (
     e:
       | React.ChangeEvent<HTMLInputElement>
       | React.ChangeEvent<HTMLTextAreaElement>
   ) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    Data.handleWorkSpaceFormData({ ...Data.workSpaceFormData, [e.target.name]: e.target.value });
   };
 
-  const onSubmit = async (data: Info) => {
-    setSend(true);
-    setIsSubmitting(true);
+  const onSubmit = async (data: WorkSpaceInfo) => {
+    Data.handleSendChange(true);
+    Data.handleSubmitingChange(true);
     try {
       const response = await Apiclient.post(
         'workspace/',
@@ -53,15 +52,15 @@ const ContactUs = () => {
           },
         }
       );
-      setIsSuccess(true);
-      setMessage('ارسال موفقیت آمیز بود');
-      setSend(false);
+      Data.handleSuccessChange(true);
+      Data.handleMessageChange('ارسال موفقیت آمیز بود');
+      Data.handleSendChange(false);
       reset(); // Reset the form field
     } catch (error) {
       console.log(error);
-      setMessage('ارسال ناموفق بود !');
-      setSend(false);
-      setIsSuccess(false);
+      Data.handleMessageChange('ارسال ناموفق بود !');
+      Data.handleSendChange(false);
+      Data.handleSuccessChange(false);
     }
   };
 
@@ -194,13 +193,13 @@ const ContactUs = () => {
               </div>
               <button
                 type="submit"
-                disabled={Send}
+                disabled={Data.send}
                 className="w-full py-4 font-semibold text-white transition-colors rounded-md bg-neutral-900 hover:bg-neutral-800 focus:outline-none focus:ring-offset-2 focus:ring focus:ring-neutral-200 px-7    "
               >
-                {Send ? 'در حال ارسال...' : 'ارسال'}
+                {Data.send ? 'در حال ارسال...' : 'ارسال'}
               </button>
             </form>
-            {isSuccess && isSubmitting && Message != '' && (
+            {Data.isSuccess && Data.isSubmitting && Data.Message != '' && (
               <div
                 className="flex p-4 mt-6 mb-4 text-sm text-green-900 rounded-lg text-bold bg-green-10    "
                 role="alert"
@@ -221,12 +220,12 @@ const ContactUs = () => {
                 </svg>
                 <span className="sr-only">پیام</span>
                 <div>
-                  <span className="font-medium">{Message}</span>!
+                  <span className="font-medium">{Data.Message}</span>!
                 </div>
               </div>
             )}
 
-            {!isSuccess && isSubmitting && Message != '' && (
+            {!Data.isSuccess && Data.isSubmitting && Data.Message != '' && (
               <div
                 className="flex p-4 mt-6 mb-4 text-sm text-red-900 rounded-lg text-bold bg-red-90    "
                 role="alert"
@@ -247,7 +246,7 @@ const ContactUs = () => {
                 </svg>
                 <span className="sr-only">پیام</span>
                 <div>
-                  <span className="font-medium">{Message}</span>!
+                  <span className="font-medium">{Data.Message}</span>!
                 </div>
               </div>
             )}
