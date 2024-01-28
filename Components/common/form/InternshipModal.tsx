@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Modal from 'react-modal';
 import XLg from '../../icons/XLg';
 import ArrowLeft from '../../icons/ArrowLeft';
+import { useForm } from 'react-hook-form';
+import { IntershipInfo } from '@/types/global';
 
 const customStyles = {
   content: {
@@ -26,9 +28,21 @@ export default function InternshipModal({
   isOpen: boolean;
   closeModal: () => void;
 }) {
+
+  const [selectedFile, setSelectedFile] = useState<File | null>(null);
+
+  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const files = event.target.files;
+    if (files && files.length > 0) {
+      setSelectedFile(files[0]);
+    }
+  };
+  
+  const { register, handleSubmit ,formState: { errors }} = useForm<IntershipInfo>({});
+  const onSubmit = (data: any) => console.log(data);
   return (
     <Modal isOpen={isOpen} style={customStyles}>
-      <div className="w-[64rem] pt-4 pb-8">
+      <form onSubmit={handleSubmit(onSubmit)} className="w-[64rem] pt-4 pb-8">
         {/* X button */}
         <div className="mr-4">
           <div
@@ -48,8 +62,18 @@ export default function InternshipModal({
                 <p className="text-xl mb-4">نام و نام خانوادگی</p>
                 <input
                   type="text"
-                  className="px-3 py-4 shadow-md rounded-md w-4/5 mt-2 placeholder:text-gray-200"
+                  className={`px-3 py-4 shadow-md rounded-md w-4/5 mt-2 placeholder:text-gray-200${
+                    errors.name ? 'border-yellow-500' : ''
+                  }`}
                   placeholder="نام و نام خانوادگی"
+                  {...register('name', {
+                    required: 'نام خود را وارد کنید.',
+                    pattern: {
+                      value: /^[\u0600-\u06FF\s]+$/,
+                      message: 'نام خود را به درستی وارد کنید.',
+                    },
+
+                  })}
                 />
               </div>
             </div>
@@ -68,16 +92,36 @@ export default function InternshipModal({
                 <p className="text-xl mb-4">شماره تلفن همراه</p>
                 <input
                   type="text"
-                  className="px-3 py-4 shadow-md rounded-md w-4/5 mt-2 placeholder:text-gray-200"
+                  className={`px-3 py-4 shadow-md rounded-md w-4/5 mt-2 placeholder:text-gray-200 ${
+                    errors.phone ? 'border-yellow-500' : ''
+                  }`}
                   placeholder="شماره تلفن همراه"
+                  {...register('phone', {
+                    required: 'شماره تماس را وارد کنید.',
+                    pattern: {
+                      value: /^\d{11}$/,
+                      message: 'شماره تماس را به درستی وارد کنید.',
+                    },
+                  })}
+
                 />
               </div>
               <div className="w-1/2">
                 <p className="text-xl mb-4">آدرس ایمیل شما</p>
                 <input
                   type="text"
-                  className="px-3 py-4 shadow-md rounded-md w-full mt-2 placeholder:text-gray-200"
+                  className={`px-3 py-4 shadow-md rounded-md w-full mt-2 placeholder:text-gray-200 ${
+                    errors.email ? 'border-yellow-500' : ''
+                  }`}
                   placeholder="آدرس الکترونیکی"
+                  {...register('email', {
+                    required: 'آدرس ایمیل خود را وارد کنید.',
+                    pattern: {
+                      value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                      message: 'آدرس ایمیل را به درستی وارد کنید.',
+                    },
+                  })}
+
                 />
               </div>
             </div>
@@ -88,6 +132,10 @@ export default function InternshipModal({
                   type="text"
                   className="px-3 py-4 shadow-md rounded-md w-4/5 mt-2 placeholder:text-gray-200"
                   placeholder="نام دانشگاه"
+                  {...register("university", {
+                    required: 'متن پیام را وارد کنید.',
+                  })}
+
                 />
               </div>
               <div className="w-1/2">
@@ -96,18 +144,20 @@ export default function InternshipModal({
                   type="file"
                   className="px-3 py-4 shadow-md rounded-md w-full mt-2 placeholder:text-gray-200"
                   placeholder="لطفا فایل مورد نظر را آپلود کنید"
+                  {...register("cvFile")}
+                  onChange={handleFileChange}
                 />
               </div>
             </div>
           </div>
           <div className="w-full flex justify-center mt-8">
             <button className="flex px-12 py-2 rounded-md bg-brand text-white">
-              <p className="ml-2">ارسال</p>
+              <button type='submit' className="ml-2">ارسال</button>
               <ArrowLeft color="#fff" />
             </button>
           </div>
         </div>
-      </div>
+      </form>
     </Modal>
   );
 }

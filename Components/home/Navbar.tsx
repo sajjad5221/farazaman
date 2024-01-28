@@ -6,6 +6,7 @@ import React from 'react';
 import { Disclosure } from '@headlessui/react';
 import { Bars3Icon } from '@heroicons/react/24/solid';
 import { XMarkIcon } from '@heroicons/react/24/solid';
+import { useTranslation } from '@/app/i18n/client';
 
 // Navigation links
 const navigation = [
