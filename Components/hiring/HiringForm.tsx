@@ -25,7 +25,7 @@ const HiringForm = ({
   lang: string;
 }) => {
 
-  const { t } = useTranslation(lang, 'mainPage.json')
+  const { t } = useTranslation(lang, 'mainPage')
 
   console.log(t('title'));
 
