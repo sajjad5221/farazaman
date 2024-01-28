@@ -2,7 +2,7 @@ import React from 'react';
 import Circle from '../icons/Circle';
 import Image from 'next/image';
 
-export default async function ServiceCard({
+export default function ServiceCard({
   title,
   image,
   alt,

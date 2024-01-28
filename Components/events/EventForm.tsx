@@ -1,8 +1,8 @@
-"use client";
-import React, { useState, useEffect } from "react";
-import GetCsrfToken from "@/Services/GetCsrfToken";
-import { useForm } from "react-hook-form";
-import Apiclient from "@/Services/Apiclient";
+'use client';
+import React, { useState, useEffect } from 'react';
+import GetCsrfToken from '@/Services/GetCsrfToken';
+import { useForm } from 'react-hook-form';
+import Apiclient from '@/Services/Apiclient';
 
 interface Info {
   name: string;
@@ -13,9 +13,9 @@ interface Info {
 
 export default function EventForm({ eventId }: { eventId: number }) {
   const [formData, setFormData] = useState<Info>({
-    name: "",
-    email: "",
-    phone: "",
+    name: '',
+    email: '',
+    phone: '',
     event: eventId,
   });
 
@@ -26,13 +26,13 @@ export default function EventForm({ eventId }: { eventId: number }) {
     formState: { errors },
     reset,
   } = useForm<Info>({
-    mode: "onBlur",
+    mode: 'onBlur',
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [Send, setSend] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
-  const [Message, setMessage] = useState("");
+  const [Message, setMessage] = useState('');
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -43,31 +43,31 @@ export default function EventForm({ eventId }: { eventId: number }) {
     setIsSubmitting(true);
     try {
       const response = await Apiclient.post(
-        "attendees/",
+        'attendees/',
         JSON.stringify(data),
         {
           headers: {
-            "X-CSRFToken": csrfToken,
-            "Content-Type": "application/json",
+            'X-CSRFToken': csrfToken,
+            'Content-Type': 'application/json',
           },
         }
       );
       setIsSuccess(true);
-      setMessage("ثبت نام موفقیت آمیز بود");
+      setMessage('ثبت نام موفقیت آمیز بود');
       setSend(false);
       reset(); // Reset the form field
     } catch (error) {
       console.log(error);
-      setMessage("ثبت نام ناموفق بود !");
+      setMessage('ثبت نام ناموفق بود !');
       setSend(false);
       setIsSuccess(false);
     }
   };
 
-  const [csrfToken, setCsrfToken] = useState("");
+  const [csrfToken, setCsrfToken] = useState('');
   useEffect(() => {
     async function fetchCsrfToken() {
-      const token = await GetCsrfToken("http://localhost:8000/get-csrf-token/");
+      const token = await GetCsrfToken('http://localhost:8000/get-csrf-token/');
       setCsrfToken(token);
     }
 
@@ -76,13 +76,13 @@ export default function EventForm({ eventId }: { eventId: number }) {
 
   return (
     <form className="space-y-8" onSubmit={handleSubmit(onSubmit)}>
-      <h5 className="text-xl font-medium text-gray-900 dark:text-white">
+      <h5 className="text-xl font-medium text-gray-900  ">
         در رویداد ما ثبت نام کنید.
       </h5>
       <div className="mb-5">
         <label
           htmlFor="text"
-          className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+          className="block mb-2 text-sm font-medium text-gray-900  "
         >
           نام و نام خانوادگی
         </label>
@@ -91,14 +91,14 @@ export default function EventForm({ eventId }: { eventId: number }) {
           placeholder="نام و نام خانوادگی"
           autoComplete="off"
           pattern="^[\u0600-\u06FF\s]+$"
-          className={`w-full px-4 py-3 border-2 placeholder:text-neutral-400 dark:text-white rounded-md outline-none dark:placeholder:text-neutral-200 dark:bg-neutral-900 focus:ring-4 ${
-            errors.name ? "border-yellow-500" : ""
+          className={`w-full px-4 py-3 border-2 placeholder:text-neutral-400   rounded-md outline-none   focus:ring-4 ${
+            errors.name ? 'border-yellow-500' : ''
           }`}
-          {...register("name", {
-            required: "نام خود را وارد کنید.",
+          {...register('name', {
+            required: 'نام خود را وارد کنید.',
             pattern: {
               value: /^[\u0600-\u06FF\s]+$/,
-              message: "نام خود را به درستی وارد کنید.",
+              message: 'نام خود را به درستی وارد کنید.',
             },
           })}
           onChange={handleChange}
@@ -110,7 +110,7 @@ export default function EventForm({ eventId }: { eventId: number }) {
       <div className="mb-5">
         <label
           htmlFor="email"
-          className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+          className="block mb-2 text-sm font-medium text-gray-900  "
         >
           آدرس ایمیل
         </label>
@@ -118,14 +118,14 @@ export default function EventForm({ eventId }: { eventId: number }) {
           type="email"
           placeholder="farazaman@gmail.com"
           autoComplete="off"
-          className={`w-full px-4 py-3 border-2 placeholder:text-neutral-400 dark:text-white rounded-md outline-none dark:placeholder:text-neutral-200 dark:bg-neutral-900 focus:ring-4 ${
-            errors.email ? "border-yellow-500" : ""
+          className={`w-full px-4 py-3 border-2 placeholder:text-neutral-400   rounded-md outline-none     focus:ring-4 ${
+            errors.email ? 'border-yellow-500' : ''
           }`}
-          {...register("email", {
-            required: "آدرس ایمیل خود را وارد کنید.",
+          {...register('email', {
+            required: 'آدرس ایمیل خود را وارد کنید.',
             pattern: {
               value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-              message: "آدرس ایمیل را به درستی وارد کنید.",
+              message: 'آدرس ایمیل را به درستی وارد کنید.',
             },
           })}
           onChange={handleChange}
@@ -139,7 +139,7 @@ export default function EventForm({ eventId }: { eventId: number }) {
       <div className="mb-5">
         <label
           htmlFor="tel"
-          className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+          className="block mb-2 text-sm font-medium text-gray-900  "
         >
           شماره موبایل
         </label>
@@ -147,14 +147,14 @@ export default function EventForm({ eventId }: { eventId: number }) {
           type="tel"
           placeholder="091311111111"
           autoComplete="off"
-          className={`w-full px-4 py-3 border-2 placeholder:text-neutral-400 dark:text-white rounded-md outline-none dark:placeholder:text-neutral-200 dark:bg-neutral-900 focus:ring-4 ${
-            errors.phone ? "border-yellow-500" : ""
+          className={`w-full px-4 py-3 border-2 placeholder:text-neutral-400   rounded-md outline-none     focus:ring-4 ${
+            errors.phone ? 'border-yellow-500' : ''
           }`}
-          {...register("phone", {
-            required: "شماره تماس را وارد کنید.",
+          {...register('phone', {
+            required: 'شماره تماس را وارد کنید.',
             pattern: {
               value: /^\d{11}$/,
-              message: "شماره تماس را به درستی وارد کنید.",
+              message: 'شماره تماس را به درستی وارد کنید.',
             },
           })}
           onChange={handleChange}
@@ -169,21 +169,21 @@ export default function EventForm({ eventId }: { eventId: number }) {
         type="hidden"
         id=""
         value={1}
-        {...register("event", { required: "رویداد انتخاب نشده است" })}
+        {...register('event', { required: 'رویداد انتخاب نشده است' })}
       />
       <div className="flex items-start"></div>
       <button
         type="submit"
         disabled={Send}
-        className="w-full rounded-lg bg-[#EAB308] px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-yellow-800 focus:outline-none focus:ring-4 focus:ring-yellow-300 dark:bg-[#EAB308] dark:hover:bg-yellow-700 dark:focus:ring-yellow-800"
+        className="w-full rounded-lg bg-[#EAB308] px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-yellow-800 focus:outline-none focus:ring-4 focus:ring-yellow-300"
       >
-        {Send ? "در حال ارسال..." : "ارسال"}
+        {Send ? 'در حال ارسال...' : 'ارسال'}
       </button>
-      {isSuccess && isSubmitting && Message != "" && (
+      {isSuccess && isSubmitting && Message != '' && (
         <div
-          className="flex p-4 mb-4 mt-6 text-sm text-bold text-green-900 rounded-lg bg-green-10 dark:bg-neutral-700 dark:text-green-400"
+          className="flex p-4 mb-4 mt-6 text-sm text-bold text-green-900 rounded-lg bg-green-10    "
           role="alert"
-          style={{ backgroundColor: "#26ff2a54" }}
+          style={{ backgroundColor: '#26ff2a54' }}
         >
           <svg
             aria-hidden="true"
@@ -205,11 +205,11 @@ export default function EventForm({ eventId }: { eventId: number }) {
         </div>
       )}
 
-      {!isSuccess && isSubmitting && Message != "" && (
+      {!isSuccess && isSubmitting && Message != '' && (
         <div
-          className="flex p-4 mb-4 mt-6 text-sm text-bold text-red-900 rounded-lg bg-red-90 dark:bg-neutral-700 dark:text-red-400"
+          className="flex p-4 mb-4 mt-6 text-sm text-bold text-red-900 rounded-lg bg-red-90"
           role="alert"
-          style={{ backgroundColor: "#ff24244f" }}
+          style={{ backgroundColor: '#ff24244f' }}
         >
           <svg
             aria-hidden="true"
