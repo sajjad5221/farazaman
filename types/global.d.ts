@@ -35,10 +35,19 @@ interface WorkSpaceInfo {
   description: string;
 }
 
+interface IntershipInfo {
+  name: string;
+  email: string;
+  phone: string;
+  university: string;
+  cvFile: File | null;
+}
+
 export {
   ServicesData,
   HiringInfo,
   StartupsInfo,
   ContactInfo,
-  WorkSpaceInfo
+  WorkSpaceInfo,
+  IntershipInfo
 }
