@@ -1,10 +1,14 @@
 import React from 'react'
 import HiringForm from '@/Components/hiring/HiringForm'
 
-export default function page() {
+export default function page({
+  params: { lang }
+}: {
+  params: { lang: string };
+}) {
   return (
     <div className=''>
-      <HiringForm/>
+      <HiringForm lang={lang} />
     </div>
   )
 }

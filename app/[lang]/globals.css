@@ -6,7 +6,7 @@
 /* Define custom font */
 @font-face {
   font-family: yekan;
-  src: url(../public/static/fonts/Yekan.ttf);
+  src: url(../../public/static/fonts/Yekan.ttf);
   font-display: swap;
 }
 
@@ -58,14 +58,14 @@ form {
 }
 
 .featureBackground {
-  background-image: url('../public/static/images/Brand/farazaman-Logo.png');
+  background-image: url('../../public/static/images/Brand/farazaman-Logo.png');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }
 
 .footer-background {
-  background-image: url('../public/static/images/Home/footer-wave.png');
+  background-image: url('../../public/static/images/Home/footer-wave.png');
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;

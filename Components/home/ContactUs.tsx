@@ -32,7 +32,7 @@ function ContactUs() {
           ></textarea>
         </div>
         <div className="flex justify-center mt-6">
-          <button className="flex text-sm bg-brand px-5 py-2 justify-center items-center rounded-lg text-white">
+          <button type='submit' className="flex text-sm bg-brand px-5 py-2 justify-center items-center rounded-lg text-white">
             <p>ارسال پیام</p>
             <ArrowLeft color="#fff" />
           </button>

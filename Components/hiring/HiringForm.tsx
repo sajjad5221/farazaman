@@ -6,6 +6,7 @@ import FormsDetails from '@/Components/misc/FormsDetails';
 import Apiclient from '@/Services/Apiclient';
 import { HiringInfo } from '@/types/global';
 import { useData } from '@/stores/dataStore';
+import { useTranslation } from '@/app/i18n/client';
 
 // const initialFormData = {
 //   name: '',
@@ -18,7 +19,16 @@ import { useData } from '@/stores/dataStore';
 
 const Data = useData.getState();
 
-const HiringForm = () => {
+const HiringForm = ({
+  lang
+}: {
+  lang: string;
+}) => {
+
+  const { t } = useTranslation(lang, 'mainPage.json')
+
+  console.log(t('title'));
+
   const {
     register,
     handleSubmit,
