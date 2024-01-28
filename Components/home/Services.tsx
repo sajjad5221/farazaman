@@ -40,7 +40,7 @@ export default async function Services() {
       {/* TODO: create ServiceCard.tsx component */}
       {/* Service cards */}
       {/* flex flex-col md:flex-row max-w-7xl justify-between mx-auto items-center */}
-      <div className="grid grid-cols-2 md:grid-cols-4 justify-between mx-auto max-w-7xl">
+      {/* <div className="grid grid-cols-2 md:grid-cols-4 justify-between mx-auto max-w-7xl">
         {servicesData.map(
           (
             {
@@ -53,7 +53,7 @@ export default async function Services() {
             <ServiceCard key={index} title={title} image={image} alt={alt} />
           )
         )}
-      </div>
+      </div> */}
     </div>
   );
 }

@@ -43,11 +43,20 @@ interface IntershipInfo {
   cvFile: File | null;
 }
 
+interface StartupRegistrationModal {
+  name: string;
+  email: string;
+  phone: string;
+  university: string;
+  cvFile: File | null;
+}
+
 export {
   ServicesData,
   HiringInfo,
   StartupsInfo,
   ContactInfo,
   WorkSpaceInfo,
-  IntershipInfo
+  IntershipInfo,
+  StartupRegistrationModal
 }

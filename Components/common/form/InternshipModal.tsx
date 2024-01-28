@@ -38,7 +38,9 @@ export default function InternshipModal({
     }
   };
   
-  const { register, handleSubmit ,formState: { errors }} = useForm<IntershipInfo>({});
+  const { register, handleSubmit ,formState: { errors }} = useForm<IntershipInfo>({
+    mode: 'onBlur',
+  });
   const onSubmit = (data: any) => console.log(data);
   return (
     <Modal isOpen={isOpen} style={customStyles}>
@@ -75,6 +77,11 @@ export default function InternshipModal({
 
                   })}
                 />
+                {errors.name && (
+                  <span className="text-sm text-yellow-500">
+                    {errors.name.message}
+                  </span>
+                )}
               </div>
             </div>
             <div className="w-1/2">
@@ -105,6 +112,11 @@ export default function InternshipModal({
                   })}
 
                 />
+                {errors.phone && (
+                  <span className="text-sm text-yellow-500">
+                    {errors.phone.message}
+                  </span>
+                )}
               </div>
               <div className="w-1/2">
                 <p className="text-xl mb-4">آدرس ایمیل شما</p>
@@ -123,6 +135,11 @@ export default function InternshipModal({
                   })}
 
                 />
+                {errors.email && (
+                  <span className="text-sm text-yellow-500">
+                    {errors.email.message}
+                  </span>
+                )}
               </div>
             </div>
             <div className="w-full flex justify-between items-center">
@@ -137,6 +154,11 @@ export default function InternshipModal({
                   })}
 
                 />
+                  {errors.university && (
+                    <span className="text-sm text-yellow-500">
+                      {errors.university.message}
+                    </span>
+                  )}
               </div>
               <div className="w-1/2">
                 <p className="text-xl mb-4">رزومه شما</p>
@@ -147,6 +169,11 @@ export default function InternshipModal({
                   {...register("cvFile")}
                   onChange={handleFileChange}
                 />
+                  {errors.cvFile && (
+                    <span className="text-sm text-yellow-500">
+                      {errors.cvFile.message}
+                    </span>
+                  )}
               </div>
             </div>
           </div>
