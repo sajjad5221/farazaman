@@ -19,8 +19,7 @@ export default function HiringFeature({ title }: { title: string }) {
   };
 
   return (
-    <section className="bg-gray-50 z-0 relative" id="features">
-      <div className="w-80 h-80 absolute -z-10 left-12 top-96 sm:left-36 sm:top-32 featureBackground"></div>
+    <section className="bg-gray-50 z-0 relative" id="hiring">
       <div className="px-8 text-customGray leading-10 pt-16 pb-8 mx-auto max-w-7xl sm:px-6 lg:px-8 gap-x-40">
         <SectionHeader title={title} />
         <div className="md:mr-4 py-5">

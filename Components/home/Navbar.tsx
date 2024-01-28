@@ -9,12 +9,12 @@ import { XMarkIcon } from '@heroicons/react/24/solid';
 
 // Navigation links
 const navigation = [
-  { name: 'خانه', href: '/', current: false },
-  { name: 'استخدام', href: '/hiring', current: false },
-  { name: 'ثبت استارتاپ', href: '/startups', current: false },
-  { name: 'فضای کار اشتراکی', href: '/workspace', current: false },
+  { name: 'خانه', href: '#', current: false },
+  { name: 'استخدام', href: '#hiring', current: false },
+  { name: 'ثبت استارتاپ', href: '#startups', current: false },
+  { name: 'فضای کار اشتراکی', href: '#workspace', current: false },
   // { name: "رویدادها", href: "/events", current: false },
-  { name: 'ارتباط با ما', href: '/contact-us', current: false },
+  { name: 'ارتباط با ما', href: '#contact', current: false },
 ];
 
 // Utility function to concatenate CSS classes
