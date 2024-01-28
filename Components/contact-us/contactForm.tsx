@@ -7,6 +7,7 @@ import FormsDetails from '@/Components/misc/FormsDetails';
 import GetCsrfToken from '@/Services/GetCsrfToken';
 import { ContactInfo } from '@/types/global';
 import { useData } from '@/stores/dataStore';
+import Button from '../common/form/Button';
 
 const ContactUsForm = () => {
   // const [formData, setFormData] = useState<ContactInfo>({
@@ -77,7 +78,7 @@ const ContactUsForm = () => {
   };
 
   return (
-    <div className="w-screen mt-16 bg-gray-50" id="contact">
+    <section className="w-screen mt-16 bg-gray-50" id="contact">
       <div className="px-4 pt-16 mx-auto text-center max-w-7xl sm:px-6 lg:px-8">
         <h2 className="text-4xl font-bold text-black">ارتباط با ما</h2>
 
@@ -215,13 +216,14 @@ const ContactUsForm = () => {
                 )}
               </div>
 
-              <button
+              {/* <button
                 type="submit"
                 disabled={Data.send}
                 className="w-full py-4 font-semibold text-white transition-colors rounded-md bg-neutral-900 hover:bg-neutral-800 focus:outline-none focus:ring-offset-2 focus:ring focus:ring-neutral-200 px-7"
               >
                 {Data.send ? 'در حال ارسال...' : 'ارسال'}
-              </button>
+              </button> */}
+              <Button func='form' disabled={Data.send} submit={true} text={Data.send ? 'در حال ارسال...' : 'ارسال'}  />
             </form>
             {Data.isSuccess && Data.isSubmitting && Data.Message !== '' && (
               <div
@@ -247,7 +249,7 @@ const ContactUsForm = () => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

@@ -10,14 +10,14 @@ export default async function Services() {
   // const a: any = t('ServiceData', { returnObjects: true })[0];
   // (t('ServiceData', { returnObjects: true }));
 
-  console.log(t('ServiceData', {returnObjects: true}));
-
   t('ServiceData', {returnObjects: true})
 
   // use returnObjects: true for non strings
 
 
   const servicesData: Array<{ title: string; image: string; alt: string }> = t('ServiceData', {returnObjects: true})
+
+  // console.log(servicesData);
 
 
 

@@ -9,9 +9,10 @@ import { useData } from '@/stores/dataStore';
 
 import SectionHeader from '../common/SectionHeader';
 import ArrowLeft from '../icons/ArrowLeft';
+import Button from '../common/form/Button';
 
 function ContactUs() {
-  const Data = useData();
+      const Data = useData();
 
   const {
     register,
@@ -64,8 +65,9 @@ function ContactUs() {
       Data.handleSuccessChange(false);
     }
   };
+
   return (
-    <section className="bg-gray-50 px-4 pt-8 pb-16">
+    <section className="bg-gray-50 px-4 pt-8 pb-16" id="contact">
       <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
         <SectionHeader title="ارتباط با ما" />
         <form onSubmit={handleSubmit(onSubmit)}>
@@ -158,15 +160,16 @@ function ContactUs() {
             )}
           </div>
           <div className="flex justify-center mt-6">
-            <button
+            {/*<button
                 type='submit'
                 disabled={Data.send}
                 className="flex text-sm bg-brand px-5 py-2 justify-center items-center rounded-lg text-white"
             >
               <p>ارسال پیام</p>
               <ArrowLeft color="#fff" />
-            </button>
-          </div>
+            </button>*/}
+          <Button func='guide' submit={true} text='ارسال پیام' />
+        </div>
         </form>
         {Data.isSuccess && Data.isSubmitting && Data.Message !== '' && (
               <div

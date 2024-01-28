@@ -5,6 +5,7 @@ import SectionHeader from '../common/SectionHeader';
 import Circle from '../icons/Circle';
 import ArrowLeft from '../icons/ArrowLeft';
 import CoSpaceModal from '../common/form/CoSpaceModal';
+import Button from '../common/form/Button';
 
 export default function Features({ title }: { title: string }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -18,9 +19,7 @@ export default function Features({ title }: { title: string }) {
   };
 
   return (
-    <section className="bg-gray-50 z-0 relative" id="features">
-      {/* TODO: create a component for below section and use it in another components */}
-      <div className="w-80 h-80 absolute -z-10 left-12 top-96 sm:left-36 sm:top-32 featureBackground"></div>
+    <section className="bg-gray-50 z-0 relative" id="workspace">
       <div className="px-8 text-customGray leading-10 pt-16 pb-8 mx-auto max-w-7xl sm:px-6 lg:px-8 gap-x-40">
         <SectionHeader title={title} />
         {/* TODO: use i18n */}
@@ -71,13 +70,14 @@ export default function Features({ title }: { title: string }) {
         </div>
       </div>
       <div className="w-full flex justify-center">
-        <button
+        {/* <button
           className="bg-brand py-2 px-4 flex text-sm rounded-md"
-          onClick={() => openModal()}
+          onClick={openModal}
         >
           <p className="pl-2 text-white">فرم ثبت نام در فضای کار اشتراکی</p>
           <ArrowLeft color="#fff" />
-        </button>
+        </button> */}
+        <Button func='guide' onChange={openModal} text='فرم ثبت نام در فضای کار اشتراکی' submit={false} />
       </div>
       <CoSpaceModal isOpen={isModalOpen} closeModal={closeModal} />
     </section>

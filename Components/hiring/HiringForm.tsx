@@ -7,6 +7,7 @@ import Apiclient from '@/Services/Apiclient';
 import { HiringInfo } from '@/types/global';
 import { useData } from '@/stores/dataStore';
 import { useTranslation } from '@/app/i18n/client';
+import Button from '../common/form/Button';
 
 // const initialFormData = {
 //   name: '',
@@ -307,13 +308,14 @@ const HiringForm = ({
                 name="csrftokenmiddleware"
                 value={Data.csrfToken}
               />
-              <button
+              {/* <button
                 type="submit"
                 disabled={Data.send}
                 className="w-full py-4 font-semibold text-white transition-colors rounded-md bg-neutral-900 hover:bg-neutral-800 focus:outline-none focus:ring-offset-2 focus:ring focus:ring-neutral-200 px-7  "
               >
                 {Data.send ? 'در حال ارسال...' : 'ارسال'}
-              </button>
+              </button> */}
+              <Button submit={true} disabled={Data.send} text={Data.send ? 'در حال ارسال...' : 'ارسال'} func='form' />
             </form>
             {Data.isSuccess && Data.isSubmitting && Data.Message != '' && (
               <div
