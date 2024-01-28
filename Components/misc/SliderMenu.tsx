@@ -1,16 +1,17 @@
-'use client';
+"use client";
 
-import React, { useRef, useState, useEffect } from 'react';
-import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/solid';
-import Apiclient from '@/Services/Apiclient';
-import Image from 'next/image';
-import SectionHeader from '../common/SectionHeader';
+import React, { useRef, useState, useEffect } from "react";
+import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/solid";
+import Apiclient from "@/Services/Apiclient";
+import Image from "next/image";
+import SectionHeader from "../common/SectionHeader";
 
 type Item = {
   id: number;
   name: string;
   description: string;
   image: string;
+  jobTitle: string;
 };
 
 export default function SliderMenu({
@@ -26,7 +27,7 @@ export default function SliderMenu({
     if (carouselRef.current) {
       carouselRef.current.scroll({
         left: carouselRef.current.offsetWidth,
-        behavior: 'smooth',
+        behavior: "smooth",
       });
     }
   };
@@ -35,7 +36,7 @@ export default function SliderMenu({
     if (carouselRef.current) {
       carouselRef.current.scroll({
         left: -carouselRef.current.offsetWidth, // Change to a negative value
-        behavior: 'smooth',
+        behavior: "smooth",
       });
     }
   };

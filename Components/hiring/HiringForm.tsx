@@ -63,7 +63,7 @@ const HiringForm = ({
       if (e.target.files && e.target.files.length > 0) {
         Data.handleFilePostChange({ resume: e.target.files[0] });
       }
-      console.log(e.target.files);
+      e.target.files;
     }
     Data.handleFormDataChange({ ...Data.formData, [e.target.name]: e.target.value });
   };

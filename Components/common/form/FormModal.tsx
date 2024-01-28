@@ -47,7 +47,7 @@ export default function FormModal({
                 <input
                   type="text"
                   className="px-3 py-4 shadow-md rounded-md w-4/5 mt-2 placeholder:text-gray-200"
-                  placeholder="نام و نام خانوادگی"
+                  placeholder=""
                 />
               </div>
             </div>
