@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import SectionHeader from '../common/SectionHeader';
 import Circle from '../icons/Circle';
 import ArrowLeft from '../icons/ArrowLeft';
-import FormModal from '../common/form/FormModal';
+import CoSpaceModal from '../common/form/CoSpaceModal';
 
 export default function Features({ title }: { title: string }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -79,7 +79,7 @@ export default function Features({ title }: { title: string }) {
           <ArrowLeft color="#fff" />
         </button>
       </div>
-      <FormModal isOpen={isModalOpen} closeModal={closeModal} />
+      <CoSpaceModal isOpen={isModalOpen} closeModal={closeModal} />
     </section>
   );
 }
