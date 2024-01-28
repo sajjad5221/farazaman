@@ -6,6 +6,7 @@ import Circle from '../icons/Circle';
 import ArrowLeft from '../icons/ArrowLeft';
 import FormModal from '../common/form/CoSpaceModal';
 import InternshipModal from '../common/form/InternshipModal';
+import Button from '../common/form/Button';
 
 export default function InternshipFeature({ title }: { title: string }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -59,13 +60,14 @@ export default function InternshipFeature({ title }: { title: string }) {
         </div>
       </div>
       <div className="w-full flex justify-center">
-        <button
+        {/* <button
           className="bg-brand py-2 px-4 flex text-sm rounded-md"
           onClick={() => openModal()}
         >
           <p className="pl-2 text-white">فرم ثبت نام طرح پویش</p>
           <ArrowLeft color="#fff" />
-        </button>
+        </button> */}
+        <Button func='guide' onChange={openModal} text='فرم ثبت نام طرح پویش' submit={false} />
       </div>
       <InternshipModal isOpen={isModalOpen} closeModal={closeModal} />
     </section>

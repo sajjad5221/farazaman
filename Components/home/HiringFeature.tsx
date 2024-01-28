@@ -6,6 +6,7 @@ import Circle from '../icons/Circle';
 import ArrowLeft from '../icons/ArrowLeft';
 import FormModal from '../common/form/CoSpaceModal';
 import HiringModal from '../common/form/HiringModal';
+import Button from '../common/form/Button';
 
 export default function HiringFeature({ title }: { title: string }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -54,13 +55,14 @@ export default function HiringFeature({ title }: { title: string }) {
         </div>
       </div>
       <div className="w-full flex justify-center">
-        <button
+        {/* <button
           className="bg-brand py-2 px-4 flex text-sm rounded-md"
           onClick={() => openModal()}
         >
           <p className="pl-2 text-white">فرم استخدام در فرازمان</p>
           <ArrowLeft color="#fff" />
-        </button>
+        </button> */}
+        <Button func='guide' onChange={openModal} text='فرم استخدام در فرازمان' submit={false} />
       </div>
       <HiringModal isOpen={isModalOpen} closeModal={closeModal} />
     </section>

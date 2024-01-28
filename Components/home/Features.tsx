@@ -5,6 +5,7 @@ import SectionHeader from '../common/SectionHeader';
 import Circle from '../icons/Circle';
 import ArrowLeft from '../icons/ArrowLeft';
 import CoSpaceModal from '../common/form/CoSpaceModal';
+import Button from '../common/form/Button';
 
 export default function Features({ title }: { title: string }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -71,13 +72,14 @@ export default function Features({ title }: { title: string }) {
         </div>
       </div>
       <div className="w-full flex justify-center">
-        <button
+        {/* <button
           className="bg-brand py-2 px-4 flex text-sm rounded-md"
-          onClick={() => openModal()}
+          onClick={openModal}
         >
           <p className="pl-2 text-white">فرم ثبت نام در فضای کار اشتراکی</p>
           <ArrowLeft color="#fff" />
-        </button>
+        </button> */}
+        <Button func='guide' onChange={openModal} text='فرم ثبت نام در فضای کار اشتراکی' submit={false} />
       </div>
       <CoSpaceModal isOpen={isModalOpen} closeModal={closeModal} />
     </section>
