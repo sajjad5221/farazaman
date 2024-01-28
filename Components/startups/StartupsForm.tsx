@@ -6,6 +6,9 @@ import { useForm } from "react-hook-form";
 import FormsDetails from "@/Components/misc/FormsDetails";
 import Apiclient from "@/Services/Apiclient";
 
+import { useTranslation } from "@/app/i18n/client";
+import { useLang } from "@/stores/langStore";
+
 const initialFormData = {
   name: "",
   email: "",
@@ -18,11 +21,12 @@ interface Info {
   name: string;
   email: string;
   phone: string;
-  members_count: number;
+  members_count: number;  
   pitch: File | null;
 }
 
 const StartUpsForm = () => {
+  // {t} = useTranslation()
   const {
     register,
     handleSubmit,
@@ -32,6 +36,8 @@ const StartUpsForm = () => {
     mode: "onBlur",
   });
 
+  const lang = useLang((s) => s.lang)
+  const {t} = useTranslation(lang,"startups")
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [Message, setMessage] = useState("");
@@ -99,11 +105,11 @@ const StartUpsForm = () => {
     <div className="w-screen mt-16 bg-gray-50 dark:bg-neutral-900" id="contact">
       <div className="px-4 pt-16 mx-auto text-center max-w-7xl sm:px-6 lg:px-8">
         <h2 className="text-4xl font-bold text-black dark:text-neutral-100">
-          ثبت استارتاپ ها
         </h2>
-
+          {t('title')}
         <p className="max-w-2xl pt-6 pb-6 m-auto text-base text-center text-zinc-600 dark:text-neutral-400">
-          ثبت استارتاپ های نوپا در شتابدهنده فرازمان
+        {t('subTitle')}
+
         </p>
       </div>
 

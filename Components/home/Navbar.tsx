@@ -8,6 +8,7 @@ import { Disclosure } from "@headlessui/react";
 import { Bars3Icon } from "@heroicons/react/24/solid";
 import { XMarkIcon } from "@heroicons/react/24/solid";
 import { ThemeProvider } from "next-themes";
+import { useTranslation } from "@/app/i18n/client";
 
 // Navigation links
 const navigation = [
@@ -24,7 +25,10 @@ function classNames(...classes: Array<string>) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default function Navbar() {
+export default function Navbar({lang}:{lang:string;}) {
+  const { t } = useTranslation(lang, 'navbar');
+  const menuItems = t('menuItems', { returnObjects: true });
+
   return (
     <ThemeProvider attribute="class">
       <Disclosure
@@ -63,21 +67,22 @@ export default function Navbar() {
                         <ThemeSwitchButton />
                       </div>
                       {/* Navigation links */}
-                      {navigation.map((item) => (
+                      {menuItems.map(({ label, href, current }: { label: string; href: string; current:boolean; }) => (
                         <Link
-                          key={item.name}
-                          href={item.href}
+                          key={label}
+                          href={href}
                           className={classNames(
-                            item.current
+                            current
                               ? "text-neutral-900 dark:text-neutral-300 first:ml-4"
                               : "text-neutral-900 dark:text-neutral-300 hover:underline underline-offset-4 first:ml-4",
                             "text-base font-medium"
                           )}
-                          aria-current={item.current ? "page" : undefined}
+                          aria-current={current ? "page" : undefined}
                         >
-                          {item.name}
+                          {label}
                         </Link>
                       ))}
+                      
                     </div>
                   </div>
                   {/* Mobile menu button */}
@@ -104,20 +109,20 @@ export default function Navbar() {
             {/* Mobile menu */}
             <Disclosure.Panel className="sm:hidden">
               <div className="space-y-1 px-4 min-h-screen border-t border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-900">
-                {navigation.map((item) => (
+                {menuItems.map(({ label, href, current }: { label: string; href: string; current:boolean; }) => (
                   <Disclosure.Button
-                    key={item.name}
+                    key={label}
                     as="a"
-                    href={item.href}
+                    href={href}
                     className={classNames(
-                      item.current
+                      current
                         ? "text-neutral-900 dark:text-neutral-400"
                         : "text-neutral-900 dark:text-neutral-400",
                       "block py-4 text-base font-medium border-b border-neutral-200 dark:border-neutral-700"
                     )}
-                    aria-current={item.current ? "page" : undefined}
+                    aria-current={current ? "page" : undefined}
                   >
-                    {item.name}
+                    {label}
                   </Disclosure.Button>
                 ))}
               </div>
