@@ -46,10 +46,10 @@ export function useTranslation(lng: any, ns: any, options?: any) {
       setActiveLng(i18n.resolvedLanguage);
     }, [activeLng, i18n.resolvedLanguage]);
     // eslint-disable-next-line react-hooks/rules-of-hooks
-    // useEffect(() => {
-    //   if (!lng || i18n.resolvedLanguage === lng) return;
-    //   i18n.changeLanguage(lng);
-    // }, [lng, i18n]);
+    useEffect(() => {
+      if (!lng || i18n.resolvedLanguage === lng) return;
+      i18n.changeLanguage(lng);
+    }, [lng, i18n]);
     // eslint-disable-next-line react-hooks/rules-of-hooks
     useEffect(() => {
       if (cookies.i18next === lng) return;
