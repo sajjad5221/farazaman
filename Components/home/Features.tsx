@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import SectionHeader from '../common/SectionHeader';
 import Circle from '../icons/Circle';
 import ArrowLeft from '../icons/ArrowLeft';
-import FormModal from '../common/form/FormModal';
+import CoSpaceModal from '../common/form/CoSpaceModal';
 
 export default function Features({ title }: { title: string }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -21,6 +21,7 @@ export default function Features({ title }: { title: string }) {
     <section className="bg-gray-50 z-0 relative" id="workspace">
       <div className="px-8 text-customGray leading-10 pt-16 pb-8 mx-auto max-w-7xl sm:px-6 lg:px-8 gap-x-40">
         <SectionHeader title={title} />
+        {/* TODO: use i18n */}
         <div className="md:mr-4 py-5">
           <h2 className="text-black text-xl mb-3 leading-10">
             ما در شرکت فرازمان محیطی تعاملی و اشتراکی را جهت ایجاد همکاری، رشد و
@@ -76,7 +77,7 @@ export default function Features({ title }: { title: string }) {
           <ArrowLeft color="#fff" />
         </button>
       </div>
-      <FormModal isOpen={isModalOpen} closeModal={closeModal} />
+      <CoSpaceModal isOpen={isModalOpen} closeModal={closeModal} />
     </section>
   );
 }

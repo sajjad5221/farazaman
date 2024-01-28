@@ -1,53 +1,58 @@
 'use client';
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import GetCsrfToken from '@/Services/GetCsrfToken';
 import { useForm } from 'react-hook-form';
 import FormsDetails from '@/Components/misc/FormsDetails';
 import Apiclient from '@/Services/Apiclient';
+import { HiringInfo } from '@/types/global';
+import { useData } from '@/stores/dataStore';
+import { useTranslation } from '@/app/i18n/client';
 
-const initialFormData = {
-  name: '',
-  last_name: '',
-  email: '',
-  phone: '',
-  hireType: '',
-  resume: null as File | null,
-};
+// const initialFormData = {
+//   name: '',
+//   last_name: '',
+//   email: '',
+//   phone: '',
+//   hireType: '',
+//   resume: null as File | null,
+// };
 
-interface Info {
-  name: string;
-  last_name: string;
-  email: string;
-  phone: string;
-  hireType: number;
-  resume: File | null;
-}
+const Data = useData.getState();
 
-const HiringForm = () => {
+const HiringForm = ({
+  lang
+}: {
+  lang: string;
+}) => {
+
+  const { t } = useTranslation(lang, 'mainPage')
+
+  console.log(t('title'));
+
   const {
     register,
     handleSubmit,
     formState: { errors },
     reset,
-  } = useForm<Info>({
+  } = useForm<HiringInfo>({
     mode: 'onBlur',
   });
   const description =
     'شرکت ما با تمرکز بر نوآوری و ایده‌های پرسرعت، استارتاپ‌های نوپا را در حوزه‌های مختلف پشتیبانی می‌کند. با تیم متخصص و برنامه‌های آموزشی منحصربه‌فرد، ما شرکت‌ها را به موفقیت و پیشرفت هدایت می‌کنیم. در حال حاضر، در حال استخدام هستیم و قصد داریم تیممان را با افراد متخصص و متعهد توسعه دهیم. اگر به یادگیری، همکاری و خلاقیت علاقه‌مند هستید و می‌خواهید به یک تیم پویا و پرشور بپیوندید، منتظر شما هستیم. لطفاً فرم استخدام را پر کنید تا اطلاعات بیشتری دریافت کنید و رزومه خود را ارسال کنید.';
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSuccess, setIsSuccess] = useState(false);
-  const [Message, setMessage] = useState('');
-  const [Send, setSend] = useState(false);
-  const [formData, setFormData] = useState(initialFormData);
-  const [filePost, setFilePost] = useState<{ resume: File | null }>({
-    resume: null,
-  });
-  const [csrfToken, setCsrfToken] = useState('');
+  // const [isSubmitting, setIsSubmitting] = useState(false);
+  // const [isSuccess, setIsSuccess] = useState(false);
+  // const [Message, setMessage] = useState('');
+  // const [Send, setSend] = useState(false);
+  // const [formData, setFormData] = useState(initialFormData);
+  // const [filePost, setFilePost] = useState<{ resume: File | null }>({
+  //   resume: null,
+  // });
+  // const [csrfToken, setCsrfToken] = useState('');
 
   useEffect(() => {
     async function fetchCsrfToken() {
       const token = await GetCsrfToken('http://localhost:8000/get-csrf-token/');
-      setCsrfToken(token);
+      Data.handleTokenChange(token);
     }
 
     fetchCsrfToken();
@@ -56,20 +61,20 @@ const HiringForm = () => {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.name === 'resume') {
       if (e.target.files && e.target.files.length > 0) {
-        setFilePost({ resume: e.target.files[0] });
+        Data.handleFilePostChange({ resume: e.target.files[0] });
       }
-      console.log(e.target.files);
+      e.target.files;
     }
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    Data.handleFormDataChange({ ...Data.formData, [e.target.name]: e.target.value });
   };
 
-  const handleFormSubmit = async (data: Info) => {
+  const handleFormSubmit = async (data: HiringInfo) => {
     // e.preventDefault();
-    setIsSubmitting(true);
-    setSend(true);
+    Data.handleSubmitingChange(true);
+    Data.handleSendChange(true);
     const sendFormData = new FormData();
-    if (filePost.resume) {
-      sendFormData.append('resume', filePost.resume, filePost.resume.name);
+    if (Data.filePost.resume) {
+      sendFormData.append('resume', Data.filePost.resume, Data.filePost.resume.name);
     }
     sendFormData.append('name', data.name);
     sendFormData.append('phone', data.phone);
@@ -80,19 +85,21 @@ const HiringForm = () => {
       const response = await Apiclient.post('hire/', sendFormData, {
         headers: {
           'content-type': 'multipart/form-data',
-          'X-CSRFToken': csrfToken,
+          'X-CSRFToken': Data.csrfToken,
         },
       });
 
-      setIsSuccess(true);
-      setMessage('ارسال موفقیت آمیز بود');
-      setSend(false);
+      console.log(response);
+
+      Data.handleSubmitingChange(true);
+      Data.handleMessageChange('ارسال موفقیت آمیز بود');
+      Data.handleSendChange(false);
       reset(); // Reset the form fields
     } catch (error) {
       console.log(error);
-      setMessage('ارسال ناموفق بود !');
-      setSend(false);
-      setIsSuccess(false);
+      Data.handleMessageChange('ارسال ناموفق بود !');
+      Data.handleSendChange(false);
+      Data.handleSubmitingChange(false);
     }
   };
 
@@ -279,7 +286,7 @@ const HiringForm = () => {
                   className={`w-full px-4 py-3 border-2 text-gray-400 style="visibility:hidden placeholder:text-neutral-400   rounded-md outline-none     focus:ring-4 ${
                     errors.resume ? 'border-yellow-500' : ''
                   }`}
-                  value={formData.resume?.name}
+                  value={Data.formData.resume?.name}
                   {...register('resume', {
                     required: 'فایل را وارد کنید.',
                     pattern: {
@@ -298,17 +305,17 @@ const HiringForm = () => {
               <input
                 type="hidden"
                 name="csrftokenmiddleware"
-                value={csrfToken}
+                value={Data.csrfToken}
               />
               <button
                 type="submit"
-                disabled={Send}
+                disabled={Data.send}
                 className="w-full py-4 font-semibold text-white transition-colors rounded-md bg-neutral-900 hover:bg-neutral-800 focus:outline-none focus:ring-offset-2 focus:ring focus:ring-neutral-200 px-7  "
               >
-                {Send ? 'در حال ارسال...' : 'ارسال'}
+                {Data.send ? 'در حال ارسال...' : 'ارسال'}
               </button>
             </form>
-            {isSuccess && isSubmitting && Message != '' && (
+            {Data.isSuccess && Data.isSubmitting && Data.Message != '' && (
               <div
                 className="flex p-4 mt-6 mb-4 text-sm text-green-900 rounded-lg text-bold bg-green-10    "
                 role="alert"
@@ -329,12 +336,12 @@ const HiringForm = () => {
                 </svg>
                 <span className="sr-only">پیام</span>
                 <div>
-                  <span className="font-medium">{Message}</span>!
+                  <span className="font-medium">{Data.Message}</span>!
                 </div>
               </div>
             )}
 
-            {!isSuccess && isSubmitting && Message != '' && (
+            {!Data.isSuccess && Data.isSubmitting && Data.Message != '' && (
               <div
                 className="flex p-4 mt-6 mb-4 text-sm text-red-900 rounded-lg text-bold bg-red-90    "
                 role="alert"
@@ -355,7 +362,7 @@ const HiringForm = () => {
                 </svg>
                 <span className="sr-only">پیام</span>
                 <div>
-                  <span className="font-medium">{Message}</span>!
+                  <span className="font-medium">{Data.Message}</span>!
                 </div>
               </div>
             )}

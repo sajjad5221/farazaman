@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import SectionHeader from '../common/SectionHeader';
 import Circle from '../icons/Circle';
 import ArrowLeft from '../icons/ArrowLeft';
-import FormModal from '../common/form/FormModal';
+import FormModal from '../common/form/CoSpaceModal';
 import StartupRegistrationModal from '../common/form/StartupRegistrationModal';
 
 export default function StartupRegistration({ title }: { title: string }) {
@@ -25,14 +25,14 @@ export default function StartupRegistration({ title }: { title: string }) {
         <div className="md:mr-4 py-5">
           <h2 className="text-black text-xl mb-3 leading-10">
             شرکت فرازمان با افتخار شما را در مسیر ثبت استارت‌آپ و رشد و گسترش آن
-            همراهی می‌کند. 
+            همراهی می‌کند.
           </h2>
           <div>
             <p>
               امروزه کسب‌وکارهای نوپا و استارت‌آپ‌ها از محبوبیت بسیار بالایی
               برخوردار هستند. اولین و مهمترین قدم برای رشد هر استات‌آپی، جذب
               سرمایه است. برای حفظ مالکیت و منافع اصلی بنیانگذاران، انتخاب
-              سرمایه‌گذار مناسب اهمیت بالایی دارد. 
+              سرمایه‌گذار مناسب اهمیت بالایی دارد.
             </p>
             <ul className="list-disc mr-4">
               <li>شناسایی رقبا</li>

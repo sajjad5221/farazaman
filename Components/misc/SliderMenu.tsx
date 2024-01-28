@@ -11,6 +11,7 @@ type Item = {
   name: string;
   description: string;
   image: string;
+  jobTitle: string;
 };
 
 export default function SliderMenu({

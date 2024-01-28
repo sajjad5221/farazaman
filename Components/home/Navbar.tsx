@@ -6,6 +6,7 @@ import React from 'react';
 import { Disclosure } from '@headlessui/react';
 import { Bars3Icon } from '@heroicons/react/24/solid';
 import { XMarkIcon } from '@heroicons/react/24/solid';
+import { useTranslation } from '@/app/i18n/client';
 
 // Navigation links
 const navigation = [
@@ -22,7 +23,10 @@ function classNames(...classes: Array<string>) {
   return classes.filter(Boolean).join(' ');
 }
 
-export default function Navbar() {
+export default function Navbar({lang}:{lang:string;}) {
+  const { t } = useTranslation(lang, 'navbar');
+  const menuItems = t('menuItems', { returnObjects: true });
+
   return (
     <Disclosure
       as="nav"

@@ -1,46 +1,43 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import Apiclient from '@/Services/Apiclient';
 import FormsDetails from '@/Components/misc/FormsDetails';
 import GetCsrfToken from '@/Services/GetCsrfToken';
-
-interface Info {
-  name: string;
-  email: string;
-  phone: string;
-  message: string;
-}
+import { ContactInfo } from '@/types/global';
+import { useData } from '@/stores/dataStore';
 
 const ContactUsForm = () => {
-  const [formData, setFormData] = useState<Info>({
-    name: '',
-    email: '',
-    phone: '',
-    message: '',
-  });
+  // const [formData, setFormData] = useState<ContactInfo>({
+  //   name: '',
+  //   email: '',
+  //   phone: '',
+  //   message: '',
+  // });
+
+  const Data = useData();
 
   const {
     register,
     handleSubmit,
     formState: { errors },
     reset,
-  } = useForm<Info>({
+  } = useForm<ContactInfo>({
     mode: 'onBlur',
   });
 
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSuccess, setIsSuccess] = useState(false);
-  const [send, setSend] = useState(false);
-  const [message, setMessage] = useState('');
-  const [csrfToken, setCsrfToken] = useState('');
+  // const [isSubmitting, setIsSubmitting] = useState(false);
+  // const [isSuccess, setIsSuccess] = useState(false);
+  // const [send, setSend] = useState(false);
+  // const [message, setMessage] = useState('');
+  // const [csrfToken, setCsrfToken] = useState('');
 
   useEffect(() => {
     // Fetch CSRF token
     async function fetchCsrfToken() {
       const token = await GetCsrfToken('http://localhost:8000/get-csrf-token/');
-      setCsrfToken(token);
+      Data.handleTokenChange(token);
     }
 
     fetchCsrfToken();
@@ -49,31 +46,33 @@ const ContactUsForm = () => {
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    Data.handleContactUsFormData({ ...Data.contactUsFormData, [e.target.name]: e.target.value });
   };
 
-  const onSubmit = async (data: Info) => {
-    setSend(true);
-    setIsSubmitting(true);
+  const onSubmit = async (data: ContactInfo) => {
+    Data.handleSendChange(true);
+    Data.handleSubmitingChange(true);
     try {
       // Send form data to the server
 
       //Response is unused. Remove if unnecessary.
       const response = await Apiclient.post('contact/', JSON.stringify(data), {
         headers: {
-          'X-CSRFToken': csrfToken,
+          'X-CSRFToken': Data.csrfToken,
           'Content-Type': 'application/json',
         },
       });
-      setIsSuccess(true);
-      setMessage('ارسال موفقیت آمیز بود');
-      setSend(false);
+      Data.handleSuccessChange(true);
+      
+      Data.handleMessageChange('ارسال موفقیت آمیز بود');
+      Data.handleSendChange(false);
       reset();
     } catch (error) {
       console.log(error);
-      setMessage('ارسال ناموفق بود !');
-      setSend(false);
-      setIsSuccess(false);
+      
+      Data.handleMessageChange('ارسال ناموفق بود !');
+      Data.handleSendChange(false);
+      Data.handleSuccessChange(false);
     }
   };
 
@@ -218,13 +217,13 @@ const ContactUsForm = () => {
 
               <button
                 type="submit"
-                disabled={send}
+                disabled={Data.send}
                 className="w-full py-4 font-semibold text-white transition-colors rounded-md bg-neutral-900 hover:bg-neutral-800 focus:outline-none focus:ring-offset-2 focus:ring focus:ring-neutral-200 px-7"
               >
-                {send ? 'در حال ارسال...' : 'ارسال'}
+                {Data.send ? 'در حال ارسال...' : 'ارسال'}
               </button>
             </form>
-            {isSuccess && isSubmitting && message !== '' && (
+            {Data.isSuccess && Data.isSubmitting && Data.Message !== '' && (
               <div
                 className="flex p-4 mt-6 mb-4 text-sm text-green-900 rounded-lg text-bold bg-green-10"
                 role="alert"
@@ -242,7 +241,7 @@ const ContactUsForm = () => {
                     clipRule="evenodd"
                   ></path>
                 </svg>
-                {message}
+                {Data.Message}
               </div>
             )}
           </div>
