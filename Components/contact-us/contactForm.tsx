@@ -78,7 +78,7 @@ const ContactUsForm = () => {
   };
 
   return (
-    <div className="w-screen mt-16 bg-gray-50" id="contact">
+    <section className="w-screen mt-16 bg-gray-50" id="contact">
       <div className="px-4 pt-16 mx-auto text-center max-w-7xl sm:px-6 lg:px-8">
         <h2 className="text-4xl font-bold text-black">ارتباط با ما</h2>
 
@@ -249,7 +249,7 @@ const ContactUsForm = () => {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

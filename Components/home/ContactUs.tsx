@@ -5,7 +5,7 @@ import Button from '../common/form/Button';
 
 function ContactUs() {
   return (
-    <section className="bg-gray-50 px-4 pt-8 pb-16">
+    <section className="bg-gray-50 px-4 pt-8 pb-16" id="contact">
       <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
         <SectionHeader title="ارتباط با ما" />
         <div className="flex flex-col justify-between gap-8 md:flex-row my-8">

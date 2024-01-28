@@ -42,8 +42,8 @@ export default function RootLayout({
         <body className="font-yakan">
           <Navbar lang={lang}/>
           {/* Render children passed to RootLayout component */}
-          <div>{children}</div>
-          {/* <Footer lang={lang}/> */}
+          <main>{children}</main>
+          <Footer />
         </body>
       </html>
     </>

@@ -25,7 +25,7 @@ export default async function Home({
   return (
     <ErrorBoundary>
       <Suspense fallback={<Loading />}>
-        <main>
+        <>
           <div className="flex flex-col mt-16">
             <Banner />
             {/* problem */}
@@ -41,7 +41,7 @@ export default async function Home({
             <Faq />
             <ContactUs />
           </div>
-        </main>
+        </>
       </Suspense>
     </ErrorBoundary>
   );

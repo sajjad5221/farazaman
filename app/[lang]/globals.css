@@ -74,3 +74,10 @@ form {
 .custom-shadow {
   box-shadow: 0px 0px 11px 4px rgba(74, 74, 74, 0.07);
 }
+
+@media (min-width: 1536px) {
+  html {
+    max-width: 1536px;
+    margin: 0 auto;
+  }
+}
