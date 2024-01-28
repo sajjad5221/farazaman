@@ -24,12 +24,12 @@ export default function RootLayout({
       />
 
       {/* Define HTML element with direction and language attributes */}
-      <html dir="rtl" lang="en" className="bg-neutral-900 light:bg-gray-50">
+      <html dir="rtl" lang="fa" className="bg-gray-50">
         {/* Define body element with font family */}
         <body className="font-yakan">
           <Navbar />
           {/* Render children passed to RootLayout component */}
-          <div>{children}</div>
+          <main>{children}</main>
           <Footer />
         </body>
       </html>
