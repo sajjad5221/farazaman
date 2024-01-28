@@ -152,7 +152,6 @@ export default function InternshipModal({
                   {...register("university", {
                     required: 'متن پیام را وارد کنید.',
                   })}
-
                 />
                   {errors.university && (
                     <span className="text-sm text-yellow-500">
