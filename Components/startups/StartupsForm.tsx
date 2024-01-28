@@ -7,6 +7,7 @@ import FormsDetails from '@/Components/misc/FormsDetails';
 import Apiclient from '@/Services/Apiclient';
 import { useData } from '@/stores/dataStore';
 import { StartupsInfo } from '@/types/global';
+import Button from '../common/form/Button';
 
 const StartUpsForm = () => {
   // {t} = useTranslation()
@@ -261,13 +262,14 @@ const StartUpsForm = () => {
                 name="csrftokenmiddleware"
                 value={Data.csrfToken}
               />
-              <button
+              {/* <button
                 type="submit"
                 disabled={Data.send}
                 className="w-full py-4 mt-2 font-semibold text-white transition-colors rounded-md bg-neutral-900 hover:bg-neutral-800 focus:outline-none focus:ring-offset-2 focus:ring focus:ring-neutral-200 px-7    "
               >
                 {Data.send ? 'در حال ارسال...' : 'ارسال'}
-              </button>
+              </button> */}
+              <Button text={Data.send ? 'در حال ارسال...' : 'ارسال'} disabled={Data.send} func='form' submit={true} />
             </form>
             {Data.isSuccess && Data.isSubmitting && Data.Message != '' && (
               <div

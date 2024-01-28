@@ -29,6 +29,7 @@ const startupsList = [
 ];
 
 import React from 'react';
+import Button from '../common/form/Button';
 
 function Startup() {
   return startupsList.map((item) => (
@@ -41,10 +42,11 @@ function Startup() {
         <div className="w-full h-[0.8px] bg-gray-400 my-2"></div>
         <div className="px-4">
           <p className="text-sm">{item.description}</p>
-          <button className="flex px-5 py-2 mt-8 text-brand rounded-md border border-brand hover:text-white hover:bg-brand">
+          {/* <button className="flex px-5 py-2 mt-8 text-brand rounded-md border border-brand hover:text-white hover:bg-brand">
             <p>مشاهده وب سایت</p>
             <ArrowLeft color="#D6A001" />
-          </button>
+          </button> */}
+          <Button func='goto' text='مشاهده وب سایت' submit={false} />
         </div>
       </div>
     </div>
