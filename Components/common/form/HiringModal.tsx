@@ -37,7 +37,11 @@ export default function HiringModal({
     }
   };
 
-  const { register , handleSubmit,formState:{errors} } = useForm<HiringInfo>({});
+  const { register,
+    handleSubmit,
+    formState:{errors}} = useForm<HiringInfo>({
+    mode: 'onBlur',
+  });
 
   const onSubmit = (data: any) => console.log(data);
 

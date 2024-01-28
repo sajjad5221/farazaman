@@ -29,7 +29,11 @@ export default function StartupRegistrationModal({
   isOpen: boolean;
   closeModal: () => void;
 }) {
-  const {register, handleSubmit, formState:{errors}} = useForm<StartupsInfo>({});
+  const {register,
+    handleSubmit,
+    formState:{errors}} = useForm<StartupsInfo>({
+    mode: 'onBlur',
+  });
 
   const onSubmit = (data:any) => console.log(data);
 

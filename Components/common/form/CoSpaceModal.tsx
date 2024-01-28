@@ -29,7 +29,11 @@ export default function CoSpaceModal({
   isOpen: boolean;
   closeModal: () => void;
 }) {
-  const { register, handleSubmit,formState:{errors} } = useForm<WorkSpaceInfo>({});
+  const { register,
+    handleSubmit,
+    formState:{errors}} = useForm<WorkSpaceInfo>({
+    mode: 'onBlur',
+  });
   const onSubmit = (data: any) => console.log(data);
   return (
     <Modal isOpen={isOpen} style={customStyles}>
@@ -52,7 +56,7 @@ export default function CoSpaceModal({
                   <p className="text-xl mb-4">نام و نام خانوادگی</p>
                   <input
                     type="text"
-                    placeholder=""
+                    placeholder="نام و نام خانوادگی"
                     className={`px-3 py-4 shadow-md rounded-md w-4/5 mt-2 placeholder:text-gray-200 ${
                       errors.name ? 'border-yellow-500' : ''
                     }`}
