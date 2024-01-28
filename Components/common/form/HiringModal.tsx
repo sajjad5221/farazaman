@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Modal from 'react-modal';
 import XLg from '../../icons/XLg';
 import ArrowLeft from '../../icons/ArrowLeft';
@@ -28,7 +28,14 @@ export default function HiringModal({
   isOpen: boolean;
   closeModal: () => void;
 }) {
+  const [selectedFile, setSelectedFile] = useState<File | null>(null);
 
+  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const files = event.target.files;
+    if (files && files.length > 0) {
+      setSelectedFile(files[0]);
+    }
+  };
 
   const { register , handleSubmit,formState:{errors} } = useForm<HiringInfo>({});
 
@@ -138,7 +145,13 @@ export default function HiringModal({
                     className="px-3 py-4 shadow-md rounded-md w-full mt-2 placeholder:text-gray-200"
                     placeholder="لطفا فایل مورد نظر را آپلود کنید"
                     {...register("resume")}
+                    onChange={handleFileChange}
                 />
+                {errors.resume && (
+                    <span className="text-sm text-yellow-500">
+                      {errors.resume.message}
+                    </span>
+                )}
               </div>
             </div>
             <div className="w-full flex justify-center mt-8">

@@ -135,7 +135,6 @@ export default function InternshipModal({
                   {...register("university", {
                     required: 'متن پیام را وارد کنید.',
                   })}
-
                 />
               </div>
               <div className="w-1/2">
