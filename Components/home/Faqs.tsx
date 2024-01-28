@@ -1,35 +1,43 @@
-'use client';
-import { Disclosure } from '@headlessui/react';
-import { ChevronDownIcon } from '@heroicons/react/24/solid';
-import React from 'react';
-import SectionHeader from '../common/SectionHeader';
+"use client";
+import { Disclosure } from "@headlessui/react";
+import { ChevronDownIcon } from "@heroicons/react/24/solid";
+import React from "react";
+import SectionHeader from "../common/SectionHeader";
+import { useTranslation } from "app/i18n";
+import { useLang } from "stores/langStore";
 
 // Define an array of FAQ items, each with a question and response
-const faqitems = [
-  {
-    question: 'مدت زمان قرارداد طرح پویش چقدر است؟',
-    response:
-      'طبق هماهنگی‌هایی که با دانشگاه انجام شده، مدت زمان این طرح به مدت 240 ساعت است.',
-  },
-  {
-    question: 'ساعت کاری به چه‌ صورت برنامه ریزی شده است؟',
-    response:
-      'طبق هماهنگی‌هایی که با دانشگاه انجام شده، مدت زمان این طرح به مدت 240 ساعت است.',
-  },
-  {
-    question: 'آیا داشتن ایده برای یک استارت‌آپ کافی است؟',
-    response:
-      'باوجود اینکه اولین قدم در تاسیس و شروع یک استارت‌آپ، ایده اولیه آن است؛ اما شرط کافی نیست. داشتن MVP (حداقل محصول قابل ارائه) شرط کافی برای شروع یک استارت‌آپ است.',
-  },
-  {
-    question: 'فضای کار اشتراکی چه امکاناتی را فراهم می کند؟',
-    response:
-      'شرکت ما فضای مناسب رفاهی و امکانات فنی ازجمله اینترنت آزاد و نامحدود، نوشیدنی و غیره را برای شما فراهم می کند.',
-  },
-];
+// const faqitems = [
+//   {
+//     question: 'مدت زمان قرارداد طرح پویش چقدر است؟',
+//     response:
+//       'طبق هماهنگی‌هایی که با دانشگاه انجام شده، مدت زمان این طرح به مدت 240 ساعت است.',
+//   },
+//   {
+//     question: 'ساعت کاری به چه‌ صورت برنامه ریزی شده است؟',
+//     response:
+//       'طبق هماهنگی‌هایی که با دانشگاه انجام شده، مدت زمان این طرح به مدت 240 ساعت است.',
+//   },
+//   {
+//     question: 'آیا داشتن ایده برای یک استارت‌آپ کافی است؟',
+//     response:
+//       'باوجود اینکه اولین قدم در تاسیس و شروع یک استارت‌آپ، ایده اولیه آن است؛ اما شرط کافی نیست. داشتن MVP (حداقل محصول قابل ارائه) شرط کافی برای شروع یک استارت‌آپ است.',
+//   },
+//   {
+//     question: 'فضای کار اشتراکی چه امکاناتی را فراهم می کند؟',
+//     response:
+//       'شرکت ما فضای مناسب رفاهی و امکانات فنی ازجمله اینترنت آزاد و نامحدود، نوشیدنی و غیره را برای شما فراهم می کند.',
+//   },
+// ];
 
 // Define the Faq component
-export default function Faq() {
+export default async function Faq() {
+  const lang = useLang.getState().lang;
+  const { t } = await useTranslation(lang, "mainPage");
+  const faqitems: { question: string; response: string }[] = t(
+    "FrequentlyQuestions",
+    { returnObjects: true }
+  ) as any;
   // Render the component
   return (
     <section className="bg-gray-50 px-4 py-16" id="faq">
