@@ -6,7 +6,6 @@ interface ServicesData {
 
 interface HiringInfo {
   name: string;
-  last_name: string;
   email: string;
   phone: string;
   hireType: number;

@@ -29,7 +29,7 @@ export default function CoSpaceModal({
   isOpen: boolean;
   closeModal: () => void;
 }) {
-  const { register, handleSubmit } = useForm<WorkSpaceInfo>({});
+  const { register, handleSubmit,formState:{errors} } = useForm<WorkSpaceInfo>({});
   const onSubmit = (data: any) => console.log(data);
   return (
     <Modal isOpen={isOpen} style={customStyles}>
@@ -52,10 +52,23 @@ export default function CoSpaceModal({
                   <p className="text-xl mb-4">نام و نام خانوادگی</p>
                   <input
                     type="text"
-                    className="px-3 py-4 shadow-md rounded-md w-4/5 mt-2 placeholder:text-gray-200"
                     placeholder=""
-                    {...register("name")}
+                    className={`px-3 py-4 shadow-md rounded-md w-4/5 mt-2 placeholder:text-gray-200 ${
+                      errors.name ? 'border-yellow-500' : ''
+                    }`}
+                    {...register('name', {
+                      required: 'نام خود را وارد کنید.',
+                      pattern: {
+                        value: /^[\u0600-\u06FF\s]+$/,
+                        message: 'نام خود را به درستی وارد کنید.',
+                      },
+                    })}
                   />
+                  {errors.name && (
+                      <span className="text-sm text-yellow-500">
+                        {errors.name.message}
+                      </span>
+                  )}
                 </div>
               </div>
               <div className="w-1/2">
@@ -72,30 +85,56 @@ export default function CoSpaceModal({
                 <div className="w-1/2">
                   <p className="text-xl mb-4">شماره تلفن همراه</p>
                   <input
-                    {...register("phone")}
                     type="text"
-                    className="px-3 py-4 shadow-md rounded-md w-4/5 mt-2 placeholder:text-gray-200"
                     placeholder="شماره تلفن همراه"
+                    className={`px-3 py-4 shadow-md rounded-md w-4/5 mt-2 placeholder:text-gray-200 ${
+                    errors.phone ? 'border-yellow-500' : ''
+                    }`}
+                    {...register('phone', {
+                      required: 'شماره تماس را وارد کنید.',
+                      pattern: {
+                        value: /^\d{11}$/,
+                        message: 'شماره تماس را به درستی وارد کنید.',
+                      },
+                    })}
                   />
+                  {errors.phone && (
+                      <span className="text-sm text-yellow-500">
+                        {errors.phone.message}
+                      </span>
+                  )}
                 </div>
                 <div className="w-1/2">
                   <p className="text-xl mb-4">آدرس ایمیل شما</p>
                   <input
-                    {...register("email")}
                     type="text"
-                    className="px-3 py-4 shadow-md rounded-md w-full mt-2 placeholder:text-gray-200"
                     placeholder="آدرس الکترونیکی"
+                    className={`px-3 py-4 shadow-md rounded-md w-full mt-2 placeholder:text-gray-200 ${
+                    errors.email ? 'border-yellow-500' : ''
+                    }`}
+                    {...register('email', {
+                      required: 'آدرس ایمیل خود را وارد کنید.',
+                      pattern: {
+                        value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                        message: 'آدرس ایمیل را به درستی وارد کنید.',
+                      },
+                    })}
                   />
+                  {errors.email && (
+                      <span className="text-sm text-yellow-500">
+                        {errors.email.message}
+                      </span>
+                  )}
                 </div>
               </div>
-              <div>
-                <textarea
-                  {...register("description")}
-                  rows={4}
-                  className="textarea mt-8 rounded-md textarea-lg w-full mb-1 drop-shadow-md resize-none placeholder:text-gray-300 placeholder:font-thin px-4 py-3"
-                  placeholder="توضیحات...."
-                ></textarea>
-              </div>
+              {/*<div>*/}
+              {/*  <textarea*/}
+              {/*    {...register("description")}*/}
+              {/*    rows={4}*/}
+              {/*    className="textarea mt-8 rounded-md textarea-lg w-full mb-1 drop-shadow-md resize-none placeholder:text-gray-300 placeholder:font-thin px-4 py-3"*/}
+              {/*    placeholder="توضیحات...."*/}
+              {/*  ></textarea>*/}
+              {/*</div>*/}
             </div>
             <div className="w-full flex justify-center mt-8">
               <button type="submit" className="flex px-12 py-2 rounded-md bg-brand text-white">
