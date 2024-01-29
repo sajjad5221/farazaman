@@ -1,9 +1,12 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import Modal from 'react-modal';
 import XLg from '../../icons/XLg';
 import ArrowLeft from '../../icons/ArrowLeft';
 import { HiringInfo } from "@/types/global";
 import { useForm } from "react-hook-form";
+import {useData} from "@/stores/dataStore";
+import GetCsrfToken from "@/Services/GetCsrfToken";
+import Apiclient from "@/Services/Apiclient";
 
 const customStyles = {
   content: {
@@ -28,26 +31,84 @@ export default function HiringModal({
   isOpen: boolean;
   closeModal: () => void;
 }) {
+
+    const Data = useData.getState();
+
+
   const [selectedFile, setSelectedFile] = useState<File | null>(null);
 
-  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const files = event.target.files;
-    if (files && files.length > 0) {
-      setSelectedFile(files[0]);
+  useEffect(() => {
+    async function fetchCsrfToken() {
+      const token = await GetCsrfToken('http://localhost:8000/get-csrf-token/');
+      Data.handleTokenChange(token);
     }
-  };
+
+    fetchCsrfToken();
+  }, [])
+
+  // const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  //   const files = event.target.files;
+  //   if (files && files.length > 0) {
+  //     setSelectedFile(files[0]);
+  //   }
+  // };
 
   const { register,
     handleSubmit,
-    formState:{errors}} = useForm<HiringInfo>({
+    formState:{errors},
+    reset,
+  } = useForm<HiringInfo>({
     mode: 'onBlur',
   });
 
-  const onSubmit = (data: any) => console.log(data);
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.name === 'resume') {
+      if (e.target.files && e.target.files.length > 0) {
+        Data.handleFilePostChange({ resume: e.target.files[0] });
+      }
+      e.target.files;
+    }
+    Data.handleFormDataChange({ ...Data.formData, [e.target.name]: e.target.value });
+  };
+
+  const handleFormSubmit = async (data: HiringInfo) => {
+    // e.preventDefault();
+    Data.handleSubmitingChange(true);
+    Data.handleSendChange(true);
+    const sendFormData = new FormData();
+    if (Data.filePost.resume) {
+      sendFormData.append('resume', Data.filePost.resume, Data.filePost.resume.name);
+    }
+    sendFormData.append('name', data.name);
+    sendFormData.append('phone', data.phone);
+    sendFormData.append('email', data.email);
+    sendFormData.append('hireType', data.hireType.toString());
+
+    try {
+      const response = await Apiclient.post('hire/', sendFormData, {
+        headers: {
+          'content-type': 'multipart/form-data',
+          'X-CSRFToken': Data.csrfToken,
+        },
+      });
+
+      console.log(response);
+
+      Data.handleSubmitingChange(true);
+      Data.handleMessageChange('ارسال موفقیت آمیز بود');
+      Data.handleSendChange(false);
+      reset(); // Reset the form fields
+    } catch (error) {
+      console.log(error);
+      Data.handleMessageChange('ارسال ناموفق بود !');
+      Data.handleSendChange(false);
+      Data.handleSubmitingChange(false);
+    }
+  };
 
   return (
     <Modal isOpen={isOpen} style={customStyles}>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={handleSubmit(handleFormSubmit)}>
         <div className="w-[64rem] pt-4 pb-8">
           {/* X button */}
           <div className="mr-4">
@@ -78,6 +139,7 @@ export default function HiringModal({
                           message: 'نام و نام خانوادگی خود را به درستی وارد کنید.',
                         },
                       })}
+                      onChange={handleChange}
                   />
                   {errors.name && (
                       <span className="text-sm text-yellow-500">
@@ -112,6 +174,7 @@ export default function HiringModal({
                           message: 'شماره تماس را به درستی وارد کنید.',
                         },
                       })}
+                      onChange={handleChange}
                   />
                   {errors.phone && (
                       <span className="text-sm text-yellow-500">
@@ -134,6 +197,7 @@ export default function HiringModal({
                             message: 'آدرس ایمیل را به درستی وارد کنید.',
                           },
                       })}
+                      onChange={handleChange}
                   />
                   {errors.email && (
                       <span className="text-sm text-yellow-500">
@@ -142,14 +206,79 @@ export default function HiringModal({
                   )}
                 </div>
               </div>
+              <div className="mb-5">
+                <p className="description-type text-zinc-600 w-full text-xl   mobile:text-[18px] s:text-[18px] sm:text-lg inline">
+                  نوع طرح :
+                </p>
+                <label
+                  htmlFor="hireType-1"
+                  className="cursor-pointer mr-[10px] text-[18px] ml-2 text-sm font-medium text-zinc-600   mobile:text-[14px] s:text-[14px] sm:text-[16px]"
+                >
+                  طرح عادی{' '}
+                </label>
+                <input
+                  id="hireType-1"
+                  type="radio"
+                  value="NO"
+                  placeholder=""
+                  autoComplete="false"
+                  className={`cursor-pointer w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-2     mobile:w-[16%] s:w-[15%] sm:w-[14px] sm:-ml-[5px]" name="default-box" value="normal" checked="" ${
+                    errors.hireType ? 'border-yellow-500' : ''
+                  }`}
+                  {...register('hireType', {
+                    required: 'نوع استخدام خود را مشخص کنید.',
+                  })}
+                  onChange={handleChange}
+                />
+                {errors.hireType && (
+                  <span className="text-sm text-yellow-500">
+                    {errors.hireType.message}
+                  </span>
+                )}
+
+                <label
+                  htmlFor="hireType-2"
+                  className="cursor-pointer mr-[10px] text-[18px] ml-2 text-sm font-medium text-zinc-600   mobile:text-[14px] s:text-[14px] sm:text-[16px]"
+                >
+                  طرح پویش{' '}
+                </label>
+                <input
+                  id="hireType-2"
+                  type="radio"
+                  value="PU"
+                  placeholder=""
+                  autoComplete="false"
+                  className={`cursor-pointer w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-2   mobile:w-[16%] s:w-[15%] sm:w-[14px] sm:-ml-[5px]" name="default-box" value="normal" checked="" ${
+                    errors.hireType ? 'border-yellow-500' : ''
+                  }`}
+                  {...register('hireType', {
+                    required: 'نوع استخدام خود را مشخص کنید.',
+                  })}
+                  onChange={handleChange}
+                />
+                {errors.hireType && (
+                  <span className="text-sm text-yellow-500">
+                    {errors.hireType.message}
+                  </span>
+                )}
+              </div>
               <div className="">
                 <p className="text-xl mb-4">رزومه شما</p>
                 <input
                     type="file"
-                    className="px-3 py-4 shadow-md rounded-md w-full mt-2 placeholder:text-gray-200"
                     placeholder="لطفا فایل مورد نظر را آپلود کنید"
-                    {...register("resume")}
-                    onChange={handleFileChange}
+                    className={`px-3 py-4 shadow-md rounded-md w-full mt-2 placeholder:text-gray-200 ${
+                        errors.resume ? 'border-yellow-500' : ''
+                      }`}
+                      value={Data.formData.resume?.name}
+                      {...register('resume', {
+                        required: 'فایل را وارد کنید.',
+                        pattern: {
+                          value: /b'[a-f]+\d+'/,
+                          message: 'فایل را به درستی وارد کنید.',
+                        },
+                      })}
+                      onChange={handleChange}
                 />
                 {errors.resume && (
                     <span className="text-sm text-yellow-500">
