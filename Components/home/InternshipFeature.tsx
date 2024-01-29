@@ -7,7 +7,7 @@ import ArrowLeft from '../icons/ArrowLeft';
 import FormModal from '../common/form/CoSpaceModal';
 import InternshipModal from '../common/form/InternshipModal';
 import Button from '../common/form/Button';
-import { useTranslation } from 'app/i18n/client';
+import { useTranslation } from '@/app/i18n/client';
 import { useLang } from 'stores/langStore';
 
 export default function HiringFeature({ title }: { title: string }) {

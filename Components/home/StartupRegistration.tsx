@@ -3,10 +3,10 @@ import React, { useState } from 'react';
 import SectionHeader from '../common/SectionHeader';
 import Circle from '../icons/Circle';
 import ArrowLeft from '../icons/ArrowLeft';
-import HiringModal from '../common/form/HiringModal';
-import { useTranslation } from 'app/i18n/client';
+// import HiringModal from '../common/form/HiringModal';
+import { useTranslation } from '@/app/i18n/client';
 import { useLang } from 'stores/langStore';
-import InternshipModal from '../common/form/InternshipModal';
+// import InternshipModal from '../common/form/InternshipModal';
 import StartupRegistrationModal from '../common/form/StartupRegistrationModal';
 import Button from '../common/form/Button';
 
