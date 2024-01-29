@@ -43,7 +43,7 @@ export default function CoSpaceModal({
           <div className="mr-4">
             <div
               onClick={closeModal}
-              className="pointer border border-black w-5 pt-2 h-5 flex justify-center items-center rounded-full"
+              className="pointer border border-black w-5 pt-2 h-5 flex justify-center items-center rounded-full z-40"
             >
               <XLg />
             </div>
