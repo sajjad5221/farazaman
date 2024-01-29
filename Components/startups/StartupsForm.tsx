@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import GetCsrfToken from '@/Services/GetCsrfToken';
 import { useForm } from 'react-hook-form';
 import FormsDetails from '@/Components/misc/FormsDetails';
@@ -27,9 +27,9 @@ const StartUpsForm = () => {
   // const [Message, setMessage] = useState('');
   // const [Send, setSend] = useState(false);
   // const [formData, setFormData] = useState(initialFormData);
-  // const [filePost, setFilePost] = useState<{ pitch: File | null }>({
-  //   pitch: null,
-  // });
+  const [filePost, setFilePost] = useState<{ pitch: File | null }>({
+    pitch: null,
+  });
   // const [csrfToken, setCsrfToken] = useState('');
 
   useEffect(() => {
@@ -43,9 +43,9 @@ const StartUpsForm = () => {
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.name === 'pitch') {
-      if (e.target.files && e.target.files.length > 0) {
-        Data.handleStartupsFilePost({ pitch: e.target.files[0] });
-      }
+      // if (e.target.files && e.target.files.length > 0) {
+      //   Data.handleStartupsFilePost({ pitch: e.target.files[0] });
+      // }
       console.log(e.target.files);
     }
     Data.handleStartupsFormDataChange({ ...Data.startupsFormData, [e.target.name]: e.target.value });
@@ -56,8 +56,8 @@ const StartUpsForm = () => {
     Data.handleSubmitingChange(true);
     Data.handleSendChange(true);
     const sendFormData = new FormData();
-    if (Data.startupsFilePost.pitch) {
-      sendFormData.append('pitch', Data.startupsFilePost.pitch, Data.startupsFilePost.pitch.name);
+    if (Data.startupsFormData.pitch) {
+      sendFormData.append('pitch', Data.startupsFormData.pitch, Data.startupsFormData.pitch.name);
     }
     sendFormData.append('name', data.name);
     sendFormData.append('phone', data.phone);
@@ -241,7 +241,7 @@ const StartUpsForm = () => {
                   className={`block w-full px-4 py-3 border-2 text-gray-400 style="visibility:hidden placeholder:text-neutral-400   rounded-md outline-none     focus:ring-4 ${
                     errors.pitch ? 'border-yellow-500' : ''
                   }`}
-                  value={Data.startupsFilePost.pitch?.name}
+                  value={filePost?.pitch?.name}
                   {...register('pitch', {
                     required: 'فایل را وارد کنید.',
                     pattern: {

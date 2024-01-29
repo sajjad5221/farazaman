@@ -27,7 +27,7 @@ export default function Button({
   // Determine the button kind and apply appropriate styles
   const type = submit ? 'submit' : 'button';
 
-  console.log(func);
+//   console.log(func);
 
   return (
     <>

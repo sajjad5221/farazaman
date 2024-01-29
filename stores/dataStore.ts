@@ -1,4 +1,4 @@
-import { ContactInfo, WorkSpaceInfo } from "@/types/global";
+import { ContactInfo, WorkSpaceInfo, StartupsInfo, HiringInfo } from "@/types/global";
 import { create } from "zustand";
 
 
@@ -7,11 +7,11 @@ type State = {
     isSuccess: boolean;
     send: boolean;
     Message: string;
-    formData: any;
-    filePost: {resume: File | null};
-    startupsFilePost: {pitch: File | null}
+    formData: HiringInfo;
+    // filePost: {resume: File | null};
+    // startupsFilePost: {pitch: File | null}
     csrfToken: string;
-    startupsFormData: any;
+    startupsFormData: StartupsInfo;
     contactUsFormData: ContactInfo;
     workSpaceFormData: WorkSpaceInfo;
 }
@@ -22,10 +22,10 @@ type Action = {
     handleSendChange: (bool: State['send']) => void;
     handleMessageChange: (str: State['Message']) => void;
     handleFormDataChange: (obj: State['formData']) => void;
-    handleFilePostChange: (file: State['filePost']) => void;
+    // handleFilePostChange: (file: State['formData']) => void;
     handleTokenChange: (str: State['csrfToken']) => void;
     handleStartupsFormDataChange: (obj: State['startupsFormData']) => void;
-    handleStartupsFilePost: (file: State['startupsFilePost']) => void;
+    // handleStartupsFilePost: (file: State['startupsFilePost']) => void;
     handleContactUsFormData: (obj: State['contactUsFormData']) => void;
     handleWorkSpaceFormData: (obj: State['workSpaceFormData']) => void;
 }
@@ -41,14 +41,14 @@ const useData = create<State & Action>((set) => {
             last_name: '',
             email: '',
             phone: '',
-            hireType: '',
+            hireType: 0,
             resume: null as File | null,
         },
         startupsFormData: {
             name: '',
             email: '',
             phone: '',
-            members_count: '',
+            members_count: 0,
             pitch: null as File | null,
         },
         workSpaceFormData: {
@@ -56,8 +56,8 @@ const useData = create<State & Action>((set) => {
             email: '',
             phone: '',
         },
-        filePost: {resume: null},
-        startupsFilePost: {pitch: null},
+        // filePost: {resume: null},
+        // startupsFilePost: {pitch: null},
         csrfToken: "",
         contactUsFormData: {
             name: '',
@@ -70,10 +70,10 @@ const useData = create<State & Action>((set) => {
         handleSendChange: (bool) => set(() => ({send: bool})),
         handleMessageChange: (str) => set(() => ({Message: str})),
         handleFormDataChange: (obj) => set(() => ({formData: obj})),
-        handleFilePostChange: (file) => set(() => ({filePost: file})),
+        // handleFilePostChange: (file) => set(() => ({filePost: file})),
         handleTokenChange: (str) => set(() => ({csrfToken: str})),
         handleStartupsFormDataChange: (obj) => set(() => ({startupsFormData: obj})),
-        handleStartupsFilePost: (file) => set(() => ({startupsFilePost: file})),
+        // handleStartupsFilePost: (file) => set(() => ({startupsFilePost: file})),
         handleContactUsFormData: (obj) => set(() => ({contactUsFormData: obj})),
         handleWorkSpaceFormData: (obj) => set(() => ({workSpaceFormData: obj}))
     };
