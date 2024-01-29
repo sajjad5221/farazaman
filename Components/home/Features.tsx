@@ -6,10 +6,10 @@ import Circle from '../icons/Circle';
 import ArrowLeft from '../icons/ArrowLeft';
 import CoSpaceModal from '../common/form/CoSpaceModal';
 import Button from '../common/form/Button';
-import { useTranslation } from 'app/i18n';
+import { useTranslation } from 'app/i18n/client';
 import { useLang } from 'stores/langStore';
 
-export default async function Features({ title  }: { title: string }) {
+export default function Features({ title  }: { title: string }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const openModal = () => {
@@ -21,7 +21,7 @@ export default async function Features({ title  }: { title: string }) {
   };
   const lang = useLang.getState().lang;
 
-  const { t } = await useTranslation(lang, 'mainPage');
+  const { t } = useTranslation(lang, 'mainPage');
 
   return (
     <section className="bg-gray-50 z-0 relative" id="workspace">
