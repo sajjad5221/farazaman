@@ -127,6 +127,7 @@ export default function CoSpaceModal({
                       </span>
                   )}
                 </div>
+                
               </div>
               <div className="w-1/2">
                 {/* <Image

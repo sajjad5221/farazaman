@@ -4,26 +4,37 @@ import React, { useState } from 'react';
 import SectionHeader from '../common/SectionHeader';
 import Circle from '../icons/Circle';
 // import ArrowLeft from '../icons/ArrowLeft';
-import CoSpaceModal from '../common/form/CoSpaceModal';
-import Button from '../common/form/Button';
-import { useTranslation } from 'app/i18n/client';
-import { useLang } from 'stores/langStore';
 
-export default function Features({ title  }: { title: string }) {
+
+import Button from '../common/form/Button';
+
+import CoSpaceModal from '../../Components/common/form/CoSpaceModal';
+import HiringModal from '../../Components/common/form/HiringModal';
+import InternshipModal from '../../Components/common/form/InternshipModal';
+import StartupRegistrationModal from '../../Components/common/form/StartupRegistrationModal';
+
+export default function Features(
+  { title, slogan, firstText, secondText, points, experienceTitle, experienceText, buttonText, modalName } 
+  : { title: string, slogan: string, firstText: string, secondText: string, points: string[], experienceTitle: string, experienceText: string, buttonText: string, modalName: string }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  console.log(modalName)
 
   const openModal = () => {
     setIsModalOpen(true);
+    console.log(modalName)
   };
 
   const closeModal = () => {
     setIsModalOpen(false);
   };
-  const lang = useLang.getState().lang;
+  // const lang = useLang.getState().lang;
 
-  const { t } = useTranslation(lang, 'mainPage');
+  // const { t } = useTranslation(lang, 'mainPage');
 
   // console.log(t('startupAcademyService', { returnObjects: true }).subTitle);
+
+  const [modal, setModal] = useState("")
 
   return (
     <section className="bg-gray-50 z-0 relative" id="workspace">
@@ -32,24 +43,19 @@ export default function Features({ title  }: { title: string }) {
 
         <div className="md:mr-4 py-5">
           <h2 className="text-black text-xl mb-3 leading-10">
-          {t('startupAcademyService', { returnObjects: true }).subTitle}
+          {slogan}
 
           </h2>
           <p className="">
-          {t('startupAcademyService', { returnObjects: true }).text1}
+          {firstText}
           </p>
           <div>
             <p>
-            {t('startupAcademyService', { returnObjects: true }).text2}
+            {secondText}
             </p>
-            <ul className="list-disc mr-4">
-              <li>
-              {t('startupAcademyService', { returnObjects: true }).textup}
-              </li>
-              <li>
-              {t('startupAcademyService', { returnObjects: true }).textdown}
-              </li>
-            </ul>
+            {points && points.map((item: string, index: number) => (
+              <li key={index}>{item}</li>
+            ))}
           </div>
         </div>
 
@@ -58,20 +64,49 @@ export default function Features({ title  }: { title: string }) {
             <div className="flex items-center mb-3">
               <Circle />
               <h2 className="text-brand text-xl mr-4">
-              {t('ExperienceSpace', { returnObjects: true }).title}
+              {experienceTitle}
               </h2>
             </div>
             <p>
-            {t('ExperienceSpace', { returnObjects: true }).text}
+            {experienceText}
             </p>
           </div>
         </div>
       </div>
       <div className="w-full flex justify-center">
 
-        <Button func='guide' onChange={openModal} text='فرم ثبت نام در فضای کار اشتراکی' submit={false} />
+        <Button func='guide' onChange={openModal} text={buttonText} submit={false} />
       </div>
-      <CoSpaceModal isOpen={isModalOpen} closeModal={closeModal} />
+      {/* <CoSpaceModal isOpen={isModalOpen} closeModal={closeModal} /> */}
+      {/* <Modal isOpen={isModalOpen} closeModal={closeModal} /> */}
+      {((): any => {
+        switch (modalName) {
+          case "coSpace":
+            console.log('done2')
+            return (
+              <CoSpaceModal isOpen={isModalOpen} closeModal={closeModal} />
+            )
+            break;
+          case "hiring":
+            return(
+              <HiringModal isOpen={isModalOpen} closeModal={closeModal} />
+            )
+            break;
+          case "internship":
+            return(
+              <InternshipModal isOpen={isModalOpen} closeModal={closeModal} />
+            )
+            break;
+          case "startupRegistration":
+            return(
+              <StartupRegistrationModal isOpen={isModalOpen} closeModal={closeModal} />
+            )
+            break;
+        
+          default:
+            break;
+        }
+      })()}
     </section>
   );
 }

@@ -59,7 +59,7 @@ export default function StartupRegistration({ title }: { title: string }) {
           </div>
         </div>
       </div>
-      <div className="w-full flex justify-center">
+      <div className="w-auto mx-auto flex justify-center">
         {/* <button
           className="bg-brand py-2 px-4 flex text-sm rounded-md"
           onClick={() => openModal()}

@@ -58,7 +58,7 @@ export default function HiringFeature({ title }: { title: string }) {
           </div>
         </div>
       </div>
-      <div className="w-full flex justify-center">
+      <div className="md:w-[12.5%] w-[45%] mx-auto flex justify-center">
         {/* <button
           className="bg-brand py-2 px-4 flex text-sm rounded-md"
           onClick={() => openModal()}
