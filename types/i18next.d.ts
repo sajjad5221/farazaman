@@ -1,11 +1,11 @@
-import enAboutUs from '../app/i18n/locales/en/aboutUs.json'
-import enInvestment from '../app/i18n/locales/en/investment.json'
+import mainPage from '../app/i18n/locales/fa/mainPage.json'
+import mainPage from '../app/i18n/locales/en/mainPage.json'
 declare module 'i18next' {
     interface CustomTypeOptions {
       defaultNS: 'mainPage';
       resources: {
-        aboutUs: typeof enAboutUs;
-        investment: typeof enInvestment;
+        mainPage: typeof mainPage;
+        mainPage: typeof mainPage;
         // ns2: typeof enNs2;
       };
     }
