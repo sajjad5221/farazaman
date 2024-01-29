@@ -33,7 +33,6 @@ export default function InternshipModal({
 }) {
   const Data = useData.getState();
 
-  const [selectedFile, setSelectedFile] = useState<File | null>(null);
   
   useEffect(() => {
     async function fetchCsrfToken() {
