@@ -1,6 +1,6 @@
 'use client'
 import Image from 'next/image';
-// import Link from 'next/link';
+import Link from 'next/link';
 import React from 'react';
 import SectionHeader from '../common/SectionHeader';
 import { useTranslation } from "app/i18n/client";
@@ -48,11 +48,12 @@ import { useLang } from "stores/langStore";
 // Define the Customers component
 export default function Customers() {
 
-  const lang = useLang.getState().lang;
+  const lang = useLang().lang;
 
   const { t } = useTranslation(lang, "mainPage");
 
-  const customers: any = t("customers", { returnObjects: true });
+  // const customers: Array<{ id: number, name: string, href: string, src: string, alt: string }> = t("customers", { returnObjects: true });
+  console.log(typeof(t("aaaa", { returnObjects: true })))
 
   return (
     <section className="px-4 pt-16 pb-3 bg-gray-50" id="faq">
@@ -63,7 +64,7 @@ export default function Customers() {
         {/* Customer grid */}
         <div className="w-100 grid mt-8 items-center gap-4 justify-between grid-cols-1 text-center xs:grid-cols-2 md:grid-cols-5">
           {/* Map over the array of customers and create a CustomerCard for each */}
-          {customers.map(({ id, name, href, src, alt } : { id: number, name: string, href: string, src: string, alt: string }) => (
+          {t("aaaa", { returnObjects: true }).map(({ id, name, href, src, alt } : { id: number, name: string, href: string, src: string, alt: string }) => (
             <div className="shadow-md rounded-xl pb-3" key={id}>
               <Image
                 className="justify-center mx-auto mt-6 mb-1 text-center transition rounded-full hover:scale-110"
