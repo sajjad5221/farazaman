@@ -47,7 +47,7 @@ interface StartupRegistrationModal {
   email: string;
   phone: string;
   university: string;
-  cvFile: File | null;
+  resume: File | null;
 }
 
 export {
