@@ -11,5 +11,5 @@ type Action = {
 
 export const useLang = create<State & Action>((set) => ({
   lang: getCookie('i18next') ? getCookie('i18next') : 'fa',
-  setLanguage: (lang) => set(() => ({ lang })),
+  setLanguage: (lang) => set(() => ({ lang: lang })),
 }));

@@ -1,4 +1,4 @@
-import { ContactInfo, WorkSpaceInfo } from "@/types/global";
+import { ContactInfo, WorkSpaceInfo, StartupsInfo, HiringInfo } from "@/types/global";
 import { create } from "zustand";
 
 
@@ -7,7 +7,7 @@ type State = {
     isSuccess: boolean;
     send: boolean;
     Message: string;
-    formData: any;
+    formData: HiringInfo;
     filePost: {resume: File | null};
     startupsFilePost: {pitch: File | null}
     csrfToken: string;
@@ -41,14 +41,14 @@ const useData = create<State & Action>((set) => {
             last_name: '',
             email: '',
             phone: '',
-            hireType: '',
+            hireType: 0,
             resume: null as File | null,
         },
         startupsFormData: {
             name: '',
             email: '',
             phone: '',
-            members_count: '',
+            members_count: 0,
             pitch: null as File | null,
         },
         workSpaceFormData: {

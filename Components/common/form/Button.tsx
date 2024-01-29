@@ -27,7 +27,7 @@ export default function Button({
   // Determine the button kind and apply appropriate styles
   const type = submit ? 'submit' : 'button';
 
-  console.log(func);
+//   console.log(func);
 
   return (
     <>
@@ -35,7 +35,7 @@ export default function Button({
         switch (func) {
             case 'guide':
                 return (
-                    <button type={type} className="bg-brand py-2 px-4 flex text-sm rounded-md" onClick={onChange} >
+                    <button type={type} className="w-auto h-full bg-brand py-2 px-4 flex text-sm rounded-md" onClick={onChange} >
                         <p className="pl-2 text-white">{text}</p>
                         <ArrowLeft color="#fff" />
                     </button>
@@ -43,14 +43,14 @@ export default function Button({
                 break;
             case 'form':
                 return (
-                    <button type={type} disabled={disabled} className="w-full py-4 font-semibold text-white transition-colors rounded-md bg-neutral-900 hover:bg-neutral-800 focus:outline-none focus:ring-offset-2 focus:ring focus:ring-neutral-200 px-7" >
+                    <button type={type} disabled={disabled} className="w-auto h-full py-4 font-semibold text-white transition-colors rounded-md bg-neutral-900 hover:bg-neutral-800 focus:outline-none focus:ring-offset-2 focus:ring focus:ring-neutral-200 px-7" >
                         {text}
                     </button>
                 )
                 break;
             case 'goto':
                 return (
-                    <button type={type} className="flex px-5 py-2 mt-8 text-brand rounded-md border border-brand hover:text-white hover:bg-brand" >
+                    <button type={type} className="w-auto h-full flex px-5 py-2 mt-8 text-brand rounded-md border border-brand hover:text-white hover:bg-brand" >
                         <p>{text}</p>
                         <ArrowLeft color="#D6A001" />
                     </button>
