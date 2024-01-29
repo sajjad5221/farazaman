@@ -50,6 +50,13 @@ interface StartupRegistrationModal {
   cvFile: File | null;
 }
 
+interface ComentItem {
+  name: string;
+  subTitle: string;
+  text: string;
+  image: string;
+};
+
 export {
   ServicesData,
   HiringInfo,
@@ -57,5 +64,6 @@ export {
   ContactInfo,
   WorkSpaceInfo,
   IntershipInfo,
-  StartupRegistrationModal
+  StartupRegistrationModal,
+  ComentItem
 }

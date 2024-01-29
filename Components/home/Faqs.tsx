@@ -3,7 +3,7 @@ import { Disclosure } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/24/solid";
 import React from "react";
 import SectionHeader from "../common/SectionHeader";
-import { useTranslation } from "app/i18n";
+import { useTranslation } from "app/i18n/client";
 import { useLang } from "stores/langStore";
 
 // Define an array of FAQ items, each with a question and response
@@ -31,9 +31,12 @@ import { useLang } from "stores/langStore";
 // ];
 
 // Define the Faq component
-export default async function Faq() {
+export default function Faq() {
+
   const lang = useLang.getState().lang;
-  const { t } = await useTranslation(lang, "mainPage");
+
+  const { t } = useTranslation(lang, "mainPage");
+
   const faqitems: { question: string; response: string }[] = t(
     "FrequentlyQuestions",
     { returnObjects: true }

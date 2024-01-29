@@ -27,6 +27,44 @@
     }
   ],
 
+  "cutomers": [
+    {
+      "id": 1,
+      "name": "لاندا هلدینگ",
+      "href": "#",
+      "src": "/static/images/Home/logo-customers/Landa-main-logo2.PNG",
+      "alt": "Slack logo"
+    },
+    {
+      "id": 2,
+      "name": "لاندا آکادمی",
+      "href": "#",
+      "src": "/static/images/Home/logo-customers/IMG.PNG",
+      "alt": "Docker logo"
+    },
+    {
+      "id": 3,
+      "name": "طلوع روشن",
+      "href": "#",
+      "src": "/static/images/Home/logo-customers/tolu4.jpg",
+      "alt": "Discord logo"
+    },
+    {
+      "id": 4,
+      "name": "IR Immigration",
+      "href": "#",
+      "src": "/static/images/Home/logo-customers/irimmig.png",
+      "alt": "Python logo"
+    },
+    {
+      "id": 5,
+      "name": "فروغ روشن",
+      "href": "#",
+      "src": "/static/images/Home/logo-customers/fouroq.png",
+      "alt": "Github logo"
+    }
+  ],
+
   "startupAcademyService":
     {
       "title":"فضای کار اشتراکی ",

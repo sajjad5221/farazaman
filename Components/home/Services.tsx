@@ -15,7 +15,9 @@ export default async function Services() {
   // use returnObjects: true for non strings
 
 
-  const servicesData: Array<{ title: string; image: string; alt: string }> = t('ServiceData', {returnObjects: true})
+
+  // it says type of the object we are reading from i18n is string ! i turned it to 'any' temporary .
+  const servicesData: any = t('ServiceData', {returnObjects: true})
 
   // console.log(servicesData);
 
@@ -40,7 +42,7 @@ export default async function Services() {
       {/* TODO: create ServiceCard.tsx component */}
       {/* Service cards */}
       {/* flex flex-col md:flex-row max-w-7xl justify-between mx-auto items-center */}
-      {/* <div className="grid grid-cols-2 md:grid-cols-4 justify-between mx-auto max-w-7xl">
+      <div className="grid grid-cols-2 md:grid-cols-4 justify-between mx-auto max-w-7xl">
         {servicesData.map(
           (
             {
@@ -53,7 +55,7 @@ export default async function Services() {
             <ServiceCard key={index} title={title} image={image} alt={alt} />
           )
         )}
-      </div> */}
+      </div>
     </div>
   );
 }
