@@ -1,6 +1,7 @@
 'use client';
 
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/solid';
+import Image from 'next/image';
 import React, { useState } from 'react';
 import { Link } from 'react-scroll';
 
@@ -19,9 +20,9 @@ function NavBarRefactor() {
   };
 
   return (
-    <nav className="drawer fixed top-0 z-10 py-6 px-10 w-full md:px-20 backdrop-blur-lg">
-      <div className="flex-col md:flex-row md:flex justify-between w-full md:w-5/6">
-        <div className="flex justify-between">
+    <nav className="drawer fixed top-0 z-10 py-2 px-10 w-full md:px-20 backdrop-blur-lg">
+      <div className="flex-col md:flex-row md:flex justify-between items-center w-full md:w-5/6">
+        <div className="flex justify-between items-center">
           <div>
             <Link
               to="Home"
@@ -29,8 +30,18 @@ function NavBarRefactor() {
               smooth={true}
               offset={-50}
               duration={700}
+              className="flex justify-between items-center"
             >
-              <h1 className="cursor-pointer">فرازمان</h1>
+              <Image
+                className="h-12 w-auto lg:ml-4"
+                src="/static/images/Farazaman.png"
+                alt="Farazaman"
+                width={200}
+                height={200}
+                quality={75}
+                sizes="100vw"
+              />
+              <p className="text-xl hidden md:flex text-brand">فرازمان</p>
             </Link>
           </div>
           <div className="flex md:hidden">
@@ -42,9 +53,9 @@ function NavBarRefactor() {
               className="hover:text-brand focus:text-brand cursor-pointer"
             >
               {toggleMenu ? (
-                <XMarkIcon className="block h-6 w-6" aria-hidden="true" />
+                <XMarkIcon className="block h-7 w-7" aria-hidden="true" />
               ) : (
-                <Bars3Icon className="block h-6 w-6" aria-hidden="true" />
+                <Bars3Icon className="block h-7 w-7" aria-hidden="true" />
               )}
             </p>
           </div>
