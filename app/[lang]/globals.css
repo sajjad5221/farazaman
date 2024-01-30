@@ -26,11 +26,6 @@ body {
     rgb(var(--background-start-rgb)); /* Start color of gradient */
 }
 
-/* Apply smooth scroll behavior to HTML */
-html {
-  scroll-behavior: smooth;
-}
-
 /* Customize scrollbar */
 /* Width */
 ::-webkit-scrollbar {
@@ -75,6 +70,7 @@ form {
   box-shadow: 0px 0px 11px 4px rgba(74, 74, 74, 0.07);
 }
 
+/* responsive for large screen */
 @media (min-width: 1536px) {
   html {
     max-width: 1536px;

@@ -10,20 +10,20 @@ import Hires from '@/Components/home/Hires';
 import Services from '@/Components/home/Services';
 import ContactUs from '@/Components/home/ContactUs';
 import { useTranslation } from '../i18n';
+import SmoothScroll from './../../Components/common/SmothScroll';
 
 export default async function Home({
-  params: { lang }
+  params: { lang },
 }: {
   params: { lang: string };
 }) {
-
-  const { t } = await useTranslation(lang, 'mainPage')
+  const { t } = await useTranslation(lang, 'mainPage');
 
   return (
     <ErrorBoundary>
       <Suspense fallback={<Loading />}>
         <>
-          <div className="flex flex-col mt-16">
+          <div className="flex flex-col">
             <Banner />
             {/* problem */}
             <Services />

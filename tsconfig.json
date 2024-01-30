@@ -42,7 +42,7 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "app/api/startups.js"
-  ],
+, "Components/common/SmoothScroll.js"  ],
   "exclude": [
     "node_modules"
   ]
