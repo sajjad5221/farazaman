@@ -1,18 +1,17 @@
-'use client'
-import React from "react";
-import SliderMenu from "../misc/SliderMenu";
-import { useTranslation } from "app/i18n/client";
-import { useLang } from "stores/langStore";
+'use client';
+import React from 'react';
+import SliderMenu from '../misc/SliderMenu';
+import { useTranslation } from 'app/i18n/client';
+import { useLang } from 'stores/langStore';
 
 export default function Hires() {
-
   const lang = useLang.getState().lang;
 
-  const { t } = useTranslation(lang, "mainPage");
+  const { t } = useTranslation(lang, 'mainPage');
 
   // const hires = t("YourComments", { returnObjects: true });
 
-  console.log(typeof(t("YourComments", { returnObjects: true })))
+  console.log(typeof t('YourComments', { returnObjects: true }));
 
   // const hires = [
   //   {
@@ -56,10 +55,13 @@ export default function Hires() {
   //     image: "/static/images/hires/ariana.jpg",
   //   },
   // ];
-  
+
   return (
     <div>
-      <SliderMenu title="تجربه استخدامی ها" items={t("YourComments", { returnObjects: true })} />
+      {/* <SliderMenu
+        title="تجربه استخدامی ها"
+        items={t('YourComments', { returnObjects: true })}
+      /> */}
     </div>
   );
 }

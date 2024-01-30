@@ -23,7 +23,13 @@ function NavBarRefactor() {
       <div className="flex-col md:flex-row md:flex justify-between w-full md:w-5/6">
         <div className="flex justify-between">
           <div>
-            <Link to="Home" spy={true} smooth={true} offset={50} duration={700}>
+            <Link
+              to="Home"
+              spy={true}
+              smooth={true}
+              offset={-50}
+              duration={700}
+            >
               <h1 className="cursor-pointer">فرازمان</h1>
             </Link>
           </div>
@@ -50,7 +56,7 @@ function NavBarRefactor() {
                 to={item.goTo}
                 spy={true}
                 smooth={true}
-                offset={50}
+                offset={-50}
                 duration={700}
               >
                 <li
@@ -74,7 +80,7 @@ function NavBarRefactor() {
                 to={item.goTo}
                 spy={true}
                 smooth={true}
-                offset={50}
+                offset={-50}
                 duration={700}
               >
                 <li
