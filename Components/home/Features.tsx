@@ -5,8 +5,11 @@ import SectionHeader from '../common/SectionHeader';
 import Circle from '../icons/Circle';
 import ArrowLeft from '../icons/ArrowLeft';
 import CoSpaceModal from '../common/form/CoSpaceModal';
+import Button from '../common/form/Button';
+import { useTranslation } from 'app/i18n';
+import { useLang } from 'stores/langStore';
 
-export default function Features({ title }: { title: string }) {
+export default async function Features({ title  }: { title: string }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const openModal = () => {
@@ -16,6 +19,9 @@ export default function Features({ title }: { title: string }) {
   const closeModal = () => {
     setIsModalOpen(false);
   };
+  const lang = useLang.getState().lang;
+
+  const { t } = await useTranslation(lang, 'mainPage');
 
   return (
     <section className="bg-gray-50 z-0 relative" id="workspace">
@@ -24,28 +30,22 @@ export default function Features({ title }: { title: string }) {
         {/* TODO: use i18n */}
         <div className="md:mr-4 py-5">
           <h2 className="text-black text-xl mb-3 leading-10">
-            ما در شرکت فرازمان محیطی تعاملی و اشتراکی را جهت ایجاد همکاری، رشد و
-            خلاقیت دانشجویان فراهم کرده‌ایم.
+          {t('startupAcademyService', { returnObjects: true }).subTitle}
+
           </h2>
           <p className="">
-            امروزه افراد می‌توانند در فضای تعاملی و اشتراکی در کنار یکدیگر
-            فعالیت خود را انجام دهند. این محیط‌های اشتراکی در اصطلاح Coworking
-            Space نامیده می‌شوند.
+          {t('startupAcademyService', { returnObjects: true }).text1}
           </p>
           <div>
             <p>
-              از مزایای حضور در فضای کار تعاملی می‌توان به افزایش بهره‌وری،
-              دسترسی آسان به امکانات محلی و ایجاد شبکه ارتباطی با سایر افراد
-              اشاره کرد :
+            {t('startupAcademyService', { returnObjects: true }).text2}
             </p>
             <ul className="list-disc mr-4">
               <li>
-                وجود فضاهای کار اشتراکی در مناطق مهم با دسترسی آسان به امکانات
-                شهری و هزینه‌های بسیار پایین
+              {t('startupAcademyService', { returnObjects: true }).textup}
               </li>
               <li>
-                کار در یک محیط پویا با شبکه‌ای از مشتریان بالقوه، انواع شرکای
-                تجاری، منتورها و افراد با‌استعداد درحوزه های مختلف
+              {t('startupAcademyService', { returnObjects: true }).textdown}
               </li>
             </ul>
           </div>
@@ -56,28 +56,26 @@ export default function Features({ title }: { title: string }) {
             <div className="flex items-center mb-3">
               <Circle />
               <h2 className="text-brand text-xl mr-4">
-                تجربه در فضای کار اشتراکی فرازمان
+              {t('ExperienceSpace', { returnObjects: true }).title}
               </h2>
             </div>
             <p>
-              امروزه افراد می‌توانند در فضای کار اشتراکی در کنار یکدیگر فعالیت
-              خود را انجام دهند. از مزایای حضور در فضای کار تعاملی می‌توان به
-              افزایش بهره‌وری، دسترسی آسان به امکانات محلی و ایجاد شبکه ارتباطی
-              با سایر افراد اشاره کرد
+            {t('ExperienceSpace', { returnObjects: true }).text}
             </p>
           </div>
         </div>
       </div>
       <div className="w-full flex justify-center">
-        <button
+        {/* <button
           className="bg-brand py-2 px-4 flex text-sm rounded-md"
-          onClick={() => openModal()}
+          onClick={openModal}
         >
-          <p className="pl-2 text-white">فرم ثبت نام در فضای کار اشتراکی</p>
+          <p className="pl-2 text-white">{t('Register-Form', { returnObjects: true }).text}</p>
           <ArrowLeft color="#fff" />
-        </button>
+        </button> */}
+        <Button func='guide' onChange={openModal} text='فرم ثبت نام در فضای کار اشتراکی' submit={false} />
       </div>
-      <CoSpaceModal isOpen={isModalOpen} closeModal={closeModal} />
+<CoSpaceModal isOpen={isModalOpen} closeModal={closeModal} />
     </section>
   );
 }

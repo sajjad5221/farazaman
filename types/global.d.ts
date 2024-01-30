@@ -6,7 +6,6 @@ interface ServicesData {
 
 interface HiringInfo {
   name: string;
-  last_name: string;
   email: string;
   phone: string;
   hireType: number;
@@ -32,10 +31,18 @@ interface WorkSpaceInfo {
   name: string;
   email: string;
   phone: string;
-  description: string;
+  // description: string;
 }
 
 interface IntershipInfo {
+  name: string;
+  email: string;
+  phone: string;
+  university: string;
+  cvFile: File | null;
+}
+
+interface StartupRegistrationModal {
   name: string;
   email: string;
   phone: string;
@@ -49,5 +56,6 @@ export {
   StartupsInfo,
   ContactInfo,
   WorkSpaceInfo,
-  IntershipInfo
+  IntershipInfo,
+  StartupRegistrationModal
 }
