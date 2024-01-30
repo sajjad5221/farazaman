@@ -69,6 +69,7 @@ export default function CoSpaceModal({
       Data.handleMessageChange('ارسال موفقیت آمیز بود');
       Data.handleSendChange(false);
       reset(); // Reset the form field
+      
     } catch (error) {
       console.log(error);
       Data.handleMessageChange('ارسال ناموفق بود !');
