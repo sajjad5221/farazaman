@@ -5,6 +5,10 @@ import React from 'react';
 import SectionHeader from '../common/SectionHeader';
 import { useTranslation } from "app/i18n/client";
 import { useLang } from "stores/langStore";
+import { CustomTypeOptions } from 'i18next';
+import { Trans } from 'react-i18next';
+import { resources } from '@/types/i18n';
+// import { translations, LocaleTranslations } from '@/types/i18next';
 
 // Define an array of customer objects
 // const customers = [
@@ -52,9 +56,14 @@ export default function Customers() {
 
   const { t } = useTranslation(lang, "mainPage");
 
+  console.log(resources.fa.mainPage.customers)
+
   // const customers: Array<{ id: number, name: string, href: string, src: string, alt: string }> = t("customers", { returnObjects: true });
   // console.log(typeof(t("aaaa", { returnObjects: true })))
 
+  // const customers: resources.fa.mainPage = t("customers", { returnObjects: true })
+
+  
   return (
     <section className="px-4 pt-16 pb-3 bg-gray-50" id="faq">
       <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
@@ -64,7 +73,7 @@ export default function Customers() {
         {/* Customer grid */}
         <div className="w-100 grid mt-8 items-center gap-4 justify-between grid-cols-1 text-center xs:grid-cols-2 md:grid-cols-5">
           {/* Map over the array of customers and create a CustomerCard for each */}
-          {t("customers", { returnObjects: true }).map(({ id, name, href, src, alt } : { id: number, name: string, href: string, src: string, alt: string }) => (
+          {resources.fa.mainPage.customers.map(({ id, name, href, src, alt } : { id: number, name: string, href: string, src: string, alt: string }) => (
             <div className="shadow-md rounded-xl pb-3" key={id}>
               <Image
                 className="justify-center mx-auto mt-6 mb-1 text-center transition rounded-full hover:scale-110"
@@ -78,6 +87,29 @@ export default function Customers() {
               <span className="text-gray-600">{name}</span>
             </div>
           ))}
+          {/* <Trans
+            t={t}
+            components={[
+              <>
+                {resources.fa.mainPage.customers.map((
+                  { id, name, href, src, alt } : { id: number, name: string, href: string, src: string, alt: string }
+                ) => (
+                  <div className="shadow-md rounded-xl pb-3" key={id}>
+                  <Image
+                    className="justify-center mx-auto mt-6 mb-1 text-center transition rounded-full hover:scale-110"
+                    src={src}
+                    alt={alt}
+                    width={80}
+                    height={80}
+                    quality={75}
+                    sizes="100vw"
+                  />
+                  <span className="text-gray-600">{name}</span>
+                </div>
+                ))}
+              </>
+            ]}
+          /> */}
         </div>
       </div>
     </section>
