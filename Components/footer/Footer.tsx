@@ -127,7 +127,7 @@ const column2 = [
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-50 justify-center footer-background">
+    <footer className="bg-brand-light rounded-tr-[2.5rem] rounded-tl-[10rem] justify-center">
       <div className="px-4 flex flex-wrap-reverse py-6 mx-auto max-w-7xl sm:px-6 lg:px-8 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-5">
         <div className="w-full md:w-1/3">
           <h3 className="pt-12 text-brand pb-4 lg:pt-0">فرازمان</h3>

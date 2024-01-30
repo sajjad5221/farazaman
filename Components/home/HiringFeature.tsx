@@ -26,16 +26,14 @@ export default async function HiringFeature({ title }: { title: string }) {
   const { t } = await useTranslation(lang, 'mainPage');
 
   return (
-    <section className="bg-gray-50 z-0 relative" id="hiring">
+    <section className="bg-gray-50 relative" id="hiring">
       <div className="px-8 text-customGray leading-10 pt-16 pb-8 mx-auto max-w-7xl sm:px-6 lg:px-8 gap-x-40">
         <SectionHeader title={title} />
         <div className="md:mr-4 py-5">
           <h2 className="text-black text-xl mb-3 leading-10">
-          {t('Recruitment', { returnObjects: true }).subTitle}
-         </h2>
-          <p className="">
-          {t('Recruitment', { returnObjects: true }).text}
-          </p>
+            {t('Recruitment', { returnObjects: true }).subTitle}
+          </h2>
+          <p className="">{t('Recruitment', { returnObjects: true }).text}</p>
         </div>
         {/* bottom */}
         <div>
@@ -43,12 +41,10 @@ export default async function HiringFeature({ title }: { title: string }) {
             <div className="flex items-center mb-3">
               <Circle />
               <h2 className="text-brand text-xl mr-4">
-              {t('RecruitmentInAccelerator', { returnObjects: true }).title}    
+                {t('RecruitmentInAccelerator', { returnObjects: true }).title}
               </h2>
             </div>
-            <p>
-            {t('RecruitmentInAccelerator', { returnObjects: true }).text} 
-            </p>
+            <p>{t('RecruitmentInAccelerator', { returnObjects: true }).text}</p>
           </div>
         </div>
       </div>
@@ -60,7 +56,12 @@ export default async function HiringFeature({ title }: { title: string }) {
           <p className="pl-2 text-white">{t('RecruitmentForm', { returnObjects: true }).text} </p>
           <ArrowLeft color="#fff" />
         </button> */}
-        <Button func='guide' onChange={openModal} text='فرم استخدام در فرازمان' submit={false} />
+        <Button
+          func="guide"
+          onChange={openModal}
+          text="فرم استخدام در فرازمان"
+          submit={false}
+        />
       </div>
       <HiringModal isOpen={isModalOpen} closeModal={closeModal} />
     </section>

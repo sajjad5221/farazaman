@@ -13,20 +13,20 @@ import HiringFeature from '@/Components/home/HiringFeature';
 import InternshipFeature from '@/Components/home/InternshipFeature';
 import StartupRegistration from '@/Components/home/StartupRegistration';
 import { useTranslation } from '../i18n';
+import SmoothScroll from './../../Components/common/SmothScroll';
 
 export default async function Home({
-  params: { lang }
+  params: { lang },
 }: {
   params: { lang: string };
 }) {
-
-  const { t } = await useTranslation(lang, 'mainPage')
+  const { t } = await useTranslation(lang, 'mainPage');
 
   return (
     <ErrorBoundary>
       <Suspense fallback={<Loading />}>
         <>
-          <div className="flex flex-col mt-16">
+          <div className="flex flex-col">
             <Banner />
             {/* problem */}
             <Services />
