@@ -32,7 +32,7 @@ export default function CoSpaceModal({
   isOpen: boolean;
   closeModal: () => void;
 }) {
-  const Data = useData();
+  const Data = useData.getState();
 
   const {
     register,
@@ -71,7 +71,7 @@ export default function CoSpaceModal({
       Data.handleSuccessChange(true);
       Data.handleMessageChange('ارسال موفقیت آمیز بود');
       Data.handleSendChange(false);
-      reset(); // Reset the form field
+      reset(Data.workSpaceFormData); // Reset the form field
       setTimeout(() => {
         closeModal();
       }, 10000);

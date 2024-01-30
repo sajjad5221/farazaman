@@ -50,7 +50,11 @@ export default function InternshipModal({
   //   }
   // };
   
-  const { register, handleSubmit ,formState: { errors }} = useForm<IntershipInfo>({
+  const { register,
+    handleSubmit ,
+    formState: { errors },
+    reset,
+  } = useForm<IntershipInfo>({
     mode: 'onBlur',
   });
 
@@ -90,7 +94,7 @@ export default function InternshipModal({
       Data.handleSubmitingChange(true);
       Data.handleMessageChange('ارسال موفقیت آمیز بود');
       Data.handleSendChange(false);
-      // reset(); // Reset the form fields
+      reset(Data.intershipFormData); // Reset the form fields
       setTimeout(() => {
         closeModal();
       }, 10000);

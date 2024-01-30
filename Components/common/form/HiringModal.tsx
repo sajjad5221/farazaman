@@ -99,7 +99,7 @@ export default function HiringModal({
       Data.handleSubmitingChange(true);
       Data.handleMessageChange('ارسال موفقیت آمیز بود');
       Data.handleSendChange(false);
-      reset(); // Reset the form fields
+      reset(Data.formData); // Reset the form fields
       setTimeout(() => {
         closeModal();
       }, 10000);

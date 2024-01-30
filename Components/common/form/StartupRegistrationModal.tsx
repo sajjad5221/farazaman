@@ -45,7 +45,11 @@ export default function StartupRegistrationModal({
     fetchCsrfToken();
   }, [])
 
-  const { register, handleSubmit ,formState: { errors }} = useForm<StartupsInfo>({
+  const { register,
+    handleSubmit ,
+    formState: { errors },
+    reset,
+  } = useForm<StartupsInfo>({
     mode: 'onBlur',
   });
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -84,7 +88,7 @@ export default function StartupRegistrationModal({
       Data.handleSubmitingChange(true);
       Data.handleMessageChange('ارسال موفقیت آمیز بود');
       Data.handleSendChange(false);
-      // reset(); // Reset the form fields
+      reset(Data.startupsFormData); // Reset the form fields
       setTimeout(() => {
         closeModal();
       }, 10000);
