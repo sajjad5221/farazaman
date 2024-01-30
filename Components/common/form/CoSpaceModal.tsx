@@ -72,7 +72,9 @@ export default function CoSpaceModal({
       Data.handleMessageChange('ارسال موفقیت آمیز بود');
       Data.handleSendChange(false);
       reset(); // Reset the form field
-      closeModal();
+      setTimeout(() => {
+        closeModal();
+      }, 10000);
       toast.success('ارسال موفقیت آمیز بود', {
         position: 'bottom-center',
         autoClose: 5000,
@@ -230,7 +232,9 @@ export default function CoSpaceModal({
             </div>
           </div>
         </div>
-        <ToastContainer />
+        <div>
+          <ToastContainer />
+        </div>
       </form>
     </Modal>
   );
