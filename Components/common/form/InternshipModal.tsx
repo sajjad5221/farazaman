@@ -7,6 +7,7 @@ import { IntershipInfo } from '@/types/global';
 import GetCsrfToken from '@/Services/GetCsrfToken';
 import { useData } from '@/stores/dataStore';
 import Apiclient from '@/Services/Apiclient';
+import { ToastContainer, toast } from 'react-toastify';
 
 const customStyles = {
   content: {
@@ -90,8 +91,31 @@ export default function InternshipModal({
       Data.handleMessageChange('ارسال موفقیت آمیز بود');
       Data.handleSendChange(false);
       // reset(); // Reset the form fields
+      setTimeout(() => {
+        closeModal();
+      }, 10000);
+      toast.success('ارسال موفقیت آمیز بود', {
+        position: 'bottom-center',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: 'light',
+      });
     } catch (error) {
       console.log(error);
+      toast.error('ارسال موفقیت آمیز نبود.', {
+        position: 'bottom-center',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: 'light',
+      });
       Data.handleMessageChange('ارسال ناموفق بود !');
       Data.handleSendChange(false);
       Data.handleSubmitingChange(false);
@@ -236,6 +260,10 @@ export default function InternshipModal({
               <button type='submit' className="ml-2">ارسال</button>
               <ArrowLeft color="#fff" />
             </button>
+
+            <div>
+                <ToastContainer/>
+            </div>
           </div>
         </div>
       </form>
