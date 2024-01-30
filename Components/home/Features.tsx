@@ -37,7 +37,7 @@ export default function Features(
   const [modal, setModal] = useState("")
 
   return (
-    <section className="bg-gray-50 z-0 relative" id="workspace">
+    <section className="bg-gray-50  relative" id="workspace">
       <div className="px-8 text-customGray leading-10 pt-16 pb-8 mx-auto max-w-7xl sm:px-6 lg:px-8 gap-x-40">
         <SectionHeader title={title} />
 

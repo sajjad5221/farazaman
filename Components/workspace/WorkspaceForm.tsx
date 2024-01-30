@@ -36,7 +36,10 @@ const ContactUs = () => {
       | React.ChangeEvent<HTMLInputElement>
       | React.ChangeEvent<HTMLTextAreaElement>
   ) => {
-    Data.handleWorkSpaceFormData({ ...Data.workSpaceFormData, [e.target.name]: e.target.value });
+    Data.handleWorkSpaceFormData({
+      ...Data.workSpaceFormData,
+      [e.target.name]: e.target.value,
+    });
   };
 
   const onSubmit = async (data: WorkSpaceInfo) => {
@@ -76,8 +79,8 @@ const ContactUs = () => {
   }, []);
 
   return (
-    <div className="">
-      <div className="mt-16 bg-gray-50   " id="contact">
+    <div>
+      <div className="mt-16 bg-gray-50" id="contact">
         <div className="px-4 pt-16 mx-auto text-center max-w-7xl sm:px-6 lg:px-8">
           <h2 className="text-4xl font-bold text-black  ">
             ثبت نام فضای کار اشتراکی
@@ -199,7 +202,12 @@ const ContactUs = () => {
               >
                 {Data.send ? 'در حال ارسال...' : 'ارسال'}
               </button> */}
-              <Button text={Data.send ? 'در حال ارسال...' : 'ارسال'} disabled={Data.send} func='form' submit={true} />
+              <Button
+                text={Data.send ? 'در حال ارسال...' : 'ارسال'}
+                disabled={Data.send}
+                func="form"
+                submit={true}
+              />
             </form>
             {Data.isSuccess && Data.isSubmitting && Data.Message != '' && (
               <div

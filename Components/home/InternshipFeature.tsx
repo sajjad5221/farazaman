@@ -26,7 +26,7 @@ export default function HiringFeature({ title }: { title: string }) {
   const { t } = useTranslation(lang, 'mainPage');
 
   return (
-    <section className="bg-gray-50 z-0 relative" id="events">
+    <section className="bg-gray-50  relative" id="events">
       <div className="px-8 text-customGray leading-10 pt-16 pb-8 mx-auto max-w-7xl sm:px-6 lg:px-8 gap-x-40">
         <SectionHeader title={title} />
         <div className="md:mr-4 py-5">

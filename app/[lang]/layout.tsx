@@ -6,8 +6,7 @@ import Navbar from '@/Components/home/Navbar';
 import { languages } from '../i18n/setting';
 import { useLang } from '@/stores/langStore';
 import { dir } from 'i18next';
-
-
+import NavBarRefactor from '@/Components/home/NavBarRefactor';
 
 // Define metadata object
 export const metadata = {
@@ -41,10 +40,11 @@ export default function RootLayout({
       />
 
       {/* Define HTML element with direction and language attributes */}
-      <html lang={lang} dir={dir(lang)} className="bg-neutral-900 light:bg-gray-50">
+      <html lang={lang} dir={dir(lang)}>
         {/* Define body element with font family */}
-        <body className="font-yakan">
-          <Navbar lang={lang}/>
+        <body className="font-yakan bg-gray-50">
+          {/* <Navbar lang={lang} /> */}
+          <NavBarRefactor />
           {/* Render children passed to RootLayout component */}
           <main>{children}</main>
           <Footer />
