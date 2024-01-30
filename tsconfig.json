@@ -30,7 +30,10 @@
       ],
       "@/Components/*": [
         "Components/*"
-      ]
+      ],
+      "@/i18n/*": ["app/18n/*"],
+      "@/types/*": ["types/*"]
+
     }
   },
   "include": [

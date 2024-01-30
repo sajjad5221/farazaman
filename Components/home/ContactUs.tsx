@@ -71,13 +71,14 @@ function ContactUs() {
       <div className="mx-auto max-w-7xl sm:px-6 lg:px-8">
         <SectionHeader title="ارتباط با ما" />
         <form onSubmit={handleSubmit(onSubmit)}>
-          <div className="flex flex-col justify-between gap-8 md:flex-row my-8">
+          <div className="flex flex-col justify-between gap-8 md:gap-3 md:flex-row my-8">
+            <div className="flex flex-col gap-2 w-full">
             <input
                 id="tel"
                 autoComplete="off"
                 type="text"
                 placeholder="شماره تماس"
-                className={`md:w-2/6 px-4 py-4 text-black rounded-md shadow-sm placeholder:text-gray-300 ${
+                className={`w-full px-4 py-4 text-black rounded-md drop-shadow-md placeholder:text-gray-300 ${
                     errors.phone ? 'border-yellow-500' : ''
                 }`}
                   {...register('phone', {
@@ -94,13 +95,15 @@ function ContactUs() {
                   {errors.phone.message}
                 </span>
             )}
+            </div>
+            <div className="flex flex-col gap-2 w-full">
             <input
                 id="name"
                 type="text"
                 placeholder="نام و نام خانوادگی"
                 autoComplete="off"
                 pattern="^[\u0600-\u06FF\s]+$"
-                className={`md:w-2/6 px-4 py-4 text-black rounded-md shadow-sm placeholder:text-gray-300 ${
+                className={`w-full px-4 py-4 text-black rounded-md drop-shadow-md placeholder:text-gray-300 ${
                     errors.name ? 'border-yellow-500' : ''
                 }`}
                   {...register('name', {
@@ -117,12 +120,14 @@ function ContactUs() {
                   {errors.name.message}
                 </span>
             )}
+            </div>
+            <div className="flex flex-col gap-2 w-full">
             <input
                 id="name"
                 type="text"
                 placeholder="آدرس الکترونیکی"
                 autoComplete="off"
-                className={`md:w-2/6 px-4 py-4 text-black rounded-md shadow-sm placeholder:text-gray-300 ${
+                className={`w-full px-4 py-4 text-black rounded-md drop-shadow-md placeholder:text-gray-300 ${
                     errors.email ? 'border-yellow-500' : ''
                 }`}
                   {...register('email', {
@@ -139,7 +144,9 @@ function ContactUs() {
                   {errors.email.message}
                 </span>
             )}
+            </div>
           </div>
+
           <div>
           <textarea
               id="message"
@@ -159,7 +166,8 @@ function ContactUs() {
                 </span>
             )}
           </div>
-          <div className="flex justify-center mt-6">
+
+          <div className="flex w-[10%] justify-center mx-auto mt-6">
             {/*<button
                 type='submit'
                 disabled={Data.send}
@@ -169,7 +177,7 @@ function ContactUs() {
               <ArrowLeft color="#fff" />
             </button>*/}
           <Button func='guide' submit={true} text='ارسال پیام' />
-        </div>
+          </div>
         </form>
         {Data.isSuccess && Data.isSubmitting && Data.Message !== '' && (
               <div

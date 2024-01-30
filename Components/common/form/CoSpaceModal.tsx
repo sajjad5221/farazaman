@@ -1,9 +1,12 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import Modal from 'react-modal';
 import XLg from '../../icons/XLg';
 import ArrowLeft from '../../icons/ArrowLeft';
 import { WorkSpaceInfo } from "@/types/global";
 import { useForm } from 'react-hook-form';
+import {useData} from "@/stores/dataStore";
+import Apiclient from "@/Services/Apiclient";
+import GetCsrfToken from "@/Services/GetCsrfToken";
 
 
 const customStyles = {
@@ -29,12 +32,61 @@ export default function CoSpaceModal({
   isOpen: boolean;
   closeModal: () => void;
 }) {
-  const { register,
+  const Data = useData();
+
+  const {
+    register,
     handleSubmit,
-    formState:{errors}} = useForm<WorkSpaceInfo>({
+    formState: { errors },
+    reset,
+  } = useForm<WorkSpaceInfo>({
     mode: 'onBlur',
   });
-  const onSubmit = (data: any) => console.log(data);
+
+  const handleChange = (
+    e:
+      | React.ChangeEvent<HTMLInputElement>
+      | React.ChangeEvent<HTMLTextAreaElement>
+  ) => {
+    Data.handleWorkSpaceFormData({ ...Data.workSpaceFormData, [e.target.name]: e.target.value });
+  };
+
+  const onSubmit = async (data: WorkSpaceInfo) => {
+    Data.handleSendChange(true);
+    Data.handleSubmitingChange(true);
+    try {
+      const response = await Apiclient.post(
+        'workspace/',
+        JSON.stringify(data),
+        {
+          headers: {
+            'X-CSRFToken': csrfToken,
+            'Content-Type': 'application/json',
+          },
+        }
+      );
+      Data.handleSuccessChange(true);
+      Data.handleMessageChange('ارسال موفقیت آمیز بود');
+      Data.handleSendChange(false);
+      reset(); // Reset the form field
+    } catch (error) {
+      console.log(error);
+      Data.handleMessageChange('ارسال ناموفق بود !');
+      Data.handleSendChange(false);
+      Data.handleSuccessChange(false);
+    }
+  };
+
+  const [csrfToken, setCsrfToken] = useState('');
+  useEffect(() => {
+    async function fetchCsrfToken() {
+      const token = await GetCsrfToken('http://localhost:8000/get-csrf-token/');
+      setCsrfToken(token);
+    }
+
+    fetchCsrfToken();
+  }, []);
+
   return (
     <Modal isOpen={isOpen} style={customStyles}>
       <form onSubmit={handleSubmit(onSubmit)}>
@@ -43,7 +95,7 @@ export default function CoSpaceModal({
           <div className="mr-4">
             <div
               onClick={closeModal}
-              className="pointer border border-black w-5 pt-2 h-5 flex justify-center items-center rounded-full"
+              className="pointer border border-black w-5 pt-2 h-5 flex justify-center items-center rounded-full z-40"
             >
               <XLg />
             </div>
@@ -67,6 +119,7 @@ export default function CoSpaceModal({
                         message: 'نام خود را به درستی وارد کنید.',
                       },
                     })}
+                    onChange={handleChange}
                   />
                   {errors.name && (
                       <span className="text-sm text-yellow-500">
@@ -74,6 +127,7 @@ export default function CoSpaceModal({
                       </span>
                   )}
                 </div>
+                
               </div>
               <div className="w-1/2">
                 {/* <Image
@@ -101,6 +155,7 @@ export default function CoSpaceModal({
                         message: 'شماره تماس را به درستی وارد کنید.',
                       },
                     })}
+                    onChange={handleChange}
                   />
                   {errors.phone && (
                       <span className="text-sm text-yellow-500">
@@ -123,6 +178,7 @@ export default function CoSpaceModal({
                         message: 'آدرس ایمیل را به درستی وارد کنید.',
                       },
                     })}
+                    onChange={handleChange}
                   />
                   {errors.email && (
                       <span className="text-sm text-yellow-500">

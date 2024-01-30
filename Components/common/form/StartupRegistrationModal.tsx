@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Modal from 'react-modal';
 import XLg from '../../icons/XLg';
 import ArrowLeft from '../../icons/ArrowLeft';
 import { StartupsInfo } from '@/types/global';
 import { useForm } from 'react-hook-form';
 import { space } from 'postcss/lib/list';
+import { useData } from '@/stores/dataStore';
+import GetCsrfToken from '@/Services/GetCsrfToken';
+import Apiclient from '@/Services/Apiclient';
 
 const customStyles = {
   content: {
@@ -29,17 +32,68 @@ export default function StartupRegistrationModal({
   isOpen: boolean;
   closeModal: () => void;
 }) {
-  const {register,
-    handleSubmit,
-    formState:{errors}} = useForm<StartupsInfo>({
+  const Data = useData.getState();
+
+  useEffect(() => {
+    async function fetchCsrfToken() {
+      const token = await GetCsrfToken('http://localhost:8000/get-csrf-token/');
+      Data.handleTokenChange(token);
+    }
+
+    fetchCsrfToken();
+  }, [])
+
+  const { register, handleSubmit ,formState: { errors }} = useForm<StartupsInfo>({
     mode: 'onBlur',
   });
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.name === 'resume') {
+      if (e.target.files && e.target.files.length > 0) {
+        Data.handleFilePostChange({ resume: e.target.files[0] });
+      }
+      e.target.files;
+    }
+    Data.handleFormDataChange({ ...Data.formData, [e.target.name]: e.target.value });
+  };
 
-  const onSubmit = (data:any) => console.log(data);
+  const handleFormSubmit = async (data: StartupsInfo) => {
+    // e.preventDefault();
+    Data.handleSubmitingChange(true);
+    Data.handleSendChange(true);
+    const sendFormData = new FormData();
+    if (Data.filePost.resume) {
+      sendFormData.append('pitch', Data.filePost.resume, Data.filePost.resume.name);
+    }
+    sendFormData.append('name', data.name);
+    sendFormData.append('phone', data.phone);
+    sendFormData.append('email', data.email);
+    sendFormData.append('members_count', String(data.members_count));
+
+    try {
+      const response = await Apiclient.post('startup-submit/', sendFormData, {
+        headers: {
+          'content-type': 'multipart/form-data',
+          'X-CSRFToken': Data.csrfToken,
+        },
+      });
+
+      console.log(response);
+
+      Data.handleSubmitingChange(true);
+      Data.handleMessageChange('ارسال موفقیت آمیز بود');
+      Data.handleSendChange(false);
+      // reset(); // Reset the form fields
+    } catch (error) {
+      console.log(error);
+      Data.handleMessageChange('ارسال ناموفق بود !');
+      Data.handleSendChange(false);
+      Data.handleSubmitingChange(false);
+    }
+  };
 
   return (
     <Modal isOpen={isOpen} style={customStyles}>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={handleSubmit(handleFormSubmit)}>
         <div className="w-[64rem] pt-4 pb-8">
           {/* X button */}
           <div className="mr-4">
@@ -150,6 +204,21 @@ export default function StartupRegistrationModal({
                     </span>
                   )}
                 </div>
+                <div className="w-1/2">
+                <p className="text-xl mb-4">فایل pitch</p>
+                <input
+                  type="file"
+                  className="px-3 py-4 shadow-md rounded-md w-full mt-2 placeholder:text-gray-200"
+                  placeholder="لطفا فایل مورد نظر را آپلود کنید"
+                  {...register("resume")}
+                  onChange={handleChange}
+                />
+                  {errors.resume && (
+                    <span className="text-sm text-yellow-500">
+                      {errors.resume.message}
+                    </span>
+                  )}
+              </div>
               </div>
               
             </div>

@@ -25,9 +25,13 @@ export default function RootLayout({
   params: { lang: string };
   children: React.ReactNode;
 }) {
-  useLang.setState({
-    lang: lang,
-  });
+
+  // useLang.setState({
+  //   lang: lang
+  // })
+
+  useLang.getState().setLanguage(lang);
+
   return (
     <>
       <Script

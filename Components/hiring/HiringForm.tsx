@@ -28,7 +28,7 @@ const HiringForm = ({
 
   const { t } = useTranslation(lang, 'mainPage')
 
-  console.log(t('title'));
+  // console.log(t('title'));
 
   const {
     register,
@@ -61,10 +61,11 @@ const HiringForm = ({
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.name === 'resume') {
-      if (e.target.files && e.target.files.length > 0) {
-        Data.handleFilePostChange({ resume: e.target.files[0] });
-      }
-      e.target.files;
+      // if (e.target.files && e.target.files.length > 0) {
+      //   Data.handleFormDataChange({});
+      // }
+      // e.target.files;
+      console.log(e.target.value);
     }
     Data.handleFormDataChange({ ...Data.formData, [e.target.name]: e.target.value });
   };
@@ -74,8 +75,8 @@ const HiringForm = ({
     Data.handleSubmitingChange(true);
     Data.handleSendChange(true);
     const sendFormData = new FormData();
-    if (Data.filePost.resume) {
-      sendFormData.append('resume', Data.filePost.resume, Data.filePost.resume.name);
+    if (Data.formData.resume) {
+      sendFormData.append('resume', Data.formData.resume, Data.formData.resume.name);
     }
     sendFormData.append('name', data.name);
     sendFormData.append('phone', data.phone);

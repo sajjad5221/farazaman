@@ -3,18 +3,14 @@ import React, { useState } from 'react';
 import SectionHeader from '../common/SectionHeader';
 import Circle from '../icons/Circle';
 import ArrowLeft from '../icons/ArrowLeft';
-import HiringModal from '../common/form/HiringModal';
-import { useTranslation } from 'app/i18n';
+// import HiringModal from '../common/form/HiringModal';
+import { useTranslation } from '@/app/i18n/client';
 import { useLang } from 'stores/langStore';
-import InternshipModal from '../common/form/InternshipModal';
+// import InternshipModal from '../common/form/InternshipModal';
 import StartupRegistrationModal from '../common/form/StartupRegistrationModal';
 import Button from '../common/form/Button';
 
-export default async function StartupRegistration({
-  title,
-}: {
-  title: string;
-}) {
+export default function StartupRegistration({ title }: { title: string }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const openModal = () => {
@@ -27,7 +23,7 @@ export default async function StartupRegistration({
 
   const lang = useLang.getState().lang;
 
-  const { t } = await useTranslation(lang, 'mainPage');
+  const { t } = useTranslation(lang, 'mainPage');
 
   return (
     <section className="bg-gray-50 relative" id="startups">
@@ -69,7 +65,7 @@ export default async function StartupRegistration({
           </div>
         </div>
       </div>
-      <div className="w-full flex justify-center">
+      <div className="w-auto mx-auto flex justify-center">
         {/* <button
           className="bg-brand py-2 px-4 flex text-sm rounded-md"
           onClick={() => openModal()}

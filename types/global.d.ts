@@ -17,7 +17,7 @@ interface StartupsInfo {
   email: string;
   phone: string;
   members_count: number;
-  pitch: File | null;
+  resume: File | null;
 }
 
 interface ContactInfo {
@@ -39,16 +39,23 @@ interface IntershipInfo {
   email: string;
   phone: string;
   university: string;
-  cvFile: File | null;
+  resume: File | null;
 }
 
-interface StartupRegistrationModal {
+// interface StartupRegistrationModal {
+//   name: string;
+//   email: string;
+//   phone: string;
+//   university: string;
+//   resume: File | null;
+// }
+
+interface ComentItem {
   name: string;
-  email: string;
-  phone: string;
-  university: string;
-  cvFile: File | null;
-}
+  subTitle: string;
+  text: string;
+  image: string;
+};
 
 export {
   ServicesData,
@@ -57,5 +64,6 @@ export {
   ContactInfo,
   WorkSpaceInfo,
   IntershipInfo,
-  StartupRegistrationModal
+  StartupRegistrationModal,
+  ComentItem
 }

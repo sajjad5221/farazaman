@@ -7,10 +7,10 @@ import ArrowLeft from '../icons/ArrowLeft';
 import FormModal from '../common/form/CoSpaceModal';
 import InternshipModal from '../common/form/InternshipModal';
 import Button from '../common/form/Button';
-import { useTranslation } from 'app/i18n';
+import { useTranslation } from '@/app/i18n/client';
 import { useLang } from 'stores/langStore';
 
-export default async function HiringFeature({ title }: { title: string }) {
+export default function HiringFeature({ title }: { title: string }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const openModal = () => {
@@ -23,7 +23,7 @@ export default async function HiringFeature({ title }: { title: string }) {
 
   const lang = useLang.getState().lang;
 
-  const { t } = await useTranslation(lang, 'mainPage');
+  const { t } = useTranslation(lang, 'mainPage');
 
   return (
     <section className="bg-gray-50  relative" id="events">
@@ -58,7 +58,7 @@ export default async function HiringFeature({ title }: { title: string }) {
           </div>
         </div>
       </div>
-      <div className="w-full flex justify-center">
+      <div className="md:w-[12.5%] w-[45%] mx-auto flex justify-center">
         {/* <button
           className="bg-brand py-2 px-4 flex text-sm rounded-md"
           onClick={() => openModal()}

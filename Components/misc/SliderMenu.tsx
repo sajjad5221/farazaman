@@ -5,22 +5,23 @@ import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/solid';
 import Apiclient from '@/Services/Apiclient';
 import Image from 'next/image';
 import SectionHeader from '../common/SectionHeader';
+import { ComentItem } from '@/types/global';
 
-type Item = {
-  id: number;
-  name: string;
-  text: string;
-  image: string;
-  jobTitle: string;
-  subTitle: string;
-};
+// type Item = {
+//   id: number;
+//   name: string;
+//   text: string;
+//   image: string;
+//   jobTitle: string;
+//   subTitle: string;
+// };
 
 export default function SliderMenu({
   title,
   items,
 }: {
   title: string;
-  items: Item[];
+  items: Array<ComentItem>;
 }) {
   const carouselRef: React.RefObject<HTMLDivElement> = useRef(null);
 
@@ -84,11 +85,11 @@ export default function SliderMenu({
           onMouseUp={handleMouseUp}
           onMouseLeave={handleMouseUp}
         >
-          {items.map((item) => (
+          {items.map((item, index) => (
             // TODO: create carouselItem component :<CarouselItem key={item.id} item={item} />
 
             <div
-              key={item.id}
+              key={index}
               className="flex flex-col overflow-hidden flex-shrink-0 justify-evenly h-56 sm:w-1/3 md:w-1/4 shadow-md rounded-lg p-4 cursor-pointer mx-2"
               style={{ scrollSnapAlign: 'start' }}
             >
@@ -98,9 +99,9 @@ export default function SliderMenu({
                   <p className="mt-2 text-brand  ">{item.name}</p>
                   <p className="text-customGray">{item.subTitle}</p>
                 </div>
-                <p className="text-black whitespace-pre-wrap text-justify text-sm">
+                {/* <p className="text-black whitespace-pre-wrap text-justify text-sm">
                   {item.description}
-                </p>
+                </p> */}
               </div>
               <p className="text-black whitespace-pre-wrap text-justify text-sm">
                 {item.text}
