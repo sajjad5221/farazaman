@@ -8,6 +8,8 @@ import { space } from 'postcss/lib/list';
 import { useData } from '@/stores/dataStore';
 import GetCsrfToken from '@/Services/GetCsrfToken';
 import Apiclient from '@/Services/Apiclient';
+import { ToastContainer, toast } from 'react-toastify';
+
 
 const customStyles = {
   content: {
@@ -83,8 +85,31 @@ export default function StartupRegistrationModal({
       Data.handleMessageChange('ارسال موفقیت آمیز بود');
       Data.handleSendChange(false);
       // reset(); // Reset the form fields
+      setTimeout(() => {
+        closeModal();
+      }, 10000);
+      toast.success('ارسال موفقیت آمیز بود', {
+        position: 'bottom-center',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: 'light',
+      });
     } catch (error) {
       console.log(error);
+      toast.error('ارسال موفقیت آمیز نبود.', {
+        position: 'bottom-center',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: 'light',
+      });
       Data.handleMessageChange('ارسال ناموفق بود !');
       Data.handleSendChange(false);
       Data.handleSubmitingChange(false);
@@ -227,6 +252,9 @@ export default function StartupRegistrationModal({
                 <p className="ml-2">ارسال</p>
                 <ArrowLeft color="#fff" />
               </button>
+              <div>
+                <ToastContainer/>
+              </div>
             </div>
           </div>
         </div>
