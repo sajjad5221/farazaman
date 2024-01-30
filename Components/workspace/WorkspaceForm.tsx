@@ -7,6 +7,8 @@ import Apiclient from '@/Services/Apiclient';
 import { WorkSpaceInfo } from '@/types/global';
 import { useData } from '@/stores/dataStore';
 import Button from '../common/form/Button';
+import Input from '../common/form/Input';
+import FormNotification from '../common/form/FormNotification';
 
 const ContactUs = () => {
   // const [formData, setFormData] = useState<WorkSpaceInfo>({
@@ -102,7 +104,7 @@ const ContactUs = () => {
         <div className="w-full px-8 py-8 md:order-last lg:order-last max-[768px]:order-first">
           <div>
             <form onSubmit={handleSubmit(onSubmit)}>
-              <div className="mb-5">
+              {/* <div className="mb-5">
                 <label
                   htmlFor="name"
                   className="block mb-2 text-sm font-medium text-gray-900  "
@@ -132,9 +134,26 @@ const ContactUs = () => {
                     {errors.name.message}
                   </span>
                 )}
-              </div>
+              </div> */}
 
-              <div className="mb-5">
+              <Input 
+                register={register}
+                errors={errors}
+                nameInput='name'
+                placeholder='نام و نام خانوادگی'
+                containerClass='mb-5'
+                label='نام و نام خانوادگی'
+                labelClass='block mb-2 text-sm font-medium text-gray-900'
+                type='text'
+                autoComplete='false'
+                className='w-full px-4 py-3 border-2 placeholder:text-neutral-400 rounded-md outline-none focus:ring-4'
+                required='نام و نام خانوادگی خود را وارد کنید'
+                requiredValue={/^[\u0600-\u06FF\s]+$/}
+                requiredMessage='نام و نام خانوادگی خود را به درستی وارد کنید.'
+                handleChange={handleChange}
+              />
+
+              {/* <div className="mb-5">
                 <label
                   htmlFor="email"
                   className="block mb-2 text-sm font-medium text-gray-900  "
@@ -163,9 +182,26 @@ const ContactUs = () => {
                     {errors.email.message}
                   </span>
                 )}
-              </div>
+              </div> */}
 
-              <div className="mb-5">
+              <Input 
+                register={register}
+                errors={errors}
+                nameInput='email'
+                placeholder='آدرس ایمیل شما'
+                containerClass='mb-5'
+                label='آدرس ایمیل شما'
+                labelClass='block mb-2 text-sm font-medium text-gray-900'
+                type='email'
+                autoComplete='true'
+                className='w-full px-4 py-3 border-2 placeholder:text-neutral-400 rounded-md outline-none focus:ring-4'
+                required='آدرس ایمیل خود را وارد کنید'
+                requiredValue={/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i}
+                requiredMessage='آدرس ایمیل را به درستی وارد کنید.'
+                handleChange={handleChange}
+              />
+
+              {/* <div className="mb-5">
                 <label
                   htmlFor="tel"
                   className="block mb-2 text-sm font-medium text-gray-900  "
@@ -194,7 +230,25 @@ const ContactUs = () => {
                     {errors.phone.message}
                   </span>
                 )}
-              </div>
+              </div> */}
+
+              <Input 
+                register={register}
+                errors={errors}
+                nameInput='phone'
+                placeholder='شماره تماس ( مثال : ۰۹۱۳۱۲۳۴۵۶۷ )'
+                containerClass='mb-5'
+                label='شماره موبایل'
+                labelClass='block mb-2 text-sm font-medium text-gray-900'
+                type='number'
+                autoComplete='false'
+                className='w-full px-4 py-3 border-2 placeholder:text-neutral-400 rounded-md outline-none focus:ring-4'
+                required='شماره تماس را وارد کنید'
+                requiredValue={/^\d{11}$/}
+                requiredMessage='شماره تماس را به درستی وارد کنید.'
+                handleChange={handleChange}
+              />
+
               {/* <button
                 type="submit"
                 disabled={Data.send}
@@ -209,7 +263,7 @@ const ContactUs = () => {
                 submit={true}
               />
             </form>
-            {Data.isSuccess && Data.isSubmitting && Data.Message != '' && (
+            {/* {Data.isSuccess && Data.isSubmitting && Data.Message != '' && (
               <div
                 className="flex p-4 mt-6 mb-4 text-sm text-green-900 rounded-lg text-bold bg-green-10    "
                 role="alert"
@@ -259,7 +313,8 @@ const ContactUs = () => {
                   <span className="font-medium">{Data.Message}</span>!
                 </div>
               </div>
-            )}
+            )} */}
+            <FormNotification />
           </div>
         </div>
       </div>

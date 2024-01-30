@@ -3,16 +3,19 @@ import React from "react";
 import SliderMenu from "../misc/SliderMenu";
 import { useTranslation } from "app/i18n/client";
 import { useLang } from "stores/langStore";
+import { resources } from "@/types/i18n";
 
 export default function Hires() {
 
-  const lang = useLang.getState().lang;
+  const lang = useLang().lang;
 
-  const { t } = useTranslation(lang, "mainPage");
+  const index1 = lang === "fa" ? resources.fa : resources.en
+
+  // const { t } = useTranslation(lang, "mainPage");
 
   // const hires = t("YourComments", { returnObjects: true });
 
-  console.log(typeof(t("YourComments", { returnObjects: true })))
+  // console.log(typeof(t("YourComments", { returnObjects: true })))
 
   // const hires = [
   //   {
@@ -59,7 +62,7 @@ export default function Hires() {
   
   return (
     <div>
-      <SliderMenu title="تجربه استخدامی ها" items={t("YourComments", { returnObjects: true })} />
+      <SliderMenu title="تجربه استخدامی ها" items={index1.mainPage.YourComments} />
     </div>
   );
 }

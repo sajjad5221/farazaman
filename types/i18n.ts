@@ -1,3 +1,4 @@
+'use client'
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 
@@ -13,6 +14,9 @@ export const resources = {
     navbar,
     startups
   },
+  en: {
+    mainPage
+  }
 } as const;
 
 i18n.use(initReactI18next).init({

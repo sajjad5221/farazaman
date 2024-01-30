@@ -52,9 +52,13 @@ import { resources } from '@/types/i18n';
 // Define the Customers component
 export default function Customers() {
 
-  const lang = useLang().lang;
+  const lang = useLang().lang
 
-  const { t } = useTranslation(lang, "mainPage");
+  // console.log(lang);
+
+  const index = lang === "fa" ? resources.fa : resources.en
+
+  // const { t } = useTranslation(lang, "mainPage");
 
   console.log(resources.fa.mainPage.customers)
 
@@ -73,7 +77,7 @@ export default function Customers() {
         {/* Customer grid */}
         <div className="w-100 grid mt-8 items-center gap-4 justify-between grid-cols-1 text-center xs:grid-cols-2 md:grid-cols-5">
           {/* Map over the array of customers and create a CustomerCard for each */}
-          {resources.fa.mainPage.customers.map(({ id, name, href, src, alt } : { id: number, name: string, href: string, src: string, alt: string }) => (
+          {index.mainPage.customers.map(({ id, name, href, src, alt } : { id: number, name: string, href: string, src: string, alt: string }) => (
             <div className="shadow-md rounded-xl pb-3" key={id}>
               <Image
                 className="justify-center mx-auto mt-6 mb-1 text-center transition rounded-full hover:scale-110"

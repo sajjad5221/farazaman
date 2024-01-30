@@ -28,6 +28,10 @@ type Action = {
     handleStartupsFilePost: (file: State['startupsFilePost']) => void;
     handleContactUsFormData: (obj: State['contactUsFormData']) => void;
     handleWorkSpaceFormData: (obj: State['workSpaceFormData']) => void;
+    // handleChange: (
+    //     e: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement> | React.ChangeEvent<HTMLFieldSetElement>, 
+    //     kind: string
+    // ) => void
 }
 
 const useData = create<State & Action>((set) => {
@@ -75,7 +79,12 @@ const useData = create<State & Action>((set) => {
         handleStartupsFormDataChange: (obj) => set(() => ({startupsFormData: obj})),
         handleStartupsFilePost: (file) => set(() => ({startupsFilePost: file})),
         handleContactUsFormData: (obj) => set(() => ({contactUsFormData: obj})),
-        handleWorkSpaceFormData: (obj) => set(() => ({workSpaceFormData: obj}))
+        handleWorkSpaceFormData: (obj) => set(() => ({workSpaceFormData: obj})),
+        // handleChange: (e, kind) => set(() => ({
+        //     if (kind) {
+                
+        //     }
+        // })),
     };
 });
 

@@ -8,6 +8,8 @@ import { HiringInfo } from '@/types/global';
 import { useData } from '@/stores/dataStore';
 import { useTranslation } from '@/app/i18n/client';
 import Button from '../common/form/Button';
+import Input from '../common/form/Input';
+import FormNotification from '../common/form/FormNotification';
 
 // const initialFormData = {
 //   name: '',
@@ -20,13 +22,9 @@ import Button from '../common/form/Button';
 
 const Data = useData.getState();
 
-const HiringForm = ({
-  lang
-}: {
-  lang: string;
-}) => {
+const HiringForm = () => {
 
-  const { t } = useTranslation(lang, 'mainPage')
+  // const { t } = useTranslation(lang, 'mainPage')
 
   // console.log(t('title'));
 
@@ -123,7 +121,7 @@ const HiringForm = ({
         <div className="w-full px-8 py-8 md:order-last lg:order-last max-[768px]:order-first">
           <div>
             <form onSubmit={handleSubmit(handleFormSubmit)}>
-              <div className="mb-5">
+              {/* <div className="mb-5">
                 <label
                   htmlFor="name"
                   className="block mb-2 text-sm font-medium text-gray-900  "
@@ -152,71 +150,97 @@ const HiringForm = ({
                     {errors.name.message}
                   </span>
                 )}
+              </div> */}
+
+              <Input 
+                register={register}
+                errors={errors}
+                nameInput='name'
+                placeholder='نام و نام خانوادگی'
+                containerClass='mb-5'
+                label='نام و نام خانوادگی'
+                labelClass='block mb-2 text-sm font-medium text-gray-900'
+                type='text'
+                autoComplete='false'
+                className='w-full px-4 py-3 border-2 placeholder:text-neutral-400 rounded-md outline-none focus:ring-4'
+                required='نام و نام خانوادگی خود را وارد کنید'
+                requiredValue={/^[\u0600-\u06FF\s]+$/}
+                requiredMessage='نام و نام خانوادگی خود را به درستی وارد کنید.'
+                handleChange={handleChange}
+              />
+
+              <Input 
+                register={register}
+                errors={errors}
+                nameInput='email-address'
+                placeholder='آدرس ایمیل شما'
+                containerClass='mb-5'
+                label='آدرس ایمیل شما'
+                labelClass='block mb-2 text-sm font-medium text-gray-900'
+                type='email'
+                autoComplete='true'
+                className='w-full px-4 py-3 border-2 placeholder:text-neutral-400 rounded-md outline-none focus:ring-4'
+                required='آدرس ایمیل خود را وارد کنید'
+                requiredValue={/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i}
+                requiredMessage='آدرس ایمیل را به درستی وارد کنید.'
+                handleChange={handleChange}
+              />
+
+              <Input 
+                register={register}
+                errors={errors}
+                nameInput='phone-number'
+                placeholder='شماره تماس ( مثال : ۰۹۱۳۱۲۳۴۵۶۷ )'
+                containerClass='mb-5'
+                label='شماره موبایل'
+                labelClass='block mb-2 text-sm font-medium text-gray-900'
+                type='number'
+                autoComplete='false'
+                className='w-full px-4 py-3 border-2 placeholder:text-neutral-400 rounded-md outline-none focus:ring-4'
+                required='شماره تماس را وارد کنید'
+                requiredValue={/^\d{11}$/}
+                requiredMessage='شماره تماس را به درستی وارد کنید.'
+                handleChange={handleChange}
+              />
+
+              <div className='mb-5 flex'>
+              <p className="description-type text-zinc-600 w-auto text-xl   mobile:text-[18px] s:text-[18px] sm:text-lg inline">
+                نوع طرح :
+              </p>
+              <Input 
+                register={register}
+                errors={errors}
+                nameInput='hireType-1'
+                placeholder=''
+                inputValue="NO"
+                containerClass=''
+                label='طرح عادی  '
+                labelClass='cursor-pointer mr-[10px] text-[18px] ml-2 text-sm font-medium text-zinc-600   mobile:text-[14px] s:text-[14px] sm:text-[16px]'
+                type='radio'
+                autoComplete='false'
+                className='rsor-pointer w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-2 mobile:w-[16%] s:w-[15%] sm:w-[14px] sm:-ml-[5px]" name="default-box" value="normal" checked=""'
+                required='نوع استخدام خود را مشخص کنید'
+                handleChange={handleChange}
+              />
+
+              <Input 
+                register={register}
+                errors={errors}
+                nameInput='hireType-2'
+                placeholder=''
+                inputValue="PU"
+                containerClass=''
+                label='طرح پویش  '
+                labelClass='cursor-pointer mr-[10px] text-[18px] ml-2 text-sm font-medium text-zinc-600   mobile:text-[14px] s:text-[14px] sm:text-[16px]'
+                type='radio'
+                autoComplete='false'
+                className='rsor-pointer w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-2 mobile:w-[16%] s:w-[15%] sm:w-[14px] sm:-ml-[5px]" name="default-box" value="normal" checked=""'
+                required='نوع استخدام خود را مشخص کنید'
+                handleChange={handleChange}
+              />
               </div>
 
-              <div className="mb-5">
-                <label
-                  htmlFor="email-address"
-                  className="block mb-2 text-sm font-medium text-gray-900  "
-                >
-                  آدرس ایمیل شما
-                </label>
-                <input
-                  id="email-address"
-                  type="email"
-                  placeholder="آدرس ایمیل شما"
-                  autoComplete="true"
-                  className={`w-full px-4 py-3 border-2 placeholder:text-neutral-400   rounded-md outline-none     focus:ring-4 ${
-                    errors.email ? 'border-yellow-500' : ''
-                  }`}
-                  {...register('email', {
-                    required: 'آدرس ایمیل خود را وارد کنید.',
-                    pattern: {
-                      value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                      message: 'آدرس ایمیل را به درستی وارد کنید.',
-                    },
-                  })}
-                  onChange={handleChange}
-                />
-                {errors.email && (
-                  <span className="text-sm text-yellow-500">
-                    {errors.email.message}
-                  </span>
-                )}
-              </div>
-
-              <div className="mb-5">
-                <label
-                  htmlFor="phone-number"
-                  className="block mb-2 text-sm font-medium text-gray-900  "
-                >
-                  شماره موبایل
-                </label>
-                <input
-                  id="phone-number"
-                  type="number"
-                  placeholder="شماره تماس ( مثال : ۰۹۱۳۱۲۳۴۵۶۷)"
-                  autoComplete="false"
-                  className={`w-full px-4 py-3 border-2 placeholder:text-neutral-400   rounded-md outline-none     focus:ring-4 ${
-                    errors.phone ? 'border-yellow-500' : ''
-                  }`}
-                  {...register('phone', {
-                    required: 'شماره تماس را وارد کنید.',
-                    pattern: {
-                      value: /^\d{11}$/,
-                      message: 'شماره تماس را به درستی وارد کنید.',
-                    },
-                  })}
-                  onChange={handleChange}
-                />
-                {errors.phone && (
-                  <span className="text-sm text-yellow-500">
-                    {errors.phone.message}
-                  </span>
-                )}
-              </div>
-
-              <div className="mb-5">
+              {/* <div className="mb-5">
                 <p className="description-type text-zinc-600 w-full text-xl   mobile:text-[18px] s:text-[18px] sm:text-lg inline">
                   نوع طرح :
                 </p>
@@ -271,9 +295,27 @@ const HiringForm = ({
                     {errors.hireType.message}
                   </span>
                 )}
-              </div>
+              </div> */}
 
-              <div className="mb-5">
+              <Input 
+                register={register}
+                errors={errors}
+                nameInput='file'
+                placeholder='فایل ارائه'
+                inputValue={Data.formData.resume?.name}
+                containerClass='mb-5'
+                label='رزومه شما  '
+                labelClass='block mb-2 text-sm font-medium text-gray-900'
+                type='file'
+                autoComplete='false'
+                className='w-full px-4 py-3 border-2 text-gray-400 style="visibility:hidden placeholder:text-neutral-400 rounded-md outline-none focus:ring-4'
+                required='فایل را وارد کنید'
+                requiredValue={/b'[a-f]+\d+'/}
+                requiredMessage='فایل را به درستی وارد کنید'
+                handleChange={handleChange}
+              />
+
+              {/* <div className="mb-5">
                 <label
                   htmlFor="file"
                   className="block mb-2 text-sm font-medium text-gray-900  "
@@ -303,7 +345,7 @@ const HiringForm = ({
                     {errors.resume.message}
                   </span>
                 )}
-              </div>
+              </div> */}
               <input
                 type="hidden"
                 name="csrftokenmiddleware"
@@ -318,7 +360,7 @@ const HiringForm = ({
               </button> */}
               <Button submit={true} disabled={Data.send} text={Data.send ? 'در حال ارسال...' : 'ارسال'} func='form' />
             </form>
-            {Data.isSuccess && Data.isSubmitting && Data.Message != '' && (
+            {/* {Data.isSuccess && Data.isSubmitting && Data.Message != '' && (
               <div
                 className="flex p-4 mt-6 mb-4 text-sm text-green-900 rounded-lg text-bold bg-green-10    "
                 role="alert"
@@ -368,7 +410,8 @@ const HiringForm = ({
                   <span className="font-medium">{Data.Message}</span>!
                 </div>
               </div>
-            )}
+            )} */}
+            <FormNotification />
           </div>
         </div>
       </div>

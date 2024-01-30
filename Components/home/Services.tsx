@@ -1,12 +1,17 @@
+'use client'
 import Image from 'next/image';
 import React, { useEffect } from 'react';
 import ServiceCard from './ServiceCard';
 import { useLang } from '@/stores/langStore';
-import { useTranslation } from './../../app/i18n';
+// import { useTranslation } from './../../app/i18n';
+import { resources } from '@/types/i18n';
 
-export default async function Services() {
-  const lang = useLang.getState().lang;
-  const { t } = await useTranslation(lang, 'mainPage');
+export default function Services() {
+  const lang = useLang().lang;
+
+  const index1 = lang === "fa" ? resources.fa : resources.en
+
+  // const { t } = useTranslation(lang, 'mainPage');
   // const a: any = t('ServiceData', { returnObjects: true })[0];
   // (t('ServiceData', { returnObjects: true }));
 
@@ -19,7 +24,7 @@ export default async function Services() {
 
 
   // it says type of the object we are reading from i18n is string ! i turned it to 'any' temporary .
-  const servicesData: any = t('ServiceData', {returnObjects: true})
+  // const servicesData: any = t('ServiceData', {returnObjects: true})
 
   // console.log(servicesData);
 
@@ -31,13 +36,13 @@ export default async function Services() {
     <div className="bg-gray-50 px-10 md:p-6" id="services">
       {/* Page header */}
       <div className="pt-16 mx-auto max-w-7xl sm:px-6 lg:px-8 gap-x-40">
-        <h2 className="text-4xl text-brand  ">{t('mainPageTitle')}</h2>
+        <h2 className="text-4xl text-brand  ">{index1.mainPage.mainPageTitle}</h2>
         <div>
           <p className="text-black py-2 text-2xl leading-[3.1rem]">
-            {t('mainPageSubTitle')}
+            {index1.mainPage.mainPageSubTitle}
           </p>
           <p className="pb-6 text-base lg:max-w-[77rem] text-gray-600   leading-[3.1rem]">
-            {t('mainPageParagraph')}
+            {index1.mainPage.mainPageParagraph}
           </p>
         </div>
       </div>
@@ -45,7 +50,7 @@ export default async function Services() {
       {/* Service cards */}
       {/* flex flex-col md:flex-row max-w-7xl justify-between mx-auto items-center */}
       <div className="grid grid-cols-2 md:grid-cols-4 justify-between mx-auto max-w-7xl">
-        {servicesData.map(
+        {index1.mainPage.ServiceData.map(
           (
             {
               title,

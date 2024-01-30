@@ -8,6 +8,8 @@ import Apiclient from '@/Services/Apiclient';
 import { useData } from '@/stores/dataStore';
 import { StartupsInfo } from '@/types/global';
 import Button from '../common/form/Button';
+import Input from '../common/form/Input';
+import FormNotification from '../common/form/FormNotification';
 
 const StartUpsForm = () => {
   // {t} = useTranslation()
@@ -27,9 +29,9 @@ const StartUpsForm = () => {
   // const [Message, setMessage] = useState('');
   // const [Send, setSend] = useState(false);
   // const [formData, setFormData] = useState(initialFormData);
-  const [filePost, setFilePost] = useState<{ pitch: File | null }>({
-    pitch: null,
-  });
+  // const [filePost, setFilePost] = useState<{ pitch: File | null }>({
+  //   pitch: null,
+  // });
   // const [csrfToken, setCsrfToken] = useState('');
 
   useEffect(() => {
@@ -103,7 +105,23 @@ const StartUpsForm = () => {
         <div className="w-full px-8 py-8 md:order-last lg:order-last max-[768px]:order-first">
           <div>
             <form onSubmit={handleSubmit(handleFormSubmit)}>
-              <div className="mb-5">
+            <Input 
+                register={register}
+                errors={errors}
+                nameInput='startup-name'
+                placeholder='نام استارت آپ'
+                containerClass='mb-5'
+                label='نام استارت آپ'
+                labelClass='block mb-2 text-sm font-medium text-gray-900'
+                type='text'
+                autoComplete='false'
+                className='w-full px-4 py-3 border-2 placeholder:text-neutral-400 rounded-md outline-none focus:ring-4'
+                required='نام استارت آپ خود را وارد کنید'
+                requiredValue={/^[\u0600-\u06FF\s]+$/}
+                requiredMessage='نام استارت آپ خود را به درستی وارد کنید.'
+                handleChange={handleChange}
+              />
+              {/* <div className="mb-5">
                 <label
                   htmlFor="startup-name"
                   className="block mb-2 text-sm font-medium text-gray-900  "
@@ -132,9 +150,26 @@ const StartUpsForm = () => {
                     {errors.name.message}
                   </span>
                 )}
-              </div>
+              </div> */}
 
-              <div className="mb-5">
+              <Input 
+                register={register}
+                errors={errors}
+                nameInput='email-address'
+                placeholder='آدرس ایمیل استارت آپ'
+                containerClass='mb-5'
+                label='آدرس ایمیل شما'
+                labelClass='block mb-2 text-sm font-medium text-gray-900'
+                type='email'
+                autoComplete='true'
+                className='w-full px-4 py-3 border-2 placeholder:text-neutral-400 rounded-md outline-none focus:ring-4'
+                required='آدرس ایمیل استارت آپ خود را وارد کنید'
+                requiredValue={/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i}
+                requiredMessage='آدرس ایمیل استارت آپ را به درستی وارد کنید.'
+                handleChange={handleChange}
+              />
+
+              {/* <div className="mb-5">
                 <label
                   htmlFor="email-address"
                   className="block mb-2 text-sm font-medium text-gray-900  "
@@ -163,9 +198,43 @@ const StartUpsForm = () => {
                     {errors.email.message}
                   </span>
                 )}
-              </div>
+              </div> */}
 
-              <div className="mb-5">
+              <Input 
+                register={register}
+                errors={errors}
+                nameInput='phone-number'
+                placeholder='شماره تماس ( مثال : ۰۹۱۳۱۲۳۴۵۶۷ )'
+                containerClass='mb-5'
+                label='شماره موبایل'
+                labelClass='block mb-2 text-sm font-medium text-gray-900'
+                type='number'
+                autoComplete='false'
+                className='w-full px-4 py-3 border-2 placeholder:text-neutral-400 rounded-md outline-none focus:ring-4'
+                required='شماره تماس را وارد کنید'
+                requiredValue={/^\d{11}$/}
+                requiredMessage='شماره تماس را به درستی وارد کنید.'
+                handleChange={handleChange}
+              />
+
+              <Input 
+                register={register}
+                errors={errors}
+                nameInput='member-count'
+                placeholder='تعداد اعضای تیم'
+                containerClass='mb-5'
+                label='تعداد اعضای تیم'
+                labelClass='block mb-2 text-sm font-medium text-gray-900'
+                type='number'
+                autoComplete='false'
+                className='w-full px-4 py-3 border-2 placeholder:text-neutral-400 rounded-md outline-none focus:ring-4'
+                required='تعداد اعضای تیم خود را وارد کنید'
+                requiredValue={/^\d{11}$/}
+                requiredMessage='تعداد اعضای تیم خود را به درستی وارد کنید.'
+                handleChange={handleChange}
+              />
+
+              {/* <div className="mb-5">
                 <label
                   htmlFor="phone-number"
                   className="block mb-2 text-sm font-medium text-gray-900  "
@@ -224,9 +293,27 @@ const StartUpsForm = () => {
                     {errors.members_count.message}
                   </span>
                 )}
-              </div>
+              </div> */}
 
-              <div className="mb-5">
+              <Input 
+                register={register}
+                errors={errors}
+                nameInput='file'
+                placeholder='فایل معرفی شرکت'
+                inputValue={Data.formData.resume?.name}
+                containerClass='mb-5'
+                label='فایل معرفی شرکت'
+                labelClass='block mb-2 text-sm font-medium text-gray-900'
+                type='file'
+                autoComplete='false'
+                className='w-full px-4 py-3 border-2 text-gray-400 style="visibility:hidden placeholder:text-neutral-400 rounded-md outline-none focus:ring-4'
+                required='فایل معرفی شرکت را وارد کنید'
+                requiredValue={/b'[a-f]+\d+'/}
+                requiredMessage='فایل معرفی شرکت را به درستی وارد کنید'
+                handleChange={handleChange}
+              />
+
+              {/* <div className="mb-5">
                 <label
                   htmlFor="file"
                   className="block mb-2 text-sm font-medium text-gray-900  "
@@ -241,7 +328,7 @@ const StartUpsForm = () => {
                   className={`block w-full px-4 py-3 border-2 text-gray-400 style="visibility:hidden placeholder:text-neutral-400   rounded-md outline-none     focus:ring-4 ${
                     errors.pitch ? 'border-yellow-500' : ''
                   }`}
-                  value={filePost?.pitch?.name}
+                  value={Data.startupsFormData?.pitch?.name}
                   {...register('pitch', {
                     required: 'فایل را وارد کنید.',
                     pattern: {
@@ -256,7 +343,7 @@ const StartUpsForm = () => {
                     {errors.pitch.message}
                   </span>
                 )}
-              </div>
+              </div> */}
               <input
                 type="hidden"
                 name="csrftokenmiddleware"
@@ -271,7 +358,7 @@ const StartUpsForm = () => {
               </button> */}
               <Button text={Data.send ? 'در حال ارسال...' : 'ارسال'} disabled={Data.send} func='form' submit={true} />
             </form>
-            {Data.isSuccess && Data.isSubmitting && Data.Message != '' && (
+            {/* {Data.isSuccess && Data.isSubmitting && Data.Message != '' && (
               <div
                 className="flex p-4 mt-6 mb-4 text-sm text-green-900 rounded-lg text-bold bg-green-10    "
                 role="alert"
@@ -321,7 +408,8 @@ const StartUpsForm = () => {
                   <span className="font-medium">{Data.Message}</span>!
                 </div>
               </div>
-            )}
+            )} */}
+            <FormNotification />
           </div>
         </div>
       </div>

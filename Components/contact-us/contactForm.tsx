@@ -8,6 +8,7 @@ import GetCsrfToken from '@/Services/GetCsrfToken';
 import { ContactInfo } from '@/types/global';
 import { useData } from '@/stores/dataStore';
 import Button from '../common/form/Button';
+import Input from '../common/form/Input';
 
 const ContactUsForm = () => {
   // const [formData, setFormData] = useState<ContactInfo>({
@@ -98,7 +99,7 @@ const ContactUsForm = () => {
         <div className="w-full px-8 py-8 md:order-last lg:order-last max-[768px]:order-first">
           <div>
             <form onSubmit={handleSubmit(onSubmit)}>
-              <div className="mb-5">
+              {/* <div className="mb-5">
                 <label
                   htmlFor="name"
                   className="block mb-2 text-sm font-medium text-gray-900"
@@ -128,40 +129,60 @@ const ContactUsForm = () => {
                     {errors.name.message}
                   </span>
                 )}
-              </div>
+              </div> */}
 
-              <div className="mb-5">
-                <label
-                  htmlFor="email"
-                  className="block mb-2 text-sm font-medium text-gray-900"
-                >
-                  آدرس ایمیل شما
-                </label>
-                <input
-                  id="email"
-                  type="email"
-                  placeholder="farazaman@gmail.com"
-                  autoComplete="off"
-                  className={`w-full px-4 py-3 border-2 rounded-md outline-none focus:ring-4 ${
-                    errors.email ? 'border-yellow-500' : ''
-                  }`}
-                  {...register('email', {
-                    required: 'آدرس ایمیل خود را وارد کنید.',
-                    pattern: {
-                      value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                      message: 'آدرس ایمیل را به درستی وارد کنید.',
-                    },
-                  })}
-                  onChange={handleChange}
-                />
-                {errors.email && (
-                  <span className="text-sm text-yellow-500">
-                    {errors.email.message}
-                  </span>
-                )}
-              </div>
+              <Input 
+                register={register}
+                errors={errors}
+                nameInput='name'
+                placeholder='نام و نام خانوادگی'
+                containerClass='mb-5'
+                label='نام و نام خانوادگی'
+                labelClass='block mb-2 text-sm font-medium text-gray-900'
+                type='text'
+                autoComplete='false'
+                className='w-full px-4 py-3 border-2 placeholder:text-neutral-400 rounded-md outline-none focus:ring-4'
+                required='نام و نام خانوادگی خود را وارد کنید'
+                requiredValue={/^[\u0600-\u06FF\s]+$/}
+                requiredMessage='نام و نام خانوادگی خود را به درستی وارد کنید.'
+                handleChange={handleChange}
+              />
 
-              <div className="mb-5">
+              <Input 
+                register={register}
+                errors={errors}
+                nameInput='email'
+                placeholder='آدرس ایمیل شما'
+                containerClass='mb-5'
+                label='آدرس ایمیل شما'
+                labelClass='block mb-2 text-sm font-medium text-gray-900'
+                type='email'
+                autoComplete='true'
+                className='w-full px-4 py-3 border-2 placeholder:text-neutral-400 rounded-md outline-none focus:ring-4'
+                required='آدرس ایمیل خود را وارد کنید'
+                requiredValue={/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i}
+                requiredMessage='آدرس ایمیل را به درستی وارد کنید.'
+                handleChange={handleChange}
+              />
+
+              <Input 
+                register={register}
+                errors={errors}
+                nameInput='phone'
+                placeholder='شماره تماس ( مثال : ۰۹۱۳۱۲۳۴۵۶۷ )'
+                containerClass='mb-5'
+                label='شماره موبایل'
+                labelClass='block mb-2 text-sm font-medium text-gray-900'
+                type='number'
+                autoComplete='false'
+                className='w-full px-4 py-3 border-2 placeholder:text-neutral-400 rounded-md outline-none focus:ring-4'
+                required='شماره تماس را وارد کنید'
+                requiredValue={/^\d{11}$/}
+                requiredMessage='شماره تماس را به درستی وارد کنید.'
+                handleChange={handleChange}
+              />
+
+              {/* <div className="mb-5">
                 <label
                   htmlFor="tel"
                   className="block mb-2 text-sm font-medium text-gray-900"
@@ -189,7 +210,22 @@ const ContactUsForm = () => {
                     {errors.phone.message}
                   </span>
                 )}
-              </div>
+              </div> */}
+
+              <Input 
+                register={register}
+                errors={errors}
+                nameInput='message'
+                placeholder='پیام شما'
+                containerClass='mb-5'
+                label='شماره موبایل'
+                labelClass='block mb-2 text-sm font-medium text-gray-900'
+                type='number'
+                autoComplete='false'
+                className='w-full px-4 py-3 border-2 rounded-md outline-none h-36 focus:ring-4'
+                required='متن پیام را وارد کنید'
+                handleChange={handleChange}
+              />
 
               <div className="mb-3" style={{ backgroundColor: 'transparent' }}>
                 <label

@@ -10,7 +10,7 @@ import Hires from '@/Components/home/Hires';
 import Services from '@/Components/home/Services';
 import ContactUs from '@/Components/home/ContactUs';
 import { useTranslation } from '../i18n';
-import SmoothScroll from './../../Components/common/SmothScroll';
+// import SmoothScroll from './../../Components/common/SmothScroll';
 
 export default async function Home({
   params: { lang },
@@ -18,6 +18,8 @@ export default async function Home({
   params: { lang: string };
 }) {
   const { t } = await useTranslation(lang, 'mainPage');
+
+  const feats: any = t('features', {returnObjects: true})
 
   return (
     <ErrorBoundary>
@@ -32,9 +34,9 @@ export default async function Home({
             {/* // <HiringFeature title="جذب نیرو" /> */}
             {/* <InternshipFeature title="طرح پویش" /> */}
             {/* <StartupRegistration title="ثبت استارتاپ" /> */}
-            {t('features', {returnObjects: true}).map((
+            {feats.map((
               {title, slogan, firstText, secondText, points, experienceTitle, experienceText, buttonText, modalName} 
-              : {title: string, slogan: string, firstText: string, secondText: string, points: string, experienceTitle: string, experienceText: string, buttonText: string, modalName: string}) => (
+              : {title: string, slogan: string, firstText: string, secondText: string, points: Array<any>, experienceTitle: string, experienceText: string, buttonText: string, modalName: string}) => (
                 <Features title={title} slogan={slogan} firstText={firstText} secondText={secondText} points={points} experienceTitle={experienceTitle} experienceText={experienceText} buttonText={buttonText} modalName={modalName} />
               ))}
             <Hires />

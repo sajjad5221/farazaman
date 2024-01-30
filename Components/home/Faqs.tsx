@@ -5,6 +5,7 @@ import React from "react";
 import SectionHeader from "../common/SectionHeader";
 import { useTranslation } from "app/i18n/client";
 import { useLang } from "stores/langStore";
+import { resources } from "@/types/i18n";
 
 // Define an array of FAQ items, each with a question and response
 // const faqitems = [
@@ -33,14 +34,16 @@ import { useLang } from "stores/langStore";
 // Define the Faq component
 export default function Faq() {
 
-  const lang = useLang.getState().lang;
+  const lang = useLang().lang;
 
-  const { t } = useTranslation(lang, "mainPage");
+  const index1 = lang === "fa" ? resources.fa : resources.en
 
-  const faqitems: { question: string; response: string }[] = t(
-    "FrequentlyQuestions",
-    { returnObjects: true }
-  ) as any;
+  // const { t } = useTranslation(lang, "mainPage");
+
+  // const faqitems: { question: string; response: string }[] = t(
+  //   "FrequentlyQuestions",
+  //   { returnObjects: true }
+  // ) as any;
   // Render the component
   return (
     <section className="bg-gray-50 px-4 py-16" id="faq">
@@ -48,7 +51,7 @@ export default function Faq() {
         <SectionHeader title="سوالات متداول" />
         <div className="my-8 mx-auto">
           {/* TODO: create FaqCard.tsx */}
-          {faqitems.map(({ question, response }) => (
+          {index1.mainPage.FrequentlyQuestions.map(({ question, response }) => (
             <div className="pr-4 py-2 my-3 text-black shadow-md rounded-md">
               <p className="text-brand">{question}</p>
               <p className="py-3">{response}</p>

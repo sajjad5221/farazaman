@@ -17,7 +17,7 @@ interface StartupsInfo {
   email: string;
   phone: string;
   members_count: number;
-  resume: File | null;
+  pitch: File | null;
 }
 
 interface ContactInfo {
