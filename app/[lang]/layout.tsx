@@ -1,4 +1,6 @@
 import './globals.css'; // Import global CSS file
+import 'tailwindcss/tailwind.css'; // Import Tailwind CSS first
+import 'react-toastify/dist/ReactToastify.css'; // Then import React Toastify CSS
 import Script from 'next/script';
 import React from 'react';
 import Footer from '@/Components/footer/Footer';

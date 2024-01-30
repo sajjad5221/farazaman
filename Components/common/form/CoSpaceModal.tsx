@@ -88,7 +88,7 @@ export default function CoSpaceModal({
     } catch (error) {
       console.log(error);
       Data.handleMessageChange('ارسال ناموفق بود !');
-      toast.error('🦄 Wow so easy!', {
+      toast.error('ارسال موفقیت آمیز نبود.', {
         position: 'bottom-center',
         autoClose: 5000,
         hideProgressBar: false,
@@ -229,12 +229,13 @@ export default function CoSpaceModal({
                 <p className="ml-2">ارسال</p>
                 <ArrowLeft color="#fff" />
               </button>
+              <div>
+                <ToastContainer/>
+              </div>
             </div>
           </div>
         </div>
-        <div>
-          <ToastContainer />
-        </div>
+
       </form>
     </Modal>
   );
