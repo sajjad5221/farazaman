@@ -9,7 +9,7 @@ import Button from '../common/form/Button';
 import { useTranslation } from 'app/i18n';
 import { useLang } from 'stores/langStore';
 
-export default async function Features({ title  }: { title: string }) {
+export default async function Features({ title }: { title: string }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const openModal = () => {
@@ -24,28 +24,25 @@ export default async function Features({ title  }: { title: string }) {
   const { t } = await useTranslation(lang, 'mainPage');
 
   return (
-    <section className="bg-gray-50 z-0 relative" id="workspace">
+    <section className="bg-gray-50  relative" id="workspace">
       <div className="px-8 text-customGray leading-10 pt-16 pb-8 mx-auto max-w-7xl sm:px-6 lg:px-8 gap-x-40">
         <SectionHeader title={title} />
         {/* TODO: use i18n */}
         <div className="md:mr-4 py-5">
           <h2 className="text-black text-xl mb-3 leading-10">
-          {t('startupAcademyService', { returnObjects: true }).subTitle}
-
+            {t('startupAcademyService', { returnObjects: true }).subTitle}
           </h2>
           <p className="">
-          {t('startupAcademyService', { returnObjects: true }).text1}
+            {t('startupAcademyService', { returnObjects: true }).text1}
           </p>
           <div>
-            <p>
-            {t('startupAcademyService', { returnObjects: true }).text2}
-            </p>
+            <p>{t('startupAcademyService', { returnObjects: true }).text2}</p>
             <ul className="list-disc mr-4">
               <li>
-              {t('startupAcademyService', { returnObjects: true }).textup}
+                {t('startupAcademyService', { returnObjects: true }).textup}
               </li>
               <li>
-              {t('startupAcademyService', { returnObjects: true }).textdown}
+                {t('startupAcademyService', { returnObjects: true }).textdown}
               </li>
             </ul>
           </div>
@@ -56,12 +53,10 @@ export default async function Features({ title  }: { title: string }) {
             <div className="flex items-center mb-3">
               <Circle />
               <h2 className="text-brand text-xl mr-4">
-              {t('ExperienceSpace', { returnObjects: true }).title}
+                {t('ExperienceSpace', { returnObjects: true }).title}
               </h2>
             </div>
-            <p>
-            {t('ExperienceSpace', { returnObjects: true }).text}
-            </p>
+            <p>{t('ExperienceSpace', { returnObjects: true }).text}</p>
           </div>
         </div>
       </div>
@@ -73,9 +68,14 @@ export default async function Features({ title  }: { title: string }) {
           <p className="pl-2 text-white">{t('Register-Form', { returnObjects: true }).text}</p>
           <ArrowLeft color="#fff" />
         </button> */}
-        <Button func='guide' onChange={openModal} text='فرم ثبت نام در فضای کار اشتراکی' submit={false} />
+        <Button
+          func="guide"
+          onChange={openModal}
+          text="فرم ثبت نام در فضای کار اشتراکی"
+          submit={false}
+        />
       </div>
-<CoSpaceModal isOpen={isModalOpen} closeModal={closeModal} />
+      <CoSpaceModal isOpen={isModalOpen} closeModal={closeModal} />
     </section>
   );
 }

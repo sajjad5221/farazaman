@@ -26,11 +26,6 @@ body {
     rgb(var(--background-start-rgb)); /* Start color of gradient */
 }
 
-/* Apply smooth scroll behavior to HTML */
-html {
-  scroll-behavior: smooth;
-}
-
 /* Customize scrollbar */
 /* Width */
 ::-webkit-scrollbar {

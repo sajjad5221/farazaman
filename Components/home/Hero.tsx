@@ -8,7 +8,7 @@ import React from 'react';
  */
 export function Hero(): JSX.Element {
   return (
-    <div className="bg-gray-50   px-4 sm:px-6 lg:px-8 pt-16">
+    <div className="bg-gray-50 px-4 sm:px-6 lg:px-8 pt-16">
       <div className="max-w-7xl mx-auto py-8 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2">
         {/* Header section */}
         <div className="pt-6 md:pt-32 justify-center text-center sm:justify-start sm:text-start">
