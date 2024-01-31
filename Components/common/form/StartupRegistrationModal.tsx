@@ -136,7 +136,7 @@ export default function StartupRegistrationModal({
           <div className="w-full px-16">
             <div className="flex w-full justify-between">
               <div className="w-full">
-                <p className="text-brand text-2xl">فضای کار اشتراکی</p>
+                <p className="text-brand text-2xl">ثبت استارتاپ</p>
                 <div className="mt-8 w-full">
                   <div className="flex w-full justify-between">
                     <div className="w-1/2">
