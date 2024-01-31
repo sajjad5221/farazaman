@@ -20,13 +20,8 @@ import Button from '../common/form/Button';
 
 const Data = useData.getState();
 
-const HiringForm = ({
-  lang
-}: {
-  lang: string;
-}) => {
-
-  const { t } = useTranslation(lang, 'mainPage')
+const HiringForm = ({ lang }: { lang: string }) => {
+  const { t } = useTranslation(lang, 'mainPage');
 
   // console.log(t('title'));
 
@@ -67,7 +62,10 @@ const HiringForm = ({
       // e.target.files;
       console.log(e.target.value);
     }
-    Data.handleFormDataChange({ ...Data.formData, [e.target.name]: e.target.value });
+    Data.handleFormDataChange({
+      ...Data.formData,
+      [e.target.name]: e.target.value,
+    });
   };
 
   const handleFormSubmit = async (data: HiringInfo) => {
@@ -76,7 +74,11 @@ const HiringForm = ({
     Data.handleSendChange(true);
     const sendFormData = new FormData();
     if (Data.formData.resume) {
-      sendFormData.append('resume', Data.formData.resume, Data.formData.resume.name);
+      sendFormData.append(
+        'resume',
+        Data.formData.resume,
+        Data.formData.resume.name
+      );
     }
     sendFormData.append('name', data.name);
     sendFormData.append('phone', data.phone);
@@ -122,7 +124,7 @@ const HiringForm = ({
         />
         <div className="w-full px-8 py-8 md:order-last lg:order-last max-[768px]:order-first">
           <div>
-            <form onSubmit={handleSubmit(handleFormSubmit)}>
+            <form className="z-20" onSubmit={handleSubmit(handleFormSubmit)}>
               <div className="mb-5">
                 <label
                   htmlFor="name"
@@ -316,7 +318,12 @@ const HiringForm = ({
               >
                 {Data.send ? 'در حال ارسال...' : 'ارسال'}
               </button> */}
-              <Button submit={true} disabled={Data.send} text={Data.send ? 'در حال ارسال...' : 'ارسال'} func='form' />
+              <Button
+                submit={true}
+                disabled={Data.send}
+                text={Data.send ? 'در حال ارسال...' : 'ارسال'}
+                func="form"
+              />
             </form>
             {Data.isSuccess && Data.isSubmitting && Data.Message != '' && (
               <div
