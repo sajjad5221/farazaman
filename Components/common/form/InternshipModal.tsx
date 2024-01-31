@@ -34,7 +34,6 @@ export default function InternshipModal({
 }) {
   const Data = useData.getState();
 
-  
   useEffect(() => {
     async function fetchCsrfToken() {
       const token = await GetCsrfToken('http://localhost:8000/get-csrf-token/');
@@ -42,16 +41,17 @@ export default function InternshipModal({
     }
 
     fetchCsrfToken();
-  }, [])
+  }, []);
   // const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
   //   const files = event.target.files;
   //   if (files && files.length > 0) {
   //     setSelectedFile(files[0]);
   //   }
   // };
-  
-  const { register,
-    handleSubmit ,
+
+  const {
+    register,
+    handleSubmit,
     formState: { errors },
     reset,
   } = useForm<IntershipInfo>({
@@ -65,7 +65,10 @@ export default function InternshipModal({
       }
       e.target.files;
     }
-    Data.handleFormDataChange({ ...Data.formData, [e.target.name]: e.target.value });
+    Data.handleFormDataChange({
+      ...Data.formData,
+      [e.target.name]: e.target.value,
+    });
   };
 
   const handleFormSubmit = async (data: IntershipInfo) => {
@@ -74,7 +77,11 @@ export default function InternshipModal({
     Data.handleSendChange(true);
     const sendFormData = new FormData();
     if (Data.filePost.resume) {
-      sendFormData.append('cvFile', Data.filePost.resume, Data.filePost.resume.name);
+      sendFormData.append(
+        'cvFile',
+        Data.filePost.resume,
+        Data.filePost.resume.name
+      );
     }
     sendFormData.append('name', data.name);
     sendFormData.append('phone', data.phone);
@@ -127,7 +134,10 @@ export default function InternshipModal({
   };
   return (
     <Modal isOpen={isOpen} style={customStyles}>
-      <form onSubmit={handleSubmit(handleFormSubmit)} className="w-[64rem] pt-4 pb-8">
+      <form
+        onSubmit={handleSubmit(handleFormSubmit)}
+        className="w-[64rem] py-4"
+      >
         {/* X button */}
         <div className="mr-4">
           <div
@@ -144,11 +154,11 @@ export default function InternshipModal({
                 استخدام در شتابدهنده فرازمان
               </p>
               <div className="mt-8">
-                <p className="text-xl mb-4">نام و نام خانوادگی</p>
+                <p className="text-xl mb-[0.5rem]">نام و نام خانوادگی</p>
                 <input
                   type="text"
                   className={`px-3 py-4 shadow-md rounded-md w-4/5 mt-2 placeholder:text-gray-200${
-                    errors.name ? 'border-yellow-500' : ''
+                    errors.name ? 'border-red-500' : ''
                   }`}
                   placeholder="نام و نام خانوادگی"
                   {...register('name', {
@@ -157,13 +167,12 @@ export default function InternshipModal({
                       value: /^[\u0600-\u06FF\s]+$/,
                       message: 'نام خود را به درستی وارد کنید.',
                     },
-
                   })}
                 />
                 {errors.name && (
-                  <span className="text-sm text-yellow-500">
+                  <p className="text-sm text-red-500 mt-3">
                     {errors.name.message}
-                  </span>
+                  </p>
                 )}
               </div>
             </div>
@@ -179,11 +188,11 @@ export default function InternshipModal({
           <div className="w-full flex flex-col justify-between">
             <div className="flex justify-between my-8">
               <div className="w-1/2">
-                <p className="text-xl mb-4">شماره تلفن همراه</p>
+                <p className="text-xl mb-[0.5rem]">شماره تلفن همراه</p>
                 <input
                   type="text"
                   className={`px-3 py-4 shadow-md rounded-md w-4/5 mt-2 placeholder:text-gray-200 ${
-                    errors.phone ? 'border-yellow-500' : ''
+                    errors.phone ? 'border-red-500' : ''
                   }`}
                   placeholder="شماره تلفن همراه"
                   {...register('phone', {
@@ -193,20 +202,19 @@ export default function InternshipModal({
                       message: 'شماره تماس را به درستی وارد کنید.',
                     },
                   })}
-
                 />
                 {errors.phone && (
-                  <span className="text-sm text-yellow-500">
+                  <p className="text-sm text-red-500 mt-3">
                     {errors.phone.message}
-                  </span>
+                  </p>
                 )}
               </div>
               <div className="w-1/2">
-                <p className="text-xl mb-4">آدرس ایمیل شما</p>
+                <p className="text-xl mb-[0.5rem]">آدرس ایمیل شما</p>
                 <input
                   type="text"
                   className={`px-3 py-4 shadow-md rounded-md w-full mt-2 placeholder:text-gray-200 ${
-                    errors.email ? 'border-yellow-500' : ''
+                    errors.email ? 'border-red-500' : ''
                   }`}
                   placeholder="آدرس الکترونیکی"
                   {...register('email', {
@@ -216,57 +224,58 @@ export default function InternshipModal({
                       message: 'آدرس ایمیل را به درستی وارد کنید.',
                     },
                   })}
-
                 />
                 {errors.email && (
-                  <span className="text-sm text-yellow-500">
+                  <p className="text-sm text-red-500 mt-3">
                     {errors.email.message}
-                  </span>
+                  </p>
                 )}
               </div>
             </div>
             <div className="w-full flex justify-between items-center">
               <div className="w-1/2">
-                <p className="text-xl mb-4">نام دانشگاه</p>
+                <p className="text-xl mb-[0.5rem]">نام دانشگاه</p>
                 <input
                   type="text"
                   className="px-3 py-4 shadow-md rounded-md w-4/5 mt-2 placeholder:text-gray-200"
                   placeholder="نام دانشگاه"
-                  {...register("university", {
+                  {...register('university', {
                     required: 'متن پیام را وارد کنید.',
                   })}
                 />
-                  {errors.university && (
-                    <span className="text-sm text-yellow-500">
-                      {errors.university.message}
-                    </span>
-                  )}
+                {errors.university && (
+                  <p className="text-sm text-red-500 mt-3">
+                    {errors.university.message}
+                  </p>
+                )}
               </div>
               <div className="w-1/2">
-                <p className="text-xl mb-4">رزومه شما</p>
+                <p className="text-xl mb-[0.5rem]">رزومه شما</p>
                 <input
                   type="file"
                   className="px-3 py-4 shadow-md rounded-md w-full mt-2 placeholder:text-gray-200"
                   placeholder="لطفا فایل مورد نظر را آپلود کنید"
-                  {...register("resume")}
+                  {...register('resume')}
                   onChange={handleChange}
                 />
-                  {errors.resume && (
-                    <span className="text-sm text-yellow-500">
-                      {errors.resume.message}
-                    </span>
-                  )}
+                {errors.resume && (
+                  <p className="text-sm text-red-500 mt-3">
+                    {errors.resume.message}
+                  </p>
+                )}
               </div>
             </div>
           </div>
           <div className="w-full flex justify-center mt-8">
             <button className="flex px-12 py-2 rounded-md bg-brand text-white">
-              <button type='submit' className="ml-2">ارسال</button>
+              <button type="submit" className="ml-2">
+                ارسال
+              </button>
               <ArrowLeft color="#fff" />
             </button>
 
             <div>
-                <ToastContainer/>
+              <ToastContainer />
             </div>
           </div>
         </div>

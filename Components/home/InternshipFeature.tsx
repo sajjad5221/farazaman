@@ -30,13 +30,11 @@ export default function HiringFeature({ title }: { title: string }) {
       <div className="px-8 text-customGray leading-10 pt-16 pb-8 mx-auto max-w-7xl sm:px-6 lg:px-8 gap-x-40">
         <SectionHeader title={title} />
         <div className="md:mr-4 py-5">
-          <h2 className="text-black text-xl mb-3 leading-10">
-          {t('ScanningPlan', { returnObjects: true }).subTitle}
+          <h2 className="text-black text-xl mb-[0.5rem] leading-10">
+            {t('ScanningPlan', { returnObjects: true }).subTitle}
           </h2>
           <div>
-            <p>
-            {t('ScanningPlan', { returnObjects: true }).text}
-            </p>
+            <p>{t('ScanningPlan', { returnObjects: true }).text}</p>
             <ul className="list-disc mr-4">
               <li>{t('ScanningPlanItems', { returnObjects: true }).text1}</li>
               <li>{t('ScanningPlanItems', { returnObjects: true }).text2}</li>
@@ -50,11 +48,11 @@ export default function HiringFeature({ title }: { title: string }) {
           <div className="md:mr-3">
             <div className="flex items-center mb-3">
               <Circle />
-              <h2 className="text-brand text-xl mr-4">{t('RecruitingStudents', { returnObjects: true }).title}</h2>
+              <h2 className="text-brand text-xl mr-4">
+                {t('RecruitingStudents', { returnObjects: true }).title}
+              </h2>
             </div>
-            <p>
-            {t('RecruitingStudents', { returnObjects: true }).text}
-            </p>
+            <p>{t('RecruitingStudents', { returnObjects: true }).text}</p>
           </div>
         </div>
       </div>
@@ -66,7 +64,12 @@ export default function HiringFeature({ title }: { title: string }) {
           <p className="pl-2 text-white">{t('RegistrationForm', { returnObjects: true }).text}</p>
           <ArrowLeft color="#fff" />
         </button> */}
-        <Button func='guide' onChange={openModal} text='فرم ثبت نام طرح پویش' submit={false} />
+        <Button
+          func="guide"
+          onChange={openModal}
+          text="فرم ثبت نام طرح پویش"
+          submit={false}
+        />
       </div>
       <InternshipModal isOpen={isModalOpen} closeModal={closeModal} />
     </section>
