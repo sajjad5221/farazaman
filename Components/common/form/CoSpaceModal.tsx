@@ -32,7 +32,7 @@ export default function CoSpaceModal({
   isOpen: boolean;
   closeModal: () => void;
 }) {
-  const Data = useData();
+  const Data = useData.getState();
 
   const {
     register,
@@ -71,7 +71,7 @@ export default function CoSpaceModal({
       Data.handleSuccessChange(true);
       Data.handleMessageChange('ارسال موفقیت آمیز بود');
       Data.handleSendChange(false);
-      reset(); // Reset the form field
+      reset(Data.workSpaceFormData); // Reset the form field
       setTimeout(() => {
         closeModal();
       }, 10000);
@@ -88,7 +88,7 @@ export default function CoSpaceModal({
     } catch (error) {
       console.log(error);
       Data.handleMessageChange('ارسال ناموفق بود !');
-      toast.error('ارسال ناموفق بود !', {
+      toast.error('ارسال موفقیت آمیز نبود.', {
         position: 'bottom-center',
         autoClose: 5000,
         hideProgressBar: false,
@@ -229,6 +229,9 @@ export default function CoSpaceModal({
                 <p className="ml-2">ارسال</p>
                 <ArrowLeft color="#fff" />
               </button>
+              <div>
+                <ToastContainer/>
+              </div>
             </div>
           </div>
         </div>
