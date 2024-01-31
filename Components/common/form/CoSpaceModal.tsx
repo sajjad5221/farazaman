@@ -19,7 +19,8 @@ const customStyles = {
     padding: '0px',
     border: 'none',
     borderRadius: '8px',
-    Width: '64rem',
+    width: '100%',
+    maxWidth: '64rem',
   },
 };
 
@@ -116,9 +117,9 @@ export default function CoSpaceModal({
   return (
     <Modal isOpen={isOpen} style={customStyles}>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <div className="w-[64rem] px-10 md:px-0 py-4">
+        <div className="w-full px-5 md:px-0 py-4">
           {/* X button */}
-          <div className="mr-4">
+          <div className="md:mr-4">
             <div
               onClick={closeModal}
               className="pointer border border-black w-5 pt-2 h-5 flex justify-center items-center rounded-full z-20"
@@ -126,11 +127,13 @@ export default function CoSpaceModal({
               <XLg />
             </div>
           </div>
-          <div className="w-full px-8 lg:px-16">
+          <div className="w-full px-4 lg:px-16">
             <div className="flex w-full justify-between">
               <div className="w-full md:w-1/2">
-                <p className="text-brand text-2xl">فضای کار اشتراکی</p>
-                <div className="mt-8 ">
+                <p className="text-brand text-2xl mt-3 md:mt-0">
+                  فضای کار اشتراکی
+                </p>
+                <div className="mt-4 md:mt-8">
                   <p className="text-xl mb-[0.5rem]">نام و نام خانوادگی</p>
                   <input
                     type="text"
@@ -188,7 +191,7 @@ export default function CoSpaceModal({
                     </p>
                   )}
                 </div>
-                <div className="w-full md:w-1/2">
+                <div className="w-full md:w-1/2 mt-4 md:mt-0">
                   <p className="text-xl mb-[0.5rem]">آدرس ایمیل شما</p>
                   <input
                     type="text"
@@ -230,7 +233,7 @@ export default function CoSpaceModal({
                 <ArrowLeft color="#fff" />
               </button>
               <div>
-                <ToastContainer/>
+                <ToastContainer />
               </div>
             </div>
           </div>
