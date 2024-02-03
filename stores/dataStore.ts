@@ -1,4 +1,4 @@
-import { ContactInfo, WorkSpaceInfo, StartupsInfo, HiringInfo } from "@/types/global";
+import { ContactInfo, WorkSpaceInfo, StartupsInfo, HiringInfo, IntershipInfo } from "@/types/global";
 import { create } from "zustand";
 
 
@@ -14,6 +14,7 @@ type State = {
     startupsFormData: any;
     contactUsFormData: ContactInfo;
     workSpaceFormData: WorkSpaceInfo;
+    intershipFormData: IntershipInfo;
 }
 
 type Action = {
@@ -28,10 +29,7 @@ type Action = {
     handleStartupsFilePost: (file: State['startupsFilePost']) => void;
     handleContactUsFormData: (obj: State['contactUsFormData']) => void;
     handleWorkSpaceFormData: (obj: State['workSpaceFormData']) => void;
-    // handleChange: (
-    //     e: React.ChangeEvent<HTMLInputElement> | React.ChangeEvent<HTMLTextAreaElement> | React.ChangeEvent<HTMLFieldSetElement>, 
-    //     kind: string
-    // ) => void
+    handleInternshipFormData: (obj: State['intershipFormData']) => void;
 }
 
 const useData = create<State & Action>((set) => {
@@ -42,7 +40,6 @@ const useData = create<State & Action>((set) => {
         Message: '',
         formData: {
             name: '',
-            last_name: '',
             email: '',
             phone: '',
             hireType: 0,
@@ -53,7 +50,7 @@ const useData = create<State & Action>((set) => {
             email: '',
             phone: '',
             members_count: 0,
-            pitch: null as File | null,
+            resume: null as File | null,
         },
         workSpaceFormData: {
             name: '',
@@ -69,6 +66,14 @@ const useData = create<State & Action>((set) => {
             phone: '',
             message: '',
         },
+        intershipFormData: {
+            name: '',
+            phone: '',
+            email: '',
+            university: '',
+            resume: null as File | null,
+        },
+
         handleSubmitingChange: (bool) => set(() => ({isSubmitting: bool})),
         handleSuccessChange: (bool) => set(() => ({isSuccess: bool})),
         handleSendChange: (bool) => set(() => ({send: bool})),
@@ -80,11 +85,7 @@ const useData = create<State & Action>((set) => {
         handleStartupsFilePost: (file) => set(() => ({startupsFilePost: file})),
         handleContactUsFormData: (obj) => set(() => ({contactUsFormData: obj})),
         handleWorkSpaceFormData: (obj) => set(() => ({workSpaceFormData: obj})),
-        // handleChange: (e, kind) => set(() => ({
-        //     if (kind) {
-                
-        //     }
-        // })),
+        handleInternshipFormData: (obj) => set(() => ({intershipFormData: obj})),
     };
 });
 

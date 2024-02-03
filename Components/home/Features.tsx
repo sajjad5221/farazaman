@@ -59,7 +59,7 @@ export default function Features({
         <SectionHeader title={title} />
 
         <div className="md:mr-4 py-5">
-          <h2 className="text-black text-xl mb-3 leading-10">{slogan}</h2>
+          <h2 className="text-black text-xl mb-[0.5rem] leading-10">{slogan}</h2>
           <p className="">{firstText}</p>
           <div>
             <p>{secondText}</p>

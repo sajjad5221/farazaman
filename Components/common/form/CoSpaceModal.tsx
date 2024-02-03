@@ -19,7 +19,8 @@ const customStyles = {
     padding: '0px',
     border: 'none',
     borderRadius: '8px',
-    Width: '64rem',
+    width: '100%',
+    maxWidth: '64rem',
   },
 };
 
@@ -32,7 +33,7 @@ export default function CoSpaceModal({
   isOpen: boolean;
   closeModal: () => void;
 }) {
-  const Data = useData();
+  const Data = useData.getState();
 
   const {
     register,
@@ -71,7 +72,7 @@ export default function CoSpaceModal({
       Data.handleSuccessChange(true);
       Data.handleMessageChange('ارسال موفقیت آمیز بود');
       Data.handleSendChange(false);
-      reset(); // Reset the form field
+      reset(Data.workSpaceFormData); // Reset the form field
       setTimeout(() => {
         closeModal();
       }, 10000);
@@ -88,7 +89,7 @@ export default function CoSpaceModal({
     } catch (error) {
       console.log(error);
       Data.handleMessageChange('ارسال ناموفق بود !');
-      toast.error('🦄 Wow so easy!', {
+      toast.error('ارسال موفقیت آمیز نبود.', {
         position: 'bottom-center',
         autoClose: 5000,
         hideProgressBar: false,
@@ -116,27 +117,29 @@ export default function CoSpaceModal({
   return (
     <Modal isOpen={isOpen} style={customStyles}>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <div className="w-[64rem] pt-4 pb-8">
+        <div className="w-full px-5 md:px-0 py-4">
           {/* X button */}
-          <div className="mr-4">
+          <div className="md:mr-4">
             <div
               onClick={closeModal}
-              className="pointer border border-black w-5 pt-2 h-5 flex justify-center items-center rounded-full z-40"
+              className="pointer border border-black w-5 pt-2 h-5 flex justify-center items-center rounded-full z-20"
             >
               <XLg />
             </div>
           </div>
-          <div className="w-full px-16">
+          <div className="w-full px-4 lg:px-16">
             <div className="flex w-full justify-between">
-              <div className="w-1/2">
-                <p className="text-brand text-2xl">فضای کار اشتراکی</p>
-                <div className="mt-8 ">
-                  <p className="text-xl mb-4">نام و نام خانوادگی</p>
+              <div className="w-full md:w-1/2">
+                <p className="text-brand text-2xl mt-3 md:mt-0">
+                  فضای کار اشتراکی
+                </p>
+                <div className="mt-4 md:mt-8">
+                  <p className="text-xl mb-[0.5rem]">نام و نام خانوادگی</p>
                   <input
                     type="text"
                     placeholder="نام و نام خانوادگی"
-                    className={`px-3 py-4 shadow-md rounded-md w-4/5 mt-2 placeholder:text-gray-200 ${
-                      errors.name ? 'border-yellow-500' : ''
+                    className={`px-3 py-4 shadow-md rounded-md w-full md:w-4/5 mt-2 placeholder:text-gray-200 ${
+                      errors.name ? 'border-red-500' : ''
                     }`}
                     {...register('name', {
                       required: 'نام خود را وارد کنید.',
@@ -148,13 +151,13 @@ export default function CoSpaceModal({
                     onChange={handleChange}
                   />
                   {errors.name && (
-                    <span className="text-sm text-yellow-500">
+                    <p className="text-sm text-red-500 mt-3">
                       {errors.name.message}
-                    </span>
+                    </p>
                   )}
                 </div>
               </div>
-              <div className="w-1/2">
+              <div className="hidden md:w-1/2">
                 {/* <Image
               src="../public/static/images/Brand/farazaman-Logo.png"
               alt="لوگو"
@@ -164,14 +167,14 @@ export default function CoSpaceModal({
               </div>
             </div>
             <div className="w-full flex flex-col justify-between my-9">
-              <div className="flex justify-between">
-                <div className="w-1/2">
-                  <p className="text-xl mb-4">شماره تلفن همراه</p>
+              <div className="flex flex-col md:flex-row justify-between items-center">
+                <div className="w-full md:w-1/2">
+                  <p className="text-xl mb-[0.5rem]">شماره تلفن همراه</p>
                   <input
                     type="text"
                     placeholder="شماره تلفن همراه"
-                    className={`px-3 py-4 shadow-md rounded-md w-4/5 mt-2 placeholder:text-gray-200 ${
-                      errors.phone ? 'border-yellow-500' : ''
+                    className={`px-3 py-4 shadow-md rounded-md w-full md:w-4/5 mt-2 placeholder:text-gray-200 ${
+                      errors.phone ? 'border-red-500' : ''
                     }`}
                     {...register('phone', {
                       required: 'شماره تماس را وارد کنید.',
@@ -183,18 +186,18 @@ export default function CoSpaceModal({
                     onChange={handleChange}
                   />
                   {errors.phone && (
-                    <span className="text-sm text-yellow-500">
+                    <p className="text-sm text-red-500 mt-3">
                       {errors.phone.message}
-                    </span>
+                    </p>
                   )}
                 </div>
-                <div className="w-1/2">
-                  <p className="text-xl mb-4">آدرس ایمیل شما</p>
+                <div className="w-full md:w-1/2 mt-4 md:mt-0">
+                  <p className="text-xl mb-[0.5rem]">آدرس ایمیل شما</p>
                   <input
                     type="text"
                     placeholder="آدرس الکترونیکی"
                     className={`px-3 py-4 shadow-md rounded-md w-full mt-2 placeholder:text-gray-200 ${
-                      errors.email ? 'border-yellow-500' : ''
+                      errors.email ? 'border-red-500' : ''
                     }`}
                     {...register('email', {
                       required: 'آدرس ایمیل خود را وارد کنید.',
@@ -206,9 +209,9 @@ export default function CoSpaceModal({
                     onChange={handleChange}
                   />
                   {errors.email && (
-                    <span className="text-sm text-yellow-500">
+                    <p className="text-sm text-red-500 mt-3">
                       {errors.email.message}
-                    </span>
+                    </p>
                   )}
                 </div>
               </div>
@@ -229,13 +232,14 @@ export default function CoSpaceModal({
                 <p className="ml-2">ارسال</p>
                 <ArrowLeft color="#fff" />
               </button>
+              <div>
+                <ToastContainer />
+              </div>
             </div>
           </div>
         </div>
-        <div>
-          <ToastContainer />
-        </div>
       </form>
+      <ToastContainer />
     </Modal>
   );
 }

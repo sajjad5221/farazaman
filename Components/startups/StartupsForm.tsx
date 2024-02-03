@@ -50,7 +50,10 @@ const StartUpsForm = () => {
       // }
       console.log(e.target.files);
     }
-    Data.handleStartupsFormDataChange({ ...Data.startupsFormData, [e.target.name]: e.target.value });
+    Data.handleStartupsFormDataChange({
+      ...Data.startupsFormData,
+      [e.target.name]: e.target.value,
+    });
   };
 
   const handleFormSubmit = async (data: StartupsInfo) => {
@@ -59,7 +62,11 @@ const StartUpsForm = () => {
     Data.handleSendChange(true);
     const sendFormData = new FormData();
     if (Data.startupsFormData.pitch) {
-      sendFormData.append('pitch', Data.startupsFormData.pitch, Data.startupsFormData.pitch.name);
+      sendFormData.append(
+        'pitch',
+        Data.startupsFormData.pitch,
+        Data.startupsFormData.pitch.name
+      );
     }
     sendFormData.append('name', data.name);
     sendFormData.append('phone', data.phone);
@@ -356,7 +363,12 @@ const StartUpsForm = () => {
               >
                 {Data.send ? 'در حال ارسال...' : 'ارسال'}
               </button> */}
-              <Button text={Data.send ? 'در حال ارسال...' : 'ارسال'} disabled={Data.send} func='form' submit={true} />
+              <Button
+                text={Data.send ? 'در حال ارسال...' : 'ارسال'}
+                disabled={Data.send}
+                func="form"
+                submit={true}
+              />
             </form>
             {/* {Data.isSuccess && Data.isSubmitting && Data.Message != '' && (
               <div

@@ -30,7 +30,7 @@ export default function StartupRegistration({ title }: { title: string }) {
       <div className="px-8 text-customGray leading-10 pt-16 pb-8 mx-auto max-w-7xl sm:px-6 lg:px-8 gap-x-40">
         <SectionHeader title={title} />
         <div className="md:mr-4 py-5">
-          <h2 className="text-black text-xl mb-3 leading-10">
+          <h2 className="text-black text-xl mb-[0.5rem] leading-10">
             {/* problem */}
             {/* {t('StartupRegistration', { returnObjects: true }).subTitle} */}
           </h2>
