@@ -1,13 +1,13 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import Modal from 'react-modal';
 import XLg from '../../icons/XLg';
 import ArrowLeft from '../../icons/ArrowLeft';
-import { WorkSpaceInfo } from "@/types/global";
+import { WorkSpaceInfo } from '@/types/global';
 import { useForm } from 'react-hook-form';
-import {useData} from "@/stores/dataStore";
-import Apiclient from "@/Services/Apiclient";
-import GetCsrfToken from "@/Services/GetCsrfToken";
-
+import { useData } from '@/stores/dataStore';
+import Apiclient from '@/Services/Apiclient';
+import GetCsrfToken from '@/Services/GetCsrfToken';
+import { ToastContainer, toast } from 'react-toastify';
 
 const customStyles = {
   content: {
@@ -48,7 +48,10 @@ export default function CoSpaceModal({
       | React.ChangeEvent<HTMLInputElement>
       | React.ChangeEvent<HTMLTextAreaElement>
   ) => {
-    Data.handleWorkSpaceFormData({ ...Data.workSpaceFormData, [e.target.name]: e.target.value });
+    Data.handleWorkSpaceFormData({
+      ...Data.workSpaceFormData,
+      [e.target.name]: e.target.value,
+    });
   };
 
   const onSubmit = async (data: WorkSpaceInfo) => {
@@ -69,9 +72,32 @@ export default function CoSpaceModal({
       Data.handleMessageChange('ارسال موفقیت آمیز بود');
       Data.handleSendChange(false);
       reset(); // Reset the form field
+      setTimeout(() => {
+        closeModal();
+      }, 10000);
+      toast.success('ارسال موفقیت آمیز بود', {
+        position: 'bottom-center',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: 'light',
+      });
     } catch (error) {
       console.log(error);
       Data.handleMessageChange('ارسال ناموفق بود !');
+      toast.error('🦄 Wow so easy!', {
+        position: 'bottom-center',
+        autoClose: 5000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: 'light',
+      });
       Data.handleSendChange(false);
       Data.handleSuccessChange(false);
     }
@@ -122,12 +148,11 @@ export default function CoSpaceModal({
                     onChange={handleChange}
                   />
                   {errors.name && (
-                      <span className="text-sm text-yellow-500">
-                        {errors.name.message}
-                      </span>
+                    <span className="text-sm text-yellow-500">
+                      {errors.name.message}
+                    </span>
                   )}
                 </div>
-                
               </div>
               <div className="w-1/2">
                 {/* <Image
@@ -146,7 +171,7 @@ export default function CoSpaceModal({
                     type="text"
                     placeholder="شماره تلفن همراه"
                     className={`px-3 py-4 shadow-md rounded-md w-4/5 mt-2 placeholder:text-gray-200 ${
-                    errors.phone ? 'border-yellow-500' : ''
+                      errors.phone ? 'border-yellow-500' : ''
                     }`}
                     {...register('phone', {
                       required: 'شماره تماس را وارد کنید.',
@@ -158,9 +183,9 @@ export default function CoSpaceModal({
                     onChange={handleChange}
                   />
                   {errors.phone && (
-                      <span className="text-sm text-yellow-500">
-                        {errors.phone.message}
-                      </span>
+                    <span className="text-sm text-yellow-500">
+                      {errors.phone.message}
+                    </span>
                   )}
                 </div>
                 <div className="w-1/2">
@@ -169,7 +194,7 @@ export default function CoSpaceModal({
                     type="text"
                     placeholder="آدرس الکترونیکی"
                     className={`px-3 py-4 shadow-md rounded-md w-full mt-2 placeholder:text-gray-200 ${
-                    errors.email ? 'border-yellow-500' : ''
+                      errors.email ? 'border-yellow-500' : ''
                     }`}
                     {...register('email', {
                       required: 'آدرس ایمیل خود را وارد کنید.',
@@ -181,9 +206,9 @@ export default function CoSpaceModal({
                     onChange={handleChange}
                   />
                   {errors.email && (
-                      <span className="text-sm text-yellow-500">
-                        {errors.email.message}
-                      </span>
+                    <span className="text-sm text-yellow-500">
+                      {errors.email.message}
+                    </span>
                   )}
                 </div>
               </div>
@@ -197,12 +222,18 @@ export default function CoSpaceModal({
               {/*</div>*/}
             </div>
             <div className="w-full flex justify-center mt-8">
-              <button type="submit" className="flex px-12 py-2 rounded-md bg-brand text-white">
+              <button
+                type="submit"
+                className="flex px-12 py-2 rounded-md bg-brand text-white"
+              >
                 <p className="ml-2">ارسال</p>
                 <ArrowLeft color="#fff" />
               </button>
             </div>
           </div>
+        </div>
+        <div>
+          <ToastContainer />
         </div>
       </form>
     </Modal>

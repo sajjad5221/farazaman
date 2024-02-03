@@ -59,7 +59,7 @@ export default function Hires() {
   //     image: "/static/images/hires/ariana.jpg",
   //   },
   // ];
-  
+
   return (
     <div>
       <SliderMenu title="تجربه استخدامی ها" items={index1.mainPage.YourComments} />
