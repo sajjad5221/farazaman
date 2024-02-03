@@ -1,23 +1,40 @@
 'use client';
 
+import { useLang } from '@/stores/langStore';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/solid';
 import Image from 'next/image';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-scroll';
+import { resources } from '@/types/i18n';
 
-function NavBarRefactor() {
+function NavBarRefactor(
+  {lang} : {lang: string}
+) {
+
   const [toggleMenu, setToggleMenu] = useState(false);
 
-  const navigation = [
-    { name: 'فضای کار اشتراکی', goTo: 'workspace' },
-    { name: 'استخدام', goTo: 'hiring' },
-    { name: 'ثبت استارتاپ', goTo: 'startups' },
-    { name: 'ارتباط با ما', goTo: 'contact' },
-  ];
+  const setLang = useLang().setLanguage;
+
+  useEffect(() => {
+    setLang(lang);
+  },[lang])
+
+  console.log(lang);
+
+
+  // const navigation = [
+  //   { name: 'فضای کار اشتراکی', goTo: 'workspace' },
+  //   { name: 'استخدام', goTo: 'hiring' },
+  //   { name: 'ثبت استارتاپ', goTo: 'startups' },
+  //   { name: 'ارتباط با ما', goTo: 'contact' },
+  // ];
 
   const handleToggle = () => {
     setToggleMenu(!toggleMenu);
   };
+
+  const index1 = lang === "fa" ? resources.fa.mainPageFA : resources.en.mainPageEN
+
 
   return (
     <nav className="drawer fixed top-0 z-10 py-2 px-10 w-full md:px-20 backdrop-blur-lg">
@@ -62,7 +79,7 @@ function NavBarRefactor() {
         </div>
         <div className="md:w-3/4">
           <ul className="justify-between hidden md:flex">
-            {navigation.map((item) => (
+            {index1.menuItems.map((item) => (
               <Link
                 to={item.goTo}
                 spy={true}
@@ -86,7 +103,7 @@ function NavBarRefactor() {
               toggleMenu ? 'flex-col' : 'hidden'
             }`}
           >
-            {navigation.map((item) => (
+            {index1.menuItems.map((item) => (
               <Link
                 to={item.goTo}
                 spy={true}

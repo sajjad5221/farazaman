@@ -9,6 +9,13 @@ import { languages } from '../i18n/setting';
 import { useLang } from '@/stores/langStore';
 import { dir } from 'i18next';
 import NavBarRefactor from '@/Components/home/NavBarRefactor';
+// import i18n from 'i18n'
+
+// i18n.configure({
+//   locales: ['en', 'fa'],
+//   defaultLocale: 'fa',
+//   objectNotation: true
+// })
 
 // Define metadata object
 export const metadata = {
@@ -28,11 +35,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
 
-  // useLang.setState({
-  //   lang: lang
-  // })
+  console.log(lang)
 
-  useLang.getState().setLanguage(lang);
+  useLang.setState({
+    lang: lang
+  })
 
   return (
     <>
@@ -46,7 +53,7 @@ export default function RootLayout({
         {/* Define body element with font family */}
         <body className="font-yakan bg-gray-50">
           {/* <Navbar lang={lang} /> */}
-          <NavBarRefactor />
+          <NavBarRefactor lang={lang} />
           {/* Render children passed to RootLayout component */}
           <main>{children}</main>
           <Footer />

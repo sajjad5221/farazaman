@@ -111,6 +111,13 @@
         "modalName": "startupRegistration"
       }
     ],
+
+    "menuItems": [
+      { "name": "Co Working Space", "goTo": "workspace" },
+      { "name": "Hiring", "goTo": "hiring" },
+      { "name": "Startup Registration", "goTo": "startups" },
+      { "name": "Contact Us", "goTo": "contact" }
+    ],
   
     "startupAcademyService":
       {

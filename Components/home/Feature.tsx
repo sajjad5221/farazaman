@@ -7,12 +7,12 @@ import Circle from '../icons/Circle';
 
 import Button from '../common/form/Button';
 
-import CoSpaceModal from '../../Components/common/form/CoSpaceModal';
-import HiringModal from '../../Components/common/form/HiringModal';
-import InternshipModal from '../../Components/common/form/InternshipModal';
-import StartupRegistrationModal from '../../Components/common/form/StartupRegistrationModal';
+import CoSpaceModal from '../common/form/CoSpaceModal';
+import HiringModal from '../common/form/HiringModal';
+import InternshipModal from '../common/form/InternshipModal';
+import StartupRegistrationModal from '../common/form/StartupRegistrationModal';
 
-export default function Features({
+export default function Feature({
   title,
   slogan,
   firstText,
@@ -35,7 +35,27 @@ export default function Features({
 }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  console.log(modalName);
+  let sectionId = ""
+
+  switch (modalName) {
+    case 'coSpace':
+      sectionId = "workspace"
+      break;
+    case 'hiring':
+      sectionId = "hiring"
+      break;
+    case 'internship':
+      sectionId = "events"
+      break;
+    case 'startupRegistration':
+      sectionId = "startups"
+      break;
+
+    default:
+      break;
+  }
+
+  // console.log(modalName);
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -51,10 +71,10 @@ export default function Features({
 
   // console.log(t('startupAcademyService', { returnObjects: true }).subTitle);
 
-  const [modal, setModal] = useState('');
+  // const [modal, setModal] = useState('');
 
   return (
-    <section className="bg-gray-50  relative" id="workspace">
+    <section className="bg-gray-50  relative" id={sectionId}>
       <div className="px-8 text-customGray leading-10 pt-16 pb-8 mx-auto max-w-7xl sm:px-6 lg:px-8 gap-x-40">
         <SectionHeader title={title} />
 

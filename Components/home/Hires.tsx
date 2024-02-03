@@ -9,11 +9,11 @@ export default function Hires() {
 
   const lang = useLang().lang;
 
-  const index1 = lang === "fa" ? resources.fa : resources.en
+  const index1 = lang === "fa" ? resources.fa.mainPageFA : resources.en.mainPageEN
 
-  // const { t } = useTranslation(lang, "mainPage");
+  const { t } = useTranslation(lang, "mainPage");
 
-  // const hires = t("YourComments", { returnObjects: true });
+  // const hires: any = t("YourComments", { returnObjects: true });
 
   // console.log(typeof(t("YourComments", { returnObjects: true })))
 
@@ -62,7 +62,7 @@ export default function Hires() {
 
   return (
     <div>
-      <SliderMenu title="تجربه استخدامی ها" items={index1.mainPage.YourComments} />
+      <SliderMenu title="تجربه استخدامی ها" items={index1.YourComments} />
     </div>
   );
 }

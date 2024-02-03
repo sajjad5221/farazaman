@@ -1,9 +1,9 @@
 "use client";
-import { Disclosure } from "@headlessui/react";
-import { ChevronDownIcon } from "@heroicons/react/24/solid";
+// import { Disclosure } from "@headlessui/react";
+// import { ChevronDownIcon } from "@heroicons/react/24/solid";
 import React from "react";
 import SectionHeader from "../common/SectionHeader";
-import { useTranslation } from "app/i18n/client";
+// import { useTranslation } from "app/i18n/client";
 import { useLang } from "stores/langStore";
 import { resources } from "@/types/i18n";
 
@@ -36,7 +36,7 @@ export default function Faq() {
 
   const lang = useLang().lang;
 
-  const index1 = lang === "fa" ? resources.fa : resources.en
+  const index1 = lang === "fa" ? resources.fa.mainPageFA : resources.en.mainPageEN
 
   // const { t } = useTranslation(lang, "mainPage");
 
@@ -51,7 +51,7 @@ export default function Faq() {
         <SectionHeader title="سوالات متداول" />
         <div className="my-8 mx-auto">
           {/* TODO: create FaqCard.tsx */}
-          {index1.mainPage.FrequentlyQuestions.map(({ question, response }) => (
+          {index1.FrequentlyQuestions.map(({ question, response }) => (
             <div className="pr-4 py-2 my-3 text-black shadow-md rounded-md">
               <p className="text-brand">{question}</p>
               <p className="py-3">{response}</p>

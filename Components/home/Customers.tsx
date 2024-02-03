@@ -56,11 +56,10 @@ export default function Customers() {
 
   // console.log(lang);
 
-  const index = lang === "fa" ? resources.fa : resources.en
+  const index1 = lang === "fa" ? resources.fa.mainPageFA : resources.en.mainPageEN
 
   // const { t } = useTranslation(lang, "mainPage");
 
-  console.log(resources.fa.mainPage.customers)
 
   // const customers: Array<{ id: number, name: string, href: string, src: string, alt: string }> = t("customers", { returnObjects: true });
   // console.log(typeof(t("aaaa", { returnObjects: true })))
@@ -77,7 +76,7 @@ export default function Customers() {
         {/* Customer grid */}
         <div className="w-100 grid mt-8 items-center gap-4 justify-between grid-cols-1 text-center xs:grid-cols-2 md:grid-cols-5">
           {/* Map over the array of customers and create a CustomerCard for each */}
-          {index.mainPage.customers.map(({ id, name, href, src, alt } : { id: number, name: string, href: string, src: string, alt: string }) => (
+          {index1.customers.map(({ id, name, href, src, alt } : { id: number, name: string, href: string, src: string, alt: string }) => (
             <div className="shadow-md rounded-xl pb-3" key={id}>
               <Image
                 className="justify-center mx-auto mt-6 mb-1 text-center transition rounded-full hover:scale-110"
