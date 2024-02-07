@@ -1,4 +1,6 @@
 // import { useForm, UseFormRegister, FieldValues } from 'react-hook-form';
+import Star from "@/Components/icons/Star";
+import React from "react";
 
 export default function Input({
     register,
@@ -36,36 +38,37 @@ export default function Input({
     const value = requiredValue ? new RegExp(requiredValue) : requiredValue
      // **don`t use slash (/) before and after regex pattern for this component and don`t use i end of regex pattern in this component
     return (
-        <div className={containerClass}>
-            <label
-              htmlFor={nameInput}
-              className={labelClass}
-            >
-                {label}
-            </label>
-            <input
-              id={nameInput}
-              type={type}
-              placeholder={placeholder}
-              autoComplete={autoComplete}
-            //   className={`w-full px-4 py-3 border-2 placeholder:text-neutral-400   rounded-md outline-none     focus:ring-4 ${
-            //   errors.name ? 'border-yellow-500' : ''}`}
-            className={`${className} ${errors[nameInput] ? "border-yellow-500" : ""}`}
-             {...register(nameInput, {
-                required: required,
-                pattern: {
-                    value: value,
-                    message: requiredMessage,
-                },
-             })}
-              onChange={handleChange}
-            />
-            {errors[nameInput] && (
-             <span className="text-sm text-yellow-500">
-                {errors[nameInput].message}
-             </span>
-            )}
-        </div>
+      <div className={`${containerClass} mb-10`}>
+        <label
+          htmlFor={nameInput}
+          className={labelClass}
+          >
+          {label}
+          <Star/>
+        </label>
+        <input
+          id={nameInput}
+          type={type}
+          placeholder={placeholder}
+          autoComplete={autoComplete}
+        //   className={`w-full px-4 py-3 border-2 placeholder:text-neutral-400   rounded-md outline-none     focus:ring-4 ${
+        //   errors.name ? 'border-yellow-500' : ''}`}
+          className={`${className} ${errors[nameInput] ? "border-yellow-500" : ""}`}
+         {...register(nameInput, {
+            required: required,
+            pattern: {
+                value: value,
+                message: requiredMessage,
+            },
+         })}
+          onChange={handleChange}
+        />
+        {errors[nameInput] && (
+         <span className="text-sm text-yellow-500">
+          {errors[nameInput].message}
+         </span>
+        )}
+      </div>
     );
   }
   

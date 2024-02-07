@@ -9,6 +9,21 @@
   src: url(../../public/static/fonts/Yekan.ttf);
   font-display: swap;
 }
+@font-face {
+  font-family: IRANSansXMedium;
+  src: url(../../public/static/fonts/IRANSansXMedium.ttf);
+  font-display: swap;
+}
+@font-face {
+  font-family: IRANSansXBold;
+  src: url(../../public/static/fonts/IRANSansXExtraBold.ttf);
+  font-display: swap;
+}
+@font-face {
+  font-family: IRANSansXLight;
+  src: url(../../public/static/fonts/IRANSansXLight.ttf);
+  font-display: swap;
+}
 
 /* Define root variables for foreground and background colors */
 :root {

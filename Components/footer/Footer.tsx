@@ -100,7 +100,6 @@ const social = [
 ];
 
 const column1 = [
-  { name: 'خانه', href: '/' },
   { name: 'استخدام', href: '/hiring' },
   { name: 'ثبت استارتاپ', href: '/startups' },
   { name: 'فضای کار اشتراکی', href: '/workspace' },
@@ -108,18 +107,18 @@ const column1 = [
 ];
 
 const column2 = [
+  // {
+  //   location: 'خیابان یانگ، تورنتو، کانادا',
+  //   phoneNumber: '+1 (416) 557-7622',
+  //   dir: 'ltr',
+  // },
   {
-    location: 'خیابان یانگ، تورنتو، کانادا',
-    phoneNumber: '+1 (416) 557-7622',
-    dir: 'ltr',
-  },
-  {
-    location: 'تهران، میدان تجریش، خیابان غلام جعفری، پلاک 27',
+    location: 'تهران، میدان تجریش ، خیابان غلام جعفری، پلاک 27',
     phoneNumber: '021-88030167',
     dir: 'rtl',
   },
   {
-    location: 'خیابان سعادت آباد اول، اصفهان،ایران',
+    location: 'اصفهان، سعادت‌آباد، ساختمان طلا، طبقه پنجم',
     phoneNumber: '0313-1311914',
     dir: 'rtl',
   },
@@ -127,31 +126,31 @@ const column2 = [
 
 export default function Footer() {
   return (
-    <footer className="bg-brand-light rounded-tr-[2.5rem] rounded-tl-[10rem] justify-center">
-      <div className="px-4 flex flex-wrap-reverse py-6 mx-auto max-w-7xl sm:px-6 lg:px-8 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-5">
-        <div className="w-full md:w-1/3">
-          <h3 className="pt-12 text-brand pb-4 lg:pt-0">فرازمان</h3>
+    <footer className="bg-servicebg rounded justify-center mb-20">
+      <div className="flex p-10 pr-28 flex-wrap">
+        <div className="md:w-3/12">
+          <h3 className="pt-12 text-black pb-4 lg:pt-10 ">فرازمان</h3>
           {column1.map((item) => (
-            <Link key={item.name} href={item.href} className="grid my-4">
-              {item.name}
+            <Link key={item.name} href={item.href} className="my-4 text-gray-600 flex">
+              <img className='w-1.5 ml-4 ' src="/static/images/icon/left-arrow.svg" alt="" />{item.name}
             </Link>
           ))}
         </div>
 
-        <div className="w-full md:w-1/3 text-black">
-          <h3 className="text-brand pt-12 pb-4 lg:pt-0">ارتباط با ما</h3>
-          {column2.map((item) => (
-            <div className="border-b flex flex-col items-start border-black w-3/4 py-1">
-              <p key={item.location} className="">
-                {item.location}
+        <div className="md:w-5/12 text-gray-600 pt-10">
+          <h3 className="text-black pt-12 pb-4 lg:pt-0">ارتباط با ما</h3>
+          {column2.map((item , index) => (
+            <div key={index} className=" flex flex-col items-start w-3/4 py-1 mb-2">
+              <p key={item.location} className="flex mb-5">
+              <img className='w-5 ml-3 ' src="/static/images/icon/map-maker.svg" alt="" />{item.location}
               </p>
-              <p className="mr-auto" dir={item.dir}>
-                {item.phoneNumber}
+              <p className="flex" dir={item.dir}>
+              <img className='w-5 ml-3 ' src="/static/images/icon/call.svg" alt="" />{item.phoneNumber}
               </p>
             </div>
           ))}
 
-          <div className="flex gap-2 pt-1">
+          {/* <div className="flex gap-2 pt-1">
             {social.map((item) => (
               <Link
                 key={item.name}
@@ -164,10 +163,10 @@ export default function Footer() {
                 </div>
               </Link>
             ))}
-          </div>
+          </div> */}
         </div>
 
-        <div className="w-full md:w-1/3 flex flex-col justify-center">
+        <div className="md:w-4/12 flex flex-col justify-center">
           <Link href="/">
             <Image
               className="w-auto h-12"
@@ -179,23 +178,21 @@ export default function Footer() {
               sizes="100vw"
             />
           </Link>
-          <p className="w-auto pt-4 text-neutral-500 sm:w-6/12 md:w-6/12 lg:w-8/12">
-            لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
-            استفاده از طراحان گرافیک است چاپگرها و متون بلکه روزنامه و مجله در
-            ستون و سطرآنچنان که لازم است و برای شرایط فعلی تکنولوژی مورد نیاز
+          <p className="w-4/12 pt-4 text-neutral-500 sm:w-6/12 md:w-8/12 lg:w-10/12 text-justify">
+          در<span className='text-brand'> شتابدهنده فرازمان</span> بر این باوریم که آینده شغلی در دستان جوانان است. ما با ارائه منابع مالی، زیرساخت‌های فنی و دسترسی به شبکه‌های جهانی، به دانشجویان کمک می‌کنیم تا ایده‌های خود را به واقعیت تبدیل کنند. علاوه بر این، ما روی شبکه‌سازی مؤثر و افزایش مهارت‌ها از طریق آموزش و منتورینگ برای دانشجویان و استارت‌آپ‌ها تمرکز زیادی داریم.
           </p>
         </div>
       </div>
 
-      <div className="px-2 text-center text-neutral-500 border-t sm:px-6 lg:px-8 border-neutral-800">
-        <p className="text-xs">
+      <div className="flex justify-between p-10 px-2 text-center text-neutral-500 border-t sm:px-6 lg:px-8 border-neutral-300 mx-12" >
+        <p className="text-sm">
           کلیه حقوق برای{' '}
           <Link href={'/'} className="text-yellow-500">
             فرازمان
           </Link>{' '}
           محفوظ است.
         </p>
-        <p className="text-xs">
+        <p className="text-sm">
           Copyright &copy; {new Date().getFullYear()}{' '}
           <Link className="text-yellow-500" href={'/'}>
             {' '}

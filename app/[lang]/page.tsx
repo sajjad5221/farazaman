@@ -12,6 +12,13 @@ import ContactUs from '@/Components/home/ContactUs';
 import { useTranslation } from '../i18n';
 import { resources } from '@/types/i18n';
 import FeatureContainer from '@/Components/home/FeatureContainer';
+import Video from '@/Components/home/Video';
+import LandaTrip from '@/Components/home/LandaTrip';
+import Galery from '@/Components/home/Galery';
+import PooyeshForm from '@/Components/common/form/PooyeshForm';
+import StartUpForm from '@/Components/common/form/StartUpForm';
+import SpaceForm from '@/Components/common/form/SpaceForm';
+
 
 export default async function Home({
   params: { lang },
@@ -32,6 +39,9 @@ export default async function Home({
             <Banner />
             {/* problem */}
             <Services />
+            <Video />
+            <Galery/>
+            <LandaTrip />
             {/* TODO: create one component for all below components and use openModal inside that component */}
             {/* <Features title="فضای کار اشتراکی" /> */}
             {/* <HiringFeature title="جذب نیرو" /> */}
@@ -42,12 +52,15 @@ export default async function Home({
               : {title: string, slogan: string, firstText: string, secondText: string, points: Array<any>, experienceTitle: string, experienceText: string, buttonText: string, modalName: string}, index: number) => (
                 <Feature key={index} title={title} slogan={slogan} firstText={firstText} secondText={secondText} points={points} experienceTitle={experienceTitle} experienceText={experienceText} buttonText={buttonText} modalName={modalName} />
             ))} */}
-            <FeatureContainer />
+            {/* <FeatureContainer /> */}
+            {/* <PooyeshForm/>
+            <StartUpForm/>
+            <SpaceForm/> */}
             <Hires />
-            <Startups />
-            <Customers />
+            {/* <Startups /> */}
+            {/* <Customers /> */}
             <Faq />
-            <ContactUs />
+            {/* <ContactUs /> */}
           </div>
         </>
       </Suspense>

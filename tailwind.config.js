@@ -13,14 +13,22 @@ module.exports = {
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
       fontFamily: {
-        yakan: ['yekan', 'sans-serif'],
+        yakan: ['IRANSansXMedium', 'yekan', 'sans-serif'],
       },
       colors: {
         brand: {
           DEFAULT: '#D6A001',
           light: '#F7ECCC',
         },
+        servicebg:{
+          DEFAULT: '#F8F5EC',
+          light: '#AD8100',
+          primery: '#5C4400;'
+        },
         customGray: {
+          DEFAULT: '#696969',
+        },
+        list: {
           DEFAULT: '#696969',
         },
       },

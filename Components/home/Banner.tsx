@@ -6,17 +6,16 @@ export default function Banner() {
       <Image
         src="/static/images/Home/farazaman-baner-lg.png"
         alt="Banner Image"
-        className="hidden sm:block"
         width={1920}
         height={1080}
       />
-      <Image
+      {/* <Image
         src="/static/images/Home/farazaman-banner-sm.png"
         alt="Banner"
         className="block sm:hidden"
         width={550}
         height={390}
-      />
+      /> */}
     </div>
   );
 }

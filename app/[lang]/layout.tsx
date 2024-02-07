@@ -4,7 +4,7 @@ import 'react-toastify/dist/ReactToastify.css'; // Then import React Toastify CS
 import Script from 'next/script';
 import React from 'react';
 import Footer from '@/Components/footer/Footer';
-import Navbar from '@/Components/home/Navbar';
+// import Navbar from '@/Components/home/Navbar';
 import { languages } from '../i18n/setting';
 import { useLang } from '@/stores/langStore';
 import { dir } from 'i18next';

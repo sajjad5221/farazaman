@@ -1,13 +1,13 @@
 import React from 'react';
-import Circle from '../icons/Circle';
+// import Circle from '../icons/Circle';
 
 export default function SectionHeader({ title }: { title: string }) {
   return (
-    <div className="w-full rounded-xl rounded-tl-[4rem] bg-brand-light flex items-center py-4">
+    <div className="w-full text-center">
       <div className="px-4">
-        <Circle />
+        {/* <Circle /> */}
       </div>
-      <p className="text-bold text-xl text-black">{title}</p>
+      <p className="font-bold text-3xl text-brand ">{title}</p>
     </div>
   );
 }
