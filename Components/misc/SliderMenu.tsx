@@ -72,26 +72,26 @@ export default function SliderMenu({
   console.log(items);
 
   return (
-    <div className="relative px-4 py-4 w-full max-w-full text-gray-300 select-none bg-servicebg sm:block mt-80">
+    <div className="relative px-4 py-4 w-full max-w-full text-gray-300 select-none bg-servicebg sm:block mt-32 lg:mt-60">
       <div className="px-4 leading-10 pt-16 pb-8 mx-auto max-w-7xl sm:px-6 lg:px-8 gap-x-40 ">
         <SectionHeader title="نظرات شما" />
       </div>
       <div className="flex flex-row items-center">
         <div
-          className="flex overflow-auto lg:overflow-hidden w-8/12 m-auto"
+          className="flex overflow-auto lg:overflow-hidden w-10/12 xl:w-8/12 m-auto"
           ref={carouselRef}
           onMouseDown={handleMouseDown}
           onMouseMove={handleMouseMove}
           onMouseUp={handleMouseUp}
           onMouseLeave={handleMouseUp}
         >
-          <img className='absolute left-0 top-2' src="/static/images/hires/logoPattern.png" alt="" />
+          <img className='absolute left-0 top-2 w-32 md:w-68 h-32  md:h-68' src="/static/images/hires/logoPattern.png" alt="" />
           {items.map((item, index) => (
             // TODO: create carouselItem component :<CarouselItem key={item.id} item={item} />
 
             <div
             key={index}
-            className="  relative bg-white flex flex-col overflow-hidden flex-shrink-0 justify-evenly sm:w-2/12 md:w-[31%] rounded-lg cursor-pointer mx-3"
+            className="relative bg-white flex flex-col overflow-hidden flex-shrink-0 justify-evenly w-[98%] md:w-[47%] lg:w-[31%] rounded-lg cursor-pointer mx-3"
             style={{ scrollSnapAlign: 'start' }}
             >
               <div className="flex flex-col items-center ">
@@ -112,7 +112,7 @@ export default function SliderMenu({
           ))}
         </div>
       </div>
-      <div className="flex mt-3 ml-10 justify-center">
+      <div className="flex mt-3 mx-auto justify-center">
         <button
           className="rounded-md p-1 bg-white text-brand hover:scale-110 hover:shadow-xl transition-colors shadow-lg font-bold"
           aria-label="Arrow"

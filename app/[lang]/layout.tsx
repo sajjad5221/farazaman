@@ -51,7 +51,7 @@ export default function RootLayout({
       {/* Define HTML element with direction and language attributes */}
       <html lang={lang} dir={dir(lang)}>
         {/* Define body element with font family */}
-        <body className="font-yakan bg-gray-50">
+        <body className="font-yakan bg-gray-50 w-[90%] mx-auto">
           {/* <Navbar lang={lang} /> */}
           <NavBarRefactor lang={lang} />
           {/* Render children passed to RootLayout component */}

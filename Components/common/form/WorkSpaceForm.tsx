@@ -4,7 +4,7 @@ import GetCsrfToken from '@/Services/GetCsrfToken';
 import { useForm } from 'react-hook-form';
 import FormsDetails from '@/Components/misc/FormsDetails';
 import Apiclient from '@/Services/Apiclient';
-import { PooyeshForm } from '@/types/global';
+import { WorkSpaceInfo } from '@/types/global';
 import { useData } from '@/stores/dataStore';
 import { useTranslation } from '@/app/i18n/client';
 import Footer from '@/Components/footer/Footer'
@@ -16,7 +16,7 @@ import Input from './Input';
 
 const Data = useData.getState();
 
-export default function SpaceForm() {
+export default function WorkSpaceForm() {
     
 
 
@@ -25,7 +25,7 @@ export default function SpaceForm() {
     handleSubmit,
     formState: { errors },
     reset,
-  } = useForm<PooyeshForm>({
+  } = useForm<WorkSpaceInfo>({
     mode: 'onBlur',
   });
   const description =
@@ -63,7 +63,7 @@ export default function SpaceForm() {
     });
   };
 
-  const handleFormSubmit = async (data: PooyeshForm) => {
+  const handleFormSubmit = async (data: WorkSpaceInfo) => {
     // e.preventDefault();
     Data.handleSubmitingChange(true);
     Data.handleSendChange(true);
@@ -78,8 +78,6 @@ export default function SpaceForm() {
     sendFormData.append('name', data.name);
     sendFormData.append('phone', data.phone);
     sendFormData.append('email', data.email);
-    sendFormData.append('resume', data.resume);
-    sendFormData.append('university', data.university);
 
     try {
       const response = await Apiclient.post('hire/', sendFormData, {
@@ -105,11 +103,11 @@ export default function SpaceForm() {
 
   return (
     <div>
-    <div className=' relative flex justify-center mb-[48rem] md:mb-[42rem] lg:mb-[22rem] xl:mb-[15rem] mt-16 mx-auto'>
+    <div className=' relative flex justify-center mb-[35rem] md:mb-[28rem] lg:mb-[18rem] xl:mb-[12rem] mt-16 mx-auto'>
         <img className='rounded-xl' src="/static/images/form/form-bg.jpg" alt="form backgraund" />
         <div className=' absolute top-[-2rem] md:top-0 xl:top-8 w-10/12 bg-white my-20 border border-gray-300 px-5 md:px-16 py-16 rounded-2xl pb-20' >
-            <h1 className=' font-bold text-brand text-2xl lg:text-4xl mb-8 lg:mb-16 '> ثبت‌نام طرح پویش  </h1>
-            <form className='grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3' onSubmit={handleSubmit(handleFormSubmit)}>
+            <h1 className='font-bold text-brand text-2xl lg:text-4xl mb-8 lg:mb-16'> فضای کار اشتراکی</h1>
+            <form className='grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3' onSubmit={handleSubmit(handleFormSubmit)} >
 
                     
               <Input 
@@ -128,7 +126,7 @@ export default function SpaceForm() {
                 requiredMessage='نام و نام خانوادگی خود را به درستی وارد کنید.'
                 handleChange={handleChange}
               />
-              
+
                   
               <Input  
                 register={register}
@@ -163,39 +161,9 @@ export default function SpaceForm() {
                 requiredMessage='آدرس ایمیل را به درستی وارد کنید.'
                 handleChange={handleChange}
               />
-              <Input  
-                register={register}
-                errors={errors}
-                nameInput='university'
-                containerClass='mb-5'
-                label='نام دانشگاه'
-                labelClass='block mb-2 text-lg md:text-xl font-medium text-yellow-900'
-                autoComplete='true'
-                required='نام دانشگاه خود را وارد کنید'
-                requiredValue={/^[\u0600-\u06FF\s]+$/}
-                requiredMessage='نام دانشگاه را به درستی وارد کنید.'
-                handleChange={handleChange}
-                className='w-full lg:w-11/12 ml-0 md:ml-5 px-4 py-3 border-2 placeholder:text-neutral-400 rounded-md outline-none focus:ring-4'
-                type="text" 
-                placeholder='لطفا نام دانشگاه خود را وارد کنید'
-              />
-              <Input 
-                register={register}
-                errors={errors}
-                nameInput='resume'
-                placeholder='فایل ارائه'
-                inputValue={Data.formData.resume?.name}
-                containerClass='mb-5'
-                label='رزومه شما  '
-                labelClass='block mb-2 text-lg md:text-xl font-medium text-yellow-900'
-                type='file'
-                autoComplete='false'
-                className='w-full lg:w-11/12 ml-0 md:ml-5 px-4 py-3 border-2 placeholder:text-neutral-400 rounded-md outline-none focus:ring-4'
-                required='فایل را وارد کنید'
-                requiredValue={/b'[a-f]+\d+'/}
-                requiredMessage='فایل را به درستی وارد کنید'
-                handleChange={handleChange}
-              />
+
+              <div className=' hidden xl:inline'></div>
+              <div className=' hidden xl:inline mb-20'></div>
 
               <div className='mt-[36px] relative w-full'>
                   <button className='text-yellow-500 absolute border-2 py-[13px] px-20 left-0 lg:left-8 rounded-md border-yellow-500 transition-all hover:bg-yellow-500 cursor-pointer hover:text-white'>ارسال</button>

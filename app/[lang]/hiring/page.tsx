@@ -1,9 +1,9 @@
 import React from "react";
-import HiringForm from "@/Components/common/form/HiringForm";
+import SpaceForm from "@/Components/common/form/WorkSpaceForm";
 export default function page() {
   return (
     <div className=" container mx-auto">
-      <HiringForm/>
+      <SpaceForm/>
     </div>
   );
 }
