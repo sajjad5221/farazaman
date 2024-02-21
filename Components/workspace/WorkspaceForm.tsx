@@ -10,7 +10,7 @@ import Button from '../common/form/Button';
 import Input from '../common/form/Input';
 import FormNotification from '../common/form/FormNotification';
 
-const ContactUs = () => {
+const WorkSpaceForm = () => {
   // const [formData, setFormData] = useState<WorkSpaceInfo>({
   //   name: '',
   //   email: '',
@@ -47,6 +47,7 @@ const ContactUs = () => {
   const onSubmit = async (data: WorkSpaceInfo) => {
     Data.handleSendChange(true);
     Data.handleSubmitingChange(true);
+
     try {
       const response = await Apiclient.post(
         'workspace/',
@@ -67,6 +68,7 @@ const ContactUs = () => {
       Data.handleMessageChange('ارسال ناموفق بود !');
       Data.handleSendChange(false);
       Data.handleSuccessChange(false);
+      reset();
     }
   };
 
@@ -322,4 +324,4 @@ const ContactUs = () => {
   );
 };
 
-export default ContactUs;
+export default WorkSpaceForm;

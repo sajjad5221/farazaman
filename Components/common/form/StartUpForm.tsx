@@ -3,9 +3,11 @@ import React, { useEffect } from 'react';
 import GetCsrfToken from '@/Services/GetCsrfToken';
 import { useForm } from 'react-hook-form';
 import Apiclient from '@/Services/Apiclient';
-import { HiringInfo } from '@/types/global';
+import { StartupsInfo } from '@/types/global';
 import { useData } from '@/stores/dataStore';
 import Input from './Input';
+import { useFile } from '@/stores/fileStore';
+import UploadInput from './UploadInput';
 
 
 
@@ -20,7 +22,7 @@ export default function StartUpForm() {
     handleSubmit,
     formState: { errors },
     reset,
-  } = useForm<HiringInfo>({
+  } = useForm<StartupsInfo>({
     mode: 'onBlur',
   });
   const description =
@@ -58,25 +60,81 @@ export default function StartUpForm() {
     });
   };
 
-  const handleFormSubmit = async (data: HiringInfo) => {
+  const {
+    filePostPitch,
+    handlePitchFileChange,
+  } = useFile()
+
+  // const handleFormSubmit = async (data: StartupsInfo) => {
+  //   // e.preventDefault();
+  //   Data.handleSubmitingChange(true);
+  //   Data.handleSendChange(true);
+
+  //   const sendFormData = new FormData();
+    
+  //   if (Data.formData.resume) {
+  //     sendFormData.append(
+  //       'resume',
+  //       Data.formData.resume,
+  //       Data.formData.resume.name
+  //     );
+  //   }
+  //   sendFormData.append('name', data.name);
+  //   sendFormData.append('phone', data.phone);
+  //   sendFormData.append('email', data.email);
+  //   sendFormData.append('hireType', data.hireType.toString());
+
+  //   console.log(sendFormData);
+
+  //   try {
+  //     const response = await Apiclient.post('hire/', sendFormData, {
+  //       headers: {
+  //         'content-type': 'multipart/form-data',
+  //         'X-CSRFToken': Data.csrfToken,
+  //       },
+  //     });
+
+  //     console.log(response);
+
+  //     Data.handleSubmitingChange(true);
+  //     Data.handleMessageChange('ارسال موفقیت آمیز بود');
+  //     Data.handleSendChange(false);
+  //     reset(); // Reset the form fields
+  //   } catch (error) {
+  //     console.log(error);
+  //     Data.handleMessageChange('ارسال ناموفق بود !');
+  //     Data.handleSendChange(false);
+  //     Data.handleSubmitingChange(false);
+  //   }
+  // };
+  
+  const handleFormSubmit = async (data: StartupsInfo) => {
     // e.preventDefault();
     Data.handleSubmitingChange(true);
     Data.handleSendChange(true);
-    const sendFormData = new FormData();
-    if (Data.formData.resume) {
-      sendFormData.append(
-        'resume',
-        Data.formData.resume,
-        Data.formData.resume.name
-      );
-    }
-    sendFormData.append('name', data.name);
-    sendFormData.append('phone', data.phone);
-    sendFormData.append('email', data.email);
-    sendFormData.append('hireType', data.hireType.toString());
 
+    const sendFormData = new FormData();
+
+    if (filePostPitch.pitchDeckFile) {
+      sendFormData.append("filePostPitch", filePostPitch.pitchDeckFile, "pitchDeckFile")
+    }
+
+    // Append all non-file form fields.
+    Object.entries(data).forEach(([fieldName, fieldValue]) => {
+      if (typeof fieldValue !== 'object' || fieldValue === null) {
+        sendFormData.append(fieldName, String(fieldValue));
+      }
+    });
+
+    // Convert file objects to Blob and append them.
+    if (data.pitch) {
+      sendFormData.append('pitchDeckFile', data.pitch as Blob);
+    } 
+
+    console.log(data);
+    
     try {
-      const response = await Apiclient.post('hire/', sendFormData, {
+      const response = await Apiclient.post('startups/', sendFormData, {
         headers: {
           'content-type': 'multipart/form-data',
           'X-CSRFToken': Data.csrfToken,
@@ -94,6 +152,7 @@ export default function StartUpForm() {
       Data.handleMessageChange('ارسال ناموفق بود !');
       Data.handleSendChange(false);
       Data.handleSubmitingChange(false);
+      reset(); // Reset the form fields
     }
   };
 
@@ -103,7 +162,7 @@ export default function StartUpForm() {
         <img className='rounded-xl' src="/static/images/form/form-bg.jpg" alt="form backgraund" />
         <div className=' absolute top-12 w-10/12 bg-white my-20 border border-gray-300 p-16 rounded-2xl mb-20' >
             <h1 className=' font-bold text-brand text-4xl mb-16 '>استخدام در شتابدهنده فرازمان</h1>
-            <form className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
+            <form onSubmit={handleSubmit(handleFormSubmit)} className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
 
                     
                     <Input 
@@ -118,7 +177,7 @@ export default function StartUpForm() {
                       autoComplete='false'
                       className='w-11/12 ml-5 px-4 py-3 border-2 placeholder:text-neutral-400 rounded-md outline-none focus:ring-4'
                       required='نام و نام خانوادگی خود را وارد کنید'
-                      requiredValue={/^[\u0600-\u06FF\s]+$/}
+                      requiredValue={/^/}
                       requiredMessage='نام و نام خانوادگی خود را به درستی وارد کنید.'
                       handleChange={handleChange}
                     />
@@ -127,12 +186,12 @@ export default function StartUpForm() {
                     <Input  
                       register={register}
                       errors={errors}
-                      nameInput='phone-number'
+                      nameInput='phone'
                       placeholder='شماره تماس ( مثال : ۰۹۱۳۱۲۳۴۵۶۷ )'
                       containerClass='mb-5'
                       label='شماره موبایل'
                       labelClass='block mb-2 text-xl font-medium text-yellow-900'
-                      type='number'
+                      type='text'
                       autoComplete='false'
                       className='w-11/12 ml-5 px-4 py-3 border-2 placeholder:text-neutral-400 rounded-md outline-none focus:ring-4'
                       required='شماره تماس را وارد کنید'
@@ -144,7 +203,7 @@ export default function StartUpForm() {
                     <Input  
                       register={register}
                       errors={errors}
-                      nameInput='email-address'
+                      nameInput='email'
                       placeholder='آدرس ایمیل شما'
                       containerClass='mb-5'
                       label='آدرس ایمیل شما'
@@ -158,28 +217,36 @@ export default function StartUpForm() {
                       handleChange={handleChange}
                     />
 
-                    
                     <Input  
                       register={register}
                       errors={errors}
-                      nameInput='University'
+                      nameInput='members_count'
+                      placeholder='تعداد اعضای تیم'
                       containerClass='mb-5'
-                      label='آدرس ایمیل شما'
+                      label='تعداد اعضا'
                       labelClass='block mb-2 text-xl font-medium text-yellow-900'
-                      autoComplete='true'
-                      required='نام دانشگاه خود را وارد کنید'
-                      requiredValue={/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i}
-                      requiredMessage='نام دانشگاه را به درستی وارد کنید.'
-                      handleChange={handleChange}
+                      type='number'
+                      autoComplete='false'
                       className='w-11/12 ml-5 px-4 py-3 border-2 placeholder:text-neutral-400 rounded-md outline-none focus:ring-4'
-                      type="text" 
-                      placeholder='لطفا نام دانشگاه خود را وارد کنید'
-                    />
-                <div></div>
+                      required='تعداد اعضای تیم خود را وارد کنید'
+                      requiredValue={/^/}
+                      requiredMessage='تغداد اعضای تیم خود را به درستی وارد کنید.'
+                      handleChange={handleChange}
+                    />                    
+
+
+                    <div className='mt-1'>
+                      <UploadInput
+                        title='فایل pitch شما'
+                        register={register}
+                        errors={errors}
+                        nameInput="pitch"
+                        handleChange={handlePitchFileChange}
+                      />
+                    </div>
                 <div className='mt-[30px] relative w-full'>
                     <button className='text-brand absolute border-2 py-[13px] px-20 left-8 rounded-md border-brand transition-all hover:bg-brand cursor-pointer hover:text-white'>ارسال</button>
                 </div>
-            
             </form>
         </div>
     </div>

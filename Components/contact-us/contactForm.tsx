@@ -11,12 +11,6 @@ import Button from '../common/form/Button';
 import Input from '../common/form/Input';
 
 const ContactUsForm = () => {
-  // const [formData, setFormData] = useState<ContactInfo>({
-  //   name: '',
-  //   email: '',
-  //   phone: '',
-  //   message: '',
-  // });
 
   const Data = useData();
 
@@ -28,12 +22,6 @@ const ContactUsForm = () => {
   } = useForm<ContactInfo>({
     mode: 'onBlur',
   });
-
-  // const [isSubmitting, setIsSubmitting] = useState(false);
-  // const [isSuccess, setIsSuccess] = useState(false);
-  // const [send, setSend] = useState(false);
-  // const [message, setMessage] = useState('');
-  // const [csrfToken, setCsrfToken] = useState('');
 
   useEffect(() => {
     // Fetch CSRF token
@@ -51,30 +39,69 @@ const ContactUsForm = () => {
     Data.handleContactUsFormData({ ...Data.contactUsFormData, [e.target.name]: e.target.value });
   };
 
-  const onSubmit = async (data: ContactInfo) => {
-    Data.handleSendChange(true);
-    Data.handleSubmitingChange(true);
-    try {
-      // Send form data to the server
+  // const onSubmit = async (data: ContactInfo) => {
+  //   Data.handleSendChange(true);
+  //   Data.handleSubmitingChange(true);
+  //   try {
+  //     // Send form data to the server
 
-      //Response is unused. Remove if unnecessary.
-      const response = await Apiclient.post('contact/', JSON.stringify(data), {
+  //     //Response is unused. Remove if unnecessary.
+  //     const response = await Apiclient.post('contact/', JSON.stringify(data), {
+  //       headers: {
+  //         'X-CSRFToken': Data.csrfToken,
+  //         'Content-Type': 'application/json',
+  //       },
+  //     });
+  //     Data.handleSuccessChange(true);
+      
+  //     Data.handleMessageChange('ارسال موفقیت آمیز بود');
+  //     Data.handleSendChange(false);
+  //     reset();
+  //   } catch (error) {
+  //     console.log(error);
+      
+  //     Data.handleMessageChange('ارسال ناموفق بود !');
+  //     Data.handleSendChange(false);
+  //     Data.handleSuccessChange(false);
+  //   }
+  // };
+
+  const handleFormSubmit = async (data: ContactInfo) => {
+    // e.preventDefault();
+    Data.handleSubmitingChange(true);
+    Data.handleSendChange(true);
+
+    const sendFormData = new FormData();
+
+    // Append all non-file form fields.
+    Object.entries(data).forEach(([fieldName, fieldValue]) => {
+      if (typeof fieldValue !== 'object' || fieldValue === null) {
+        sendFormData.append(fieldName, String(fieldValue));
+      }
+    });
+
+    console.log(data);
+    
+    try {
+      const response = await Apiclient.post('hire/', sendFormData, {
         headers: {
+          'content-type': 'multipart/form-data',
           'X-CSRFToken': Data.csrfToken,
-          'Content-Type': 'application/json',
         },
       });
-      Data.handleSuccessChange(true);
-      
+
+      console.log(response);
+
+      Data.handleSubmitingChange(true);
       Data.handleMessageChange('ارسال موفقیت آمیز بود');
       Data.handleSendChange(false);
-      reset();
+      reset(); // Reset the form fields
     } catch (error) {
       console.log(error);
-      
       Data.handleMessageChange('ارسال ناموفق بود !');
       Data.handleSendChange(false);
-      Data.handleSuccessChange(false);
+      Data.handleSubmitingChange(false);
+      reset(); // Reset the form fields
     }
   };
 
@@ -98,7 +125,7 @@ const ContactUsForm = () => {
         />
         <div className="w-full px-8 py-8 md:order-last lg:order-last max-[768px]:order-first">
           <div>
-            <form onSubmit={handleSubmit(onSubmit)}>
+            <form onSubmit={handleSubmit(handleFormSubmit)}>
               {/* <div className="mb-5">
                 <label
                   htmlFor="name"
@@ -212,7 +239,7 @@ const ContactUsForm = () => {
                 )}
               </div> */}
 
-              <Input 
+              {/* <Input 
                 register={register}
                 errors={errors}
                 nameInput='message'
@@ -225,7 +252,7 @@ const ContactUsForm = () => {
                 className='w-full px-4 py-3 border-2 rounded-md outline-none h-36 focus:ring-4'
                 required='متن پیام را وارد کنید'
                 handleChange={handleChange}
-              />
+              /> */}
 
               <div className="mb-3" style={{ backgroundColor: 'transparent' }}>
                 <label

@@ -2,23 +2,26 @@
 import React, { useEffect } from 'react';
 import GetCsrfToken from '@/Services/GetCsrfToken';
 import { useForm } from 'react-hook-form';
-import FormsDetails from '@/Components/misc/FormsDetails';
+// import FormsDetails from '@/Components/misc/FormsDetails';
 import Apiclient from '@/Services/Apiclient';
 import { HiringInfo } from '@/types/global';
 import { useData } from '@/stores/dataStore';
-import { useTranslation } from '@/app/i18n/client';
-import Footer from '@/Components/footer/Footer'
-import NavBarRefactor from '@/Components/home/NavBarRefactor'
-import Star from '@/Components/icons/Star'
+// import { useTranslation } from '@/app/i18n/client';
+// import Footer from '@/Components/footer/Footer'
+// import NavBarRefactor from '@/Components/home/NavBarRefactor'
+// import Star from '@/Components/icons/Star'
 import Input from './Input';
+import Select from './Select';
+import UploadInput from './UploadInput';
+import { useFile } from '@/stores/fileStore';
 
 
 
-const Data = useData.getState();
+export default function HiringForm() {
 
-export default function SpaceForm() {
-    
+  const Data = useData();
 
+  const { cvFileState, handleCvFileChange } = useFile();
 
   const {
     register,
@@ -80,6 +83,8 @@ export default function SpaceForm() {
     sendFormData.append('email', data.email);
     sendFormData.append('hireType', data.hireType.toString());
 
+    console.log(data);
+
     try {
       const response = await Apiclient.post('hire/', sendFormData, {
         headers: {
@@ -108,7 +113,7 @@ export default function SpaceForm() {
         <img className='rounded-xl' src="/static/images/form/form-bg.jpg" alt="form backgraund" />
         <div className=' absolute top-12 w-10/12 bg-white my-20 border border-gray-300 p-16 rounded-2xl mb-20' >
             <h1 className=' font-bold text-brand text-4xl mb-16 '> فضای کار اشتراکی</h1>
-            <form className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
+            <form onSubmit={handleSubmit(handleFormSubmit)} className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
 
                     
               <Input 
@@ -132,7 +137,7 @@ export default function SpaceForm() {
               <Input  
                 register={register}
                 errors={errors}
-                nameInput='phone-number'
+                nameInput='phone'
                 placeholder='شماره تماس ( مثال : ۰۹۱۳۱۲۳۴۵۶۷ )'
                 containerClass='mb-5'
                 label='شماره موبایل'
@@ -149,7 +154,7 @@ export default function SpaceForm() {
               <Input  
                 register={register}
                 errors={errors}
-                nameInput='email-address'
+                nameInput='email'
                 placeholder='آدرس ایمیل شما'
                 containerClass='mb-5'
                 label='آدرس ایمیل شما'
@@ -163,10 +168,32 @@ export default function SpaceForm() {
                 handleChange={handleChange}
               />
 
+              {/* <Select
+                register={register}
+                errors={errors}
+                nameInput='hireType'
+                label='نوع استخدام'
+                required='لطفا نوع استخدام خود را وارد کنید'
+                className='input input-bordered col-span-1 mb-1 mt-3 w-full placeholder-[#b2b1b0] drop-shadow-lg dark:placeholder-[#9CA3AF]'
+                labelClass='text-[#6b6b6b] dark:text-current'
+                placeholder=''
+                options={[]}
+                handleChange={() => {}}
+                selected={""}
+              />*/}
+
+            <UploadInput
+              title="فایل رزومه"
+              nameInput="resume"
+              register={register}
+              errors={errors}
+              handleChange={handleCvFileChange}
+            />
+
               <div></div>
               <div className=' mb-20'></div>
-              <div className='mt-[30px] relative w-full'>
-                  <button className='text-brand absolute border-2 py-[13px] px-20 left-8 rounded-md border-brand transition-all hover:bg-brand cursor-pointer hover:text-white'>ارسال</button>
+              <div className='mt-[30px] w-full'>
+                  <button className='text-brand absolute border-2 py-[13px] px-20 rounded-md border-brand transition-all hover:bg-brand cursor-pointer hover:text-white'>ارسال</button>
               </div>
             
             </form>
