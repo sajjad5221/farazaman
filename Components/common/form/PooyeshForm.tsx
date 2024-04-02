@@ -108,7 +108,7 @@ export default function SpaceForm() {
         <img className='rounded-xl' src="/static/images/form/form-bg.jpg" alt="form backgraund" />
         <div className=' absolute top-12 w-10/12 bg-white my-20 border border-gray-300 p-16 rounded-2xl mb-20' >
             <h1 className=' font-bold text-brand text-4xl mb-16 '> ثبت‌نام طرح پویش  </h1>
-            <form className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
+            <form onSubmit={handleSubmit(handleFormSubmit)} className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
 
                     
               <Input 
@@ -196,7 +196,7 @@ export default function SpaceForm() {
                 handleChange={handleChange}
               />
 
-              <div className='mt-[30px] relative w-full'>
+              <div className='mt-[38px] relative w-full'>
                   <button className='text-brand absolute border-2 py-[13px] px-20 left-8 rounded-md border-brand transition-all hover:bg-brand cursor-pointer hover:text-white'>ارسال</button>
               </div>
             

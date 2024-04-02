@@ -35,29 +35,37 @@ export default function Services() {
 
   return (
     <div className="bg-gray-50 md:pt-36">
-      {/* Page header */}
-      <div className='flex '>
-        <div className='w-6/12 pl-6'>
-          <img className=' object-cover w-full' src="/static/images/Home/services/picture.png" alt="" />
+
+      <h2 className="text-4xl px-4 mb-8 text-brand font-bold">{index1.mainPageTitle}</h2>
+
+      <div className='flex flex-col md:flex-row justify-between items-center gap-4'>
+        <div className='relative w-1/2 h-[31rem] rtl:mr-4 ltr:ml-4'>
+          <Image 
+            className='object-cover'
+            layout='fill'
+            src="/static/images/Home/services/picture.png"
+            alt=''
+          />
         </div>
-        <div className=" w-6/12 pt-12 mx-auto ">
-          <h2 className="text-4xl text-brand pb-14 font-bold">{index1.mainPageTitle}</h2>
-          <div>
-            <p className="text-black py-2 text-2xl leading-[3rem] pb-8">
-              {/* {index1.mainPage.mainPageSubTitle} */}
+
+        <div className="w-6/12 mx-auto flex flex-col gap-4">
+          <div className='flex flex-col gap-4'>
+            <p className="text-black py-2 text-2xl leading-[3rem]">
+
               {index1.mainPageSubTitle}
             </p>
-            <p className=" pb-16 text-lg lg:max-w-[77rem] text-gray-500 text-justify  leading-[2rem]">
-              {/* {index1.mainPage.mainPageParagraph} */}
+            <p className="text-lg lg:max-w-[42rem] text-gray-500 text-justify  leading-[2rem]">
+
               {index1.mainPageParagraph}
             </p>
           </div>
-            <div className='flex w-full justify-evenly font-semibold text-xl text-servicebg-primery p-6 py-14 bg-servicebg rounded-lg'>
-            <div  className='flex items-center border-l-2 border-servicebg-light pl-10'>
+
+          <div className='flex w-full justify-evenly font-semibold text-xl text-servicebg-mimery p-6 bg-servicebg rounded-lg'>
+            <div  className='flex items-center pl-12 border-l-2 border-servicebg-light'>
               <img className=' w-8 ml-3' src="/static/images/icon/money-1.svg" alt="icon" />
               <p>سرمایه گذاری</p>
             </div>
-            <div className='flex items-center border-l-2 border-servicebg-light pl-10'>
+            <div className='flex items-center pl-12 border-l-2 border-servicebg-light'>
               <img className=' w-8 ml-3' src="/static/images/icon/user-employee.svg" alt="icon" />
               <p>کارآفرینی</p>
             </div>
@@ -67,11 +75,8 @@ export default function Services() {
             </div>
           </div>
         </div>
-        
       </div>
-      {/* TODO: create ServiceCard.tsx component */}
-      {/* Service cards */}
-      {/* flex flex-col md:flex-row max-w-7xl justify-between mx-auto items-center */}
+
       <div className="flex flex-wrap md:mx-auto pt-36">
         {index1.ServiceData.map(
           (
@@ -83,5 +88,52 @@ export default function Services() {
         )}
       </div>
     </div>
+    // <div className="bg-gray-50 md:pt-36">
+
+    //   <div className='flex '>
+    //     <div className='w-6/12 pl-6'>
+    //       <img className=' object-cover w-full' src="/static/images/Home/services/picture.png" alt="" />
+    //     </div>
+      //   <div className=" w-6/12 pt-12 mx-auto ">
+      //     <h2 className="text-4xl text-brand pb-14 font-bold">{index1.mainPageTitle}</h2>
+      //     <div>
+      //       <p className="text-black py-2 text-2xl leading-[3rem] pb-8">
+
+      //         {index1.mainPageSubTitle}
+      //       </p>
+      //       <p className=" pb-16 text-lg lg:max-w-[77rem] text-gray-500 text-justify  leading-[2rem]">
+
+      //         {index1.mainPageParagraph}
+      //       </p>
+      //     </div>
+      //       <div className='flex w-full justify-evenly font-semibold text-xl text-servicebg-mimery p-6 py-14 bg-servicebg rounded-lg'>
+      //       <div  className='flex items-center border-l-2 border-servicebg-light pl-10'>
+      //         <img className=' w-8 ml-3' src="/static/images/icon/money-1.svg" alt="icon" />
+      //         <p>سرمایه گذاری</p>
+      //       </div>
+      //       <div className='flex items-center border-l-2 border-servicebg-light pl-10'>
+      //         <img className=' w-8 ml-3' src="/static/images/icon/user-employee.svg" alt="icon" />
+      //         <p>کارآفرینی</p>
+      //       </div>
+      //       <div className='flex items-center'>
+      //         <img className=' w-8 ml-3' src="/static/images/icon/idea.svg" alt="icon" />
+      //         <p>استارتاپ</p>
+      //       </div>
+      //     </div>
+      //   </div>
+        
+      // </div>
+
+      // <div className="flex flex-wrap md:mx-auto pt-36">
+      //   {index1.ServiceData.map(
+      //     (
+      //       {title,image,alt,info,goto}: { title: string; image: string; alt: string; info: string; goto: string;},
+      //       index: number
+      //     ) => (
+      //       <ServiceCard key={index} title={title} image={image} alt={alt}  info={info} goto={goto} />
+      //     )
+      //   )}
+      // </div>
+    // </div>
   );
 }

@@ -112,7 +112,7 @@ export default function HiringForm() {
     <div className=' relative flex justify-center mb-60 mt-16' >
         <img className='rounded-xl' src="/static/images/form/form-bg.jpg" alt="form backgraund" />
         <div className=' absolute top-12 w-10/12 bg-white my-20 border border-gray-300 p-16 rounded-2xl mb-20' >
-            <h1 className=' font-bold text-brand text-4xl mb-16 '> فضای کار اشتراکی</h1>
+            <h1 className='font-bold text-brand text-4xl mb-16'>فرم استخدام</h1>
             <form onSubmit={handleSubmit(handleFormSubmit)} className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
 
                     

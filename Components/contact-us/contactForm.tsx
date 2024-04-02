@@ -83,7 +83,7 @@ const ContactUsForm = () => {
     console.log(data);
     
     try {
-      const response = await Apiclient.post('hire/', sendFormData, {
+      const response = await Apiclient.post('contact-us/', sendFormData, {
         headers: {
           'content-type': 'multipart/form-data',
           'X-CSRFToken': Data.csrfToken,
