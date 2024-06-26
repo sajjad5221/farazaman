@@ -1,6 +1,6 @@
 "use client"
 
-import Error from "@/app/global-error";
+import Error from "@/app/[lang]/global-error";
 import React, { Component, ErrorInfo, ReactNode } from "react";
 
 type ErrorBoundaryProps = {
