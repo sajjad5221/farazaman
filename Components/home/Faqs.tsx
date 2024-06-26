@@ -89,7 +89,7 @@ export default function Faq() {
   // ) as any;
   // Render the component
   return (
-    <section className=" mt-20 lg:mt-44  py-16">
+    <section className=" mt-20 lg:mt-32 py-16 mb-28">
       <h1 className="font-bold text-brand text-3xl">سوالات پرتکرار</h1>
       <div className="flex mx-auto w-full flex-col md:flex-row justify-between">
         <div className="my-8 w-full md:w-6/12 ml-0 md:ml-4">

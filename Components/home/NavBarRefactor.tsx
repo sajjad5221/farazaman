@@ -23,18 +23,6 @@ function NavBarRefactor(
 
   console.log(lang);
 
-
-  // const navigation = [
-  //   { name: 'فضای کار اشتراکی', goTo: 'workspace' },
-  //   { name: 'استخدام', goTo: 'hiring' },
-  //   { name: 'ثبت استارتاپ', goTo: 'startups' },
-  //   { name: 'ارتباط با ما', goTo: 'contact' },
-  // ];
-
-  // const handleToggle = () => {
-  //   setToggleMenu(!toggleMenu);
-  // };
-
   const index1 = lang === "fa" ? resources.fa.mainPageFA : resources.en.mainPageEN
 
 
@@ -59,24 +47,20 @@ function NavBarRefactor(
                   quality={75}
                   sizes="100vw"
                 />
-                {/* <p className="">فرازمان</p> */}
               </Link>
             </div>
 
               <Link
                 href={'/'}
-                className=" hidden md:block"
+                className="hidden md:block"
               >
                 <Image
-                  className="w-[4rem] md:w-[6rem] hover:cursor-pointer"
+                  className="w-[20rem] hover:cursor-pointer"
                   src="/static/images/Farazaman.png"
                   alt="Farazaman"
                   width={200}
                   height={200}
-                  quality={75}
-                  sizes="100vw"
                 />
-                {/* <p className="">فرازمان</p> */}
               </Link>
 
             <div className="flex md:hidden">
