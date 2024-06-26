@@ -45,7 +45,7 @@ function NavBarRefactor(
       <nav className={`drawer mx-auto ${toggleMenu ? ' fixed w-[90%] m-auto py-5 my-0 z-50 top-0 ' : 'my-5 relative w-full'} bg-slate-50`}>
         <div className="flex flex-col md:flex-row ">
           <div className="flex flex-row-reverse items-center w-full md:w-[6rem] lg:w-[8rem]">
-            <div className={`flex justify-end w-full ${toggleMenu ? 'ml-[19px]' : 'ml-0'}`} >
+            <div className={`flex justify-end w-full ${toggleMenu ? 'ml-[21px]' : 'ml-0'}`} >
               <Link
                 href={'/'}
                 className=""
@@ -57,7 +57,7 @@ function NavBarRefactor(
                   width={200}
                   height={200}
                   quality={75}
-                  sizes="100vw"
+                  sizes="100vw" 
                 />
                 {/* <p className="">فرازمان</p> */}
               </Link>
@@ -68,7 +68,7 @@ function NavBarRefactor(
                 className=" hidden md:block"
               >
                 <Image
-                  className="w-[4rem] md:w-[6rem] hover:cursor-pointer"
+                  className=" w-[15rem] hover:cursor-pointer"
                   src="/static/images/Farazaman.png"
                   alt="Farazaman"
                   width={200}
@@ -88,9 +88,9 @@ function NavBarRefactor(
                 className="hover:text-brand focus:text-brand cursor-pointer"
               >
                 {toggleMenu ? (
-                  <XMarkIcon className="block h-7 w-7" aria-hidden="true" />
+                  <XMarkIcon className="block h-9 w-9" aria-hidden="true" />
                 ) : (
-                  <Bars3Icon className="block h-7 w-7" aria-hidden="true" />
+                  <Bars3Icon className="block h-9 w-9" aria-hidden="true" />
                 )}
               </p>
             </div>
@@ -125,7 +125,7 @@ function NavBarRefactor(
                   href={item.goTo}
                 >
                   <li
-                    className=" pb-5 mb-5 border-b border-gray-200 text-xl"
+                    className=" pb-5 mb-5 border-b border-gray-200 text-lg"
                     key={item.name}
                   >
                     {item.name}
