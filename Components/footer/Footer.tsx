@@ -4,9 +4,9 @@ import React from 'react';
 
 const column1 = [
   { name: 'استخدام', href: '/hiring' },
-  { name: 'ثبت استارتاپ', href: '/startups' },
   { name: 'فضای کار اشتراکی', href: '/workspace' },
   { name: 'رویدادها', href: '/events' },
+  { name: 'ثبت استارتاپ', href: '/startups' },
 ];
 
 const column2 = [

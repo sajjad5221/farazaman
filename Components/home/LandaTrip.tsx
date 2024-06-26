@@ -9,7 +9,7 @@ export default function LandaTrip() {
 
   const index1 = lang === "fa" ? resources.fa.mainPageFA : resources.en.mainPageEN
   return (
-    <section className='flex flex-col-reverse lg:flex-row mt-20 md:mt-36'>
+    <section className='flex flex-col-reverse lg:flex-row mt-12 md:mt-36'>
         <div className='w-full lg:w-2/4 h-[440px] '>
             <div className='bg-brand w-10/12 relative h-full rounded-lg mr-0 sm:mr-2'>
                 <img className=' rounded-lg absolute w-12/12 left-[-3rem] w-full object-cover top-11 h-5/6' src="/static/images/Home/Landa-trip/Landa-trip.png" alt="" />

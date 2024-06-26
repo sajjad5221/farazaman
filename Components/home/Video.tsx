@@ -13,7 +13,7 @@ export default function Video() {
 
 
   return (
-    <section className='bg-servicebg p-6 rounded-xl mt-60 flex flex-col-reverse lg:flex-row'>
+    <section className='bg-servicebg p-6 rounded-xl mt-24 md:mt-40 flex flex-col-reverse lg:flex-row'>
         <div className=' pt-5 lg:pt-0 w-full lg:w-[40%]'>
             <h1 className='text-brand text-2xl xl:text-4xl'>فرازمان پل ارتباطی با لاندا</h1>
             <ul className='list-disc my-10 mr-4 text-list mt-6 xl:mt-14'>

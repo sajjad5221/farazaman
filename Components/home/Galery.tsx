@@ -3,7 +3,7 @@ import React from 'react'
 export default function Galery() {
   return (
     <div>
-        <h1 className='font-bold text-3xl text-brand mb-10 mt-32 lg:mt-52'>گالری تصاویر</h1>
+        <h1 className='font-bold text-2xl md:text-3xl text-brand mb-5 md:mb-10 mt-24 md:mt-40'>گالری تصاویر</h1>
         <div className='flex justify-between'>
             <img className='w-[49%] hover:scale-105 transition-all' src="/static/images/galery/Picture01.png" alt="" />
             <img className='w-[49%] hover:scale-105 transition-all' src="/static/images/galery/Picture05.png" alt="" />

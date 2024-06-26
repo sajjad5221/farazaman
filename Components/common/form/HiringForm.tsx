@@ -97,9 +97,9 @@ export default function HiringForm() {
 
   return (
     <div>
-    <div className=' relative flex justify-center mb-[45rem] md:mb-[38rem] lg:mb-[20rem] xl:mb-[12rem] mt-16 mx-auto'>
+    <div className=' relative flex justify-center mb-[45rem] md:mb-[38rem] lg:mb-[25rem] xl:mb-[22rem] mt-16 mx-auto'>
         <img className='rounded-xl' src="/static/images/form/form-bg.jpg" alt="form backgraund" />
-        <div className=' absolute top-[-2rem] md:top-0 xl:top-8 w-10/12 bg-white my-20 border border-gray-300 px-5 md:px-16 py-16 rounded-2xl pb-20' >
+        <div className=' absolute top-[-4rem] md:top-0 xl:top-8 w-10/12 bg-white my-20 border border-gray-300 px-5 md:px-16 py-16 rounded-2xl pb-20' >
             <h1 className='font-bold text-brand text-2xl lg:text-4xl mb-8 lg:mb-16'>استخدام در شتابدهنده فرازمان</h1>
             <form className='grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3' onSubmit={handleSubmit(handleFormSubmit)}>
 

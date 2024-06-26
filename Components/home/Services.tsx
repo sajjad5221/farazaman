@@ -38,7 +38,7 @@ export default function Services() {
       {/* Page header */}
       <div className='flex flex-col md:flex-row'>
         <div className=' w-full md:w-6/12 p-0 md:pl-6'>
-          <div className='flex w-full justify-evenly font-semibold text-sm lg:text-xl text-servicebg-primery p-2 py-10 bg-servicebg rounded-lg md:hidden mb-7'>
+          <div className='flex w-full justify-evenly font-semibold text-sm lg:text-xl text-servicebg-primery p-2 py-6 md:py-10 bg-servicebg rounded-lg md:hidden mb-7'>
             <div  className='flex items-center'>
               <img className='w-6 lg:w-8 ml-2' src="/static/images/icon/money-1.svg" alt="icon" />
               <p>سرمایه گذاری</p>
@@ -54,20 +54,18 @@ export default function Services() {
               <p>استارتاپ</p>
             </div>
           </div>
-          <img className=' object-cover  rounded-2xl h-auto md:h-[70%] w-full' src="/static/images/Home/services/change-img.png" alt="" />
+          <img className=' object-cover  rounded-2xl h-80 md:h-[35rem] w-full' src="/static/images/service/banner.png" alt="" />
         </div>
-        <div className="w-full md:w-6/12 pt-4 mx-auto ">
-          <h2 className=" text-2xl lg:text-4xl text-brand pb-5 lg:pb-10 font-bold">{index1.mainPageTitle}</h2>
-          <div>
-            <p className="text-black py-2 text-base leading-[2rem] lg:text-xl lg:leading-[3rem] pb-8">
+        <div className="w-full md:w-6/12 pt-4 mx-auto  md:flex flex-col justify-between">
+          <h2 className="mt-2 md:mt-0 text-2xl lg:text-4xl text-brand pb-5 font-bold">{index1.mainPageTitle}</h2>
+            <p className="text-black text-base mb-2 md:mb-0 leading-[1.8rem] lg:text-[18px] lg:leading-[2.2rem] ">
               {/* {index1.mainPage.mainPageSubTitle} */}
               {index1.mainPageSubTitle}
             </p>
-            <p className=" pb-16 text-sm lg:text-lg lg:max-w-[77rem] text-gray-500 text-justify leading-[1.5rem] lg:leading-[2rem]">
+            <p className="text-sm lg:text-[15px] lg:max-w-[77rem] text-gray-500 text-justify leading-[1.5rem] lg:leading-[25px]">
               {/* {index1.mainPage.mainPageParagraph} */}
               {index1.mainPageParagraph}
             </p>
-          </div>
             <div className='w-full justify-evenly font-semibold text-sm lg:text-xl text-servicebg-primery p-2 py-10 bg-servicebg rounded-lg hidden md:flex'>
               <div  className='flex items-center'>
                 <img className='w-6 lg:w-8 ml-2' src="/static/images/icon/money-1.svg" alt="icon" />
@@ -90,7 +88,7 @@ export default function Services() {
       {/* TODO: create ServiceCard.tsx component */}
       {/* Service cards */}
       {/* flex flex-col md:flex-row max-w-7xl justify-between mx-auto items-center */}
-      <div className="flex flex-wrap mx-auto pt-0 md:pt-36">
+      <div className="flex flex-wrap justify-between mt-10 md:mt-24">
         {index1.ServiceData.map(
           (
             {title,image,alt,info,goto}: { title: string; image: string; alt: string; info: string; goto: string;},

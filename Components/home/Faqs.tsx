@@ -89,7 +89,7 @@ export default function Faq() {
   // ) as any;
   // Render the component
   return (
-    <section className=" mt-20 lg:mt-44 px-4 py-16">
+    <section className=" mt-20 lg:mt-44  py-16">
       <h1 className="font-bold text-brand text-3xl">سوالات پرتکرار</h1>
       <div className="flex mx-auto w-full flex-col md:flex-row justify-between">
         <div className="my-8 w-full md:w-6/12 ml-0 md:ml-4">
@@ -97,8 +97,8 @@ export default function Faq() {
           {index1.FrequentlyQuestions.map(({ question, response },index: number) => (
             <div onClick={() => {handleClick(index)}} key={index} className="pr-4 py-4 my-4 text-black rounded-md bg-servicebg hover:cursor-pointer">
               <div className="flex justify-between items-start ">
-                <p className="text-gray-900 question" >{question} </p>
-                <img className="w-2 ml-4 mt-1 rotate-[268deg]" src="/static/images/icon/left-arrow.svg" alt="" />
+                <p className="text-gray-900 text-[14px] text-xl question" >{question} </p>
+                <img className="w-2 ml-4 mt-1 rotate-[268deg] text-[14px] text-xl" src="/static/images/icon/left-arrow.svg" alt="" />
               </div>
               {/* {flags[index] && <p className="py-3 text-customGray">{response}</p>} */}
               {(() => {
@@ -138,9 +138,9 @@ export default function Faq() {
             </div>
           ))}
         </div>
-        <div className="w-[20rem] h-[28rem] sm:w-[23rem] sm:h-[32rem] relative mx-auto md:mx-0">
-          <div className="absolute w-5/12 h-5/6 bottom-0 left-0 rounded-lg bg-brand"></div>
-          <img className=" absolute top-0 right-0 w-[90%]" src="/static/images/faq/lamp.png" alt="" />
+        <div className="w-[20rem] h-[28rem] sm:w-[23rem] sm:h-[32rem] relative ">
+          <div className="absolute w-5/12 h-5/6 md:w-[10rem] md:h-[25rem] bottom-0 left-0 rounded-lg bg-brand"></div>
+          <img className="absolute bottom-6  left-6 w-[90%] md:w-full" src="/static/images/faq/lamp.png" alt="" />
         </div>
       </div>
     </section>

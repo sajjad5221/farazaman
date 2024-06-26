@@ -2,14 +2,9 @@
 import React, { useEffect } from 'react';
 import GetCsrfToken from '@/Services/GetCsrfToken';
 import { useForm } from 'react-hook-form';
-import FormsDetails from '@/Components/misc/FormsDetails';
 import Apiclient from '@/Services/Apiclient';
-import { PooyeshForm } from '@/types/global';
 import { useData } from '@/stores/dataStore';
-import { useTranslation } from '@/app/i18n/client';
-import Footer from '@/Components/footer/Footer'
-import NavBarRefactor from '@/Components/home/NavBarRefactor'
-import Star from '@/Components/icons/Star'
+import { IntershipInfo } from '@/types/global';
 import Input from './Input';
 
 
@@ -25,7 +20,7 @@ export default function SpaceForm() {
     handleSubmit,
     formState: { errors },
     reset,
-  } = useForm<PooyeshForm>({
+  } = useForm<IntershipInfo>({
     mode: 'onBlur',
   });
   const description =
@@ -63,7 +58,7 @@ export default function SpaceForm() {
     });
   };
 
-  const handleFormSubmit = async (data: PooyeshForm) => {
+  const handleFormSubmit = async (data: IntershipInfo) => {
     // e.preventDefault();
     Data.handleSubmitingChange(true);
     Data.handleSendChange(true);
@@ -105,9 +100,9 @@ export default function SpaceForm() {
 
   return (
     <div>
-    <div className=' relative flex justify-center mb-[48rem] md:mb-[42rem] lg:mb-[22rem] xl:mb-[15rem] mt-16 mx-auto'>
+    <div className=' relative flex justify-center mb-[50rem] md:mb-[45rem] lg:mb-[30rem] xl:mb-[22rem] mt-16 mx-auto'>
         <img className='rounded-xl' src="/static/images/form/form-bg.jpg" alt="form backgraund" />
-        <div className=' absolute top-[-2rem] md:top-0 xl:top-8 w-10/12 bg-white my-20 border border-gray-300 px-5 md:px-16 py-16 rounded-2xl pb-20' >
+        <div className=' absolute top-[-3rem] md:top-0 xl:top-8 w-10/12 bg-white my-20 border border-gray-300 px-5 md:px-16 py-16 rounded-2xl pb-20' >
             <h1 className=' font-bold text-brand text-2xl lg:text-4xl mb-8 lg:mb-16 '> ثبت‌نام طرح پویش  </h1>
             <form className='grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3' onSubmit={handleSubmit(handleFormSubmit)}>
 
