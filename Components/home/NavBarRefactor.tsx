@@ -40,14 +40,32 @@ function NavBarRefactor(
 
   return (
     <div>
-      {/* <div className={` ${toggleMenu ? " mt-40" : "mt-0"}`}></div> */}
+      <div className={`${toggleMenu ? 'mt-[104px]' : 'mt-0'}`}></div>
+
       <nav className={`drawer mx-auto ${toggleMenu ? ' fixed w-[90%] m-auto py-5 my-0 z-50 top-0 ' : 'my-5 relative w-full'} bg-slate-50`}>
         <div className="flex flex-col md:flex-row ">
           <div className="flex flex-row-reverse items-center w-full md:w-[6rem] lg:w-[8rem]">
-            <div className=' flex justify-end w-full'>
+            <div className={`flex justify-end w-full ${toggleMenu ? 'ml-[19px]' : 'ml-0'}`} >
               <Link
                 href={'/'}
                 className=""
+              >
+                <Image
+                  className="w-[4rem] md:w-[6rem] hover:cursor-pointer inline md:hidden"
+                  src="/static/images/Farazaman.png"
+                  alt="Farazaman"
+                  width={200}
+                  height={200}
+                  quality={75}
+                  sizes="100vw"
+                />
+                {/* <p className="">فرازمان</p> */}
+              </Link>
+            </div>
+
+              <Link
+                href={'/'}
+                className=" hidden md:block"
               >
                 <Image
                   className="w-[4rem] md:w-[6rem] hover:cursor-pointer"
@@ -60,8 +78,8 @@ function NavBarRefactor(
                 />
                 {/* <p className="">فرازمان</p> */}
               </Link>
-            </div>
-            <div className="flex md:hidden">
+
+            <div className="flex md:hidden text-black">
               <p
                 onClick={() => {
                   setToggleMenu(!toggleMenu);
@@ -78,7 +96,7 @@ function NavBarRefactor(
             </div>
           </div>
           <div className=" hidden md:flex items-center justify-between p-2 gap-2 w-screen ">
-            <ul className="flex justify-between xl:justify-evenly items-center gap-2 w-7/12 m-auto xl:text-lg font-light ">
+            <ul className="flex text-black justify-between xl:justify-evenly items-center gap-2 w-7/12 m-auto xl:text-lg font-light ">
               {index1.menuItems.map((item: any, index: number) => (
                 <>
                 <Link key={index}
@@ -99,7 +117,7 @@ function NavBarRefactor(
           </div>
           <div className="">
             <ul
-              className={`text-center h-1/2 justify-center items-center md:hidden ${toggleMenu ? 'flex-col' : 'hidden'} w-48 mx-auto`}
+              className={`text-center text-black h-1/2 justify-center items-center md:hidden ${toggleMenu ? 'flex-col' : 'hidden'} w-48 mx-auto`}
             >
               {index1.menuItems.map((item, index) => (
                 <Link 
