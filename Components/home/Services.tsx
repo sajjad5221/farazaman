@@ -58,11 +58,11 @@ export default function Services() {
         </div>
         <div className="w-full md:w-6/12 pt-4 mx-auto  md:flex flex-col justify-between">
           <h2 className="mt-2 md:mt-0 text-2xl lg:text-4xl text-brand pb-5 font-bold">{index1.mainPageTitle}</h2>
-            <p className="text-black text-base mb-2 md:mb-0 leading-[1.8rem] lg:text-[18px] lg:leading-[2.2rem] ">
+            <p className="text-black text-base mb-2 md:mb-0 lg:text-3xl font-bold ">
               {/* {index1.mainPage.mainPageSubTitle} */}
               {index1.mainPageSubTitle}
             </p>
-            <p className="text-sm lg:text-[15px] lg:max-w-[77rem] text-gray-500 text-justify leading-[1.5rem] lg:leading-[25px]">
+            <p className="text-sm lg:text-[16px] lg:max-w-[77rem] text-gray-500 text-justify leading-[1.5rem] lg:leading-[25px]">
               {/* {index1.mainPage.mainPageParagraph} */}
               {index1.mainPageParagraph}
             </p>
