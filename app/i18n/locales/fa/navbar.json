@@ -1,0 +1,29 @@
+{
+    "menuItems": [
+        {
+          "label": "خانه",
+          "href": "/",
+          "current":false
+        },
+        {
+          "label": "استخدام",
+          "href": "/hiring",
+          "current":false
+        },
+        {
+          "label": "ثبت استارتاپ",
+          "href": "/startups",
+          "current":false
+        },
+        {
+          "label": "فضای کار اشتراکی",
+          "href": "/workspace",
+          "current":false
+        },
+        {
+            "label": "ارتباط با ما",
+            "href": "/contact-us",
+            "current":false
+        }
+    ]
+}
