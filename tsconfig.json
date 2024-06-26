@@ -30,7 +30,10 @@
       ],
       "@/Components/*": [
         "Components/*"
-      ]
+      ],
+      "@/i18n/*": ["app/18n/*"],
+      "@/types/*": ["types/*"]
+
     }
   },
   "include": [
@@ -39,7 +42,7 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "app/api/startups.js"
-  ],
+, "Components/common/SmoothScroll.js"  ],
   "exclude": [
     "node_modules"
   ]
