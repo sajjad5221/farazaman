@@ -1,0 +1,94 @@
+/* Import Tailwind base styles, components, and utilities */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Define custom font */
+@font-face {
+  font-family: yekan;
+  src: url(../../public/static/fonts/Yekan.ttf);
+  font-display: swap;
+}
+@font-face {
+  font-family: IRANSansXMedium;
+  src: url(../../public/static/fonts/IRANSansXMedium.ttf);
+  font-display: swap;
+}
+@font-face {
+  font-family: IRANSansXBold;
+  src: url(../../public/static/fonts/IRANSansXExtraBold.ttf);
+  font-display: swap;
+}
+@font-face {
+  font-family: IRANSansXLight;
+  src: url(../../public/static/fonts/IRANSansXLight.ttf);
+  font-display: swap;
+}
+
+/* Define root variables for foreground and background colors */
+:root {
+  --background-start-rgb: 214, 219, 220; /* Default start color for background gradient */
+  --background-end-rgb: 255, 255, 255; /* Default end color for background gradient */
+}
+
+/* Apply background gradient to body */
+body {
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb)) /* End color of gradient */
+    )
+    rgb(var(--background-start-rgb)); /* Start color of gradient */
+}
+
+/* Customize scrollbar */
+/* Width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Customize form styles */
+form {
+  color: black;
+}
+
+.featureBackground {
+  background-image: url('../../public/static/images/Brand/farazaman-Logo.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.footer-background {
+  background-image: url('../../public/static/images/Home/footer-wave.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.custom-shadow {
+  box-shadow: 0px 0px 11px 4px rgba(74, 74, 74, 0.07);
+}
+
+/* responsive for large screen */
+@media (min-width: 1536px) {
+  html {
+    max-width: 1536px;
+    margin: 0 auto;
+  }
+}

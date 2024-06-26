@@ -1,6 +1,5 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  darkMode: 'class',
   content: [
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
     './Components/**/*.{js,ts,jsx,tsx,mdx}',
@@ -13,22 +12,27 @@ module.exports = {
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
-      fontFamily:{
-        yakan: ["yekan", 'sans-serif']
+      fontFamily: {
+        yakan: ['IRANSansXMedium', 'yekan', 'sans-serif'],
       },
-      screens : {
-        's' : '500px' ,
-        'mobile' : '420px',
-        'mobile2' : '450px',
-        'little' : '350px',
-        'little2' : '360px',
-        'long' : '1350px',
-        'long2' : '1080px',
-        'long3' : '1010px',
-        'long4' : '850px',
-        'long5' : '767px',
-      },     
+      colors: {
+        brand: {
+          DEFAULT: '#D6A001',
+          light: '#F7ECCC',
+        },
+        servicebg:{
+          DEFAULT: '#F8F5EC',
+          light: '#AD8100',
+          primery: '#5C4400;'
+        },
+        customGray: {
+          DEFAULT: '#696969',
+        },
+        list: {
+          DEFAULT: '#696969',
+        },
+      },
     },
   },
   plugins: [],
-}
+};
