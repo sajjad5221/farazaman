@@ -10,6 +10,7 @@ interface HiringInfo {
   phone: string;
   hireType: number;
   resume: File | null;
+  university: string;
 }
 
 interface StartupsInfo {
@@ -38,7 +39,7 @@ interface IntershipInfo {
   email: string;
   phone: string;
   university: string;
-  resume: File | null;
+  resume: File | Blob;
 }
 
 // interface StartupRegistrationModal {

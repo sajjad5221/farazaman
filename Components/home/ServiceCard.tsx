@@ -17,25 +17,25 @@ export default function ServiceCard({
   goto: string;
 }) {
   return (
-    <div className=" bg-servicebg flex  my-6 rounded-l md: mx-auto w-[49%] rounded-xl overflow-hidden hover:shadow-2xl transition-all">
-      <div className="w-[45%] h-full min-h-[14rem] relative">
+    <div className=" bg-servicebg flex flex-col md:flex-row my-3  w-[47%] md:w-[49%] rounded-xl overflow-hidden ">
+      <div className="w-full  md:w-[45%] md:h-full">
         <Image
           src={image}
           alt={alt}
-          layout='fill'
-          className="rounded-xl object-cover"
+          width={200}
+          height={200}
+          className="rounded-xl w-full md:h-full object-cover"
         />
       </div>
-      <div className="w-6/12 mx-auto flex flex-col justify-evenly tracking-wide">
+      <div className="w-full md:w-6/12 mx-auto flex flex-col h-[12rem] sm:h-[14rem] md:justify-evenly tracking-wide p-3 relative">
         {/* <Circle /> */}
-        <h5 className="text-serviceBg-primery font-bold pr-2 text-xl">{title}</h5>
-        <p className='text-gray-800'>{info}</p>
-        <div className='flex text-brand gap-3 items-center'>
-          <Link to={goto}>مطالعه بیشتر
+        <h5 className=" text-servicebg-primery font-bold md:pr-2 text-base xl:text-xl mb-3 md:mb-0">{title}</h5>
+        <p className='text-gray-800 text-[12px] xl:text-base text-justify'>{info}</p>
+        {/* <div className='flex text-brand gap-3 items-center absolute md:relative bottom-4'>
+          <Link className='text-sm xl:text-base' to={goto}>مطالعه بیشتر
           </Link>
             <img src="/static/images/icon/left-arrow-2.svg" alt="" />
-
-        </div>
+        </div> */}
       </div>
     </div>
   );

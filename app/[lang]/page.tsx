@@ -16,8 +16,8 @@ import Video from '@/Components/home/Video';
 import LandaTrip from '@/Components/home/LandaTrip';
 import Galery from '@/Components/home/Galery';
 import PooyeshForm from '@/Components/common/form/PooyeshForm';
-import StartUpForm from '@/Components/common/form/StartUpForm';
-// import SpaceForm from '@/Components/common/form/SpaceForm';
+import StartUpForm from '@/Components/common/form/HiringForm';
+import SpaceForm from '@/Components/common/form/WorkSpaceForm';
 
 
 export default async function Home({

@@ -2,26 +2,16 @@
 import React, { useEffect } from 'react';
 import GetCsrfToken from '@/Services/GetCsrfToken';
 import { useForm } from 'react-hook-form';
-// import FormsDetails from '@/Components/misc/FormsDetails';
 import Apiclient from '@/Services/Apiclient';
 import { HiringInfo } from '@/types/global';
 import { useData } from '@/stores/dataStore';
-// import { useTranslation } from '@/app/i18n/client';
-// import Footer from '@/Components/footer/Footer'
-// import NavBarRefactor from '@/Components/home/NavBarRefactor'
-// import Star from '@/Components/icons/Star'
 import Input from './Input';
-import Select from './Select';
-import UploadInput from './UploadInput';
-import { useFile } from '@/stores/fileStore';
 
 
+
+const Data = useData.getState();
 
 export default function HiringForm() {
-
-  const Data = useData();
-
-  const { cvFileState, handleCvFileChange } = useFile();
 
   const {
     register,
@@ -81,9 +71,7 @@ export default function HiringForm() {
     sendFormData.append('name', data.name);
     sendFormData.append('phone', data.phone);
     sendFormData.append('email', data.email);
-    sendFormData.append('hireType', data.hireType.toString());
-
-    console.log(data);
+    sendFormData.append('university', data.university);
 
     try {
       const response = await Apiclient.post('hire/', sendFormData, {
@@ -109,91 +97,87 @@ export default function HiringForm() {
 
   return (
     <div>
-    <div className=' relative flex justify-center mb-60 mt-16' >
+    <div className=' relative flex justify-center mb-[45rem] md:mb-[38rem] lg:mb-[25rem] xl:mb-[22rem] mt-16 mx-auto'>
         <img className='rounded-xl' src="/static/images/form/form-bg.jpg" alt="form backgraund" />
-        <div className=' absolute top-12 w-10/12 bg-white my-20 border border-gray-300 p-16 rounded-2xl mb-20' >
-            <h1 className='font-bold text-brand text-4xl mb-16'>فرم استخدام</h1>
-            <form onSubmit={handleSubmit(handleFormSubmit)} className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
+        <div className=' absolute top-[-4rem] md:top-0 xl:top-8 w-10/12 bg-white my-20 border border-gray-300 px-5 md:px-16 py-16 rounded-2xl pb-20' >
+            <h1 className='font-bold text-brand text-2xl lg:text-4xl mb-8 lg:mb-16'>استخدام در شتابدهنده فرازمان</h1>
+            <form className='grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3' onSubmit={handleSubmit(handleFormSubmit)}>
 
                     
-              <Input 
-                register={register}
-                errors={errors}
-                nameInput='name'
-                placeholder='نام و نام خانوادگی'
-                containerClass='mb-5'
-                label='نام و نام خانوادگی'
-                labelClass='block mb-2 text-xl font-medium text-yellow-900'
-                type='text'
-                autoComplete='false'
-                className='w-11/12 ml-5 px-4 py-3 border-2 placeholder:text-neutral-400 rounded-md outline-none focus:ring-4'
-                required='نام و نام خانوادگی خود را وارد کنید'
-                requiredValue={/^[\u0600-\u06FF\s]+$/}
-                requiredMessage='نام و نام خانوادگی خود را به درستی وارد کنید.'
-                handleChange={handleChange}
-              />
+                    <Input 
+                      register={register}
+                      errors={errors}
+                      nameInput='name'
+                      placeholder='نام و نام خانوادگی'
+                      containerClass='mb-5'
+                      label='نام و نام خانوادگی'
+                      labelClass='block mb-2 text-lg md:text-xl font-medium text-yellow-900'
+                      type='text'
+                      autoComplete='false'
+                      className='w-full lg:w-11/12 ml-0 md:ml-5 px-4 py-3 border-2 placeholder:text-neutral-400 rounded-md outline-none focus:ring-4'
+                      required='نام و نام خانوادگی خود را وارد کنید'
+                      requiredValue={/^[\u0600-\u06FF\s]+$/}
+                      requiredMessage='نام و نام خانوادگی خود را به درستی وارد کنید.'
+                      handleChange={handleChange}
+                    />
 
                   
-              <Input  
-                register={register}
-                errors={errors}
-                nameInput='phone'
-                placeholder='شماره تماس ( مثال : ۰۹۱۳۱۲۳۴۵۶۷ )'
-                containerClass='mb-5'
-                label='شماره موبایل'
-                labelClass='block mb-2 text-xl font-medium text-yellow-900'
-                type='number'
-                autoComplete='false'
-                className='w-11/12 ml-5 px-4 py-3 border-2 placeholder:text-neutral-400 rounded-md outline-none focus:ring-4'
-                required='شماره تماس را وارد کنید'
-                requiredValue={/^\d{11}$/}
-                requiredMessage='شماره تماس را به درستی وارد کنید.'
-                handleChange={handleChange}
-              />
+                    <Input  
+                      register={register}
+                      errors={errors}
+                      nameInput='phone'
+                      placeholder='شماره تماس ( مثال : ۰۹۱۳۱۲۳۴۵۶۷ )'
+                      containerClass='mb-5'
+                      label='شماره موبایل'
+                      labelClass='block mb-2 text-lg md:text-xl font-medium text-yellow-900'
+                      type='number'
+                      autoComplete='false'
+                      className='w-full lg:w-11/12 ml-0 md:ml-5 px-4 py-3 border-2 placeholder:text-neutral-400 rounded-md outline-none focus:ring-4'
+                      required='شماره تماس را وارد کنید'
+                      requiredValue={/^\d{11}$/}
+                      requiredMessage='شماره تماس را به درستی وارد کنید.'
+                      handleChange={handleChange}
+                    />
 
-              <Input  
-                register={register}
-                errors={errors}
-                nameInput='email'
-                placeholder='آدرس ایمیل شما'
-                containerClass='mb-5'
-                label='آدرس ایمیل شما'
-                labelClass='block mb-2 text-xl font-medium text-yellow-900'
-                type='email'
-                autoComplete='true'
-                className='w-11/12 ml-5 px-4 py-3 border-2 placeholder:text-neutral-400 rounded-md outline-none focus:ring-4 md'
-                required='آدرس ایمیل خود را وارد کنید'
-                requiredValue={/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i}
-                requiredMessage='آدرس ایمیل را به درستی وارد کنید.'
-                handleChange={handleChange}
-              />
+                    <Input  
+                      register={register}
+                      errors={errors}
+                      nameInput='email'
+                      placeholder='آدرس ایمیل شما'
+                      containerClass='mb-5'
+                      label='آدرس ایمیل شما'
+                      labelClass='block mb-2 text-lg md:text-xl font-medium text-yellow-900'
+                      type='email'
+                      autoComplete='true'
+                      className='w-full lg:w-11/12 ml-0 md:ml-5 px-4 py-3 border-2 placeholder:text-neutral-400 rounded-md outline-none focus:ring-4'
+                      required='آدرس ایمیل خود را وارد کنید'
+                      requiredValue={/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i}
+                      requiredMessage='آدرس ایمیل را به درستی وارد کنید.'
+                      handleChange={handleChange}
+                    />
 
-              {/* <Select
-                register={register}
-                errors={errors}
-                nameInput='hireType'
-                label='نوع استخدام'
-                required='لطفا نوع استخدام خود را وارد کنید'
-                className='input input-bordered col-span-1 mb-1 mt-3 w-full placeholder-[#b2b1b0] drop-shadow-lg dark:placeholder-[#9CA3AF]'
-                labelClass='text-[#6b6b6b] dark:text-current'
-                placeholder=''
-                options={[]}
-                handleChange={() => {}}
-                selected={""}
-              />*/}
+                    
+                    <Input  
+                      register={register}
+                      errors={errors}
+                      nameInput='university'
+                      containerClass='mb-5'
+                      label='آدرس ایمیل شما'
+                      labelClass='block mb-2 text-lg md:text-xl font-medium text-yellow-900'
+                      autoComplete='true'
+                      required='نام دانشگاه خود را وارد کنید'
+                      requiredValue={/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i}
+                      requiredMessage='نام دانشگاه را به درستی وارد کنید.'
+                      handleChange={handleChange}
+                      className='w-full lg:w-11/12 ml-0 md:ml-5 px-4 py-3 border-2 placeholder:text-neutral-400 rounded-md outline-none focus:ring-4'
+                      type="text" 
+                      placeholder='لطفا نام دانشگاه خود را وارد کنید'
+                    />
+                    
+                <div className=' hidden md:inline '></div>
 
-            <UploadInput
-              title="فایل رزومه"
-              nameInput="resume"
-              register={register}
-              errors={errors}
-              handleChange={handleCvFileChange}
-            />
-
-              <div></div>
-              <div className=' mb-20'></div>
-              <div className='mt-[30px] w-full'>
-                  <button className='text-brand absolute border-2 py-[13px] px-20 rounded-md border-brand transition-all hover:bg-brand cursor-pointer hover:text-white'>ارسال</button>
+                <div className='mt-[36px] relative w-full'>
+                  <button className='text-yellow-500 absolute border-2 py-[13px] px-20 left-0 lg:left-8 rounded-md border-yellow-500 transition-all hover:bg-yellow-500 cursor-pointer hover:text-white'>ارسال</button>
               </div>
             
             </form>
